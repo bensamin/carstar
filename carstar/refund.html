@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Refund</title>
+	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/personal.css" />
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  	<!--页面头部-->
+	<div class="header"></div>
+	 <div class="container">
+		<p>订单号： <span>xxxxxxxxxxxx</span> </p>
+		<div class="row">
+				<div class="col-md-2">
+					<a href="product.html"> <img src="img/small-product.png"/> </a>
+				</div>
+				<div class="col-md-3">
+					<p>倒车镜</p>
+					<p>描述</p>
+				</div>
+				<div class="col-md-4">
+					<p>
+						<span>共xxxx件</span>
+						<span>颜色：</span><span>黑色</span>
+						共计<span>xxxx</span>元
+					</p>
+				</div>
+			</div>
+	    <div class="row">
+				<div class="col-md-2">
+					<a href="product.html"> <img src="img/small-product.png"/> </a>
+				</div>
+				<div class="col-md-3">
+					<p>倒车镜</p>
+					<p>描述</p>
+				</div>
+				<div class="col-md-4">
+					<p>
+						<span>共xxxx件</span>
+						<span>颜色：</span><span>黑色</span>
+						共计<span>xxxx</span>元
+					</p>
+				</div>
+			</div>
+	    <p>退款原因：</p>
+	    <textarea cols="100" rows="5"></textarea>
+	   <button type="submit">提交</button>
+	 </div>	
+	<!--页面底部-->
+	<div class="footer"></div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script>
+    		$("button").click(function(){
+    			if( confirm("确定退款吗？") ){
+				window.location.href="personal_order.html";    				
+    			}
+    		})
+    </script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    	<script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="js/load.js" ></script>
+     <!--jQuery slick js-->
+  </body>
+</html>

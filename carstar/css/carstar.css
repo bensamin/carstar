@@ -1,0 +1,284 @@
+body {
+  min-height: 768px;
+}
+@media only screen and (max-width: 767px) {
+	.hotImg{
+		display: none;
+	}
+	.our-carousel{
+		display: none;
+	}
+	.introduce{
+		display: none;
+	}
+	.search-drop input{
+		display: block;
+	}
+
+}
+@media only screen and (min-width: 768px ) {
+	.shop{
+		display: none;
+	}
+	.shopnName{
+		display: none;
+	}		
+}
+/******************标签*************************/
+a{
+	text-decoration: none;
+	color: #000000;
+}
+a:hover{
+	text-decoration: none;
+}
+/*span{
+	height: 100%;
+	vertical-align: middle;
+	line-height: 40px;
+}*/
+button{
+	display: block;
+}
+
+/*header*/
+.header{
+	min-height: 130px;
+}
+/****************导航栏******************/
+
+ /******************************* 轮播图css *************************/
+#ImageSlider{
+	height:330px;
+	width:100%;
+	margin: 10px auto;
+	text-align:left;
+	overflow:hidden;
+}
+#gellery{
+	height:330px;
+	width:100%;
+	text-align:left;
+	position:absolute;
+	overflow:hidden;	
+}
+#gellery div{ 
+	position:absolute; 
+	overflow:hidden;
+	height:365px;
+	width:100%;
+	text-align:left;
+	display:none;
+}
+
+#gellery img{
+	position:absolute;
+	height:330px;
+	width:100%;
+	text-align:left;
+}   
+/************中间下拉菜单******************/  
+.search-drop{
+	padding-left: 25%;
+	background: #4b5160;
+  	margin-bottom: 10px;
+  	min-height: 50px;
+  	width: 100%;
+  }  
+.search-drop input{
+	font-size:18px ;
+	color: white;
+	background: #4B5160;
+	border: 1px solid #000000;
+	height: 50px;
+	width: 100px;
+}  
+  select{
+  	margin-right:-4px ;
+  	font-size: 18px;
+  	height: 50px;
+  	border: 1px solid #000000;
+  	appearance: none;
+  	-moz-appearance: none;
+  	-webkit-appearance: none;
+  	background: url(../img/drop.png) no-repeat scroll right center white;
+  	padding-right:24px ;
+  	height: 30px;
+  	width: 200px;
+  	z-index: 2;
+  }
+ .stick {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+  }
+/***********商品***************/
+.btn-group{
+	margin: 0;
+}
+.hotImg{
+	margin-top:25px;
+}
+.home-product{
+	margin: 25px 5px;
+}
+.product{
+	min-height: 200px;
+}
+.store{
+	min-height: 300px;
+	}
+#owl-demo .item{
+        padding: 30px 0px;
+        margin: 5px;
+        color: #FFF;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        text-align: center;
+    }
+/******************页面底部****************************/
+.foot{	
+	height: 200px;
+	background: #343b3f;
+	color: white;	 
+}
+.wave{
+	min-height: 30px;
+	background: url(../img/wave.png);
+}
+/*******************brand.html***********************/
+.introduce{
+	margin: 0 auto;
+	width: 90%;
+}
+
+.introduce-img img{
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+.introduce p{
+	margin-top: 10px;
+	font-size: 16px;
+}
+.search-result{
+	margin: 0px 30px;
+}
+.all-result{
+	font-size: 16px;
+	min-height: 30px;
+	padding: 5px;
+	padding-left: 8%;
+}
+/***********Category.html*******************/
+.brand{
+	min-height: 120px;
+	border:1px solid rgb(202,203,205) ;
+	padding: 5px;
+
+}
+
+.type{
+	border:1px solid rgb(202,203,205) ;
+	padding: 5px;
+
+}
+.rankList{
+	min-height: 30px;
+}
+.rankList span{
+	display: ;
+	font-size: 18px;
+	border: 1px solid #ADADAD;
+	padding: 2px 8px;
+}
+.rankList input{
+	width: 60px;
+	margin-left: -5px;
+	vertical-align: middle;
+	}
+.result-brand{
+	min-height:600px;
+	margin-left: 5%;
+	margin-top: 10px;
+}	
+.result-category{
+	min-height:600px;
+	
+	margin-left: 2%;
+	margin-top: 10px;	
+}
+.category{
+	margin: 10px 5%
+}
+
+.choose{               
+	border: 1px solid rgb(209,209,209);
+	vertical-align: middle;
+	padding-top:10px ;
+	padding-left: 8px;
+	word-spacing: 15px;
+}
+.choose input{
+	margin-bottom: 10px;
+	margin-right: 5px;
+}
+
+.add{
+	display: none;
+	vertical-align: middle;
+}
+.reduce{
+	vertical-align: middle;
+}
+.more-product{
+	min-height: 350px;
+	width: 100%;
+}
+/*f返回顶部*/
+.goToBtn{
+	position: fixed;
+	width: 36px;
+	bottom: 35px;
+	height: 36px;
+	cursor:pointer;
+	display:none;
+	background:url(../img/backTop.png);
+}
+
+
+/***********product.html***************/
+
+.detail{
+	margin: 20px auto;
+	width: 90%;
+}
+.flag input:hover{
+	background: rgb(28,88,236);
+}
+.star{
+	cursor: pointer;
+}
+.end{
+	cursor: pointer;
+	color: #fff;
+	background: #b1b1b1;
+	border: none;
+}
+/****************login**************************/
+
+    		
+ /***********product.html***************/
+.product-option{
+	width: 90%;
+	height: 30px;
+	margin: 10px auto;
+}
+.add-cart{
+	width: 90%;
+	height: 30px;
+	margin: 10px auto;
+}
+.product{
+	margin-top: 10px;
+}

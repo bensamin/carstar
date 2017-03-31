@@ -1,0 +1,38 @@
+.row{
+	margin: 10px 0;
+	padding: 20px 0;
+	border: 1px solid rgb(200,200,200);
+}
+.col-md-2 input{
+	border: 1px  solid #ADADAD;
+	width: 35px;
+	text-align: center;
+}
+/****************加减按钮样式******************/
+.addNum {
+	border: 1px  solid #ADADAD;
+	display: inline-block; 
+	width: 25px; 
+	height: 24px; 
+	text-align: center;
+	line-height: 22px;
+	cursor: pointer;
+	margin-left: -5px;
+}
+.subNum{
+	border: 1px  solid #ADADAD;
+	display: inline-block; 
+	width: 25px; 
+	height: 24px; 
+	text-align: center;
+	line-height: 22px;
+	cursor: pointer;
+	margin-right: -5px;
+}
+/*************END*****************/
+.checkout{
+	font-size: 18px;
+	width: 150px;
+	float: right;
+	margin-right: 20%;
+}

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Category</title>
+	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+	
+    <!-- Custom styles for this template -->
+    <link href="css/carstar.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+
+	<!--jQuery slick  css-->
+	<link rel="stylesheet" href="css/owl.carousel.css" />
+	<link rel="stylesheet" href="css/owl.theme.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+	<div class="container-fluid">
+		<!--页面头部-->
+		<div class="header">	</div>
+		<div class="category-menu"></div>
+	<div class="search-result">
+		<div class="all-result">
+			<span>全部结果&nbsp;&nbsp;>&nbsp;&nbsp;车</span>
+			<span style="float: right;">共计12345件商品</span>
+		</div>
+		<div class="chioce">
+			<div class="brand">
+				<div class="row">
+					<div class="col-md-1"><span>品牌</span></div>					
+					<div class="col-md-10">
+						<div class="row">
+							<div class="col-md-2"><span>HONDA/本田</span></div>
+						</div>
+						<div class="row">
+							<div class="col-md-2"><span>BUICK/别克</span></div>
+						</div>
+					</div>
+					<div class="col-md-1">
+						<button type="button" class="more-drop" onclick="more-drop()">更多</button>
+					</div>
+				</div>	
+				
+			</div>
+			<div class="type">
+				<div class="row">
+					<div class="col-md-1"> <span>类型</span> </div>
+					<div class="col-md-2"> <span> <a href="brand.html"> 一汽大众 </a></span> </div>
+				</div>
+			</div>
+		</div>
+
+		<!--种类-->
+		<p class="text-center">分类</p>
+		<div class="row category">
+			<div class="col-md-3 col-xs-6">
+				<img src="img/test.jpeg" />
+				<p>Decrition</p>
+			</div>
+			<div class="col-md-3 col-xs-6">
+				<img src="img/test.jpeg" />
+				<p>Decrition</p>
+			</div>
+			<div class="col-md-3 col-xs-6">
+				<img src="img/test.jpeg" />
+				<p>Decrition</p>
+			</div>
+			<div class="col-md-3 col-xs-6">
+				<img src="img/test.jpeg" />
+				<p>Decrition</p>
+			</div>
+				
+		</div>
+		<div class="row category">
+			<div class="col-md-3 col-xs-6">
+				<img src="img/test.jpeg" />
+				<p>Decrition</p>
+			</div>
+			<div class="col-md-3 col-xs-6">
+				<img src="img/test.jpeg" />
+				<p>Decrition</p>
+			</div>
+			<div class="col-md-3 col-xs-6">
+				<img src="img/test.jpeg" />
+				<p>Decrition</p>
+			</div>
+			<div class="col-md-3 col-xs-6">
+				<img src="img/test.jpeg" />
+				<p>Decrition</p>
+			</div>
+			
+		</div>
+		<div class="rankList">
+			<span>综合</span>
+			<span>人气</span>
+			<span>销量</span>
+			<span>价格</span>
+			
+			
+		</div>
+		<p class="text-center">热门商品</p>
+		
+		<!--结果-->
+		<div class="result result-category">
+			<div class="row" >
+				<div class="col-md-2">					
+					<div class="choose">
+						价&nbsp;格 
+							<input type="image" src="img/add.png"  class="add add1" />
+							<input type="image" src="img/reduce.png" class="reduce reduce1" />
+							<div class="price1">
+								<input name="price" type="radio" />50-100 <br />
+								<input name="price" type="radio" />100-1000
+							</div>	
+					</div>
+					<div class="choose">
+						<p>评&nbsp;论
+						<input type="image" src="img/add.png" class="add add2"/>
+						<input type="image" src="img/reduce.png" class="reduce reduce2" /> </p>
+						<div class="price2">
+							<input name="comment" type="radio" />五星<br />
+							<input name="comment" type="radio" />四星
+						</div>
+					</div>
+					<div class="choose">
+						<p>品&nbsp;牌
+						 <input type="image" src="img/add.png" class="add add3"/> 
+						 <input type="image" src="img/reduce.png" class="reduce reduce3"/> </p>
+						 <div class="price3">
+							<input name="brand" type="radio" />本田<br />
+							<input name="brand" type="radio" />奥迪
+						 </div>
+					</div>
+				</div>
+		<!--------------商品--------------->
+				<div class="col-md-9" >
+					<div class="row">
+						<div class="col-md-3 col-xs-6">
+							<img src="img/test.jpeg" />
+							<p>Price</p>
+							<p>Decrition</p>
+						</div>
+						<div class="col-md-3 col-xs-6">
+							<img src="img/test.jpeg" />
+							<p>Price</p>
+							<p>Decrition</p>
+						</div>
+						<div class="col-md-3 col-xs-6">
+							<img src="img/test.jpeg" />
+							<p>Price</p>
+							<p>Decrition</p>
+						</div>
+						<div class="col-md-3 col-xs-6">
+							<img src="img/test.jpeg" />
+							<p>Price</p>
+							<p>Decrition</p>
+						</div>
+					</div>
+				</div>
+			</div>										
+		</div>
+	</div>	
+		<div class="more-product">
+			<p class="text-center"> 更多畅销 </p>
+			
+			       <div id="demo">
+			        <div id="owl-demo" class="owl-carousel">        
+			          <div class="item"><img src="img/shop.png"/> </div>
+			          <div class="item"><img src="img/shop.png"/></div>
+			          <div class="item"><img src="img/shop.png"/></div>
+			          <div class="item"><img src="img/shop.png"/></div>
+			          <div class="item"><img src="img/shop.png"/></div>
+			          <div class="item"><img src="img/shop.png"/></div>
+			        </div>
+			    </div>				
+		</div>
+		
+	</div>
+	
+	<div class="footer">	</div>
+	<script>	
+		$(".result").addClass("text-center");
+	</script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    	<script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+	<script type="text/javascript" src="js/owl.carousel.js" ></script>
+	<script type="text/javascript" src="js/transformer.js" ></script>
+	<!--jQuery load js-->
+	<script type="text/javascript" src="js/carstar.js" ></script>
+	<script type="text/javascript" src="js/load.js" ></script>  	
+	<script type="text/javascript" src="js/dropdown.js" ></script>
+  </body>
+</html>
+

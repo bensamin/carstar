@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Personal</title>
+	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/personal.css" />
+    <!-- Custom styles for this template -->
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  	<!--页面头部-->
+	<div class="header"></div>
+	<div class="container">
+	<p>
+		<img src="img/mine.png"/>
+		<span class="name-id">carstar001</span><br />
+	</p>
+	<!--一级选项卡-->
+	<div class="row">
+		<ul  class="nav nav-tabs">
+			<li> <a href="personal_order.html" > 我的订单 </a></li>
+			<li> <a href="#myaddress" data-toggle="tab"> 我的收货地址</a></li>
+			<li> <a href="#mydiscount" data-toggle="tab"> 我的优惠券 </a></li>
+		</ul>
+	</div>
+	<!--二级选项卡  一级选项卡内容------>
+	<div class="tab-content">
+			<!----------收货地址---------->
+		<div class="tab-pane fade" id="myaddress">
+			<div class="row address-receive">
+				<div class="col-md-2">
+					<input type="checkbox" />收货地址1
+				</div>
+				<div class="col-md-8">
+						<p>收件人:  xxxxxxxxxxx </p>
+						<p>联系电话:  xxxxxxxxxxxxx </p>
+						<p>收货地址：xxxxxxxxx</p>
+				</div>
+				<div class="col-md-1">
+					<input type="image"  src="img/edit.png"/>
+				</div>
+				<div class="col-md-1">
+					<input type="image"  src="img/delete.png"/>
+				</div>
+			</div>
+			<div class="row address-receive">
+				<div class="col-md-2">
+					<input type="checkbox" />
+					<span>收货地址2></span>
+				</div>
+				<div class="col-md-8">
+						<p>收件人:  xxxxxxxxxxx </p>
+						<p>联系电话:  xxxxxxxxxxxxx </p>
+						<p>收货地址：xxxxxxxxx</p>
+				</div>
+				<div class="col-md-1">
+					<input type="image"  src="img/edit.png"/>
+				</div>
+				<div class="col-md-1">
+					<input type="image"  src="img/delete.png"/>
+				</div>
+			</div>
+			<p> <button type="button" class="add-address">新增地址</button> </p>
+			<div class="new-address">
+						<p>收&nbsp;件&nbsp;人&nbsp;: <input type="text" id="address-name" placeholder="姓名" /> </p>
+						<p>联系电话: <input type="text"  id="address-phone" placeholder="联系电话" /> </p>
+						<p>所在地区： <select></select> </p>
+						<p>街道：</p>
+						<textarea  class="address-detail" placeholder="详细地址"></textarea>
+						<input type="button" value="确认新增"></input>
+						<input type="button" class="cancel-address" value="取消" />
+			</div>
+		</div>
+			<!------------优惠信息----------------->
+		<div class="tab-pane fade" id="mydiscount">
+			<div class="row">
+				<div class="col-md-1 col-md-offset-5">
+					<button type="button" class="btnno">未使用</button>
+				</div>
+				<div class="col-md-6">
+					<button type="button" class="btnyes">已使用</button>
+				</div>
+			</div>
+			<!------优惠券--未使用------->
+			<div class="row discount-no">
+				<div class="col-md-3"></div>
+				<div class="col-md-2">
+					<img src="img/discount-no.png" />
+				</div>
+				<div class="col-md-2">
+					<img src="img/discount-no.png" />
+				</div>
+				<div class="col-md-2">
+					<img src="img/discount-no.png" />
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+			<!------优惠券已使用----------->
+			<div class="row discount-yes">
+				<div class="col-md-3"></div>
+				<div class="col-md-2">
+					<img src="img/discount_yes.png" />
+				</div>
+				<div class="col-md-2">
+					<img src="img/discount_yes.png" />
+				</div>
+				<div class="col-md-2">
+					<img src="img/discount_yes.png" />
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+		</div>		
+	</div>
+	</div>	
+	<!--页面底部-->
+	<div class="footer"></div>
+	
+	<script>
+		$(function () {
+		      $('li:eq(1) a').tab('show');
+		   });
+	</script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    	<script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="js/load.js" ></script>
+    <script type="text/javascript" src="js/product.js" ></script>
+     <!--jQuery slick js-->
+  </body>
+</html>

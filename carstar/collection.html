@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Collection</title>
+	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    		.look-details{
+    			background: #262626;
+    			color: white;
+    			cursor: pointer;
+    		}
+    		.col-md-3 {
+    			text-align: center;
+    		}
+    		.img-circle{
+    			margin-top: 15px;
+    		}
+    		.col-md-3 p{
+    			margin-top: 10px;
+    		}
+    		.col-md-3 input{
+			margin-right: 5px;
+    		}
+    </style>
+  </head>
+
+  <body>
+  	<!--页面头部-->
+	<div class="header"></div>
+	<div class="container">
+	<div class="row">
+		<ul class="myCollection nav nav-tabs">
+			<li class="active"> <a href="#product-collection" data-toggle="tab">收藏宝贝</a> </li>
+			<li> <a href="#shop-collection" data-toggle="tab">收藏店铺</a> </li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane fade" id="product-collection">
+				<div class="row">
+					<div class="col-md-2">
+						<img src="img/collection.png"/>
+						<p>倒车镜</p>
+						<p>描述</p>
+						<p class="look-detail">价格</p>
+					</div>
+					<div class="col-md-2">
+						<img src="img/collection.png"/>
+						<p>倒车镜</p>
+						<p>描述</p>
+						<p class="look-detail">价格</p>
+					</div>
+					<div class="col-md-2">
+						<img src="img/collection.png"/>
+						<p>倒车镜</p>
+						<p>描述</p>
+						<p class="look-detail">价格</p>
+					</div>
+					<div class="col-md-2">
+						<img src="img/collection.png"/>
+						<p>倒车镜</p>
+						<p>描述</p>
+						<p class="look-detail">价格</p>
+					</div>
+					<div class="col-md-2"><img src="img/collection.png"/>
+						<p>倒车镜</p>
+						<p>描述</p>
+						<p class="look-detail">价格</p></div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="shop-collection">
+				<div class="row">
+					<div class="col-md-3">
+						<img src="img/collection-shop.png" class="img-circle"/>
+						<p>店铺1</p>
+						<p>星级</p>
+						<p>描述</p>
+						<input type="button" value="进入店铺" />
+						<img src="img/delete.png"/>
+					</div>
+					<div class="col-md-2">
+						<img src="img/collection.png"/>
+						<p>倒车镜</p>
+						<p>描述</p>
+						<p class="">价格</p>
+					</div>
+					<div class="col-md-2"><img src="img/collection.png"/>
+						<p>倒车镜</p>
+						<p>描述</p>
+						<p class="">价格</p></div>
+					<div class="col-md-2"><img src="img/collection.png"/>
+						<p>倒车镜</p>
+						<p>描述</p>
+						<p class="">价格</p></div>
+					<div class="col-md-2"><img src="img/collection.png"/>
+						<p>倒车镜</p>
+						<p>描述</p>
+						<p class="">价格</p></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!--页面底部-->
+	<div class="footer"></div>
+	
+	<script >
+		$(".look-detail").mouseover(function(){
+			$(this).addClass("look-details").text("取消收藏");
+		});
+		$(".look-detail").mouseout(function(){
+			$(this).text("价格");
+			$(this).removeClass("look-details");
+		});
+		$(" p").addClass("text-center");
+		$(function () {
+		      $('.myCollection li:eq(1) a').tab('show');
+		   });
+			</script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    	<script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="js/load.js" ></script>
+     <!--jQuery slick js-->
+  </body>
+</html>

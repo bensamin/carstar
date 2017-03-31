@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Pay</title>
+	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/carstar.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+
+	<!--jQuery slick  css-->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    		
+    		.container{
+    			margin: 30px 0;
+    			font-size: 18px;
+    		}
+    		.payment{
+    			width: 60%;
+    			border: 1px dashed #9D9D9D;
+    			margin: 10px 0;
+    			padding: 5px 10px;
+    		}
+    		
+    		.payment label{
+    			margin: 0 20px;
+    		}
+    </style>
+  </head>
+  <div class="header"></div>
+	<div class="container">
+		<span>订单号：xxxxxxxxxx</span>&nbsp;&nbsp;&nbsp;
+		<span>共计：xxxxx元</span>
+		<p>选择付款方式:</p>
+		<div class="payment">
+			<input type="radio" name="payment" id="aliPay" /><label for="aliPay">支付宝  </label><br />
+			<input type="radio" name="payment"  id="weChat" /><label for="weChat">微信支付 <img src="img/chat.png"/> </label><br />
+			<input type="radio" name="payment"  id="bankCard" /><label for="bankCard">银行卡</label>
+		</div>
+		<button type="button">付款</button>
+	</div>	
+	</div>
+	<div class="footer"></div>
+ 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="js/carstar.js" ></script>
+    	<script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+     <script type="text/javascript" src="js/owl.carousel.js" ></script>
+    <script type="text/javascript" src="js/transformer.js" ></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+	<script type="text/javascript" src="js/load.js" ></script>
+  </body>
+</html>

@@ -1,0 +1,2 @@
+$(".category-tabbox div").eq( $(this).index() ).slideDown().siblings().slideUp();	
+				$(".category-menu").slideDown();

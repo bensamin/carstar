@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Parameters</title>
+	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<style>
+.product-parameters{
+	display: none;
+	background: white;
+	padding: 20px;
+	position: absolute;
+	top: 200px;			
+	left: 15%;
+	width: 70%;
+	z-index: 3;
+}
+.text-center{
+	border-bottom:1px dashed #222222;
+}
+.text-box{
+	height: 28px;
+	border: 1px  solid #ADADAD;
+	width: 30px;
+}
+.addNum {
+	border: 1px  solid #ADADAD;
+	display: inline-block; 
+	width: 25px; 
+	height: 28px; 
+	text-align: center;
+	line-height: 26px;
+	cursor: pointer;
+	margin-left: -5px;
+}
+.subNum{
+	border: 1px  solid #ADADAD;
+	display: inline-block; 
+	width: 25px; 
+	height: 28px; 
+	text-align: center;
+	line-height: 26px;
+	cursor: pointer;
+	margin-right: -5px;
+}
+	</style>
+  </head>
+
+  <body>
+  	
+	<div class="product-parameters">
+		<p class="text-center">产品参数</p>
+		<div class="row ">
+			<div class="col-md-3">
+				<img src="img/small-product.png"/>
+			</div>
+			<div class="col-md-9">
+				<p> 
+					<span>价格：</span>
+					<span>¥</span> 
+					<span>123.456</span>
+				</p>
+				<p>倒车镜</p>
+				<p>汽车倒车小圆镜车用辅助镜反光镜高清 一对装</p>
+			</div>
+		</div>
+		<div class="">
+			<span>购买数量</span>
+				<i class="subNum">-</i>
+				<input class="text-box" type="text" value="1" />
+				<i class="addNum">+</i>
+			<span>金额：</span> <span>¥</span>	
+			<span class="text-price">101.11</span>
+		</div>
+		<p>
+			<span>颜色分类：</span>
+		</p>
+		<p>
+			<span>售后服务: </span>
+			<span>配送方式：</span>
+		</p>
+		<p>留言：</p>
+		<textarea rows="5" cols="100"></textarea><br />
+		<input type="button" class="add-order" value="提交订单" />
+		<input type="button" class="cancel-parameters" value="取消" />
+	</div>
+	<script>
+		$(".cancel-parameters").click(function(){
+			$(".product-parameters").slideUp();
+		});
+		$(".add-order").click(function(){
+			$(".product-parameters").css("display","none");
+			$(".order").slideDown();
+		});
+	</script>
+	<!--页面底部-->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    	<script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="js/product.js" ></script>
+  </body>
+</html>

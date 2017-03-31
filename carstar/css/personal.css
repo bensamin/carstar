@@ -1,0 +1,48 @@
+.container{
+	margin: 30px auto;
+}
+.name-id{
+	line-height: 20px;
+	margin-left:5px ;
+	font-size: 25px;
+}
+.row{
+	margin-top: 20px;
+	min-height: 50px;
+}
+div[class^="col-md"]{
+	vertical-align: middle;
+}
+
+/***********personal.html*******************/
+.discount-yes{
+	display: none;
+	cursor: pointer;
+}
+.discount-no{
+	cursor: pointer;
+}
+.new-address{
+	width: 100%;
+	top: 20%;
+	left: 40%;
+	display: none;
+	z-index: 2;
+}
+.address-detail{
+	width: 100%;
+	height: 80px;
+}
+.cancel-address{
+	display: inline;
+}
+.address-receive{
+	margin-top:10px ;
+	border-bottom: 1px solid #767676;
+}
+
+/***************personal_oreder.html************************/
+.col-md-1 img{
+	display: block;
+}
+

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ShoppingCart</title>
+	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <link rel="stylesheet" href="css/shoppingCart.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+  	<!--页面头部-->
+	<div class="header"></div><br />
+	<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<span>商品信息</span>
+				</div>
+				<div class="col-md-1">
+					<span>颜色</span>
+				</div>
+				<div class="col-md-2">
+					<span>单价</span>
+				</div>
+				<div class="col-md-2">
+					<span>数量</span>
+				</div>		
+				<div class="col-md-2">
+					<span>金额</span>
+				</div>
+				<div class="col-md-1">
+					<span>操作</span>
+				</div>
+			</div>
+			
+		
+		<p>
+		   <span>店铺2号</span>	
+		</p>	
+			<div class="row product1">
+				<div class="col-md-4">
+					<input type="checkbox" name="select"  />
+					<img src="img/small-product.png" />
+					<span>倒车镜</span><br />
+					<span>汽车倒车镜小圆镜&nbsp;后视镜盲点广角镜助镜反光镜清晰（一对装）</span>
+				</div>
+				<div class="col-md-1">
+					<span>黑色</span>
+				</div>
+				<div class="col-md-2">
+					<span>¥</span>
+					<span class="text-price">101.11</span>
+				</div>
+				<div class="col-md-2 ">
+					<i class="subNum">-</i>
+					<input class="text-box" type="text" value="1" />
+					<i class="addNum">+</i>
+				</div>
+				<div class="col-md-2">
+					<span>¥</span> <span class="product-total"></span>
+				</div>
+				<div class="col-md-1">
+					<img src="img/delete.png" />
+				</div>
+			</div>
+		<p>
+		   <span>店铺3号</span>	
+		</p>	
+			<div class="row product1">
+				<div class="col-md-4">
+					<input type="checkbox" name="select"  />
+					<img src="img/small-product.png" />
+					<span>倒车镜</span><br />
+					<span>汽车倒车镜小圆镜&nbsp;后视镜盲点广角镜助镜反光镜清晰（一对装）</span>
+				</div>
+				<div class="col-md-1">
+					<span>黑色</span>
+				</div>
+				<div class="col-md-2">
+					<span>¥</span>
+					<span class="text-price">456.789</span>
+				</div>
+				<div class="col-md-2 ">
+					<i class="subNum">-</i>
+					<input class="text-box" type="text" value="1" />
+					<i class="addNum">+</i>
+				</div>
+				<div class="col-md-2">
+					<span>¥</span> <span class="product-total"></span>
+				</div>
+				<div class="col-md-1">
+					<img src="img/delete.png" />
+				</div>
+			</div>		
+			
+			<!---------------分割线----------------------------->
+			<div class="row">
+				<div class="col-md-8">
+					<input  class="select-btn" type="button" value="全选" />&nbsp;&nbsp;
+					<input  class="cancel-btn" type="button" value="取消全选" />
+				</div>
+				<div class="col-md-4">
+					<p>合计：<span>¥</span> <label class="total-all"></label></p>
+				</div>
+			</div>  
+			<a href="pay.html">
+				<input class="checkout" type="button" onclick="" value="结算"/>
+			</a>
+	</div>	
+	<!--页面底部-->
+	<div class="footer"></div>
+	<script>
+		
+	</script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    	<script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="js/load.js" ></script>
+    <script type="text/javascript" src="js/product.js" ></script>
+     <!--jQuery slick js-->
+  </body>
+</html>
