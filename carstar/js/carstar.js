@@ -48,3 +48,32 @@ $(function(){
 			"</div> " );
 		});
 	}
+
+$(function(){
+		$.ajax({
+			type:"GET",
+			url:"json/year.json",
+			data:"json",
+			success:function(year){
+//				var yearobj = eval( "( "+year+" )" );
+				addYear(year);
+				console.log(year);
+			},
+			error:function(){
+				console.log("year error");
+			}
+		});
+	});	
+function addYear(year){
+	$.each(year,function(index,obj){
+		$(".home-year").append(
+			"<option>"+obj['year']+"</option>"
+		);
+		$(".home-brand").append(
+			"<option>"+obj['brand']+"</option>"
+		);
+		$(".home-model").append(
+			"<option>"+obj['model']+"</option>"
+		);
+	});
+}
