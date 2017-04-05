@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+		
+	</head>
+	<body>
+		
+			<button type="button" class="btn1">btn1</button>	
+			<button type="submit" class="btn2">btn2</button>
+		
+		<div id="abc"></div>
+		<script> 
+			$(function(){
+				
+				
+			    if($.cookie(name)!=null){
+			        $("#abc").html("cookie不存在")
+			    }else{
+			    	 $("#abc").html("cookie存在")
+			    }
+			});
+		</script>
+
+		<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	</body>
+</html>

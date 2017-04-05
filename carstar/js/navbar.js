@@ -1,6 +1,10 @@
 
 //图片
-
+//$(function(){
+//	if(window.innerWidth < 767 ){
+//		$(".myform").append("<span>商城</span>")
+//	}
+//});
 //搜索框 div弹出
 $(document).ready(function(){
 			$(".show-div").click(function(){
@@ -10,6 +14,7 @@ $(document).ready(function(){
 			$(".show-div1").blur(function(){
 				$(".show-search").css("display","none")
 				});
+				
 			
 });
 

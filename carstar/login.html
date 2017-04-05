@@ -29,61 +29,172 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 	<style>
-		.header span{
-			font-size: 30px;
+		@media only screen and (max-width:767px ) {
+			.login-img{
+				display: none;
+			}
+			.header-text{
+				display: none;
+			}
 		}
-		.header{
-			min-height: 130px;
-			
+		.container{
+			margin: 10px auto;
+		}
+		.header-text{
+			font-family: ;
+			font-style: oblique;
+			font-size: 60px;
+			letter-spacing: 5px;
+		}
+		.login-all{
+			margin: 20px auto;
+			padding: 30px 20px;
+			background: white;
+			border: 3px solid #e5e5e5;
+			/*-moz-border-top-colors:#F5F5F5 #f4f4f4 #f1f1f1 #ededed #E5E5E5 #e7e7e7 #f9f9f;*/ 
+		}
+		.user-login{
+			color: black;
+			margin-left: 30px;
+		}
+		.merchant-login{
+			color: #B1B1B1;
+			margin-left: 30px;
+		}
+		.col-md-8{
+			margin: 20px auto;
+		}
+		.user-login{
+			font-size: 24px;
+			cursor: pointer;
+		}
+		.merchant-login{
+			font-size: 24px;
+			cursor: pointer;
+		}
+		.user-text{
+			margin: 40px auto;
+		}
+		.merchant-text{
+			display: none;
+			margin: 40px auto;
+		}
+		.btn{
+			margin-top: 10px;
+			width: 280px;
+		}
+		.col-sm-offset-2 span{
+			margin-right:10px ;
+			float: right;
+		}
+		.login-carstar {
+			font-size: 24px;
+			padding-top:30px ;
+		}
+		.login-carstar span{
+			margin-left: 20px;
 		}
 	</style>
 
   </head>
 
   <body>
-	<div class="header">
-		<img src="img/logo.png" />
-		<span> CARSTAR </span>
+  	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-xs-6">
+				<img src="img/category.png"/>
+			</div>
+			<div class="col-md-6 header-text">
+				<span>Fast!Fast!!Fast!!!</span>
+			</div>
+			<div class="col-md-3 col-xs-6 login-carstar">
+			 	<a href="home.html"> <span>车星商城</span> </a>
+			</div>
+		</div>
+	<div class="row">
+		<div class="col-md-8 login-img">
+			<img src="img/banner.jpeg"/>
+		</div>
+		<div class="col-md-4 login-all">
+			
+			<!--登陆-->
+			<div class="row login-text">
+				<div class="col-md-6 col-xs-6">
+					<span class="user-login">用户登录</span>
+				</div>
+				<div class="col-md-6 col-xs-6">
+					<span class="merchant-login">商家登陆</span>
+				</div>
+			</div>
+			<!--用户登录-->
+				<div class="user-text">
+					<form class="form-horizontal"  method="get" action="home.html" onsubmit="return checkUser()">
+					  <div class="form-group">
+					    <label  class="col-sm-4 control-label">用户名：</label>
+					    <div class="col-sm-8">
+					      <input type="text" class="form-control" id="username"  placeholder="手机号或用户名">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label  class="col-sm-4 control-label">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+					    <div class="col-sm-8">
+					      <input type="password" class="form-control" id="pwd" placeholder="密码">
+					    </div>
+					  </div>
+					  
+					  <div class="form-group">
+					    <div class="col-sm-offset-2 col-sm-12">
+					      <button type="submit" class="btn btn-success" >用户登陆</button>
+					      <button type="button" class="btn btn-success">忘记密码</button>
+					    </div>
+					  </div>
+					  
+					  <div class="form-group">
+					    <div class="col-sm-offset-2 col-sm-10">
+					        <span style="float: right;" > &nbsp;还没有登陆账号？<a href="regist.html" style="color: red;">点击注册</a> </span>
+					    </div>
+					  </div>
+					</form>
+				</div>	
+				
+				<!--商户登陆-->
+				<div class="merchant-text">
+					<form class="form-horizontal">
+					  <div class="form-group">
+					    <label  class="col-sm-4 control-label">商户名：</label>
+					    <div class="col-sm-8">
+					      <input type="text" class="form-control"  placeholder="手机号或商户名">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label  class="col-sm-4 control-label">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+					    <div class="col-sm-8">
+					      <input type="password" class="form-control"  placeholder="密码">
+					    </div>
+					  </div>
+					 
+					  <div class="form-group">
+					    <div class="col-sm-offset-2 col-sm-12">
+					      <button type="submit" class="btn btn-success">商户登陆</button>
+					      <button type="submit" class="btn btn-success">忘记密码</button>
+					    </div>
+					  </div>
+					   <div class="form-group">
+					    <div class="col-sm-offset-2 col-sm-10">
+					        <span > &nbsp;没有账号？<a href="regist.html" style="color: red;">点击注册</a> </span>
+					    </div>
+					  </div>
+					</form>
+				</div>	
+		</div>
 	</div>
+
 	
-	<div class="login-text">
-		<form class="form-horizontal">
-		  <div class="form-group">
-		    <label  class="col-sm-2 control-label">用户名：</label>
-		    <div class="col-sm-5">
-		      <input type="text" class="form-control"  placeholder="用户名">
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <label for="inputPassword3" class="col-sm-2 control-label">密&nbsp;&nbsp;&nbsp;码：</label>
-		    <div class="col-sm-5">
-		      <input type="password" class="form-control"  placeholder="密码">
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <div class="col-sm-offset-2 col-sm-10">
-		      <div class="checkbox">
-		        <label>
-		          <input type="checkbox">记住我
-		        </label>
-		        <span> &nbsp;没有账号？点击 <a href="regist.html"> 注册</a> </span>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <div class="col-sm-offset-2 col-sm-12">
-		      <button type="submit" class="btn btn-default">登陆</button>
-		      <button type="submit" class="btn btn-default">忘记密码？</button>
-		    </div>
-		  </div>
-		</form>
 	</div>
+	<!--cotainer end-->
 	<div class="footer">
 		<p>欢迎来到车星官网</p>
 	</div>
-	<script>
-		$(".footer").load("footer.html")
-	</script>	
 	<!-------------------Jscript------------------------------->
 	<!-- Bootstrap core JavaScript
     ================================================== -->
@@ -92,5 +203,7 @@
     	<script type="text/javascript" src="js/transformer.js" ></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="js/login.js" ></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
   </body>
 </html>

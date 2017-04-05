@@ -10,7 +10,7 @@
 	<title>导航</title>
  
 	<script src="js/jquery-1.11.1.min.js"></script>
-
+	<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -22,17 +22,15 @@
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="js/ie-emulation-modes-warning.js"></script>
     <body>
-    	<div class="container-fluid">
+    	<div class="container">
     	<!---------------购物车等图标------------>
     	<div class="mynavbar">
     		<form class="myform">
-  			<a href="home.html">
-  				<img  class="carstar-logo" src="img/logo.png" href="home.html" />
-  			</a>	
+  			<a href="home.html"><img  class="carstar-logo" src="img/logo.png"/>
     			<input class="show-div" type="text" placeholder="输入查询的配件">
-    			<img class="show-div" src="img/search.png" />   			  		   			
-    			<a href="personal.html"> <img  src="img/mine.png" /> </a>
-    			<a href="collection.html"> <img src="img/keep.png" /> </a>
+    			<img class="show-div" src="img/search.png"  />   			  		   			
+    			<a href="login.html"> <img class="mine" src="img/mine.png" /> </a>
+    			<a href="collection.html"> <img  class="keep" src="img/keep.png" /> </a>
     			<a href="shoppingCart.html"> <img src="img/shopping.png" /> </a>
     		</form>   		
 	</div>
@@ -58,7 +56,7 @@
     		  		<div class="tab-pane fade" id="one0">
     		  			<div class="row category-nav"> 
     		  				<div class="col-md-2">
-    		  					<span>大灯</span>
+    		  					<a href="category.html"> <span>大灯</span> </a>
     		  				</div>
     		  				<div class="col-md-2">
     		  					<span>尾灯</span>  
@@ -85,8 +83,19 @@
     		  		<div class="tab-pane fade" id="one8">888 </div>
     		  	</div>
     		</div>
-    </div>
-    
+    	</div>	
+    <script>
+		$(".mine").click(function(){
+			console.log("123");
+			    if($.cookie(name)){
+			        console.log("yes");
+			        window.location.href="personal.html";
+			    }else{
+			        console.log("no");
+			        window.location.href="login.html";
+			    }
+			});
+	</script>
     <!-- Bootstrap core JavaScript--->
    <script type="text/javascript" src="js/navbar.js" ></script>
     <!-- Placed at the end of the document so the pages load faster -->

@@ -1,2 +1,188 @@
-$(".category-tabbox div").eq( $(this).index() ).slideDown().siblings().slideUp();	
-				$(".category-menu").slideDown();
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">  
+<html>  
+<head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+<script type="text/javascript">  
+     function login(){  
+      var userName=document.getElementById("userName").value;  
+      var pwd=document.getElementById("pwd").value;  
+      var repwd=document.getElementById("repwd").value;  
+      var address=document.getElementById("address").value;  
+      var matchResult=true;  
+      if(userName==""||pwd==""||repwd==""||address==""){  
+            alert("请确认是否有空缺项！");  
+            matchResult=false;  
+      }else if(userName.length<6||userName.length>20){  
+            alert("用户名长度应在6到20个字符之间！");  
+            matchResult=false;  
+      }else if(userName==pwd||userName==repwd){  
+            alert("密码或重复密码不能和用户名相同！");  
+            matchResult=false;  
+      }else if(pwd.length<6||pwd.length>20||repwd.length<6||repwd.length>20){  
+            alert("密码或重复密码长度应在6到20个字符之间！");  
+            matchResult=false;  
+      }else if(pwd!=repwd){  
+            alert("密码和重复密码不同，请重新输入！");  
+            matchResult=false;  
+      }else if(userName.length<6||userName.length>20){  
+            alert("用户名长度应在6到20个字符之间！");  
+            matchResult=false;  
+      }  
+  
+       if(matchResult==true){  
+        var mailreg = /^\w+@\w+(\.\w+)+$/;  
+        if(!address.match(mailreg)){  
+            alert("邮箱格式不正确");  
+            matchResult=false;  
+        }  
+           }  
+  
+      
+      if(matchResult==true){  
+           if(userName.charAt(0)>=0&&userName.charAt(0)<=9){  
+                alert("用户名不能以数字字符开始！");  
+                matchResult=false;  
+            }  
+      }  
+  
+      return matchResult;  
+     }  
+   </script>  
+<title>用户注册及验证</title>  
+</head>  
+  
+<body>  
+<center>  
+<form name="loginForm" action="http://www.ytu.edu.cn" onsubmit="return login()" method="post">  
+  <table bgcolor="#6666FF" width="300" cellspacing="0" cellpadding="0" border="0" align="left" valign="top">  
+       <tr>  
+         <td class="table-title" colspan="2" align="center" bgcolor="#3366FF">用户注册</td>  
+       </tr>  
+       <tr>  
+         <td width="130" height="28" align="left">登录用户名</td>  
+         <td><input id="userName" name="userName" type="text" class="input"></td>  
+       </tr>  
+       <tr>  
+          <td width="80" height="28" align="left">登录密码</td>  
+          <td><input id="pwd" name="pwd" type="password" class="input"></td>  
+       </tr>  
+       <tr>  
+          <td width="80" height="28" align="left">重复输入密码</td>  
+          <td><input id="repwd" name="repwd" type="password" class="input"></td>  
+       </tr>  
+       <tr>  
+          <td width="80" height="28" align="left">有效邮箱地址</td>  
+          <td><input id="address" name="address" type="text" class="input"></td>  
+       </tr>  
+       <tr>  
+          
+          <!--<td width="10" height="28" align="left"></td>-->  
+          <!--<td  colspan="2">             
+           <input type="submit" value="登录">  
+           <input type="button" value="取消" onClick="reset()"></td>  
+       </tr>  
+  </table>  
+</form>  
+</center>  
+  
+</body>  
+</html>  
+  -->
+  	<!--<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <style>*{margin:0;padding:0;}div{padding:20px;}a{padding:10px;}</style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <script>
+        //假设 localStorage["isLogin"] 表示是否登录，实际中用ajax取回的登录状态或者cookie替代
+        $(function(){
+            localStorage["isLogin"] = "";
+            function checkLogin(){
+                if(localStorage["isLogin"]){
+                    handleLogin();
+                }
+                else{
+                    handleUnLogin();
+                }
+            }
+            function handleLogin(){
+                $("#header").html('<div><a href="javascript:;">白开水</a>|<a id="quit" href="javascript:;">退出</a>|<a href="javascript:;">后台管理</a></div>')
+            }
+            function handleUnLogin(){
+                $("#header").html('<div><a href="javascript:;">登录</a>|<a href="javascript:;">快速注册</a></div>')
+            }
+            $("#btn1").on("click",function(){
+                localStorage["isLogin"] = (localStorage["isLogin"]?"":1);
+            });
+            $(document).on("click","#quit",function(){
+                localStorage["isLogin"] = "";
+                handleUnLogin();
+            });
+            setInterval(checkLogin,500);
+        });
+    </script>
+    <div id="wrapper">
+        <header id="header"></header>
+        <div>
+            <button id="btn1">切换登录状态，实际需经服务器切换(可以发ajax服务端写cookie，也可以发ajax拿登录状态，session不适合集群，当然你可以使用session)</button>
+        </div>
+    </div>
+</body>
+</html>
+  -->
+  	
+  	    <!--<!DOCTYPE HTML> 
+    <html> 
+        <head> 
+            <meta charset="utf-8"> 
+            <title>HTML5教程之本地存储SessionStorage</title> 
+            <script type="text/javascript"> 
+                    window.onload = function() 
+                    { 
+                            alert("当你关闭此页面或者关闭浏览器的时候，sessionStorage中保存的数据才会消失，也就是说重新打开此页面的时候，点击获取数据，将不会显示任何数据，刷新页面无效。\r\n由此可以证明，sessionStorage的生命周期为，某个用户浏览网站时，从进入到离开的这段时间。")
+                             
+                            //首先获得body中的3个input元素 
+                            var msg = document.getElementById("msg"); 
+                            var getData = document.getElementById("getData"); 
+                            var setData = document.getElementById("setData"); 
+                             
+                            setData.onclick = function()//存入数据 
+                            { 
+                                    if(msg.value) 
+                                    { 
+                                            sessionStorage.setItem("data", msg.value); 
+                                            alert("信息已保存到data字段中"); 
+                                    } 
+                                    else 
+                                    { 
+                                            alert("信息不能为空"); 
+                                    } 
+                            } 
+                             
+                            getData.onclick = function()//获取数据 
+                            { 
+                                    var msg = sessionStorage.getItem("data"); 
+                                    if(msg) 
+                                    { 
+                                            alert("data字段中的值为：" + msg); 
+                                    } 
+                                    else 
+                                    { 
+                                            alert("data字段无值！"); 
+                                    } 
+                            } 
+                    } 
+            </script> 
+        </head> 
+         
+        <body> 
+            <input id="msg" type="text"/> 
+            <input id="setData" type="button" value="保存数据"/> 
+            <input id="getData" type="button" value="获取数据"/> 
+        </body> 
+    </html> 
+  -->
+  	

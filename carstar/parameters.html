@@ -26,8 +26,8 @@
     <![endif]-->
 	<style>
 .product-parameters{
-	display: none;
-	background: white;
+	/*display: none;*/
+	background: #4B5160;
 	padding: 20px;
 	position: absolute;
 	top: 200px;			
@@ -35,7 +35,9 @@
 	width: 70%;
 	z-index: 3;
 }
-.text-center{
+.parameter-text{
+	font-size: 20px;
+	color: white;
 	border-bottom:1px dashed #222222;
 }
 .text-box{
@@ -43,64 +45,72 @@
 	border: 1px  solid #ADADAD;
 	width: 30px;
 }
-.addNum {
-	border: 1px  solid #ADADAD;
-	display: inline-block; 
-	width: 25px; 
-	height: 28px; 
-	text-align: center;
-	line-height: 26px;
-	cursor: pointer;
-	margin-left: -5px;
+.search-parameter span{
+	font-size: 18px;
+	color: white;
 }
-.subNum{
-	border: 1px  solid #ADADAD;
-	display: inline-block; 
-	width: 25px; 
-	height: 28px; 
-	text-align: center;
-	line-height: 26px;
-	cursor: pointer;
-	margin-right: -5px;
-}
+.search-parameter{
+	background: #4b5160;
+  	margin-bottom: 10px;
+  	min-height: 50px;
+  	width: 100%;
+  }  
+ select{
+  	margin-right:-4px ;
+  	font-size: 18px;
+  	height: 50px;
+  	border: 1px solid #4B5160;
+  	border-radius:2px ;
+  	appearance: none;
+  	-moz-appearance: none;
+  	-webkit-appearance: none;
+  	background: url(../img/drop.png) no-repeat scroll right center white;
+  	padding-right:24px ;
+  	height: 30px;
+  	width: 200px;
+  	z-index: 2;
+  }
 	</style>
   </head>
 
   <body>
   	
 	<div class="product-parameters">
-		<p class="text-center">产品参数</p>
-		<div class="row ">
-			<div class="col-md-3">
-				<img src="img/small-product.png"/>
-			</div>
-			<div class="col-md-9">
-				<p> 
-					<span>价格：</span>
-					<span>¥</span> 
-					<span>123.456</span>
-				</p>
-				<p>倒车镜</p>
-				<p>汽车倒车小圆镜车用辅助镜反光镜高清 一对装</p>
-			</div>
+		<p class="text-center parameter-text">产品参数</p>
+		<div class="row search-parameter">
+			<p>
+				<span>年份</span>
+				<select class="home-year">
+					<option value="0">
+						<span>选择年份</span>
+					</option>
+				</select>
+			</p>
+			<p>
+				<span>品牌</span>
+				<select class="home-year">
+					<option value="0">
+						<span>选择品牌</span>
+					</option>
+				</select>
+			</p>
+			<p>
+				<span>车系</span>
+				<select class="home-year">
+					<option value="0">
+						<span>选择车系</span>
+					</option>
+				</select>
+			</p>
+			<p>
+				<span>颜色</span>
+				<select class="home-year">
+					<option value="0">
+						<span>选择颜色</span>
+					</option>
+				</select>
+			</p>
 		</div>
-		<div class="">
-			<span>购买数量</span>
-				<i class="subNum">-</i>
-				<input class="text-box" type="text" value="1" />
-				<i class="addNum">+</i>
-			<span>金额：</span> <span>¥</span>	
-			<span class="text-price">101.11</span>
-		</div>
-		<p>
-			<span>颜色分类：</span>
-		</p>
-		<p>
-			<span>售后服务: </span>
-			<span>配送方式：</span>
-		</p>
-		<p>留言：</p>
-		<textarea rows="5" cols="100"></textarea><br />
 		<input type="button" class="add-order" value="提交订单" />
 		<input type="button" class="cancel-parameters" value="取消" />
 	</div>

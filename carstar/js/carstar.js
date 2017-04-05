@@ -40,7 +40,7 @@ $(function(){
 });
 	function addBox(result){
 		$.each(result,function(index,obj){
-			$(".home-product").append(
+			$(".home-product,.category-product").append(
 			"<div class='col-md-3 col-xs-6'>"+	
 			"<img src="+obj['img']+"/>"+
 			"<p>"+obj['price']+"</p>" +
@@ -75,5 +75,32 @@ function addYear(year){
 		$(".home-model").append(
 			"<option>"+obj['model']+"</option>"
 		);
+	});
+}
+
+//category.html
+
+$(function(){
+		$.ajax({
+			type:"GET",
+			url:"json/category_one.json",
+			data:"json",
+			success:function(brand){
+//				var yearobj = eval( "( "+year+" )" );
+				addBand(brand);
+			},
+			error:function(){
+				console.log("year error");
+			}
+		});
+	});	
+function addBand(brand){
+	$.each(brand,function(index,obj){
+		
+		$(".category-brand").append(
+			"<div class='col-md-3 col-xs-6'>"+
+			"<img src="+obj['category_img']+"/>"+
+			"<p class='text-center'>"+obj['brand']+"</p>"+
+			"</div>");
 	});
 }

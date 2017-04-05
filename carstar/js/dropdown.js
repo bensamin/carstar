@@ -1,30 +1,5 @@
 //         ******************菜单栏固定**************************
-$(document).ready(function() {
-          // Cache selectors for faster performance.
-          var $window = $(window),
-              $search_drop = $(".search-drop");
-              $scroll_top = $(".scroll-top");    
-          // Run this on scroll events.
-        //scroll()
-       //当用户滚动指定的元素时，会发生scroll事件。
-       //scroll事件适用于所有可滚动的元素和window对象（浏览器窗口）
-       //scroll()方法触发scroll事件，或规定当发生scroll事件时运行的函数
-          $window.scroll(function(){
-          	var window_top = $window.scrollTop();  //
-          	var scroll_top = $scroll_top.offset().top;
-          	//输出网页卷过去的高度，下拉菜单的偏移量
-          	console.log("固定下拉选择："+window_top+"+"+scroll_top+"+"+window.innerWidth);
-          	//输出屏幕的宽度，屏幕的高度
-          	console.log(screen.width+"*"+screen.height); 
-          	if( window.innerWidth > 468  &&  window_top > scroll_top){
-          		$search_drop.addClass("stick");
-          		$scroll_top.height($search_drop.height());
-          	}else{
-				$search_drop.removeClass("stick");
-				$scroll_top.height(0);
-          	}
-          });         
-      });     
+
 
 // 返回顶部
 $(window).scroll(function(){

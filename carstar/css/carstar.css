@@ -14,6 +14,21 @@ body {
 	.search-drop input{
 		display: block;
 	}
+	.search-drop{
+		padding-left: 0%;
+	}
+	.home-year{
+		width: 100%;
+	}
+	.home-brand{
+		width: 100%;
+	}
+	.home-model{
+		width: 100%;
+	}
+	.search-drop input{
+		width: 100%;
+	}
 
 }
 @media only screen and (min-width: 768px ) {
@@ -23,6 +38,12 @@ body {
 	.shopnName{
 		display: none;
 	}		
+	.search-drop{
+		padding-left: 25%;
+	}
+	.search-drop input{
+		width: 100px;
+	}
 }
 /******************标签*************************/
 a{
@@ -79,7 +100,6 @@ button{
 }   
 /************中间下拉菜单******************/  
 .search-drop{
-	padding-left: 25%;
 	background: #4b5160;
   	margin-bottom: 10px;
   	min-height: 50px;
@@ -88,16 +108,17 @@ button{
 .search-drop input{
 	font-size:18px ;
 	color: white;
-	background: #4B5160;
-	border: 1px solid #000000;
+	background: #ce4e45;
+	border: 1px solid #CE4E45;
+	border-radius:2px ;
 	height: 50px;
-	width: 100px;
 }  
   select{
   	margin-right:-4px ;
   	font-size: 18px;
   	height: 50px;
-  	border: 1px solid #000000;
+  	border: 1px solid #4B5160;
+  	border-radius:2px ;
   	appearance: none;
   	-moz-appearance: none;
   	-webkit-appearance: none;
@@ -139,9 +160,13 @@ button{
     }
 /******************页面底部****************************/
 .foot{	
+	padding: 5px 20px;
 	height: 200px;
 	background: #343b3f;
 	color: white;	 
+}
+.foot span{
+	color: white;
 }
 .wave{
 	min-height: 30px;
@@ -177,7 +202,6 @@ button{
 	padding: 5px;
 
 }
-
 .type{
 	border:1px solid rgb(202,203,205) ;
 	padding: 5px;
@@ -208,10 +232,12 @@ button{
 	margin-left: 2%;
 	margin-top: 10px;	
 }
-.category{
+.category-brand{
 	margin: 10px 5%
 }
-
+.category-brand p{
+	margin-top:20px ;
+}
 .choose{               
 	border: 1px solid rgb(209,209,209);
 	vertical-align: middle;
@@ -282,3 +308,5 @@ button{
 .product{
 	margin-top: 10px;
 }
+/*footer.html*/
+

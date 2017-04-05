@@ -1,0 +1,10 @@
+[
+{ "brand":"奥迪","category_img":"img/category.png"  },
+{ "brand":"宾利" ,"category_img":"img/category.png" },
+{ "brand":"布加迪" ,"category_img":"img/category.png" },
+{ "brand":"别克" ,"category_img":"img/category.png" },
+{ "brand":"凯迪拉克" ,"category_img":"img/category.png" },
+{ "brand":"宝马" ,"category_img":"img/category.png" },
+{ "brand":"劳斯莱斯","category_img":"img/category.png" },
+{ "brand":"奔驰","category_img":"img/category.png" }
+]

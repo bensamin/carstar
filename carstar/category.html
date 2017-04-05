@@ -42,74 +42,14 @@
 	<div class="search-result">
 		<div class="all-result">
 			<span>全部结果&nbsp;&nbsp;>&nbsp;&nbsp;车</span>
-			<span style="float: right;">共计12345件商品</span>
+			<span style="float: right;"></span>
 		</div>
-		<div class="chioce">
-			<div class="brand">
-				<div class="row">
-					<div class="col-md-1"><span>品牌</span></div>					
-					<div class="col-md-10">
-						<div class="row">
-							<div class="col-md-2"><span>HONDA/本田</span></div>
-						</div>
-						<div class="row">
-							<div class="col-md-2"><span>BUICK/别克</span></div>
-						</div>
-					</div>
-					<div class="col-md-1">
-						<button type="button" class="more-drop" onclick="more-drop()">更多</button>
-					</div>
-				</div>	
-				
-			</div>
-			<div class="type">
-				<div class="row">
-					<div class="col-md-1"> <span>类型</span> </div>
-					<div class="col-md-2"> <span> <a href="brand.html"> 一汽大众 </a></span> </div>
-				</div>
-			</div>
-		</div>
+		
 
 		<!--种类-->
 		<p class="text-center">分类</p>
-		<div class="row category">
-			<div class="col-md-3 col-xs-6">
-				<img src="img/test.jpeg" />
-				<p>Decrition</p>
-			</div>
-			<div class="col-md-3 col-xs-6">
-				<img src="img/test.jpeg" />
-				<p>Decrition</p>
-			</div>
-			<div class="col-md-3 col-xs-6">
-				<img src="img/test.jpeg" />
-				<p>Decrition</p>
-			</div>
-			<div class="col-md-3 col-xs-6">
-				<img src="img/test.jpeg" />
-				<p>Decrition</p>
-			</div>
-				
-		</div>
-		<div class="row category">
-			<div class="col-md-3 col-xs-6">
-				<img src="img/test.jpeg" />
-				<p>Decrition</p>
-			</div>
-			<div class="col-md-3 col-xs-6">
-				<img src="img/test.jpeg" />
-				<p>Decrition</p>
-			</div>
-			<div class="col-md-3 col-xs-6">
-				<img src="img/test.jpeg" />
-				<p>Decrition</p>
-			</div>
-			<div class="col-md-3 col-xs-6">
-				<img src="img/test.jpeg" />
-				<p>Decrition</p>
-			</div>
-			
-		</div>
+		<div class="row category-brand"></div>
+		
 		<div class="rankList">
 			<span>综合</span>
 			<span>人气</span>
@@ -154,28 +94,7 @@
 				</div>
 		<!--------------商品--------------->
 				<div class="col-md-9" >
-					<div class="row">
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.jpeg" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.jpeg" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.jpeg" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.jpeg" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-					</div>
+					<div class="row category-product"></div>
 				</div>
 			</div>										
 		</div>
@@ -199,6 +118,7 @@
 	
 	<div class="footer">	</div>
 	<script>	
+		$(".row").addClass("text-center");
 		$(".result").addClass("text-center");
 	</script>
     <!-- Bootstrap core JavaScript
