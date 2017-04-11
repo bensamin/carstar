@@ -41,7 +41,7 @@
 			margin: 10px auto;
 		}
 		.header-text{
-			font-family: ;
+			font-family:arial;
 			font-style: oblique;
 			font-size: 60px;
 			letter-spacing: 5px;
@@ -49,7 +49,7 @@
 		.login-all{
 			margin: 20px auto;
 			padding: 30px 20px;
-			background: white;
+			background: #F0F0F0;
 			border: 3px solid #e5e5e5;
 			/*-moz-border-top-colors:#F5F5F5 #f4f4f4 #f1f1f1 #ededed #E5E5E5 #e7e7e7 #f9f9f;*/ 
 		}
@@ -94,6 +94,20 @@
 		.login-carstar span{
 			margin-left: 20px;
 		}
+		#password-show-btn1{
+			position: absolute;
+			top: 10px;
+			left: 210px;
+			z-index: 2;
+			cursor: pointer;
+		}
+		#password-show-btn2{
+			position: absolute;
+			top: 10px;
+			left: 210px;
+			z-index: 2;
+			cursor: pointer;
+		}
 	</style>
 
   </head>
@@ -113,7 +127,7 @@
 		</div>
 	<div class="row">
 		<div class="col-md-8 login-img">
-			<img src="img/banner.jpeg"/>
+			<img src="img/banner.jpg"/>
 		</div>
 		<div class="col-md-4 login-all">
 			
@@ -138,14 +152,16 @@
 					  <div class="form-group">
 					    <label  class="col-sm-4 control-label">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
 					    <div class="col-sm-8">
-					      <input type="password" class="form-control" id="pwd" placeholder="密码">
+					      <input type="password" class="form-control" id="pwd1" placeholder="密码">
+					      <span> <img id="password-show-btn1" onclick="changepassword1()" src="img/show.png"/> </span> <br />
 					    </div>
 					  </div>
 					  
 					  <div class="form-group">
+					  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" /> <span>记住密码</span>
 					    <div class="col-sm-offset-2 col-sm-12">
 					      <button type="submit" class="btn btn-success" >用户登陆</button>
-					      <button type="button" class="btn btn-success">忘记密码</button>
+					      <button type="button" class="btn btn-success forget-password-btn1">忘记密码</button>
 					    </div>
 					  </div>
 					  
@@ -169,19 +185,21 @@
 					  <div class="form-group">
 					    <label  class="col-sm-4 control-label">密&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
 					    <div class="col-sm-8">
-					      <input type="password" class="form-control"  placeholder="密码">
+					      <input type="password" class="form-control" id="pwd2"  placeholder="密码">
+					     <span> <img id="password-show-btn2" onclick="changepassword2()" src="img/show.png"/> </span> 
 					    </div>
 					  </div>
 					 
 					  <div class="form-group">
+					  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" /> <span>记住密码</span>
 					    <div class="col-sm-offset-2 col-sm-12">
 					      <button type="submit" class="btn btn-success">商户登陆</button>
-					      <button type="submit" class="btn btn-success">忘记密码</button>
+					      <button type="button" class="btn btn-success forget-password-btn2">忘记密码</button>
 					    </div>
 					  </div>
 					   <div class="form-group">
 					    <div class="col-sm-offset-2 col-sm-10">
-					        <span > &nbsp;没有账号？<a href="regist.html" style="color: red;">点击注册</a> </span>
+					        <span > &nbsp;没有账号？<a href="store-register.html" style="color: red;">点击注册</a> </span>
 					    </div>
 					  </div>
 					</form>
@@ -195,6 +213,8 @@
 	<div class="footer">
 		<p>欢迎来到车星官网</p>
 	</div>
+	
+	
 	<!-------------------Jscript------------------------------->
 	<!-- Bootstrap core JavaScript
     ================================================== -->

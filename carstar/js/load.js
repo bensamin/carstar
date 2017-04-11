@@ -8,6 +8,5 @@
 		//产品参数
 		$(".add-parameters").load("parameters.html");
 		//添加 类名
-		console.log("加载：load.js");
 	});    
 

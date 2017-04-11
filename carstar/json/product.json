@@ -1,29 +1,29 @@
 [
     {
-        "name": "test1",
-        "img": "img/test.jpeg",
-        "price": "123.45",
+        "name": "脚踏垫",
+        "img": "img/custom-floor-mats_ic_5.jpeg",
+        "price": "213.456",
         "descrition": "汽车倒车镜小圆镜 后视镜盲点广角镜助镜反光镜清晰（一对装）",
         "color": "黑色"
     },
     {
         "name": "test2",
-        "img": "img/test.jpeg",
-        "price": "123.45",
+        "img": "img/custom-floor-mats_ic_5.jpeg",
+        "price": "213.456",
         "descrition": "汽车倒车镜小圆镜 后视镜盲点广角镜助镜反光镜清晰（一对装）",
         "color": "黑色"
     },
     {
         "name": "test3",
-        "img": "img/test.jpeg",
-        "price": "123.45",
+        "img": "img/custom-floor-mats_ic_5.jpeg",
+        "price": "213.456",
         "descrition": "汽车倒车镜小圆镜 后视镜盲点广角镜助镜反光镜清晰（一对装）",
         "color": "黑色"
     },
     {
         "name": "test4",
-        "img": "img/test.jpeg",
-        "price": "123.45",
+        "img": "img/custom-floor-mats_ic_5.jpeg",
+        "price": "213.456",
         "descrition": "汽车倒车镜小圆镜 后视镜盲点广角镜助镜反光镜清晰（一对装）",
         "color": "黑色" 
     }

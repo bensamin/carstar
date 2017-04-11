@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -46,6 +46,59 @@
   	</div>
     <!-- Placed at the end of the document so the pages load faster -->
     <!--选择-->
+    <div id="home-drop">
+    		<div id="home-searchAll">
+    			<ul>
+            			<li style="background-color: #49525f;"> <span> 全部查询  </span> </li>
+            			<li> <span> 部件查询  </span> </li>
+            			<li> <span> 热门商店  </span> </li>
+            		</ul>
+    		</div>
+    		<div id="home-searchContent">
+	    			<form>
+					<select class="home-year">
+						<option>
+							<span>&nbsp;1.&nbsp;&nbsp;&nbsp;选择年份&nbsp;...</span>
+						</option>
+					</select>
+					<select class="home-brand">
+						<option>
+							<span>&nbsp;2.&nbsp;&nbsp;&nbsp;选择品牌&nbsp;...</span>
+						</option>
+					</select>
+					<select class="home-model">
+						<option>
+							<span>&nbsp;3.&nbsp;&nbsp;&nbsp;选择车系&nbsp;...</span>
+						</option>
+					</select>
+					<input type="submit" class="search-go" value="查询"/>
+				</form>	
+				<form style="display: none;">
+					<input type="search" name="" required="" placeholder="Search" x-webkit-speech="" class="home-searchPart"  x-webkit-grammar="builtin:search" lang="zh-CN">
+					<input type="submit" class="search-go1" value="查询"/>
+				</form> 
+				<form style="display: none;">
+					<table border="0"  width="90%">
+						<tr>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+						</tr>
+						<tr>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+						</tr>
+					</table>
+				</form>
+    		</div>    		
+    		
+    </div>
+    
     <div class="drop">
     		 <div class="scroll-top"></div>
 		 <div class="search-drop">
@@ -70,10 +123,21 @@
 		 </div>    		
     </div>
     <!--产品-->
-    <div class="product">
+    <div class="product" style="margin-top: 120px;">
     		<div class="row">
     			<div class="col-md-2 hotImg">
-    				<img src="img/like_product.png" />
+    				<img src="img/like_product.jpeg" />
+    			</div>
+    			<div class="col-md-10">
+    				<div class="row home-product"></div>
+    				<div class="row home-product"></div>
+    			</div>
+    		</div>
+    		<div class="row"></div>
+    		<div class="row"></div>
+    		<div class="row">
+    			<div class="col-md-2 hotImg">
+    				<img src="img/like_product.jpeg" />
     			</div>
     			<div class="col-md-10">
     				<div class="row home-product"></div>
@@ -104,14 +168,15 @@
 	<script>
 		$(document).ready(function(){
 			$(".row").addClass("text-center");
+			$("#home-searchAll ul li").addClass("text-center");
 			$("select").css("height","50px");
+			$("th").addClass("text-center");
 		});
 		
 		$(document).ready(function() {
-          // Cache selectors for faster performance.
           var $window = $(window),
               $search_drop = $(".search-drop");
-              $scroll_top = $(".scroll-top");    
+              $scroll_top = $("#home-drop");    
           // Run this on scroll events.
         //scroll()
        //当用户滚动指定的元素时，会发生scroll事件。
@@ -119,15 +184,18 @@
        //scroll()方法触发scroll事件，或规定当发生scroll事件时运行的函数
           $window.scroll(function(){
           	var window_top = $window.scrollTop();  //
-          	var scroll_top = $scroll_top.offset().top;
+          	var scroll_top = $scroll_top.offset().top + 120;
           	//输出网页卷过去的高度，下拉菜单的偏移量
-          	console.log("固定下拉选择："+window_top+"+"+scroll_top+"+"+window.innerWidth);
+          	console.log("网页窗口的滑动距离：" + window_top + "，" + "div距离页面顶部的距离：" + "，" + scroll_top + "窗口的宽度：" + "，" + window.innerWidth);
           	//输出屏幕的宽度，屏幕的高度
-          	console.log(screen.width+"*"+screen.height); 
-          	if( window.innerWidth > 767  &&  window_top > scroll_top){
+//        	console.log(screen.width+"*"+screen.height); 
+//window.innerWidth > 767  &&
+          	if(   window_top > scroll_top ) {
+          		$(".drop").css("display","block");
           		$search_drop.addClass("stick");
           		$scroll_top.height($search_drop.height());
           	}else{
+          		$(".drop").css("display","none");
 				$search_drop.removeClass("stick");
 				$scroll_top.height(0);
           	}

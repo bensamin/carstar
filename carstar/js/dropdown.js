@@ -4,7 +4,6 @@
 // 返回顶部
 $(window).scroll(function(){
 	var sc = $(window).scrollTop();
-	console.log("GOtotop:success");
 	var rwidth = $(window).width();
 	if(sc > 0){
 		$(".goToBtn").css("display","block");
@@ -56,3 +55,38 @@ $(document).ready(function(){
 
 });
 //鼠标点击变色
+
+
+//查询
+$("#home-searchContent form").each(function(){
+	var a = $(this);
+	var b = $(this).index();
+	$("#home-searchAll ul li").click(function(){
+		$(this).css("bsckground-color","#000000");
+		var c = $(this).index();
+		if( b == c ){
+			a.css("display","block");
+		}else{
+			a.css("display","none");
+		}
+	});
+});
+
+
+$("#home-searchAll ul li").click(function(){
+	$(this).css("background","#49525f");
+	$(this).siblings().css("background","#5c6675")
+});
+
+
+$(function(){
+	var c ;
+	$("#home-searchAll ul li").each(function(){
+		 c =  $(this).index() + 1 ;
+	});
+	var w = $("#home-searchAll").width();
+	var wd = parseInt( w/c );
+	$("#home-searchAll ul li").width(wd-15);
+	console.log(w,wd);
+	
+});

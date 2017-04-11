@@ -1,14 +1,20 @@
+		
 .container{
 	margin: 30px auto;
 }
 .name-id{
+	font-size:  23px;
 	line-height: 20px;
 	margin-left:5px ;
 	font-size: 25px;
 }
+
 .row{
-	margin-top: 20px;
 	min-height: 50px;
+}
+.row-content{
+	background-color: #F1F1F1;
+	padding-top: 12px;
 }
 div[class^="col-md"]{
 	vertical-align: middle;
@@ -37,7 +43,7 @@ div[class^="col-md"]{
 	display: inline;
 }
 .address-receive{
-	margin-top:10px ;
+	margin-top:10px;
 	border-bottom: 1px solid #767676;
 }
 
@@ -45,4 +51,18 @@ div[class^="col-md"]{
 .col-md-1 img{
 	display: block;
 }
-
+#order-greenround{
+	background-color: #008C3A;
+	margin: 0 auto;
+	width: 14px;
+	height: 14px;
+	border-radius: 7px;
+}
+.order-addship{
+	display: none;
+	}
+.order-comment-content{
+	display: none;
+	width: 100%;
+	border: 1px solid #666666;
+}	

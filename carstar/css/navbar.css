@@ -1,6 +1,9 @@
-@media only screen and (max-width:359px ) {
+@media only screen and (max-width:759px ) {
 .mine{
 	display: none;
+}
+.slide-wrapper{
+	font-size: 10px;
 }
 }
 @media only screen and (max-width:768px ) {
@@ -17,30 +20,40 @@
 .keep{
 	display: none;
 }
+.cart{
+	display: none;
+}
 
 }
+/*END*/
 @media only screen and (min-width:769px ) {
 .mynavbar{
 	width: 90%;
-	margin: 10px 5%;
+	margin: 0 7%;
 }	
 .mynavbar input{
-	height: 60px;
+	height: 55px;
 	width: 50%;
-	margin: 0 15px ;
+	margin-left: 15px;
 	cursor: pointer;
+	border: 1px solid #a1a1a1;
 }
-.myform a{
-	margin-left: 10px;
+.myform{
+	font-size: 0px;
+	margin-top: 10px;
+}
+.myform span{
+	padding-top: 40px;
+	padding-left:20px ;
 }
 .carstar-logo{
-	margin-left: 70px;
+	margin-left: 15px;
 }
 }
-
+/*END*/
 li{
-	margin: 0 5px;
-	font-size: 18px;
+	margin: 0 8px;
+	font-size: 16px;
 	cursor: pointer;
 }
 span{
@@ -58,27 +71,58 @@ span{
 	height: 100%;
 	left:0px;
 	top:0px;
-	background: #ADADAD;
+	padding-top: 5%;
+	padding-left: 15%;
+	background: rgba(92,102,117, 0.8);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#995c6675, endColorstr=#995c6675);
 	display: none;
-	z-index: 3;
-}
-.myform img{
-	cursor: pointer;
+	z-index: 99999;
 }
 .show-div1{
-	height: 60px;
-	width: 50%;
-	margin-top:30px;
-	margin-left:25% ;
+	height: 65px;
+	width: 80%;
+	margin-left: 15px;
+	cursor: pointer;
+	border: 1px solid #a1a1a1;
+}
+.myform img{
+	vertical-align: middle;
+	cursor: pointer;
+}
+.show-div2{
+	display: inline-block;
+	height: 55px;
+	width: 70px;
+	background-color: #4B5160;
+	padding-top: 2px;
+	padding-left: 6px;
+	border: 1px solid #5E5E5E;
+	-moz-border-radius-topright: 3px;
+	-moz-border-radius-bottomright: 3px;
 }
 .category-one{
 	margin: 0 auto;
-	margin-top: -10px;
+	margin-top: 0px;
 	width: 70%;
+}
+.category-nav span{
+	font-size: 10px;
+}
+.nav-tabs{
+	font-size: 1rem;
 }
 .tab-content{
 	margin-top: 20px;
 }
 .category-nav{
 	border-bottom: 1px dashed #ADADAD;
+}
+.left-drop{
+	display: none;
+}
+.left-img img{
+	float: right;
+}
+.left-minedrop{
+	display: none;
 }

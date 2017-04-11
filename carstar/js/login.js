@@ -35,4 +35,38 @@ function checkUser(){
     $.cookie(name);
 }
 
-
+////密码显示隐藏
+ 		var isShow=true;
+ 		var passtext1 = document.getElementById("password-show-btn1");
+ 		var passtext2 = document.getElementById("password-show-btn2");
+        function changepassword1(){
+        	var v = document.getElementById("pwd1");
+            if (isShow) {
+            		v.type="text";
+                passtext1.src="img/hidden.png";
+                isShow=false;
+            }else{
+            		v.type="password";
+                passtext1.src="img/show.png";
+                isShow=true;
+            }
+        };
+        function changepassword2(){
+        	var v = document.getElementById("pwd2");
+            if (isShow) {
+            		v.type="text";
+                passtext2.src="img/hidden.png";
+                isShow=false;
+            }else{
+            		v.type="password";
+                passtext2.src="img/show.png";
+                isShow=true;
+            }
+        };
+        
+$(".forget-password-btn1").click(function(){
+	window.location.href = "use-forget.html";
+});
+$(".forget-password-btn2").click(function(){
+	window.location.href = "store-forget.html";
+});

@@ -12,7 +12,6 @@ $(function(){
  	
 	//店铺轮播图
  $(document).ready(function() {
- 	console.log("carstar.js")
       $("#owl-demo").owlCarousel({
         navigation : true
       });

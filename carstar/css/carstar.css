@@ -99,6 +99,57 @@ button{
 	text-align:left;
 }   
 /************中间下拉菜单******************/  
+#home-drop::after{
+	content: ;
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+#home-drop ul li{
+	float: left;
+}
+
+#home-drop{
+	position: absolute;
+	margin-left:5%;
+	width: 90%;
+	height: 600px;
+	top:450px;
+	zoom: 1;
+	z-index:999;
+}
+#home-searchAll{
+	font-size: 20px;
+	width: 60%;
+	height: 50px;
+	line-height: 40px;
+	background-color: #5c6675;
+}
+#home-searchAll li{
+	margin-left: -0px;
+	line-height: 50px;
+	font-size: 23px;
+}
+
+#home-searchAll span{
+	color: #ced6e2;
+}
+#home-searchContent{
+	width: 100%;
+	height: 120px;
+	background-color: #49525f;
+}
+#home-searchContent div{
+	display: none;
+}
+#home-searchContent{
+	padding-top: 25px;
+	padding-left: 25px;
+}
+.drop{
+	display: block;
+}
 .search-drop{
 	background: #4b5160;
   	margin-bottom: 10px;
@@ -122,11 +173,40 @@ button{
   	appearance: none;
   	-moz-appearance: none;
   	-webkit-appearance: none;
-  	background: url(../img/drop.png) no-repeat scroll right center white;
+  	background: url(../img/drop.png) no-repeat scroll right center #F1F1F1;
   	padding-right:24px ;
   	height: 30px;
   	width: 200px;
   	z-index: 2;
+  }
+  table tr th span{
+  	color: #e1f1f1;
+  	font-size: 16px;
+  }
+  .search-go{
+  	background-color: #cb4239;
+  	line-height: 50px;
+  	width: 100px;
+  	height: 49px;
+  	font-size: 20px;
+  	margin-top: -3px;
+  	border: 1px solid #CB4239;
+  	border-radius: 2px;
+  }
+  .home-searchPart{
+  	height: 50px;
+  	width: 80%;
+  }
+  .search-go1{
+  	background-color: #cb4239;
+  	line-height: 49px;
+  	width: 100px;
+  	height: 50px;
+  	font-size: 20px;
+  	margin-top: -3px;
+  	border: 1px solid #CB4239;
+  	border-radius: 2px;
+  	margin-left: -3px;
   }
  .stick {
     position: fixed;
@@ -134,18 +214,17 @@ button{
     z-index: 1;
   }
 /***********商品***************/
-.btn-group{
-	margin: 0;
-}
-.hotImg{
-	margin-top:25px;
-}
-.home-product{
-	margin: 25px 5px;
-}
 .product{
 	min-height: 200px;
 }
+.hotImg{
+	margin-top:25px;
+	padding-left: 40px;
+}
+.home-product{
+	margin-top: 35px;
+}
+
 .store{
 	min-height: 300px;
 	}
@@ -158,20 +237,6 @@ button{
         border-radius: 3px;
         text-align: center;
     }
-/******************页面底部****************************/
-.foot{	
-	padding: 5px 20px;
-	height: 200px;
-	background: #343b3f;
-	color: white;	 
-}
-.foot span{
-	color: white;
-}
-.wave{
-	min-height: 30px;
-	background: url(../img/wave.png);
-}
 /*******************brand.html***********************/
 .introduce{
 	margin: 0 auto;
@@ -309,4 +374,24 @@ button{
 	margin-top: 10px;
 }
 /*footer.html*/
-
+.foot{	
+	padding: 35px 20px;ß
+	min-height: 200px; 
+	background: #343b3f;
+	color: #F1F1F1;
+}
+.foot p{
+	vertical-align: middle;
+	margin-top:10px;
+}
+.foot span{
+	padding-top:3px ;
+	vertical-align: middle;
+	color: #F1F1F1;
+	font-family: times;
+	font-size: 14shanpx;
+}
+.wave{
+	min-height: 30px;
+	background: url(../img/wave.png);
+}
