@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>留言</title>
+	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+	<style>
+		.messages-comment{
+			width: 100%;
+		}		
+		.container{
+			margin: 15px auto;
+		}
+		.container input{
+			width: 100%;
+			height: 35px;
+			margin: 10px auto;
+		}
+		.messages-footer{
+			margin-bottom: 20px;
+		}
+		.messages-footer button{
+			font-family: simsun;
+			font-size: 20px;
+			margin-left: 80%;
+			width: 150px;
+			height: 36px;
+			color: #FCF8E3;
+			background-color: #4B5160;
+			border: 1px solid #4B5160;
+			border-radius: 5px;
+		}
+	</style>
+  <body>
+  	<!--页面头部-->
+	<div class="messages-header">
+		<img src="img/index.png" class="img-responsive"/>
+	</div>
+	<div class="container">
+		<p>您的名字：</p>
+		<input type="text"  placeholder="输入您的姓名"/>
+		<p>您的电话：</p>
+		<input type="text"  placeholder="输入您的电话"/>
+		<p>您的邮箱：</p>
+		<input type="text"  placeholder="输入您的邮箱"/>
+		<p>留言内容：</p>
+		<textarea class="messages-comment" rows="5" placeholder="输入您的留言内容"></textarea>
+	</div>	
+	<!--页面底部-->
+	<div class="messages-footer">
+		<button type="button"> 留&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;言 </button>
+	</div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    	<script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    
+     <!--jQuery slick js-->
+  </body>
+</html>
