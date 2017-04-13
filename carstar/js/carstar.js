@@ -26,10 +26,8 @@ $(function(){
 			data:"json",
 			success:function(result){
 				addBox(result);
-				console.log("success")
 			},
 			error:function(){
-				console.log("error");
 			}
 		});
 //		$.getJSON("json/product.json",function(data){

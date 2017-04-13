@@ -38,9 +38,9 @@
   	<div class="our-carousel">
 			<div id="ImageSlider">
 				<div id="gellery">
-					<div><img  src="img/index.png" class="img-responsive"><p></p></div>
-					<div><img src="img/index.png" class="img-responsive"><p></p></div>
-					<div><img src="img/index.png"  class="img-responsive"><p></p></div>	
+					<div><img src="img/index.png"><p></p></div>
+					<div><img src="img/index.png"><p></p></div>
+					<div><img src="img/index.png"><p></p></div>	
 				</div>
 			</div>	   		
   	</div>
@@ -186,11 +186,10 @@
           	var window_top = $window.scrollTop();  //
           	var scroll_top = $scroll_top.offset().top + 120;
           	//输出网页卷过去的高度，下拉菜单的偏移量
-          	console.log("网页窗口的滑动距离：" + window_top + "，" + "div距离页面顶部的距离：" + "，" + scroll_top + "窗口的宽度：" + "，" + window.innerWidth);
           	//输出屏幕的宽度，屏幕的高度
 //        	console.log(screen.width+"*"+screen.height); 
-//window.innerWidth > 767  &&
-          	if(   window_top > scroll_top ) {
+//
+          	if(   window.innerWidth > 767  && window_top > scroll_top ) {
           		$(".drop").css("display","block");
           		$search_drop.addClass("stick");
           		$scroll_top.height($search_drop.height());

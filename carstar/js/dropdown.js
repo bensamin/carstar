@@ -87,6 +87,5 @@ $(function(){
 	var w = $("#home-searchAll").width();
 	var wd = parseInt( w/c );
 	$("#home-searchAll ul li").width(wd-15);
-	console.log(w,wd);
 	
 });

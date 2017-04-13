@@ -8,13 +8,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Product</title>
+    <title>产品信息</title>
 	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/carstar.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -25,6 +24,11 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+    	html{
+    		font-size: 16px !important;
+    	}
+    </style>
   </head>
 
   <body>
@@ -32,58 +36,68 @@
 	<div class="header"></div>
   	<div class="category-menu"></div>	
 	<div class="container">
-		<div class="all-result" >
+		<!--<div class="all-result" >
 				<a href="#">车></a> 
 				<a href="#">外部装饰></a>
 				<a href="#">镜子></a>
 				<a href="#">倒车镜</a> 
-		</div>
+		</div>-->
+		<ol class="breadcrumb">
+			  <li><a href="#">主页</a></li>
+			  <li><a href="#">品牌</a></li>
+			  <li class="active">倒车镜</li>
+		</ol>
 		<!--商品-->
-		<div class="product">
+		<div class="product-product">
+			<p style="margin-left: 30px;">
+				<span >木马&reg;</span> <span>-----</span>
+				<span>车内钢圈</span>
+			</p>
 			<div class="row">
+				<!--<div class="col-md-1"></div>-->
 				<!--左侧小图片-->
-				<div class="col-md-2" >
-					<a> <img src="img/small-product.png" /> </a>
-					<a> <img src="img/small-product.png" /> </a>
-					<a> <img src="img/small-product.png" /> </a>
-					<a> <img src="img/small-product.png" /> </a>
-					<a> <img src="img/small-product.png" /> </a>
+				<div class="col-md-3 product-small" >
+					<a> <img src="img/small-product_1jpeg.jpeg" /> </a>
+					<a> <img src="img/small-product_1jpeg.jpeg" /> </a>
+					<a> <img src="img/small-product_1jpeg.jpeg" /> </a>
+					<a> <img src="img/small-product_1jpeg.jpeg" /> </a>
+					<a> <img src="img/small-product_1jpeg.jpeg" /> </a>
 				</div>
 				<!--中间大图片-->
-				<div class="col-md-7 product-img">
-					<img src="img/product.png" class="img-responsive" />
+				<div class="col-md-5 product-img">
+					<img src="img/product.jpeg" class="img-responsive" />
 				</div>
 				<!--右侧选购-->
 				<div class="col-md-3" >
 					<br />
-					<p> 
-							<!--<span>价格：</span>
-						    <span>¥</span> 
-							<span>123.456</span>-->
-					</p>
-					<p>
+					<p></p>
+					<p >
 						<span>名称：</span>
 						<span>倒车镜</span>
 					</p>
-					<p>简介：倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜</p>
-					<!--<p>颜色：</p>
-					<div class="flag">
-						<input type="button"  value="白色" />
-						<input type="button"  value="黑色" style="background: black;color: white;"/>
-						<input type="button"  value="红色" style="background: red;color: white;"/>
-						<input type="button"  value="蓝色" style="background: blue;color: white;"/>
-					</div><p></p>
-					<p> 类型：</p>
-					<div class="version">
-						<input type="button" value="类型一" />
-						<input type="button" value="类型二" />
-						<input type="button" value="类型三" />
-						<input type="button" value="类型四" />
-						<input type="button" value="类型五" />
-					</div><p></p>-->
-					<button class="product-option" type="button">产品参数</button>
+					<p>
+						<span>简介：</span>
+						<span>倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜</span>
+					</p>
+					<p>颜色：</p>
+					<input type="button" name="" id="" value="蓝色" />
+					<input type="button" name="" id="" value="黑色" />
+					<input type="button" name="" id="" value="白色" />
+					<input type="button" name="" id="" value="红色" />
+					<p></p>
+					<p>型号：</p>
+					<input type="button" value="豪华版" />
+					<input type="button" value="舒适版" />
+					<!--<button class="product-option" type="button">产品参数</button>-->
 					<button class="add-cart" type="button">加入购物车</button>
-					<button type="button">收藏</button>
+					<p style="margin-top: 30px;font-size: 1.5rem;">服务承诺：</p>
+					<p>
+						<span style="font-size: 2rem;">正品保证</span>
+						<span style="font-size: 2rem;">极速退款</span>
+					</p>
+					<p style="font-size: 1.66rem;"> 分享 </p>
+					<a href="collection.html"> <input  class="product-collection" type="button" value="收藏该商品" /> </a>
+					<a href="#"> <input class="product-lookShop" type="button" value="查看店铺" /> </a> 
 				</div>			
 			</div>
 		</div>	
