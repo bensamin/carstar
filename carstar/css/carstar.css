@@ -115,7 +115,7 @@ button{
 	padding-left: 25px;
 }
 .drop{
-	display: block;
+	display: none;
 }
 .search-drop{
 	padding-left: 20%;
