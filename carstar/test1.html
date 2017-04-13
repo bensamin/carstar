@@ -1,46 +1,11 @@
-<html>
-	<head>
-		<title></title>
-		<meta charset="UTF-8"/>
-	</head>
-	<body>
-		<script src="js/jquery-1.11.1.min.js"></script>
-<SCRIPT >
-	$(document).ready(function () {
-	$('.tabtitle li').click(function () {
-	var index = $(this).index();
-	$(this).attr('class',"tabhover").siblings('li').attr('class','taba');
-	$('.tabcontent').eq(index).show(200).siblings('.tabcontent').hide();
-	});
-	  var t = 0;
-	  var timer = setInterval(function(){
-	    if( t == $('.tabtitle li').length ) t = 0;
-	    $('.tabtitle li:eq('+t+')').click();
-	    t++;
-	  }, 700)
-});
-</SCRIPT>
-<div class="maintab">
-<ul class="tabtitle">
-	<li class="tabhover"><a href="#">选择标题1</a></li>
-	 <li class="taba"><a href="#">选择标题2</a></li>
-	 <li class="taba"><a href="#">选择标题3</a></li>
-	 <li class="taba"><a href="#">选择标题4</a></li>
-	 <li class="taba"><a href="#">选择标题5</a></li>
-</ul>
-	<div class="tabcontent">
-	选择内容1
-	</div>
-	<div class="tabcontent" style="DISPLAY: none">
-	选择内容2
-	</div>
-	<div class="tabcontent" style="DISPLAY: none">
-	选择内容3
-	</div>
-	<div class="tabcontent" style="DISPLAY: none">
-	选择内容4
-	</div>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+          <p style="font-family:'微软雅黑'">是的恐惧和罚款绝世独立空间啊回来看见谁都会罚款决定了卡家</p>
 	
-</div>
-	</body>
+</body>
 </html>

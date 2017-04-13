@@ -1,9 +1,129 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-	</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Login</title>
+	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+    <!-- Bootstrap core CSS -->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+    <!-- Custom styles for this template -->
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<style>
+		@media only screen and (max-width:767px ) {
+			.login-img{
+				display: none;
+			}
+			.header-text{
+				display: none;
+			}
+		}
+		.container{
+			margin: 10px auto;
+		}
+		.header-text{
+			font-family:arial;
+			font-style: oblique;
+			font-size: 60px;
+			letter-spacing: 5px;
+		}
+		.ship-return{
+			font-family: "微软雅黑";
+			font-size: 4rem;
+			text-align: center;
+			margin-top: 20px;
+		}
+		.ship-submit{
+			margin: 0 auto;
+			width: 200px;
+			height: 36px;
+			background-color: #2b9637;
+			color: #F0F0F0;
+			border: 1px solid #F1F1F1;
+			border-radius: 5px;
+			margin-top: 20px;
+			font-size:2.08rem
+		}
+	</style>
+
+  </head>
+
+  <body>
+  	<div class="container">
+		<div class="row" >
+			<div class="col-md-3 col-xs-6">
+				<img src="img/category.png"/>
+			</div>
+			<div class="col-md-6 header-text">
+				<span>退货说明</span>
+			</div>
+			<div class="col-md-3 col-xs-6 login-carstar">
+			 	<a href="home.html"> <!--<span>车星商城</span> --></a>
+			</div>
+		</div>
+	<p class="ship-return">退货流程</p>
+	
+	<div class="row" style="font-size:2.08rem;font-family:gadget; color: #080808; margin-top: 30px;">
+		<div class="col-md-3">
+			<img src="img/return-request.png"/>
+			<p>提交退货申请</p>
+		</div>
+		<div class="col-md-3">
+			<img src="img/return-authorization.png"/>
+			<p>我们接收到退货申请并进行处理</p>
+		</div>
+		<div class="col-md-3">
+			<img src="img/return-back.png"/>
+			<p>退货请求通过，货物运回中...</p>
+		</div>
+		<div class="col-md-3">
+			<img src="img/return-receive.png"/>
+			<p style="margin-top: 10px;">我们接收到退回的货物，检查，并在48小时内进行退款</p>
+		</div>
+	</div>
+	
+	<div class="row" style="margin-top: 60px;">
+		<div class="col-md-9">
+			<span style="font-size: 2.5rem;color: #869791;">我们需要播放的一些视频</span>
+		</div>
+		<div class="col-md-3">
+			<span style="font-size: 1.66rem;">如果你对你的本次购买不满意，我们很乐意在你收货后7天内，接受未使用过的退换货处理</span><br />
+			<input type="button" class="ship-submit" value="提交申请" />
+		</div>
+	</div>
+	</div>
+	<!--cotainer end-->
+	<div class="footer">
+		<p>欢迎来到车星官网</p>
+	</div>
+	
+	
+	<!-------------------Jscript------------------------------->
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    	<script src="js/bootstrap.min.js"></script>
+    	<script type="text/javascript" src="js/transformer.js" ></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="js/login.js" ></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  </body>
 </html>
