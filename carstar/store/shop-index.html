@@ -10,23 +10,16 @@
 
     <title>Shop</title>
 	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
-	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+	<script type="text/javascript" src="../js/jquery-1.11.1.min.js" ></script>
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="js/ie-emulation-modes-warning.js"></script>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    
    <style type="text/css">
    	label{
    		cursor: pointer;
+   	}
+   	.breadcrumb{
+   		border: 1px solid #CED6E2;
    	}
 	.shop-navtab{
 		min-height: 30px;
@@ -43,8 +36,11 @@
 	.shop-left{
 		min-height: 500px;
 		border: 1px solid #858689;
-		padding-left:5px ;
-		padding-top: 10px;
+		preduceing-left:5px ;
+		preduceing-top: 10px;
+	}
+	.shop-content div{
+		padding-left: 6%;
 	}
 	.shop-content-help{
 		width: 100%;
@@ -73,14 +69,16 @@
 			<div>
 				<label class="shop-left-store">
 					<span> 店铺管理 </span> 
-					<img src="img/add.png"/> 
+					<img src="../img/reduce.png"/> 
 				</label>
-				<p>我要开店</p>
+				<p>
+					<span>我要开店</span>
+				</p>
 			</div>
 			<div>
 				<label class="shop-left-deal">
 					<span>交易管理 </span>
-					<img src="img/add.png"/></label>
+					<img src="../img/reduce.png"/></label>
 				<p>
 					<span>已卖出的宝贝</span>
 					<span>评价管理</span>
@@ -89,7 +87,7 @@
 			<div>
 				<label class="shop-left-ship"> 
 					<span>物流管理</span> 
-					<img src="img/add.png"/>
+					<img src="../img/reduce.png"/>
 				</label>
 				<p>
 					<span>发货</span>
@@ -99,9 +97,9 @@
 					<span>我要寄快递</span></p>
 			</div>
 			<div>
-				<label class="shop-left-product">
+				<la3bel class="shop-left-product">
 					<span> 宝贝管理 </span> 
-					<img src="img/add.png"/>
+					<img src="../img/reduce.png"/>
 				</label>
 				<p><span>发布宝贝</span>
 					<span>出售中的宝贝</span></p>
@@ -111,23 +109,31 @@
 			<div>
 				<label class="shop-left-service">
 					<span>客户服务</span> 
-					<img src="img/add.png"/>
+					<img src="../img/reduce.png"/>
 				</label>
 				<p><span>退款管理</span>
-					<span>售后管理</span></p>
-				<p>举报管理<span></span>
-					<span>咨询回复</span></p>
+				   <span>售后管理</span></p>
+				<p><span>举报管理</span>
+				   <a href="#"  > <span>咨询回复</span> </a> </p>
 			</div>
+			<frameset>
+				<frame name="middle" src="costomer-service-advice.html" />
+			</frameset>
 		</div>
-		<div class="col-md-7 shop-content">
-			<ol class="breadcrumb">
-				<li><a href="#">我是卖家</a></li>
+		<div class="col-md-10 shop-content">
+			<!--<ol class="breadcrumb">
+				<li><a href="#">我是卖家</a></li> 
 				<li><a href="#">物流管理</a></li>
 				<li><a href="#">物流工具</a></li>
 				<span class="shop-content-help">查看帮助</span>
-			</ol>
-
-		</div>
+			</ol>-->
+			
+		<div class="shop-shop-manage"></div>   <!--店铺管理-->
+		<div class="shop-exchange-manage"></div>   <!--交易管理-->
+		<div class="shop-ship-manage"></div>    <!--物流管理-->
+		<div class="shop-product-manage"></div>   <!--产品管理-->
+		<div class="shop-customer-service"></div>   <!--客户服务-->
+		
 		<div class="col-md-2"></div>
 	</div>
 	<!--页面底部-->
@@ -139,22 +145,23 @@
 				if(c){
 					$(this).siblings("p").slideUp();
 					c = false;
-					$(this).children("img").attr("src","img/reduce.png") ;
+					$(this).children("img").attr("src","../img/add.png") ;
 				}else{
 					$(this).siblings("p").slideDown();
 					c = true;
-					$(this).children("img").attr("src","img/add.png") ;
+					$(this).children("img").attr("src","../img/reduce.png") ;
 				}
 			});
+		});
+		$(".shop-customer-service").load("shop-exchange-productSold.html");
+		var d = true
+		$(".shop-left div p").each(function(){
+			console.log( $(this).index() );
 		});
 	</script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    	<script src="js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
-    <script src="js/load.js" type="text/javascript" charset="utf-8"></script>
-     <!--jQuery slick js-->
+    	<script src="../js/bootstrap.min.js"></script>
   </body>
 </html>
