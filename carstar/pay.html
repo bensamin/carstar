@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Pay</title>
+    <title>付款</title>
 	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
     <!-- Bootstrap core CSS -->
@@ -36,7 +36,17 @@
     			margin: 30px 0;
     			font-size: 18px;
     		}
-    		.payment{
+    		.breadcrumb{
+    			margin-left: -13px;
+    		}
+    		.pay-way{
+    			margin: 20px auto;
+    		}
+    		.pay-way div input{
+    			width: 200px;
+    			height: 50px;
+    		}
+    		/*.payment{
     			width: 60%;
     			border: 1px dashed #9D9D9D;
     			margin: 10px 0;
@@ -45,23 +55,67 @@
     		
     		.payment label{
     			margin: 0 20px;
-    		}
+    		}*/
     </style>
   </head>
   <div class="header"></div>
 	<div class="container">
-		<span>订单号：xxxxxxxxxx</span>&nbsp;&nbsp;&nbsp;
-		<span>共计：xxxxx元</span>
-		<p>选择付款方式:</p>
-		<div class="payment">
-			<input type="radio" name="payment" id="aliPay" /><label for="aliPay">支付宝</label><br />
-			<input type="radio" name="payment"  id="weChat" /><label for="weChat">微信支付<img src="img/chat.png"/> </label><br />
-			<input type="radio" name="payment"  id="bankCard" /><label for="bankCard">余额</label>
+				<!--<span>订单号：xxxxxxxxxx</span>&nbsp;&nbsp;&nbsp;
+				<span>共计：xxxxx元</span>
+				<p>选择付款方式:</p>
+				<div class="payment">
+					<input type="radio" name="payment" id="aliPay" /><label for="aliPay">支付宝</label><br />
+					<input type="radio" name="payment"  id="weChat" /><label for="weChat">微信支付<img src="img/chat.png"/> </label><br />
+					<input type="radio" name="payment"  id="bankCard" /><label for="bankCard">余额</label>
+				</div>
+				<button type="button">付款</button>
+			</div>	-->
+		<ol class="breadcrumb">
+				<li><a href="order">订单</a></li> 
+				<li><a href="#">支付</a></li>
+				<li><a href="#">支付方式</a></li>
+				<!--<span class="shop-content-help">查看帮助</span>-->
+		</ol>
+		<div class="row">
+			<div class="col-md-4">
+				<span>选择支付方式</span>
+			</div>
 		</div>
-		<button type="button">付款</button>
-	</div>	
+		<div class="row pay-way">
+			<div class="col-md-3">
+				<input type="button" id="" value="银行卡支付" />
+			</div>
+			<div class="col-md-3">
+				<input type="button" id="" value="账户余额支付" />
+			</div>
+			<div class="col-md-3">
+				<input type="button" id="" value="支付宝支付" />
+			</div>
+			<div class="col-md-3">
+				<input type="button" id="" value="微信支付" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+			</div>
+			<div class="col-md-4">
+				<a href="order-finish.html"> <button class="add-cart" type="button">确定</button> </a>
+			</div> 
+		</div>
 	</div>
 	<div class="footer"></div>
+ 
+ 
+ 	<script>
+ 		$(".pay-way div").each(function(){
+ 			console.log( $(this).index() );
+			$(this).click(function(){
+				$(this).children().css("border","1px solid #009740");
+				$(this).siblings().children().css("border","1px solid #969897");
+			});
+		});
+		
+ 	</script>
  
     <!-- Bootstrap core JavaScript
     ================================================== -->

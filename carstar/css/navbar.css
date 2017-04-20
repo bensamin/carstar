@@ -56,7 +56,6 @@
 li{
 	cursor: pointer;
 }
-
 .category-one ul li{
 	margin: 0 8px;
 	font-size: 16px;
@@ -132,9 +131,7 @@ span{
 .left-drop{
 	display: none;
 }
-.left-img img{
-	float: right;
-}
+
 .left-minedrop{
 	display: none;
 }
@@ -167,4 +164,34 @@ span{
 	border: 1px solid #858689;
 	width: 200px;
 	height: 230px;
+}
+.glyphicon-menu-down{
+	color: #999999;
+	font-size: 18px;
+	margin-left: 190px;
+}
+.glyphicon-menu-up{
+	color: #999999;
+	font-size: 18px;
+	margin-left: 190px;
+}
+.glyphicon-menu-right{
+	color: #999999;
+	font-size: 18px;
+	margin-left: 190px;
+}
+.glyphicon-earphone{
+	color: #333333;
+	font-size: 1.66rem;
+	margin:0 10px;
+}
+.glyphicon-remove{
+	color: #666666;
+	font-size: 2.5rem;
+	margin: 15px;
+	font-weight: 200;
+}
+svg{
+	margin-top: 3px;
+	fill: #333333;
 }

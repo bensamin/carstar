@@ -71,13 +71,22 @@
 							<span>&nbsp;3.&nbsp;&nbsp;&nbsp;选择车系&nbsp;...</span>
 						</option>
 					</select>
-					<input type="submit" class="search-go" value="查询"/>
-					<p style="margin-top: 10px;"><a href="my-car.html" style="color: #FFFFFF;">我的爱车</a> </p>
+					<select class="home-model">
+						<option>
+							<span>&nbsp;3.&nbsp;&nbsp;&nbsp;选择排量&nbsp;...</span>
+						</option>
+					</select>
+					<input type="submit" class="search-go" value="GO" style="background-color: #0E9939;" />
+					<input type="submit" class="search-choose" name="" id="" value="选择产品种类" />
+					<input type="submit" class="search-choose" name="" id="" value="选择产品品牌" />
+					<p style="margin-top: 15px;margin-left: 5px; "><a href="my-car.html" style="color: #FFFFFF;">
+						<span class="glyphicon glyphicon-th-list" style="color: rgb(255,255,255);"></span>
+						车库（选择车辆）</a> </p>
 				</form>	
 
 				<form style="display: none;">
 					<input type="search" name="" required="" placeholder="Search" x-webkit-speech="" class="home-searchPart"  x-webkit-grammar="builtin:search" lang="zh-CN">
-					<input type="submit" class="search-go1" value="查询"/>
+					<input type="submit" class="search-go1" value="查询" style="color: #ffffff;font-size: 1.66rem; margin-left:-3px;border: 1px solid #0E9939;height:50px;line-height: 48px; background-color: #0E9939;"/>
 				</form> 
 				<form style="display: none;">
 					<table border="0"  width="90%">
@@ -120,7 +129,12 @@
 						<span>&nbsp;3.&nbsp;&nbsp;&nbsp;选择车系&nbsp;...</span>
 					</option>
 				</select>
-				<input type="submit" class="search-go" value="查询"/>
+				<select class="home-model">
+					<option value="2">
+						<span>&nbsp;3.&nbsp;&nbsp;&nbsp;选择排量&nbsp;...</span>
+					</option>
+				</select>
+				<input type="search" class="search-go1  text-center" value="查询" style="border: 1px solid #0E9939;height:50px;line-height: 48px; background-color: #0E9939;"/>
 			</form>		
 		 </div>    		
     </div>
@@ -197,6 +211,7 @@
 
 	<!--店铺轮播-->
     <div class="store">
+    	<p class="text-center" style="margin-top:20px;font-size: 2rem;font-weight: 500;">热门商店</p>
        <div id="demo">
         <div id="owl-demo" class="owl-carousel">        
           <div class="item"><img src="img/shop.png"/> </div>
@@ -210,11 +225,11 @@
     </div>
     <div style="width: 90%;margin: 0 auto;">
 		<ul class="nav nav-tabs">
-			<li><a href="#feature-maked" data-toggle="tab" >汽车品牌</a></li>
-			<li><a href="#feature-model" data-toggle="tab">汽车车系</a></li>
+			<li class="active"><a href="#feature-maked" data-toggle="tab" style="border:0px solid transparent;" >汽车品牌</a></li>
+			<li><a href="#feature-model" data-toggle="tab" style="border:0px solid transparent;">汽车车系</a></li>
 		</ul>  
-		<div class="tab-content">
-			<div class="tab-pane fade" id="feature-maked">
+		<div class="tab-content" >
+			<div class="tab-pane fade in active" id="feature-maked">
 				<table class="table">
 					<tr>
 						<th><a href="brand.html">大众</a></th>
@@ -279,7 +294,7 @@
 				</table>
 			</div>
 			<div class="tab-pane fade" id="feature-model">
-				<table class="table" border="0">
+				<table class="table">
 					<tr>
 							<th><a href="brand.html">大众</a></th>
 							<th>起亚</th>

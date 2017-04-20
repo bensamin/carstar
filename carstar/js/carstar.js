@@ -30,14 +30,13 @@ $(function(){
 			error:function(){
 			}
 		});
-//		$.getJSON("json/product.json",function(data){
-//			addBox(data);
-//			console.log("success");
-//		});
+		$.getJSON("json/product.json",function(data){
+			addBox(data);
+		});
 });
 	function addBox(result){
 		$.each(result,function(index,obj){
-			$(".home-product,.category-product").append(
+			$(".home-product").append(
 			"<div class='col-md-3 col-xs-6'>"+	
 			"<img src="+obj['img']+"/>"+
 			"<p>"+obj['price']+"</p>" +
@@ -45,22 +44,19 @@ $(function(){
 			"</div> " );
 		});
 	}
-
-$(function(){
-		$.ajax({
-			type:"GET",
-			url:"json/year.json",
-			data:"json",
-			success:function(year){
-//				var yearobj = eval( "( "+year+" )" );
-				addYear(year);
-				console.log(year);
-			},
-			error:function(){
-				console.log("year error");
-			}
-		});
-	});	
+//$(function(){
+//		$.ajax({
+//			type:"GET",
+//			url:"json/year.json",
+//			data:"json",
+//			success:function(year){
+////				var yearobj = eval( "( "+year+" )" );
+//				addYear(year);
+//			},
+//			error:function(){
+//			}
+//		});
+//	});	
 function addYear(year){
 	$.each(year,function(index,obj){
 		$(".home-year").append(
@@ -87,7 +83,6 @@ $(function(){
 				addBand(brand);
 			},
 			error:function(){
-				console.log("year error");
 			}
 		});
 	});	

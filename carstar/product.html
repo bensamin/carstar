@@ -28,6 +28,8 @@
     	html{
     		font-size: 16px !important;
     	}
+    	input{
+    	outline: none;}
     </style>
   </head>
 
@@ -43,16 +45,16 @@
 				<a href="#">倒车镜</a> 
 		</div>-->
 		<ol class="breadcrumb">
-			  <li><a href="#">主页</a></li>
-			  <li><a href="#">品牌</a></li>
+			  <li><a href="home.html">首页</a></li>
+			  <li><a href="brand.html">品牌</a></li>
 			  <li class="active">倒车镜</li>
 		</ol>
 		<!--商品-->
 		<div class="product-product">
-			<p style="margin-left: 30px;">
+			<!--<p style="margin-left: 30px;">
 				<span >木马&reg;</span> <span>-----</span>
 				<span>车内钢圈</span>
-			</p>
+			</p>-->
 			<div class="row">
 				<!--<div class="col-md-1"></div>-->
 				<!--左侧小图片-->
@@ -70,34 +72,51 @@
 				<!--右侧选购-->
 				<div class="col-md-3" >
 					<br />
-					<p></p>
+					<p>
+						<span style="color: #f80000;">¥</span>
+						<span style="color: #f80000;font-size: 1.8rem;">000.00</span>&nbsp;&nbsp;
+						<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
+						<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
+						<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
+						<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
+						<span class="glyphicon glyphicon-star" style="color: #dbdcdd;"></span> 
+					</p>
 					<p >
-						<span>名称：</span>
-						<span>倒车镜</span>
+						<span style="font-weight: 420;color: #4B5160;font-size: 1.5rem;">倒车镜</span>
 					</p>
 					<p>
-						<span>简介：</span>
-						<span>倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜</span>
+						<span style="color: #999999;">倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜倒车镜</span>
 					</p>
-					<p>颜色：</p>
-					<input type="button" name="" id="" value="蓝色" />
-					<input type="button" name="" id="" value="黑色" />
-					<input type="button" name="" id="" value="白色" />
-					<input type="button" name="" id="" value="红色" />
 					<p></p>
-					<p>型号：</p>
-					<input type="button" value="豪华版" />
-					<input type="button" value="舒适版" />
+					<p></p><br />
+					<div class="product-color-choose">
+						<input type="button" name="" id="" class="product-color" value="" style="background-color: #000000;"/>
+						<input type="button" name="" id="" class="product-color" value="" style="background-color: #FFFDEF;" />
+						<input type="button" name="" id="" class="product-color" value="" style="background-color: #2B542C;"/>
+						<input type="button" name="" id="" class="product-color" value="" style="background-color: #46B8DA;"/>
+					</div>	
+					<p></p><br />
+					<div class="product-type-choose">
+						<input type="button" class="product-type" value="型号一" />
+						<input type="button" class="product-type" value="型号一" />
+						<input type="button" class="product-type" value="型号一" />
+						<input type="button" class="product-type" value="型号一" />
+						<br /><br />
+						<input type="button" class="product-type" value="型号一" />
+						<input type="button" class="product-type" value="型号一" />
+					</div>	
 					<!--<button class="product-option" type="button">产品参数</button>-->
-					<button class="add-cart" type="button">加入购物车</button>
-					<p style="margin-top: 30px;font-size: 1.5rem;">服务承诺：</p>
-					<p>
-						<span style="font-size: 2rem;">正品保证</span>
-						<span style="font-size: 2rem;">极速退款</span>
-					</p>
-					<p style="font-size: 1.66rem;"> 分享 </p>
-					<a href="collection.html"> <input  class="product-collection" type="button" value="收藏该商品" /> </a>
-					<a href="#"> <input class="product-lookShop" type="button" value="查看店铺" /> </a> 
+					<a href="order.html">  <button class="add-cart" type="button">立即购买</button> </a>
+					<div class="row" >
+						<a href="shoppingCart.html"> <div class="col-md-5 col-md-offset-4 text-center">
+							<img src="img/shopping3.png"/>
+							<p style="color: #3e3e3e;">加入购物车</p>
+						</div> </a>
+						<a href="collection.html"> <div class="col-md-3" style="margin-top: 4px;">
+							<img src="img/collection1.png"/>
+							<p style="color: #3e3e3e;">收藏</p>
+						</div> </a>
+					</div>
 				</div>			
 			</div>
 		</div>	
@@ -110,25 +129,44 @@
 			</ul>
 			<!--内容-->
 			<div class="tab-content">
-				<div class="tab-pane fade in active" id="product-detail">
-					产品的参数
+				<div class="tab-pane fade in active" id="product-detail" >
 					<div class="row">
-						<div class="col-md-2">品牌名：</div>
-						<div class="col-md-2">商品编号：</div>
-						<div class="col-md-2">店铺：</div>
-						<div class="col-md-2">商品毛重：</div>
+						<div class="col-md-2">品牌名：
+							<span style="color: #5E5E5E;">品牌名</span>
+						</div>
+						<div class="col-md-2">商品编号：
+							<span style="color: #5E5E5E;">123456789</span>
+						</div>
+						<div class="col-md-2">店铺：
+							<span style="color: #5E5E5E;">亿城汽车用品专营店</span>
+						</div>
+						<div class="col-md-2">商品毛重：
+							<span style="color: #5E5E5E;">4.0KG</span>
+						</div>
 						<div class="col-md-2"></div>						
 					</div>
 					<div class="row">
-						<div class="col-md-2">商品名称：</div>
-						<div class="col-md-2">风格：</div>
-						<div class="col-md-2">类别：</div>
+						<div class="col-md-2">商品名称：
+						<span style="color: #5E5E5E;">商品的名字</span>
+						</div>
+						<div class="col-md-2">风格：
+							<span style="color: #5E5E5E;">商务</span>						
+						</div>
+						<div class="col-md-2">类别：
+							<span style="color: #5E5E5E;">其他</span>
+						</div>
 					</div>
 				</div>
 				<div class="tab-pane fade" id="product-comment"> 
-					<div class="col-md-2"> <img />用户名： </div>
+					<div class="col-md-2"> <img />用户名：bskcos</div>
 					<div class="col-md-10">
-						<p >评分：</p>
+						<p>评分：
+						<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
+						<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
+						<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
+						<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
+						<span class="glyphicon glyphicon-star" style="color: #dbdcdd;"></span> 
+						</p>
 						<p class="row">内容：</p>
 						<p class="row">晒图：
 							<img src="img/small-product.pngs" />
@@ -138,17 +176,19 @@
 				</div>
 				<div class="tab-pane fade" id="product-service">
 					<p>服务承诺</p>					
-					<span>&nbsp;&nbsp;&nbsp;&nbsp;网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品
+					<span style="color: #666666;font-size: 1.16rem;">&nbsp;&nbsp;&nbsp;&nbsp;网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品
 					网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品网站所售产品均为厂商正品</span>
 				</div>
 			</div>
 		</div>
 		<br /><br />
+		.row
 		<p class="text-center">同类产品推荐</p>
-		<div class="row">
+		<div class="row text-center">
 			<div class="col-md-4">
 				<img  src="img/shop.png"/>
-				<p>Price:123456789s</p>
+				<p>
+				</p>
 				<p>名字：</p>
 				<p>描述：</p>
 				<button type="button" id="detail">查看详情</button>
@@ -169,13 +209,23 @@
 			</div>
 		</div>
 		<div class="add-parameters"></div>
-		<div class="add-order1"></div>
+		<!--<div class="add-order1"></div>-->
 	</div>
 	<!--页面底部-->
 	<div class="footer"></div>
 	<script>
 		$(".product-option").click(function(){
 			$(".product-parameters").slideDown();
+		});
+		$(".product-type-choose input").each(function(){
+			$(this).click(function(){
+				$(this).css("border","1px solid #009740").siblings().css("border","1px solid #969897");
+			});
+		});
+		$(".product-color-choose input").each(function(){
+			$(this).click(function(){
+				$(this).css("border","3px solid #009740").siblings().css("border","2px solid #969897");
+			});
 		});
 	</script>
     <!-- Bootstrap core JavaScript

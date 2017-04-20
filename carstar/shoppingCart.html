@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ShoppingCart</title>
+    <title>购物车</title>
 	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
     <!-- Bootstrap core CSS -->
@@ -31,15 +31,15 @@
   	<!--页面头部-->
 	<div class="header"></div><br />
 	<div class="container">
-			<div class="row">
+			<div class="row" style="border-bottom: 1px solid #E3E3E3;">
 				<div class="col-md-4 col-xs-4">
-					<span>商品信息</span>
+					<span>产品</span>
 				</div>
 				<div class="col-md-1 col-xs-1">
 					<span>颜色</span>
 				</div>
 				<div class="col-md-2 col-xs-2">
-					<span>单价</span>
+					<span>价格</span>
 				</div>
 				<div class="col-md-2 col-xs-2">
 					<span>数量</span>
@@ -48,20 +48,28 @@
 					<span>金额</span>
 				</div>
 				<div class="col-md-1 col-xs-2">
-					<span>操作</span>
+					<!--<span>操作</span>-->
 				</div>
 			</div>
 			
 		
-		<p>
-		   <span>店铺2号</span>	
+		<p style="margin: 10px auto;border-bottom:1px solid #E3E3E3 ;">
+		  <input type="checkbox" name="select"  /> <img src="img/light.png"/><span>店铺2号</span>	
 		</p>	
+		<div >
 			<div class="row product1">
 				<div class="col-md-4 col-xs-4">
 					<input type="checkbox" name="select"  />
-					<img src="img/small-product.png" />
-					<span>倒车镜</span><br />
-					<span>汽车倒车镜小圆镜&nbsp;后视镜盲点广角镜助镜反光镜清晰（一对装）</span>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-4">
+							<img src="img/small-product.png" />
+						</div>
+						<div class="col-md-7">
+							<p>倒车镜</p>
+							<p>汽车倒车镜小圆镜&nbsp;后视镜盲点广角镜助镜反光镜清晰（一对装）</p>
+						</div>
+					</div>
 				</div>
 				<div class="col-md-1 col-xs-1">
 					<span>黑色</span>
@@ -76,27 +84,69 @@
 					<i class="addNum">+</i>
 				</div>
 				<div class="col-md-2 col-xs-2">
-					<span>¥</span> <span class="product-total"></span>
+					<span></span> <span class="product-total" style="color: red;"></span>
 				</div>
 				<div class="col-md-1 col-xs-1">
 					<img src="img/delete.png" />
 				</div>
 			</div>
-		<p>
-		   <span>店铺3号</span>	
-		</p>	
 			<div class="row product1">
 				<div class="col-md-4 col-xs-4">
 					<input type="checkbox" name="select"  />
-					<img src="img/small-product.png" />
-					<span>倒车镜</span><br />
-					<span>汽车倒车镜小圆镜&nbsp;后视镜盲点广角镜助镜反光镜清晰（一对装）</span>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-4">
+							<img src="img/small-product.png" />
+						</div>
+						<div class="col-md-7">
+							<p>倒车镜</p>
+							<p>汽车倒车镜小圆镜&nbsp;后视镜盲点广角镜助镜反光镜清晰（一对装）</p>
+						</div>
+					</div>
 				</div>
 				<div class="col-md-1 col-xs-1">
 					<span>黑色</span>
 				</div>
 				<div class="col-md-2 col-xs-2">
 					<span>¥</span>
+					<span class="text-price">101.11</span>
+				</div>
+				<div class="col-md-2 col-xs-2">
+					<i class="subNum">-</i>
+					<input class="text-box" type="text" value="1" />
+					<i class="addNum">+</i>
+				</div>
+				<div class="col-md-2 col-xs-2">
+					<span></span> <span class="product-total" style="color: red;"></span>
+				</div>
+				<div class="col-md-1 col-xs-1">
+					<img src="img/delete.png" />
+				</div>
+			</div>
+		</div>	
+		<div>
+		<p style="margin: 10px auto;border-bottom:1px solid #E3E3E3 ;">
+		  <input type="checkbox" name="select"  /> <img src="img/light.png"/><span>店铺3号</span>	
+		</p>	
+			<div class="row product1">
+				<div class="col-md-4 col-xs-4">
+					<input type="checkbox" name="select"  />
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-4">
+							<img src="img/small-product.png" />
+						</div>
+						<div class="col-md-7">
+							<p>倒车镜</p>
+							<p>汽车倒车镜小圆镜&nbsp;后视镜盲点广角镜助镜反光镜清晰（一对装）</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-1 col-xs-1">
+					<span>黑色</span>
+				</div>
+				<div class="col-md-2 col-xs-2">
+					<span></span>
 					<span class="text-price">456.789</span>
 				</div>
 				<div class="col-md-2 col-xs-2">
@@ -105,25 +155,26 @@
 					<i class="addNum">+</i>
 				</div>
 				<div class="col-md-2 col-xs-2">
-					<span>¥</span> <span class="product-total"></span>
+					<span></span> <span class="product-total" style="color: red;"></span>
 				</div>
 				<div class="col-md-1 col-xs-1">
 					<img src="img/delete.png" />
 				</div>
 			</div>		
-			
+		</div>	
 			<!---------------分割线----------------------------->
 			<div class="row">
-				<div class="col-md-8 col-xs-8">
-					<input  class="select-btn" type="button" value="全选" />&nbsp;&nbsp;
-					<input  class="cancel-btn" type="button" value="取消全选" />
+				<div class="col-md-10 col-xs-8">
+					<input type="checkbox" name="select"  style="margin-right: 10px;"/><span style="color: #333333;font-size: 1.66rem;">全选</span>
+					<!--<input  class="cancel-btn" type="button" value="取消全选" />-->
 				</div>
-				<div class="col-md-4 col-xs-4">
-					<p>合计：<span>¥</span> <label class="total-all"></label></p>
+				<div class="col-md-2 col-xs-4">
+					<p style="color: #666666;font-size: 1.66rem;">商品数量：3</p>
+					<p>合计：<span></span> <label class="total-all" style="color: red;font-size: 3rem;font-weight: 300;"></label></p>
 				</div>
 			</div>  
 			<a href="pay.html">
-				<input class="checkout" type="button" onclick="" value="结算"/>
+				<input class="checkout" type="button" onclick="" value="结算" style="color: #FFFFFF;font-size: 2.5rem;"/>
 			</a>
 	</div>	
 	<!--页面底部-->

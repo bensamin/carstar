@@ -30,19 +30,35 @@
 	<div class="header"></div>
 	<div class="container">
 	<p>
-		<img src="img/mine.png"/>
-		<span class="name-id">carstar001</span><br />
+		<img class="img-circle" src="img/mine-img-1.png"/>
+		<span class="name-id">邻居家的小男孩</span><br />
 	</p>
 	<!--一级选项卡-->
 	<div class="row">
-		<ul  class="nav nav-tabs">
-			<li> <a href="personal_order.html" > 我的订单 </a></li>
+		<ul  class="nav nav-tabs" style="font-size:medium;">
+			<li class="active"> <a href="#personal_order" data-toggle="tab"> 我的订单 </a></li>
 			<li> <a href="#myaddress" data-toggle="tab"> 我的收货地址</a></li>
 			<li> <a href="#mydiscount" data-toggle="tab"> 我的优惠券 </a></li>
 		</ul>
 	</div>
 	<!--二级选项卡  一级选项卡内容------>
 	<div class="tab-content">
+		<div class="tab-pane fade in active" id="personal_order">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#personal-order-waitPay">待付款</a></li>
+				<li><a href="#personal-order-waitShip">待发货</a></li>
+				<li><a href="#personal-order-waitReceive">待收货</a></li>
+				<li><a href="#personal-order-waitComment">待评价</a></li>
+				<li><a href="#personal-order-waitService">售后</a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane fade in active" id="personal-order-waitPay">12456</div>
+				<div class="tab-pane fade" id="personal-order-waitShip">12456</div>
+				<div class="tab-pane fade" id="personal-order-waitReceive">12456</div>
+				<div class="tab-pane fade" id="personal-order-waitComment">12456</div>
+				<div class="tab-pane fade" id="personal-order-waitService">12456</div>
+			</div>
+		</div>
 			<!----------收货地址---------->
 		<div class="tab-pane fade" id="myaddress">
 			<div class="row address-receive">
@@ -135,15 +151,14 @@
 				<div class="col-md-3"></div>
 			</div>
 		</div>		
+		<!---------个人订单------------>
 	</div>
 	</div>	
 	<!--页面底部-->
 	<div class="footer"></div>
 	
 	<script>
-		$(function () {
-		      $('li:eq(1) a').tab('show');
-		   });
+		
 	</script>
     <!-- Bootstrap core JavaScript
     ================================================== -->

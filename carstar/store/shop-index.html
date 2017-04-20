@@ -18,6 +18,9 @@
    	label{
    		cursor: pointer;
    	}
+   	span{
+   		cursor: pointer;
+   	}
    	.breadcrumb{
    		border: 1px solid #CED6E2;
    	}
@@ -72,7 +75,7 @@
 					<img src="../img/reduce.png"/> 
 				</label>
 				<p>
-					<span>我要开店</span>
+					<span onclick="change1()">我要开店</span>
 				</p>
 			</div>
 			<div>
@@ -80,8 +83,8 @@
 					<span>交易管理 </span>
 					<img src="../img/reduce.png"/></label>
 				<p>
-					<span>已卖出的宝贝</span>
-					<span>评价管理</span>
+					<span onclick="change2()">已卖出的宝贝</span>
+					<span onclick="change3()">评价管理</span>
 				</p>
 			</div>
 			<div>
@@ -90,35 +93,32 @@
 					<img src="../img/reduce.png"/>
 				</label>
 				<p>
-					<span>发货</span>
-					<span>物流工具</span></p>
+					<span onclick="change4()">发货</span>
+					<span onclick="change5()">物流工具</span></p>
 				<p>
-					<span>物流服务</span>
-					<span>我要寄快递</span></p>
+					<span onclick="change6()">物流服务</span>
+					<span onclick="change7()">我要寄快递</span></p>
 			</div>
 			<div>
 				<la3bel class="shop-left-product">
 					<span> 宝贝管理 </span> 
 					<img src="../img/reduce.png"/>
 				</label>
-				<p><span>发布宝贝</span>
-					<span>出售中的宝贝</span></p>
-				<p><span>仓库中的宝贝</span>
-					<span>体检中心</span></p>
+				<p><span onclick="change8()">发布宝贝</span>
+					<span onclick="change9()">出售中的宝贝</span></p>
+				<p><span onclick="change10()">仓库中的宝贝</span>
+					<span onclick="change11()">体检中心</span></p>
 			</div>
 			<div>
 				<label class="shop-left-service">
 					<span>客户服务</span> 
 					<img src="../img/reduce.png"/>
 				</label>
-				<p><span>退款管理</span>
-				   <span>售后管理</span></p>
-				<p><span>举报管理</span>
-				   <a href="#"  > <span>咨询回复</span> </a> </p>
+				<p><span onclick="change12()">退款管理</span>
+				   <span onclick="change13()">售后管理</span></p>
+				<p><span onclick="change14()">举报管理</span>
+				   <span onclick="change15()">咨询回复</span> </a> </p>
 			</div>
-			<frameset>
-				<frame name="middle" src="costomer-service-advice.html" />
-			</frameset>
 		</div>
 		<div class="col-md-10 shop-content">
 			<!--<ol class="breadcrumb">
@@ -138,30 +138,11 @@
 	</div>
 	<!--页面底部-->
 	</div>
-	<script>
-		var c = true;
-		$(".shop-left div").each(function(){
-			$(this).children("label").click(function(){
-				if(c){
-					$(this).siblings("p").slideUp();
-					c = false;
-					$(this).children("img").attr("src","../img/add.png") ;
-				}else{
-					$(this).siblings("p").slideDown();
-					c = true;
-					$(this).children("img").attr("src","../img/reduce.png") ;
-				}
-			});
-		});
-		$(".shop-customer-service").load("shop-exchange-productSold.html");
-		var d = true
-		$(".shop-left div p").each(function(){
-			console.log( $(this).index() );
-		});
-	</script>
+	
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     	<script src="../js/bootstrap.min.js"></script>
+    	<script type="text/javascript" src="../js/shop.js" ></script>
   </body>
 </html>

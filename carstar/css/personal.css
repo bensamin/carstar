@@ -3,10 +3,10 @@
 	margin: 30px auto;
 }
 .name-id{
-	font-size:  23px;
-	line-height: 20px;
+	font-size:medium;
+	vertical-align: middle;
+	vertical-align: -webkit-baseline-middle;
 	margin-left:5px ;
-	font-size: 25px;
 }
 
 .row{

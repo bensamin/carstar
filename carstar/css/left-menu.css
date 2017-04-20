@@ -70,12 +70,12 @@ a:hover {
 .clear {
   clear: both;
 }
-.fleft {
+/*.fleft {
   float: left;
-}
-.fright {
+}*/
+/*.fright {
   float: right;
-}
+}*/
 .clearfix:before,
 .clearfix:after {
   content: "";
@@ -88,15 +88,15 @@ a:hover {
 .hidden {
   display: none;
 }
-.t-left {
+/*.t-left {
   text-align: left;
-}
+}*/
 .t-center {
   text-align: center;
 }
-.t-right {
+/*.t-right {
   text-align: right;
-}
+}*/
 em,
 i,
 s {
@@ -224,20 +224,24 @@ aside.slide-wrapper {
   transition: all 0.3s ease-out;
 }
 aside.slide-wrapper > div {
-  background-color: #343434;
+  background-color: #FFFFFF;
   min-height: 100%;
 }
 aside.slide-wrapper > div > div {
-  padding: 0 10px;
+  padding: 0px 10px;
   height: 45px;
-  background-color: #262626;
+  background-color: #f2f2f2;
+  color: #666666;
   overflow: hidden;
 }
+/*电话栏*/
 aside.slide-wrapper > div > div strong {
+	margin-bottom: 10px;
   height: 45px;
-  line-height: 45px;
-  font-size: 18px;
-  color: #ffffff;
+  vertical-align: auto;
+  line-height: 35px;
+  font-size: 20px;
+  color: #666666;
   font-weight: normal;
 }
 aside.slide-wrapper.moved {
@@ -247,14 +251,16 @@ aside.slide-wrapper.moved {
   -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
-aside.slide-wrapper li > a {
+
+aside.slide-wrapper ul > li > a {
   padding: 15px 10px;
-  border-top: 1px solid #4d4d4d;
-  border-bottom: 1px solid #262626;
+  /*border-top: 1px solid #dcdcdc;*/
+  /*border-bottom: 1px solid #999999;*/
   font-size: 15px;
   display: block;
-  color: #fff;
+  color: #666666;
 }
+
 aside.slide-wrapper li.current > a {
   background-color: #262626;
 }
@@ -268,7 +274,7 @@ header h1 {
 }
 header h1 a {
   position: absolute;
-  left: 10px;
+  /*left: 10px;*/
   top: 13px;
   width: 15px;
   height: 13px;
@@ -278,17 +284,17 @@ header h1 a img {
   width: 15px;
   height: 13px;
 }
-div.imgbox {
+/*div.imgbox {
   margin: 10px 5px;
   padding: 5px 0;
   border-radius: 5px;
   background: rgba(0, 0, 0, 0.2);
-}
-div.imgbox img {
+}*/
+/*div.imgbox img {
   width: 300px;
   display: block;
   margin: 0 auto 5px auto;
-}
+}*/
 footer {
   height: 50px;
   line-height: 50px;

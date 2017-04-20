@@ -32,7 +32,6 @@ $(document).ready(function(){
 $(function(){
 	$('aside.slide-wrapper').on('touchstart', 'li', function(e){
 		$(this).addClass('current').siblings('li').removeClass('current');
-		console.log("123");
 	});
 
 		$('a.slide-menu').on('click', function(e){
@@ -50,33 +49,34 @@ $(function(){
 
 $(function(){
 	var v = true;
-	var img = document.getElementById("left-down1");
 	$(".left-allproduct").click(function(){
 		if(v){
 			$(".left-drop").slideDown();
 			v = false;
-			img.src = "img/drop-up.png";
+			$(".left-down1").removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
 		}else{
 			$(".left-drop").slideUp();
 			v = true;
-			img.src = "img/left-down.png";
+			$(".left-down1").removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
 		}
 	});
 });
 
+$(function(){
+	var v =true;
+});
 
 $(function(){
 	var v = true;
-	var img = document.getElementById("left-down2");
 	$(".left-mine").click(function(){
 		if(v){
 			$(".left-minedrop").slideDown();
 			v = false;
-			img.src = "img/drop-up.png";
+			$(".left-down2").removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
 		}else{
 			$(".left-minedrop").slideUp();
 			v = true;
-			img.src = "img/left-down.png";
+			$(".left-down2").removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
 		}
 	});
 });

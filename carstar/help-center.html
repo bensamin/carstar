@@ -1,10 +1,339 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-		帮助中心
-	</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>帮助中心</title>
+	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+	<style type="text/css">
+		body{
+			background-color: #EEEEEE;
+			
+		}
+		dl dt{
+			font-family: "微软雅黑";
+			margin-bottom: 20px;
+			font-size: 2.33rem;
+			font-weight: 400;
+			color: #333333;
+		}
+		.col-md-3 dl dd{
+			margin-bottom: 5px;
+			font-size: 1.5rem;
+			color: #666666;
+		}
+		.help-center{
+			background-color: #EEEEEE;
+		}
+		.glyphicon{
+			color: #4c4c4c;
+			font-size: 5rem;
+			margin-left: 20px;
+		}
+		.help-center-info{
+			background-color: #FFFFFF;
+		}
+		.help-center-info div>p:first-child{
+			font-size: 1.7rem;
+			color: #333333;
+		}
+		.help-center-info div>p:not(:first-child){
+			color: #666666;
+		}
+		.col-md-8{
+		}
+	</style>
+  <body>
+  	<!--页面头部-->
+	<div class="header"></div>
+	<img src="img/index.png"/>
+	<div class="help-center">
+		<div class="container">
+			<div class="row" style="background-color: #FFFFFF; padding-top: 20px; margin-top: 30px;">
+				<div class="col-md-1"></div>
+				<div class="col-md-3">
+					 <span class="glyphicon glyphicon-list-alt"></span> 
+					<dl>
+						<dt>我的订单</dt>
+						<a href="order.html">
+							<dd>跟踪我的订单</dd>
+						</a>
+						<a href="order.html">
+							<dd>修改订单</dd>
+						</a>
+						<a href="order.html">
+							<dd>取消订单</dd>
+						</a>
+						<a href="order.html">
+							<dd>地址变更</dd>
+						</a>
+					</dl>
+				</div>
+				<div class="col-md-3">
+					<img src="img/return-money.png" style="margin-left: 20px;"/>
+					<dl>
+						<dt>退货申请</dt>
+						<a href="shipDetail.html">
+							<dd>替换产品物品</dd>
+						</a>
+						<a href="personal_order.html">
+							<dd>修改订单</dd>
+						</a>
+						<a href="personal_order.html">
+							<dd>取消订单</dd>
+						</a>
+						<a href="personal.html#myaddress">
+							<dd>地址变更</dd>
+						</a>
+					</dl>
+				</div>
+				<div class="col-md-3" >
+					 <span class="glyphicon glyphicon-cog"></span> 
+					<dl>
+						<dt>其他问题</dt>
+						<a href="">
+							<dd>包装破损</dd>
+						</a>
+						<a href="">
+							<dd>缺陷产品</dd>
+						</a>
+						<a href="">
+							<dd>不正确产品</dd>
+						</a>
+						<a href="">
+							<dd>包裹丢失</dd>
+						</a>
+						<a href="">
+							<dd>装配问题</dd>
+						</a>
+						<a href="">
+							<dd>技术问题</dd>
+						</a>
+						<a href="">
+							<dd>其他问题</dd>
+						</a>
+					</dl>
+				</div>
+				<div class="col-md-1"></div>
+			</div>	
+			
+			<div class="row" style="background-color: #FFFFFF; padding-top: 20px; margin-top: 30px;">
+				<div class="col-md-1"></div>
+				<div class="col-md-3">
+					 <span class="glyphicon glyphicon-user"></span> 
+					<dl>
+						<dt>我的账户</dt>
+						<a href="login.html">
+							<dd>登陆</dd>
+						</a>
+						<a href="regist.html">
+							<dd>创建账号</dd>
+						</a>
+						<a href="use-forget.html">
+							<dd>忘记密码</dd>
+						</a>
+					</dl>
+				</div>
+				<div class="col-md-3">
+					 <span class="glyphicon glyphicon-phone-alt"></span> 
+					<dl>
+						<dt>联系我们</dt>
+						<a href="">
+							<dd>电话</dd>
+						</a>
+						<a href="">
+							<dd>电子邮件</dd>
+						</a>
+						<a href="web-im/index.html">
+							<dd>在线聊天</dd>
+						</a>
+						<a href="">
+							<dd>批发</dd>
+						</a>
+					</dl>
+				</div>
+				<div class="col-md-3">
+					 <span class="glyphicon glyphicon-comment"></span> 
+					<dl>
+						<dt>其他</dt>
+						<a href="#">
+							<dd>价格</dd>
+						</a>
+						<a href="order.html">
+							<dd>快递信息</dd>
+						</a>
+						<a href="">
+							<dd>礼物卡</dd>
+						</a>
+						<a href="user-agreement.html">
+							<dd>条款及细则</dd>
+						</a>
+						<a href="">
+							<dd>安全购物</dd>
+						</a>
+						<a href="user-agreement.html">
+							<dd>隐私声明</dd>
+						</a>
+						<a href="">
+							<dd>检查正在处理的问题</dd>
+						</a>
+					</dl>
+				</div>
+			</div>	
+			
+			<div class="row help-center-info" style="padding-top: 20px; margin-top: 30px;">
+				<div class="col-md-3">
+					<p>电话</p>
+					<p>销售：(800)&nbsp;******</p>
+					<p>订单状态：(800)&nbsp;******</p>
+					<p>客户服务：(800)&nbsp;******</p>
+					<p>当地：(800)&nbsp;******</p>
+					<p>传真：(800)&nbsp;******</p>
+				</div>
+				<div class="col-md-3">
+					<p>邮箱</p>
+					<p>销售：(800)&nbsp;******</p>
+					<p>订单状态：(800)&nbsp;******</p>
+					<p>支持：(800)&nbsp;******</p>
+				</div>
+				<div class="col-md-3">
+					<p>地址</p>
+					<p>******************************</p>
+				</div>
+				<div class="col-md-3">
+					<p>在线帮助</p>
+					<p>与我们在线沟通</p>
+				</div>
+			</div>
+			
+			<div class="row help-center-info"  style="margin-top: 5px;">
+				<div class="col-md-1">
+					<span class="glyphicon glyphicon-time" style="color: #0E9939;margin-top: 20px;"></span>
+				</div>
+				<div class="col-md-8">
+					<p>客服时间</p>
+					<p>周一至周五：早上9:00&nbsp;--&nbsp;晚上21:00</p>				
+					<p>周六至周日：早上10:00&nbsp;--&nbsp;晚上20:00</p>
+				</div>
+			</div>
+		
+		<p style="margin-top: 30px;">
+			<span style="font-size: 2.5rem;color: #333333;width: 100%;">最近浏览条目</span>
+			<span class="glyphicon glyphicon-menu-left" aria-hidden="true" style="font-size: 2rem;margin-left: 57%;"></span>
+			<span class="glyphicon glyphicon-menu-right" aria-hidden="true" style="font-size: 2rem;"></span>
+		</p>
+		<div class="row category-product">
+							<div class="col-md-3 col-xs-6 ccategory-product-list-four">
+								<img src="img/custom-floor-mats_ic_5.jpeg"/>
+								<p style="color: #666666;">汽车脚踏垫</p>
+								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: 0px;font-size: 1.2rem;"></span> 	
+								<div class="product-color-choose">
+									<input type="button" name="" id="" value="" style="background-color: #000000;width: 30px;border: 1px solid #333333;"/>
+									<input type="button" name="" id="" value="" style="background-color: #FFFDEF; width: 30px; border: 1px solid #999999;" />
+								</div>
+								<span style="color: #f80000;">¥</span>
+								<span style="color: #f80000;font-size: 1.8rem;">000.00</span>&nbsp;&nbsp;
+								 <input class="category-product-list-buy" type="button" name="" id="" value="立即购买" style="width: 80%;background-color: #e4e5e6;color: #999999;height: 40px;border: 1px solid #e4e5e6;"/>
+							</div>
+							<div class="col-md-3 col-xs-6 ccategory-product-list-four">
+								<img src="img/custom-floor-mats_ic_5.jpeg"/>
+								<p style="color: #666666;">汽车脚踏垫</p>
+								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: 0px;font-size: 1.2rem;"></span> 	
+								<div class="product-color-choose">
+									<input type="button" name="" id="" value="" style="background-color: #000000;width: 30px;border: 1px solid #333333;"/>
+									<input type="button" name="" id="" value="" style="background-color: #FFFDEF; width: 30px; border: 1px solid #999999;" />
+								</div>
+								<span style="color: #f80000;">¥</span>
+								<span style="color: #f80000;font-size: 1.8rem;">000.00</span>&nbsp;&nbsp;
+								 <input class="category-product-list-buy" type="button" name="" id="" value="立即购买" style="width: 80%;background-color: #e4e5e6;color: #999999;height: 40px;border: 1px solid #e4e5e6;"/>
+							</div>
+							<div class="col-md-3 col-xs-6 ccategory-product-list-four">
+								<img src="img/custom-floor-mats_ic_5.jpeg"/>
+								<p style="color: #666666;">汽车脚踏垫</p>
+								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: 0px;font-size: 1.2rem;"></span> 	
+								<div class="product-color-choose">
+									<input type="button" name="" id="" value="" style="background-color: #000000;width: 30px;border: 1px solid #333333;"/>
+									<input type="button" name="" id="" value="" style="background-color: #FFFDEF; width: 30px; border: 1px solid #999999;" />
+								</div>
+								<span style="color: #f80000;">¥</span>
+								<span style="color: #f80000;font-size: 1.8rem;">000.00</span>&nbsp;&nbsp;
+								 <input class="category-product-list-buy" type="button" name="" id="" value="立即购买" style="width: 80%;background-color: #e4e5e6;color: #999999;height: 40px;border: 1px solid #e4e5e6;"/>
+							</div>
+							<div class="col-md-3 col-xs-6 ccategory-product-list-four">
+								<img src="img/custom-floor-mats_ic_5.jpeg"/>
+								<p style="color: #666666;">汽车脚踏垫</p>
+								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;font-size: 1.2rem;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: 0px;font-size: 1.2rem;"></span> 	
+								<div class="product-color-choose">
+									<input type="button" name="" id="" value="" style="background-color: #000000;width: 30px;border: 1px solid #333333;"/>
+									<input type="button" name="" id="" value="" style="background-color: #FFFDEF; width: 30px; border: 1px solid #999999;" />
+								</div>
+								<span style="color: #f80000;">¥</span>
+								<span style="color: #f80000;font-size: 1.8rem;">000.00</span>&nbsp;&nbsp;
+								 <input class="category-product-list-buy" type="button" name="" id="" value="立即购买" style="width: 80%;background-color: #e4e5e6;color: #999999;height: 40px;border: 1px solid #e4e5e6;"/>
+							</div>
+		</div>  	
+		</div>
+	</div>	
+	<!--页面底部-->
+	<div class="footer"></div>
+	<script>
+		$(".category-product-list-buy").mouseenter(function(){
+		 		$(this).css("background-color","#0E9939");
+		 		$(this).css("color","#ffffff");
+			 });
+	
+	 $(".category-product-list-buy").mouseleave(function(){
+	 		$(this).css("background-color","#e4e5e6");
+	 		$(this).css("color","#999999");
+		 });	 
+	</script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    	<script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="js/load.js" ></script>
+     <!--jQuery slick js-->
+  </body>
 </html>

@@ -9,7 +9,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 
-		<title>Brand</title>
+		<title>二级分类</title>
 		<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 		<!-- Bootstrap core CSS -->
@@ -18,6 +18,8 @@
 		<link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 		<!-- Custom styles for this template -->
 		<link href="css/carstar.css" rel="stylesheet">
+		 <link href="css/owl.carousel.css" rel="stylesheet">
+    		<link href="css/owl.theme.css" rel="stylesheet">
 		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 		<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 		<script src="js/ie-emulation-modes-warning.js"></script>
@@ -31,9 +33,113 @@
 	<body>
 		<!--页面头部-->
 		<div class="header"></div>
-  		<div class="category-menu"></div>		
+  		<div class="category-menu"></div>	
+  		<div class="our-carousel">
+			<div id="ImageSlider">
+				<div id="gellery">
+					<div><img src="img/index.png"><p></p></div>
+					<div><img src="img/index.png"><p></p></div>
+					<div><img src="img/index.png"><p></p></div>	
+				</div>
+			</div>	   		
+  		</div>
+  		<div id="home-drop">
+    		<div id="home-searchAll">
+    			<ul >
+            			<li> <span style="font-size: 1.83rem;margin-left: 70px;"> 全部查询  </span> </li>
+            			<li> <span style="font-size: 1.83rem;margin-left: 70px;"> 部件查询  </span> </li>
+            			<li> <span style="font-size: 1.83rem;margin-left: 70px;"> 热门商店  </span> </li>
+            		</ul>
+    		</div>
+    		<div id="home-searchContent" >
+	    			<form>
+					<select class="home-year" style="height: 50px;color: #555555;font-size: 1.66rem;">
+						<option>
+							<span style="color: #666666;">&nbsp;1.&nbsp;&nbsp;&nbsp;选择年份&nbsp;...</span>
+						</option>
+					</select>
+					<select class="home-brand" style="height: 50px;color: #555555;font-size: 1.66rem;">
+						<option>
+							<span style="color: #666666;">&nbsp;2.&nbsp;&nbsp;&nbsp;选择品牌&nbsp;...</span>
+						</option>
+					</select>
+					<select class="home-model"style="height: 50px;color: #555555;font-size: 1.66rem;">
+						<option>
+							<span style="color: #666666;">&nbsp;3.&nbsp;&nbsp;&nbsp;选择车系&nbsp;...</span>
+						</option>
+					</select>
+					<select class="home-model"style="height: 50px;color: #555555;font-size: 1.66rem;">
+						<option>
+							<span>&nbsp;4.&nbsp;&nbsp;&nbsp;选择排量&nbsp;...</span>
+						</option>
+					</select>
+					<input type="submit" class="search-go" value="GO" style="background-color: #0E9939;" />
+					<input type="submit" class="search-choose" name="" id="" value="选择产品种类" />
+					<input type="submit" class="search-choose" name="" id="" value="选择产品品牌" />
+					<p style="margin-top: 15px;margin-left: 5px; "><a href="my-car.html" style="color: #FFFFFF;">
+						<span class="glyphicon glyphicon-th-list" style="color: rgb(255,255,255);"></span>
+						车库（选择车辆）</a> </p>
+				</form>	
+
+				<form style="display: none;">
+					<input type="search" name="" required="" placeholder="Search" x-webkit-speech="" class="home-searchPart"  x-webkit-grammar="builtin:search" lang="zh-CN">
+					<input type="submit" class="search-go1" value="查询" style="color: #ffffff;font-size: 1.66rem; margin-left:-3px;border: 1px solid #0E9939;height:50px;line-height: 48px; background-color: #0E9939;"/>
+				</form> 
+				<form style="display: none;">
+					<table border="0"  width="90%">
+						<tr>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+						</tr>
+						<tr>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
+						</tr>
+					</table>
+				</form>
+    		</div>    		
+    		 
+    </div>
+     <div class="drop">
+    		 <div class="scroll-top"></div>
+		 <div class="search-drop">
+			<form>
+				<select class="home-year" style="height: 50px;color: #555555;font-size: 1.66rem;">
+					<option value="0">
+						<span >&nbsp;1.&nbsp;&nbsp;&nbsp;选择年份&nbsp;...</span>
+					</option>
+				</select>
+				<select class="home-brand" style="height: 50px;color: #555555;font-size: 1.66rem;">
+					<option value="1">
+						<span>&nbsp;2.&nbsp;&nbsp;&nbsp;选择品牌&nbsp;...</span>
+					</option>
+				</select>
+				<select class="home-model" style="height: 50px;color: #555555;font-size: 1.66rem;">
+					<option value="2">
+						<span>&nbsp;3.&nbsp;&nbsp;&nbsp;选择车系&nbsp;...</span>
+					</option>
+				</select>
+				<select class="home-model"style="height: 50px;color: #555555;font-size: 1.66rem;">
+						<option>
+							<span>&nbsp;4.&nbsp;&nbsp;&nbsp;选择排量&nbsp;...</span>
+						</option>
+					</select>
+				<input type="submit" class="search-go" value="GO" style="border: 1px solid #0E9939;height:50px;line-height: 48px; background-color: #0E9939;"/>
+			</form>		
+		 </div>    		
+    </div>
 		<div class="all-result">
-			<p> 车 > 外部装饰 > 灯光 </p>
+			<ol class="breadcrumb">
+				<li><a href="home.html"  style="color: #333333;">首页</a></li> 
+				<li><a href="category.html"  style="color: #333333;">外部装饰</a></li>
+				<li><a href="#"  style="color: #666666;">座椅</a></li>
+			</ol>
 		</div>
 		<div class="introduce">
 			<div class="row">
@@ -51,54 +157,119 @@
 				</div>
 			</div>
 			<div class="introduce-text">
-				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;皮革是高级汽车座椅的代名词。传统上豪华型汽车的标准设备，皮革也通常位于其他型号的座椅选项列表的顶部。天然材料，皮革赋予其他面料和人造材料不匹配的车辆内饰的外观，感觉和香气。成本是皮革的少数缺点之一，因此大多数汽车和卡车都有布或乙烯基座椅。如果您想升级内饰，我们的皮革座椅套是经济实惠的解决方案。 </p>
+				<p  style="color: #333333;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;皮革是高级汽车座椅的代名词。传统上豪华型汽车的标准设备，皮革也通常位于其他型号的座椅选项列表的顶部。天然材料，皮革赋予其他面料和人造材料不匹配的车辆内饰的外观，感觉和香气。成本是皮革的少数缺点之一，因此大多数汽车和卡车都有布或乙烯基座椅。如果您想升级内饰，我们的皮革座椅套是经济实惠的解决方案。 </p>
 			</div>
 		</div>
-
+		
+		<div class="row" style="margin: 50px;">
+			<div class="col-xs-1"></div>
+			<div class="col-xs-2">
+				<a href="category.html"> <img src="img/seat-red.jpeg"/> </a>
+			</div>
+			<div class="col-xs-2">
+				<a href="category.html"> <img src="img/seat-red.jpeg"/> </a>
+			</div>
+			<div class="col-xs-2">
+				<a href="category.html"> <img src="img/seat-red.jpeg"/> </a>
+			</div>
+			<div class="col-xs-2">
+					<a href="category.html"> <img src="img/seat-red.jpeg"/> </a>
+			</div>
+			<div class="col-xs-2">
+					<a href="category.html"> <img src="img/seat-red.jpeg"/> </a>
+			</div>
+			<div class="col-xs-1"></div>
+		</div>
+		<div class="row" style="margin-bottom: 50px;">
+			<div class="col-xs-1"></div>
+			<div class="col-xs-2">
+				<a href="category.html"> <img src="img/seat-black.jpeg"/> </a>
+			</div>
+			<div class="col-xs-2">
+				<a href="category.html"> <img src="img/seat-black.jpeg"/> </a>
+			</div>
+			<div class="col-xs-2">
+				<a href="category.html"> <img src="img/seat-black.jpeg"/> </a>
+			</div>
+			<div class="col-xs-2">
+				<a href="category.html"> <img src="img/seat-black.jpeg"/> </a>
+			</div>
+			<div class="col-xs-2">
+				<a href="category.html"> <img src="img/seat-black.jpeg"/> </a>
+			</div>
+			<div class="col-xs-1"></div>
+		</div>
+		<!--<div style="width: 100%;">
+			<span class="glyphicon glyphicon-th-large" style="margin-left: 85%; font-size: 3rem;color: #333333;"></span> 
+			<span class="glyphicon glyphicon-th" style="font-size: 3rem;color: #666666;"></span> 
+		</div>	 	-->
 		<div class="result result-brand">
 			<div class="row">
 				<div class="col-md-2">
 					<div class="choose">
-						价&nbsp;格 <!-- <span class="glyphicon glyphicon-plus" style="font-size: 13px;"></span>-->
-						<input type="image" src="img/add.png" class="add add1" />
+						价格<input type="image" src="img/add.png" class="add add1"/>
 						<input type="image" src="img/reduce.png" class="reduce reduce1" />
 						<div class="price1">
-								<input name="price" type="radio" />50-100 <br />
-								<input name="price" type="radio" />100-1000<br />
-								<input name="price" type="radio" />1000-2000 <br />
-								<input name="price" type="radio" />2000-3000<br />
-								<input name="price" type="radio" />3000-4000 <br />
-								<input name="price" type="radio" />5000-6000
+								<input name="price" type="checkbox" />50-100 <br />
+								<input name="price" type="checkbox" />100-1000<br />
+								<input name="price" type="checkbox" />1000-2000 <br />
+								<input name="price" type="checkbox" />2000-3000<br />
+								<input name="price" type="checkbox" />3000-4000 <br />
+								<input name="price" type="checkbox" />5000-6000
 						</div>
 					</div>
 					<div class="choose">
-						<p>评&nbsp;论
+						<p>评论
 							<input type="image" src="img/add.png" class="add add2" />
 							<input type="image" src="img/reduce.png" class="reduce reduce2" /> </p>
 						<div class="price2">
-							<input name="comment" type="radio" />五星<br />
-							<input name="comment" type="radio" />四星<br />
-							<input name="comment" type="radio" />三星<br />
-							<input name="comment" type="radio" />二星<br />
-							<input name="comment" type="radio" />一星
+							<input name="comment" type="checkbox" /> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
+							<br />
+							<input name="comment" type="checkbox" />
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
+							<br />
+							<input name="comment" type="checkbox" />
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
+							<br />
+							<input name="comment" type="checkbox" />
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
+							<br />
 							
 						</div>
 					</div>
 					<div class="choose">
-						<p>品&nbsp;牌
+						<p>品牌
 							<input type="image" src="img/add.png" class="add add3" />
 							<input type="image" src="img/reduce.png" class="reduce reduce3" /> </p>
 						<div class="price3">
-							<input name="brand" type="radio" />本田<br />
-							<input name="brand" type="radio" />奥迪
+							<input name="brand" type="checkbox" />本田<br />
+							<input name="brand" type="checkbox" />奥迪
 						</div>
 					</div>
 				</div>
 				<!--------------商品--------------->
-				<div class="col-md-9">
+				<div class="col-md-9 text-center">
 					<div class="row">
 						<div class="col-md-3 col-xs-6">
-						<a href="product.html"> <img src="img/test.png" />
+						<a href="product.html"> 
+							<img src="img/test.png" />
 							<p>Price</p>
 							<p>Decrition</p> </a>	
 						</div>
@@ -235,17 +406,49 @@
 		<div class="footer"></div>
 		<script type="text/javascript">
 			$(".result p	").addClass("text-center");
+			$(document).ready(function() {
+          var $window = $(window),
+              $search_drop = $(".search-drop");
+              $scroll_top = $("#home-drop");    
+          // Run this on scroll events.
+        //scroll()
+       //当用户滚动指定的元素时，会发生scroll事件。
+       //scroll事件适用于所有可滚动的元素和window对象（浏览器窗口）
+       //scroll()方法触发scroll事件，或规定当发生scroll事件时运行的函数
+          $window.scroll(function(){
+          	var window_top = $window.scrollTop();  //
+          	var scroll_top = $scroll_top.offset().top + 120;
+          	//输出网页卷过去的高度，下拉菜单的偏移量
+          	//输出屏幕的宽度，屏幕的高度
+//        	console.log(screen.width+"*"+screen.height); 
+//
+          	if(   window.innerWidth > 767  && window_top > scroll_top ) {
+          		$(".drop").css("display","block");
+          		$search_drop.addClass("stick");
+          		$scroll_top.height($search_drop.height());
+          	}else{
+          		$(".drop").css("display","none");
+				$search_drop.removeClass("stick");
+				$scroll_top.height(0);
+          	}
+          });         
+      });     
 		</script>
 		<!-- Bootstrap core JavaScript
     ================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		<script src="js/ie10-viewport-bug-workaround.js"></script>
+		 	<script src="js/bootstrap.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+	<script src="js/transformer.js" type="text/javascript"></script>    	
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+     <!--jQuery owl carousel js--> 
+     <script src="js/owl.carousel.js"></script>
 
-		<!--js-->
-		<script type="text/javascript" src="js/dropdown.js"></script>
-		<script type="text/javascript" src="js/load.js"></script>
+     <!--load.js-->
+	<script type="text/javascript" src="js/carstar.js" ></script>
+	 <script type="text/javascript" src="js/dropdown.js" ></script>     
+     <script type="text/javascript" src="js/load.js" ></script>
 	</body>
 
 </html>
