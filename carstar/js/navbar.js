@@ -81,6 +81,51 @@ $(function(){
 	});
 });
 
+$(function(){
+	var v = true;
+	$(".left-car").click(function(){
+		if(v){
+			$(".left-choose-car").slideDown();
+			v = false;
+			$(".left-down3").removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
+		}else{
+			$(".left-choose-car").slideUp();
+			v = true;
+			$(".left-down3").removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
+		}
+	});
+});
+
+$(function(){
+	var v = true;
+	$(".left-help").click(function(){
+		if(v){
+			$(".left-help-content").slideDown();
+			v = false;
+			$(".left-down5").removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
+		}else{
+			$(".left-help-content").slideUp();
+			v = true;
+			$(".left-down5").removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
+		}
+	});
+});
+
+$(function(){
+	var v = true;
+	$(".left-collection").click(function(){
+		if(v){
+			$(".left-collection-content").slideDown();
+			v = false;
+			$(".left-down4").removeClass("glyphicon-menu-down").addClass("glyphicon-menu-up");
+		}else{
+			$(".left-collection-content").slideUp();
+			v = true;
+			$(".left-down").removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
+		}
+	});
+});
+
 //personal
 $(".myform a:eq(3)").on("mouseover mouseout",function(event){
 	if(event.type == "mouseover"){

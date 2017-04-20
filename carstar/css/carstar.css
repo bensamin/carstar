@@ -400,21 +400,23 @@ button{
 }
 /*footer.html*/
 .foot{	
-	padding: 35px 20px;ß
+	font-family: "微软雅黑";
+	padding: 35px 20px;
 	min-height: 200px; 
 	background: #343b3f;
-	color: #F1F1F1;
+	color: #FFFFFF;
 }
-.foot p{
-	vertical-align: middle;
-	margin-top:10px;
+
+.foot div span{
+	color: #FFFDEF;
+	font-size: 2rem;
 }
-.foot span{
-	padding-top:3px ;
-	vertical-align: middle;
-	color: #F1F1F1;
-	font-family: times;
-	font-size: 14px;
+.foot div li{
+	margin-top: 10px;
+}
+.foot div li a{
+	font-size: 1.3rem;
+	color: #E2E2E2;
 }
 .wave{
 	min-height: 30px;

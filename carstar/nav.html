@@ -24,7 +24,7 @@
     	<!---------------购物车等图标------------>
     	<div class="top" style="background-color: #E0E0DA;height: 20px;color: #8F8F94;padding-left: 67%;font-weight: 400;">
     		<span style="color:#5E5E5E;">电话：123-456789</span> &nbsp;&nbsp;&nbsp;
-    		<a href="personal_order.html" style="color:#5E5E5E;">订单跟踪</a>
+    		<a href="track-order.html" style="color:#5E5E5E;">订单跟踪</a>
     		<a href="web-im/index.html" style="padding-left: 20px;color:#5E5E5E;">联系客服</a>
     		<a href="help-center.html" style="padding-left: 20px;color: #5E5E5E;">帮助中心</a>
     	</div>
@@ -817,14 +817,104 @@
 					<li class="left-img left-mine" style="border-top: 1px solid #dcdcdc;"><a>我的账户 
 						<span class="glyphicon glyphicon-menu-down left-down2"></span> </a>
 						<ul class="left-minedrop">
-							<li><a href="personal.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人中心</a></li>
+							<!--<li><a href="personal.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人中心</a></li>
 							<li><a href="order.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;订单</a></li>
-							<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;退出</a></li>
+							<li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;退出</a></li>-->
+							<div>
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-10">
+										<a href="login.html"> <button class="add-cart" type="button">登陆</button> </a>
+										<p >新用户？<a href="regist.html"> <span style="color: #0086B3;">去注册</span> </a> </p>
+									</div>
+									<div class="col-md-1"></div>
+								
+								</div>
+								<div class="row">
+									<div class="col-md-1"></div>
+									<div class="col-md-3">
+										<p> <a href="personal_order.html"> 账单 </a> </p>
+									</div>
+									<div class="col-md-3">
+										<p> <a href="order.html"> 订单 </a> </p>
+									</div>
+									<div class="col-md-3">
+										<p> <a href="collection.html"> 收藏 </a> </p>
+									</div>
+									<div class="col-md-1"></div>
+								</div>
+							</div>
 						</ul>
 					</li>
-					<li class="left-img" style="border-top: 1px solid #dcdcdc;"><a href="my-car.html">我的爱车 <span class="glyphicon glyphicon-menu-down"></span> </a></li>
-					<li class="left-img" style="border-top: 1px solid #dcdcdc;"><a href="collection.html">收&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;藏 <span class="glyphicon glyphicon-menu-down"></span> </a></li>
-					<li style="border-top: 1px solid #dcdcdc;"><a href="home.html">帮助中心 <span class="glyphicon glyphicon-menu-right"></span> </a></li>
+					<li class="left-img left-car" style="border-top: 1px solid #dcdcdc;"><a>我的爱车 <span class="glyphicon glyphicon-menu-down left-down3"></span> </a>
+						<div class="left-choose-car" style="color: #666666;margin-left: 10px;margin-bottom: 20px; display: none;">
+							<div class="row" >
+								<div class="col-md-8" >
+									<p>车库选车历史</p>
+									<p>轻松导航最新车辆选择</p>
+								</div>
+								<div class="col-md-4">
+									<span class="glyphicon glyphicon-th-list" style="color: #333333;"></span>
+								</div>
+							</div>
+							
+							<div class="row" style="margin-left: 20px;margin-top: 10px;">
+								<p> 2015&nbsp;&nbsp;&nbsp;BMW&nbsp;&nbsp;&nbsp;X1</p>
+								<input type="button" name="" id="" value="保存" />
+								<a href="my-car.html"> <button class="add-cart" type="button" style="background-color:#535353;margin-left: -15px;">浏览目录</button> </a>
+							</div>
+							
+							<div class="row" style="color: #666666;margin-top: 10px;">
+								<div class="col-md-6">
+									<p > <a href="my-car.html" style="color: #666666;">  添加车辆 </a></p>
+								</div>
+								<div class="col-md-5">
+									<p>删除所有车辆</p>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="left-img left-collection" style="border-top: 1px solid #dcdcdc;"><a>收&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;藏 <span class="glyphicon glyphicon-menu-down  left-down4"></span> </a></li>
+						<div class="left-collection-content" style="color: #666666;margin-bottom:10px;display: none;">
+							<button class="add-cart" type="button" style="color: #FFFDEF;background-color: #535353;border: 1px solid #535353;margin-left: 15px;">愿望清单</button>
+							<div class="row" style="margin-left: 5px;margin-top: 10px;">
+								<div class="col-md-3">
+									<span class="glyphicon glyphicon-heart-empty" style="color: #666666; font-size: 30px;"> </span>
+								</div>
+								<div class="col-md-9">
+									<span style="color: #666666;">收藏产品，图片，项目</span>
+								</div>
+							</div>
+							<div class="row" style="margin-left: 5px;margin-top: 10px;">
+								<div class="col-md-3">爱心</div>
+								<div class="col-md-9">
+									<span style="color: #666666;">按车辆</span>
+								</div>
+							</div>
+							<div class="row" style="margin-left: 5px;margin-top: 10px;">
+								<div class="col-md-3">分享</div>
+								<div class="col-md-9">
+									<span style="color: #666666;">分享给你的朋友</span>
+								</div>
+							</div>
+						</div>
+					<li class="left-help" style="border-top: 1px solid #dcdcdc;"><a>帮助中心 <span class="glyphicon glyphicon-menu-right  left-down5"></span> </a>
+						
+						<div class="row left-help-content" style="margin-bottom: 5px;display: none;">
+							<div class="col-md-1"></div>
+							<div class="col-md-3" style="color: #666666;font-size: 1.2rem;">
+								<p>常见问题</p>
+							</div>
+							<div class="col-md-3" >
+								<p> <a href="help-center.html" style="color: #666666;font-size: 1.2rem;"> 帮助中心 </a></p>
+							</div>
+							<div class="col-md-3">
+								<p><a href="contact-us.html"  style="color: #666666;font-size: 1.2rem;">联系我们 </a></p>
+							</div>
+							<div class="col-md-1"></div>
+						</div>
+						
+					</li>
 					<li style="border-top: 1px solid #dcdcdc;"><a href="shipDetail.html">物流说明 <span class="glyphicon glyphicon-menu-right"></span></a></li>
 					<li style="border-top: 1px solid #dcdcdc;"><a href="contact-us.html">联系我们 <span class="glyphicon glyphicon-menu-right"></span></a></li>
 					<li style="border-top: 1px solid #dcdcdc;"><a href="messages.html">留言 <span class="glyphicon glyphicon-menu-right" style="color: #999999;font-size: 18px;margin-left: 220px;"></span></a></li>
