@@ -126,37 +126,6 @@ $(function(){
 	});
 });
 
-//personal
-$(".myform a:eq(3)").on("mouseover mouseout",function(event){
-	if(event.type == "mouseover"){
-		$(".nav-personal").fadeIn();
-	}
-	if(event.type == "mouseout"){
-		$(".nav-personal").fadeOut();
-	}
-});
- 
- //garage
-$(".myform a:eq(4)").on("mouseover mouseout",function(event){
-	if(event.type == "mouseover"){
-		$(".nav-garage").fadeIn();
-	}
-	if(event.type == "mouseout"){
-		$(".nav-garage").fadeOut();
-	}
-});
-
-//garage
-$(".myform a:eq(5)").on("mouseover mouseout",function(event){
-	if(event.type == "mouseover"){
-		$(".nav-collection").fadeIn();
-	}
-	if(event.type == "mouseout"){
-		$(".nav-collection").fadeOut();
-	}
-});
-
-
 function hover(){
 		//personal
 		var person_w = $(".nav-personal").width();
@@ -165,7 +134,6 @@ function hover(){
 		var nav_personal = new Object();
 		nav_personal.top = parseInt( $(".myform a:eq(3)").offset().top + $(".myform img:eq(3)").width() );
 		nav_personal.left = parseInt( $(".myform a:eq(3)").offset().left - (person_w/2) + (person_w1 / 2)  )   ;
-		console.log( nav_personal.top , nav_personal.left);		
 		$(".nav-personal").css("left",nav_personal.left );
 		
 		//,garage
@@ -175,7 +143,6 @@ function hover(){
 		var nav_garage = new Object();
 		nav_garage.top = parseInt( $(".myform a:eq(4)").offset().top + $(".myform img:eq(4)").width() );
 		nav_garage.left = parseInt( $(".myform a:eq(4)").offset().left - (garage_w/2) + (garage_w1 / 2)  )   ;
-		console.log( nav_garage.top , nav_garage.left);		
 		$(".nav-garage").css("left",nav_garage.left );
 		
 		//collection
@@ -185,11 +152,74 @@ function hover(){
 		
 		var nav_collection = new Object();
 		nav_collection.top = parseInt( $(".myform a:eq(5)").offset().top + $(".myform img:eq(5)").width() );
-		nav_collection.left = parseInt( $(".myform a:eq(5)").offset().left - (collection_w/2) + (collection_w1 / 2)  )   ;
-		console.log( nav_collection.top , nav_collection.left);		
+		nav_collection.left = parseInt( $(".myform a:eq(5)").offset().left - (collection_w/2) )   ;
 		$(".nav-collection").css("left",nav_collection.left );
 		
 		
 //		$(".nav-personal").top( $(".myform a:eq(3)").offset().top  )	
 }
 setInterval(hover,40);
+
+
+(function($){
+    $.fn.hoverDelay = function(options){
+        var defaults = {
+            hoverDuring: 20,
+            outDuring: 2000,
+            hoverEvent: function(){
+                $.noop();
+            },
+            outEvent: function(){
+                $.noop();    
+            }
+        };
+        var sets = $.extend(defaults,options || {});
+        var hoverTimer, outTimer, that = this;
+        return $(this).each(function(){
+            $(this).hover(function(){
+                clearTimeout(outTimer);
+                hoverTimer = setTimeout(function(){sets.hoverEvent.apply(that)}, sets.hoverDuring);
+            },function(){
+                clearTimeout(hoverTimer);
+                outTimer = setTimeout(function(){sets.outEvent.apply(that)}, sets.outDuring);
+            });    
+        });
+    }      
+})(jQuery);
+
+
+$(".myform a:eq(3)").hoverDelay({
+	hoverEvent:function(){
+			$(".nav-personal").fadeIn();
+			$(".nav-personal").next().css("display","none");
+	},
+	outEvent:function(){
+			$(".nav-personal").fadeOut();
+	}
+});
+
+
+$(".myform a:eq(4)").hoverDelay({
+	hoverEvent:function(){
+			$(".nav-garage").fadeIn();
+			$(".nav-garage").prev().css("display","none");
+			$(".nav-garage").next().css("display","none");
+	},
+	outEvent:function(){
+			$(".nav-garage").fadeOut();
+	}
+});
+
+$(".myform a:eq(5)").hoverDelay({
+	hoverEvent:function(){
+			$(".nav-collection").fadeIn();
+			$(".nav-collection").prev().css("display","none");
+	},
+	outEvent:function(){
+			$(".nav-collection").fadeOut();
+	}
+});
+
+
+
+

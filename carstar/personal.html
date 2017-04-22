@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>Personal</title>
+    <title>个人中心</title>
 	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
     <!-- Bootstrap core CSS -->
@@ -23,143 +23,697 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+    	.container-content{
+    		margin: 0px 5%;
+    	}
+    	.personal-navbal{
+    		background-color: #EDEEEF;
+    	}
+    	.personal-navbal input{
+    		width: 25%;
+    		margin-left: -20px;
+    		height: 50px;
+    		background-color: #EDEEEF;
+    		border: 1px solid #EDEEEF;
+    		color: #424344;
+    	}
+    	.personal-navbal-address{
+    		display: none;
+    	}
+    	.personal-navbal-discount{
+    		display: none;
+    	}
+    	.personal-navbal-personalInfo{
+    		display: none;
+    	}
+    </style>
   </head>
 
   <body>
   	<!--页面头部-->
+	<div class="personalInfo" style="display: none;"></div>	
+	<div class="bankInfo" style="display: none;"></div>	
+  	
 	<div class="header"></div>
+
 	<div class="container">
-	<p>
-		<img class="img-circle" src="img/mine-img-1.png"/>
-		<span class="name-id">邻居家的小男孩</span><br />
-	</p>
-	<!--一级选项卡-->
-	<div class="row">
-		<ul  class="nav nav-tabs" style="font-size:medium;">
-			<li class="active"> <a href="#personal_order" data-toggle="tab"> 我的订单 </a></li>
-			<li> <a href="#myaddress" data-toggle="tab"> 我的收货地址</a></li>
-			<li> <a href="#mydiscount" data-toggle="tab"> 我的优惠券 </a></li>
-		</ul>
-	</div>
-	<!--二级选项卡  一级选项卡内容------>
-	<div class="tab-content">
-		<div class="tab-pane fade in active" id="personal_order">
-			<ul class="nav nav-tabs">
-				<li class="active"><a href="#personal-order-waitPay">待付款</a></li>
-				<li><a href="#personal-order-waitShip">待发货</a></li>
-				<li><a href="#personal-order-waitReceive">待收货</a></li>
-				<li><a href="#personal-order-waitComment">待评价</a></li>
-				<li><a href="#personal-order-waitService">售后</a></li>
-			</ul>
-			<div class="tab-content">
-				<div class="tab-pane fade in active" id="personal-order-waitPay">12456</div>
-				<div class="tab-pane fade" id="personal-order-waitShip">12456</div>
-				<div class="tab-pane fade" id="personal-order-waitReceive">12456</div>
-				<div class="tab-pane fade" id="personal-order-waitComment">12456</div>
-				<div class="tab-pane fade" id="personal-order-waitService">12456</div>
+		<div class="container-content">
+			<p>
+				<img class="img-circle" src="img/mine-img-1.png"/>
+				<span class="name-id">邻居家的小男孩</span><br />
+			</p>
+			<!--一级选项卡-->
+			<div class="row personal-navbal">
+				<div class="col-md-"></div>
+				<div class="col-md-11" style="color: #333333; font-size: 2rem;">
+					<input type="button" name="" id="" value="我的订单" style="background-color: #424344;color: #FFFDEF;" />
+				
+					<input type="button" name="" id="" value="我的收货地址" />
+				
+					<input type="button" value="我的优惠券" />
+				
+					<input type="button" name="" id="" value="个人信息" />
+				</div>
+				<div class="col-md-2"></div>
 			</div>
-		</div>
-			<!----------收货地址---------->
-		<div class="tab-pane fade" id="myaddress">
-			<div class="row address-receive">
-				<div class="col-md-2 col-xs-3">
-					<input type="checkbox" /><br />
-					收货地址
+			
+			<div class="row personal-navbal-content">
+				<div class="row personal-navbal-order">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#personal-order-all" data-toggle="tab">全部订单</a></li>
+						<li><a href="#personal-order-waitPay" data-toggle="tab">待付款</a></li>
+						<li><a href="#personal-order-waitShip" data-toggle="tab">待发货</a></li>
+						<li><a href="#personal-order-waitReceive" data-toggle="tab">待收货</a></li>
+						<li><a href="#personal-order-waitComment" data-toggle="tab">待评价</a></li>
+						<li><a href="#personal-order-waitService" data-toggle="tab">售后</a></li>
+					</ul>
+					<div class="tab-content">
+						<!--全部订单-->
+						<div class="tab-pane fade in active" id="personal-order-all">
+							<div class="row row-content">
+								<div class="col-md-1 col-xs-1">
+									<span>产品</span>
+								</div>
+								<div class="col-md-3 col-xs-3">
+									<span>描述</span>
+								</div>
+								<div class="col-md-1 col-xs-1">
+									<span>数量</span>
+								</div>
+								<div class="col-md-1 col-xs-1">
+									<span>颜色</span>
+								</div>
+								<div class="col-md-1 col-xs-1">
+									<span>单价</span>
+								</div>
+								<div class="col-md-1 col-xs-1">
+									<span>总价</span>
+								</div>
+								<div class="col-md-1">
+									<span>商品操作</span>
+								</div>
+								<div class="col-md-1 col-xs-1">
+									<span>订单状态</span>
+								</div>
+								<div class="col-md-2 col-xs-1">
+									<span>其他</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-0.1">
+									<input type="checkbox" />
+								</div>
+								<div class="col-md-1">
+									<a href="product.html"> <img src="img/small-product.png"/> </a>
+								</div>
+								<div class="col-md-3">
+									<p>倒车镜</p>
+									<p>倒车镜的描述倒车镜的描述倒车镜的描述</p>
+								</div>
+								<div class="col-md-1">
+									<span>3</span>
+								</div>
+								<div class="col-md-1">
+									<span>黑色</span>
+								</div>
+								<div class="col-md-1">
+								 	<span>¥</span>
+									<span>100.00</span>
+								
+								</div>
+								<div class="col-md-1">
+								 	<span>¥</span>
+									<span>300.00</span>
+								
+								</div>
+								<div class="col-md-1">
+									<span>投诉卖家</span>
+								</div>
+								<div class="col-md-1">
+									<a href="refund.html"> <span>退款/退货</span> </a> 
+									<p>  <a href="order.html"> <span>订单详情</span> </a>  </p>
+								</div>
+								<div class="col-md-2">
+									<!--<input type="button" value="取消订单" /> <br />
+									<input type="button" value="删除订单" /><br />
+									<a href="pay.html"><input type="button" value="付款" /></a>-->
+									<span>已退货</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-0.1">
+									<input type="checkbox" />
+								</div>
+								<div class="col-md-1">
+									<a href="product.html"> <img src="img/small-product.png"/> </a>
+								</div>
+								<div class="col-md-3">
+									<p>倒车镜</p>
+									<p>倒车镜的描述倒车镜的描述倒车镜的描述</p>
+								</div>
+								<div class="col-md-1">
+									<span>3</span>
+								</div>
+								<div class="col-md-1">
+									<span>黑色</span>
+								</div>
+								<div class="col-md-1">
+								 	<span>¥</span>
+									<span>100.00</span>
+								</div>
+								<div class="col-md-1">
+								 	<span>¥</span>
+									<span>300.00</span>
+								
+								</div>
+								<div class="col-md-1">
+									<span>投诉卖家</span>
+								</div>
+								<div class="col-md-1">
+									<p>  <a href="refund.html"> <span>退款/退货</span> </a>  </p>
+									<p>  <a href="order.html"> <span>订单详情</span> </a>  </p>
+								</div>
+								<div class="col-md-2">
+									<!--<input type="button" value="取消订单" /> <br />
+									<input type="button" value="删除订单" /><br />
+									<a href="pay.html"><input type="button" value="付款" /></a>-->
+									<span>确认收货 </span>
+								</div>
+							</div>
+			 			</div>
+						<!--待付款-->
+						<div class="tab-pane fade" id="personal-order-waitPay">
+							<div class="row row-content">
+								<div class="col-md-1">
+								</div>
+								<div class="col-md-3">
+									<span>商品</span>
+								</div>
+								<div class="col-md-1">
+									<span>数量</span>
+								</div>
+								<div class="col-md-1">
+									<span>颜色</span>
+								</div>
+								<div class="col-md-1">
+									<span>价格</span>
+								</div>
+								<div class="col-md-2">
+									<span>交易状态</span>
+								</div>
+								<div class="col-md-2" >
+									<span>操作</span>
+								</div>
+							</div>
+							<div class="row">
+								<div >
+									<input type="checkbox" />
+								</div>
+								<div class="col-md-1">
+									<a href="product.html"> <img src="img/small-product.png"/> </a>
+								</div>
+								<div class="col-md-3">
+									<p>倒车镜</p>
+									<p>倒车镜的描述倒车镜的描述倒车镜的描述</p>
+								</div>
+								<div class="col-md-1">
+									<span>1</span>
+								</div>
+								<div class="col-md-1">
+									<span>黑色</span>
+								</div>
+								<div class="col-md-1">
+									<span>¥</span>
+									<span>123.45</span>
+								</div>
+								<div class="col-md-2">
+									<span>未付款</span>
+								</div>
+								<div class="col-md-2">
+									<!--<input type="button" value="取消订单" />-->
+									<!--<input type="button" value="删除订单" /><br />-->
+									<a href="pay.html"><input type="button" value="付款" /></a>
+								</div>
+							</div>
+					</div>
+						<!--待发货-->
+						<div class="tab-pane fade" id="personal-order-waitShip">
+							<div class="row row-content">
+								<div class="col-md-1">
+								</div>
+								<div class="col-md-3">
+									<span>商品</span>
+								</div>
+								<div class="col-md-1">
+									<span>数量</span>
+								</div>
+								<div class="col-md-1">
+									<span>颜色</span>
+								</div>
+								<div class="col-md-1">
+									<span>价格</span>
+								</div>
+								<div class="col-md-2">
+									<span>交易状态</span>
+								</div>
+								<div class="col-md-2">
+									<span>操作</span>
+								</div>
+							</div>
+							<div class="row">
+								<div>
+									<input type="checkbox" />
+								</div>
+								<div class="col-md-1">
+									<a href="product.html"> <img src="img/small-product.png"/> </a>
+								</div>
+								<div class="col-md-3">
+									<p>倒车镜</p>
+									<p>倒车镜的描述倒车镜的描述倒车镜的描述</p>
+								</div>
+								<div class="col-md-1">
+									<span>1件</span>
+								</div>
+								<div class="col-md-1">
+									<span>黑色</span>
+								</div>
+								<div class="col-md-1">
+									<span>¥</span>
+									<span>123.45</span>
+								</div>
+								<div class="col-md-2">
+									<span>商家未发货</span>
+								</div>
+								<div class="col-md-2">
+									<input type="button" value="提醒发货" />
+								</div>
+							</div>
+						</div>
+						<!--待收货-->
+						<div class="tab-pane fade" id="personal-order-waitReceive">
+							<div class="row">
+								<div class="col-md-2 col-xs-2">
+									<a href="product.html"> <img src="img/small-product.png"/> </a>
+								</div>
+								<div class="col-md-3 col-xs-3">
+									<p>倒车镜</p>
+									<p>描述</p>
+								</div>
+								<div class="col-md-4 col-xs-4">
+									<p>
+										<span>共xxxx件商品</span>
+										<span>颜色：</span><span>黑色</span>
+										共计<span>xxxx</span>元
+									</p>
+								</div>
+								<div class="col-md-1 ">
+									<input class="order-ship" type="button"  value="查看物流" />
+								</div>
+								<div class="col-md-1 ">
+									<input type="button"   value="确认收货" />
+								</div>
+							</div>
+						<div class="row">
+							<div class="col-md-2 col-xs-2">
+								<a href="product.html"> <img src="img/small-product.png"/> </a>
+							</div>
+							<div class="col-md-3 col-xs-3">
+								<p>倒车镜</p>
+								<p>描述</p>
+							</div>
+							<div class="col-md-4 col-xs-4">
+								<p>
+									<span>共xxxx件商品</span>
+									<span>颜色：</span><span>黑色</span>
+									共计<span>xxxx</span>元
+								</p>
+							</div>
+							<div class="col-md-1 ">
+								<input class="order-ship" type="button"  value="查看物流" />
+							</div>
+							<div class="col-md-1 ">
+								<input type="button"   value="确认收货" />
+							</div>
+						</div>
+								<div class="order-addship">
+									<div class="row">
+										<div class="col-md-1 col-xs-1" id="order-greenAll">
+											<div id="order-greenround"></div>
+											<canvas width="60" height="90" id="order-greenline"></canvas>
+										</div>
+										<div class="col-md-2 col-xs-2">2017/4/10日10:12</div>
+										<div class="col-md-9 col-xs-9">货物已进入xxxx区xxxx处</div>
+									</div>
+									<div class="row">
+										<div class="col-md-1 col-xs-1">
+											<div id="order-greenround"></div>
+										</div>
+										<div class="col-md-2 col-xs-2">2017/4/11日23:45</div>
+										<div class="col-md-9 col-xs-9">货物已进入xxxx区xxxx处</div>
+									</div>	
+								</div>
 				</div>
-				<div class="col-md-8 col-xs-7">
-						<p>收件人:  xxxxxxxxxxx </p>
-						<p>联系电话:  xxxxxxxxxxxxx </p>
-						<p>收货地址：xxxxxxxxx</p>
+						<!--待评价-->
+						<div class="tab-pane fade" id="personal-order-waitComment">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="product.html"> <img src="img/small-product.png"/> </a>
+								</div>
+								<div class="col-md-3">
+									<p>倒车镜</p>
+									<p>描述</p>
+								</div>
+								<div class="col-md-4">
+									<p>
+										<span>共xxxx件商品</span>
+										<span>颜色：</span><span>黑色</span>
+										共计<span>xxxx</span>元
+									</p>
+								</div>
+								<div class="col-md-1">
+									<input type="button" value="评价" />
+								</div>
+							</div>
+							
+							<textarea style="width: 100%;"></textarea>
+						</div>
+						<!--售后-->
+						<div class="tab-pane fade" id="personal-order-waitService">
+							<div class="row">
+								<div class="col-md-2">
+									<a href="product.html"> <img src="img/small-product.png"/> </a>
+								</div>
+								<div class="col-md-3">
+									<p>倒车镜</p>
+									<p>描述</p>
+								</div>
+								<div class="col-md-4">
+									<p>
+										<span>共xxxx件商品</span>
+										<span>颜色：</span><span>黑色</span>
+										共计<span>xxxx</span>元
+									</p>
+								</div>
+								<div class="col-md-1">
+									<input type="button" value="已退货" />
+								</div>
+							</div>
+						</div>
+					</div>	
 				</div>
-				<div class="col-md-1 col-xs-1">
-					<input type="image"  src="img/edit.png"/>
-				</div>
-				<div class="col-md-1 col-xs-1">
-					<input type="image"  src="img/delete.png"/>
-				</div>
-			</div>
-			<div class="row address-receive">
-				<div class="col-md-2 col-xs-3">
-					<input type="checkbox" /> <br />
-					<span>收货地址</span>
-				</div>
-				<div class="col-md-8 col-xs-7">
-						<p>收件人:  xxxxxxxxxxx </p>
-						<p>联系电话:  xxxxxxxxxxxxx </p>
-						<p>收货地址：xxxxxxxxx</p>
-				</div>
-				<div class="col-md-1 col-xs-1">
-					<input type="image"  src="img/edit.png"/>
-				</div>
-				<div class="col-md-1 col-xs-1">
-					<input type="image"  src="img/delete.png"/>
-				</div>
-			</div>
-			<p> <button type="button" class="add-address">新增地址</button> </p>
-			<div class="new-address">
-						<p>收&nbsp;件&nbsp;人&nbsp;: <input type="text" id="address-name" placeholder="姓名" /> </p>
-						<p>联系电话: <input type="text"  id="address-phone" placeholder="联系电话" /> </p>
-						<p>所在地区： <select></select> </p>
-						<p>街道：</p>
-						<textarea  class="address-detail" placeholder="详细地址"></textarea>
-						<input type="button" value="确认新增"></input>
-						<input type="button" class="cancel-address" value="取消" />
-			</div>
-		</div>
-			<!------------优惠信息----------------->
-		<div class="tab-pane fade" id="mydiscount">
-			<div class="row">
-				<div class="col-md-5 col-xs-3">
+				<div class="row personal-navbal-address">
+					<div class="row" style="margin-top: 20px;padding-top: 20px; border-top: 1px solid #E2E2E2;height: 50px;font-size:large;color: #333333;min-height: 120px;">
+						<div class="col-md-8">
+							<div class="row">
+								<div class="col-md-4">
+									<span>收件人：</span>
+								</div>
+								<div class="col-md-8">
+									1*********9
+								</div>
+							</div>
+							<p>上海市嘉定区白银路1199号XXXX</p>
+							<p style="color: #e46211;font-size: 1rem;">默认收货地址</p>
+						</div>
+						<div class="col-md-1">
+							<img src="img/delete.png"/>
+						</div>
+						<div class="col-md-2">
+							<img src="img/edit.png"/>
+						</div>
+					</div>
 					
+				
+					<div class="new-address">
+								<p>收&nbsp;件&nbsp;人&nbsp;: <input type="text" id="address-name" placeholder="姓名" /> </p>
+								<p>联系电话: <input type="text"  id="address-phone" placeholder="联系电话" /> </p>
+								<p>所在地区： <select></select> </p>
+								<p>街道：</p>
+								<textarea  class="address-detail" placeholder="详细地址"></textarea>
+								<input type="button" value="确认新增"></input>
+								<input type="button" class="cancel-address" value="取消" />
+					</div>
+						 <p style="margin-top: 20px;font-size:1.8rem;color: #EAFFEA; margin: 0 auto;" class="add-address add-cart text-center" > 新增地址</p>
 				</div>
-				<div class="col-md-1 col-xs-3">
-					<button type="button" class="btnno">未使用</button>
+				<div class="row personal-navbal-discount">
+					<div class="row" style="margin-top: 20px;">
+						<div class="col-md-5 col-xs-3">
+						</div>
+						<div class="col-md-1 col-xs-3">
+							<button type="button" class="btnno" style="font-size: 1.6rem;color: #666666;">未使用</button>
+						</div>
+						<div class="col-md-1 col-xs-3">
+							<button type="button" class="btnyes" style="font-size: 1.6rem;color: #666666;">已使用</button>
+						</div>
+						<div class="col-md-5 col-xs-3">
+							
+						</div>
+					</div>
+					<!------优惠券--未使用------->
+					<div class="row discount-no">
+						<div class="col-md-3"></div>
+						<div class="col-md-2">
+							<img src="img/discount-no.png" />
+						</div>
+						<div class="col-md-2">
+							<img src="img/discount-no.png" />
+						</div>
+						<div class="col-md-2">
+							<img src="img/discount-no.png" />
+						</div>
+						<div class="col-md-3"></div>
+					</div>
+					<!------优惠券已使用----------->
+				<div class="row discount-yes">
+						<div class="col-md-3"></div>
+						<div class="col-md-2">
+							<img src="img/discount_yes.png" />
+						</div>
+						<div class="col-md-2">
+							<img src="img/discount_yes.png" />
+						</div>
+						<div class="col-md-2">
+							<img src="img/discount_yes.png" />
+						</div>
+						<div class="col-md-3"></div>
+					</div>
 				</div>
-				<div class="col-md-1 col-xs-3">
-					<button type="button" class="btnyes">已使用</button>
-				</div>
-				<div class="col-md-5 col-xs-3">
-					
+				<div class="row personal-navbal-personalInfo">
+					<p style="margin-top:20px;background-color: #EDEEEF;height: 50px;font-size:large;color: #333333;">个人信息设置</p>
+					<div class="row " style="margin-left: 5%;">
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-8">
+									<span>基本信息</span>
+								</div>
+								<div class="col-md-4">
+									<input type="button" name="" id="personalInfo-edit" value="修改" />
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									账户名：
+								</div>
+								<div class="col-md-8">
+									12456789
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									密码：
+								</div>
+								<div class="col-md-8">
+									********
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									用户名：
+								</div>
+								<div class="col-md-8">
+									邻居家的小男孩
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									手机号：
+								</div>
+								<div class="col-md-8">
+									12456789
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									收货地址：
+								</div>
+								<div class="col-md-8">
+									上海市XXXX区XXX路
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									邮编：
+								</div>
+								<div class="col-md-8">
+									2000000
+								</div>
+							</div>
+							
+						</div>
+						
+						<div class="col-md-6">
+							<div class="row">
+								<div class="col-md-8">
+									<span>信用卡信息</span>
+								</div>
+								<div class="col-md-4">
+									<input type="button" name="" id="bankInfo-edit" value="修改" />
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									银行：
+								</div>
+								<div class="col-md-8">
+									招商银行
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									名字：
+								</div>
+								<div class="col-md-8">
+									李某某
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									手机号：
+								</div>
+								<div class="col-md-8">
+									12345678901
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									账单地址：
+								</div>
+								<div class="col-md-8">
+									xxx市xxxx区
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									邮编：
+								</div>
+								<div class="col-md-8">
+									2000000
+								</div>
+								
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<!------优惠券--未使用------->
-			<div class="row discount-no">
-				<div class="col-md-3"></div>
-				<div class="col-md-2">
-					<img src="img/discount-no.png" />
-				</div>
-				<div class="col-md-2">
-					<img src="img/discount-no.png" />
-				</div>
-				<div class="col-md-2">
-					<img src="img/discount-no.png" />
-				</div>
-				<div class="col-md-3"></div>
-			</div>
-			<!------优惠券已使用----------->
-			<div class="row discount-yes">
-				<div class="col-md-3"></div>
-				<div class="col-md-2">
-					<img src="img/discount_yes.png" />
-				</div>
-				<div class="col-md-2">
-					<img src="img/discount_yes.png" />
-				</div>
-				<div class="col-md-2">
-					<img src="img/discount_yes.png" />
-				</div>
-				<div class="col-md-3"></div>
-			</div>
-		</div>		
-		<!---------个人订单------------>
+		</div>	
 	</div>
-	</div>	
 	<!--页面底部-->
 	<div class="footer"></div>
 	
 	<script>
+		$(".personal-navbal input").each(function(){
+			$(this).click(function(){
+				var c = $(this).index();
+				$(".personal-navbal-content").children().each(function(){
+					var d = $(this).index();
+					if( c == d ){
+						$(this).css("display","block");
+					}else{
+						$(this).css("display","none");
+					}
+			});
+				$(this).css("background-color","#424344").siblings().css("background-color","#EDEEEF");
+				$(this).css("color","#FFFDEF").siblings().css("color","#333333");
+			});
+		});
 		
-	</script>
+//			$(function () {
+//			      $('.nav-tabs li:eq(0)').tab('show');
+//			   });
+	$(function(){
+//		$(window).resize(function(){
+		 var rect =document.querySelector("#order-greenAll").getBoundingClientRect();
+		 var c = document.getElementById("order-greenline");
+		 var a = document.getElementById("order-greenAll");
+		 var ctx = c.getContext("2d");
+		 ctx.beginPath();
+		 ctx.lineWidth = 0.6;
+		 ctx.lineCap = "butt";
+		 ctx.moveTo(32,5);
+		 ctx.lineTo(32,100);
+		 ctx.strokeStyle = "#5E5E5E";
+		 ctx.stroke();  
+		   
+//		  });
+	});
+	var ship = true;
+	$(".order-ship").click(function(){
+		if(ship){
+			$(".order-addship").slideDown();
+			ship = false;
+		}else{
+			$(".order-addship").slideUp();
+			ship = true;
+		}
+	});
+	
+	var comment = true;
+	$(".order-comment").click(function(){
+		if(comment){
+			$(".order-comment-content").slideDown();
+			comment = false;
+			$(".order-comment").val() = "收起评论";
+		}else{
+			$(".order-comment-content").slideUp();
+			comment = true;
+			$(".order-comment").val() = "评论";
+		}
+	});
+	
+	$(".personalInfo").load("edit-info.html");
+	$("#personalInfo-edit").click(function(){
+		$(".personalInfo").fadeIn();
+	});
+	
+	$(".bankInfo").load("bankinfo.html");
+	$("#bankInfo-edit").click(function(){
+		$(".bankInfo").fadeIn();
+	});
+	</script>	
+		
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

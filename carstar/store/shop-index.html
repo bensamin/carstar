@@ -15,6 +15,12 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     
    <style type="text/css">
+   	body,button,input,select,textarea{
+   		font-family: tahoma,helvetica,arial,sans-serif;
+   	}
+   	.row{
+   		padding: 5px 0;
+   	}
    	label{
    		cursor: pointer;
    	}
@@ -39,14 +45,32 @@
 	.shop-left{
 		min-height: 500px;
 		border: 1px solid #858689;
-		preduceing-left:5px ;
-		preduceing-top: 10px;
+		padding:10px 0px 20px 5px;
 	}
 	.shop-content div{
 	}
 	.shop-content-help{
 		width: 100%;
 	}
+	.main-navbal div{
+		border-right: 1px solid #E5E5E5;
+	}
+	.tip-history{
+		border: none;
+		background: 0 0;;
+		text-align: left;
+		padding-left: 15px;
+		line-height: 26px;
+	}	
+	.ems-notice{
+		position: relative;
+		width: 988px;
+		margin: 0 0 10px;
+		background-color: #d5edfc;
+		border: 1px solid #4a90e2;
+		padding: 10px 0;
+		overflow: hidden;
+	}	
    </style>
   </head>
 
@@ -79,7 +103,7 @@
 			</div>
 			<div>
 				<label class="shop-left-deal">
-					<span>交易管理 </span>
+					<span> <strong>交易管理</strong>  </span>
 					<img src="../img/reduce.png"/></label>
 				<p>
 					<span onclick="change2()">已卖出的宝贝</span>
@@ -88,7 +112,7 @@
 			</div>
 			<div>
 				<label class="shop-left-ship"> 
-					<span>物流管理</span> 
+					<span> <strong>物流管理</strong> </span> 
 					<img src="../img/reduce.png"/>
 				</label>
 				<p>
@@ -100,7 +124,7 @@
 			</div>
 			<div>
 				<la3bel class="shop-left-product">
-					<span> 宝贝管理 </span> 
+					<span> <strong>宝贝管理</strong> </span> 
 					<img src="../img/reduce.png"/>
 				</label>
 				<p><span onclick="change8()">发布宝贝</span>
@@ -110,7 +134,7 @@
 			</div>
 			<div>
 				<label class="shop-left-service">
-					<span>客户服务</span> 
+					<span><strong>客户服务</strong></span> 
 					<img src="../img/reduce.png"/>
 				</label>
 				<p><span onclick="change12()">退款管理</span>
@@ -120,12 +144,6 @@
 			</div>
 		</div>
 		<div class="col-md-10 shop-content">
-			<!--<ol class="breadcrumb">
-				<li><a href="#">我是卖家</a></li> 
-				<li><a href="#">物流管理</a></li>
-				<li><a href="#">物流工具</a></li>
-				<span class="shop-content-help">查看帮助</span>
-			</ol>-->
 			
 		<div class="shop-shop-manage"></div>   <!--店铺管理-->
 		<div class="shop-exchange-manage"></div>   <!--交易管理-->

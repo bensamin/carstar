@@ -67,9 +67,10 @@ li{
 .category-one ul li a span:hover{
 	color: #f4bf46;
 }
-span{
-	color: #000000
+span a p{
+	color: #666666;
 }
+
 /*清楚a标签之间的间隔*/
 
 
@@ -142,7 +143,7 @@ span{
 	background-color: #F1F1F1;
 	z-index: 9997;
 	border: 1px solid #858689;
-	width: 200px;
+	width: 20%;
 	height: 230px;
 }
 .nav-garage{
@@ -152,7 +153,7 @@ span{
 	background-color: #F1F1F1;
 	z-index: 9998;
 	border: 1px solid #858689;
-	width: 200px;
+	width: 20%;
 	height: 230px;
 }
 .nav-collection{
@@ -162,7 +163,7 @@ span{
 	background-color: #F1F1F1;
 	z-index: 9999;
 	border: 1px solid #858689;
-	width: 200px;
+	width: 20%;
 	height: 230px;
 }
 .glyphicon-menu-down{

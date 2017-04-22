@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>举报管理</title>
+	</head>
+	<style type="text/css">
+		.shop-customer-service-content{
+			margin-left: 6%;
+		}
+	</style>
+	<body>
+			<ol class="breadcrumb">
+				<li><a href="#">客户服务</a></li> 
+				<li><a href="#">举报管理</a></li>
+				<!--<span class="shop-content-help">查看帮助</span>-->
+			</ol>
+		<div class="shop-customer-service-content">
+			<p>我要举报</p>
+			<li>举报违规商品</li>
+			<li>举报钓鱼等网站</li>
+			<li>举报会员</li>
+			<li>收到的知识产权侵权投诉</li>
+			<li>图片实拍举报维权</li>
+			<ul class="nav nav-tabs" id="shop-customer-report">
+				<li class="active"><a href="#shop-customer-service-receiveReport" data-toggle = "tab">我收到的举报</a></li>
+				<li><a href="#shop-customer-service-makeReport" data-toggle = "tab">我做出的举报</a></li>
+			</ul>
+			<div class="tab-content  table-responsive table-bordered">
+				<div class="tab-pane fade active" id="shop-customer-service-receiveReport">
+					<table class="table">
+						<tr>
+						    <th>举报编号</th>
+						    <th>举报原因</th>
+						    <th>被举报人</th>
+						    <th>发起时间</th>
+					  </tr>
+					  <tr>
+					   		<th>0123456</th>
+						    <th>产品严重损坏</th>
+						    <th>客服001</th>
+						    <th>2017-4-15</th>
+					  </tr>
+					</table>
+				</div>
+				<div class="tab-pane fade" id="shop-customer-service-makeReport">
+					<table class="table">
+						<tr>
+						    <th>举报编号1</th>
+						    <th>举报原因2</th>
+						    <th>被举报人3</th>
+						    <th>发起时间4</th>
+					  </tr>
+					  <tr>
+					   		<th>0123456</th>
+						    <th>产品严重损坏</th>
+						    <th>客服001</th>
+						    <th>2017-4-15</th>
+					  </tr>
+					</table>
+				</div>
+			</div>
+			
+		</div>
+		
+		<script>
+			$(document).ready(function(){
+				$("#shop-customer-report a:last").tab('show');
+			});
+		</script>
+	</body>
+</html>
