@@ -13,7 +13,12 @@ var c = true;
 			});
 		});
 	
-	
+
+function change1(){
+	$(".shop-content").load("open-store.html");
+}
+
+
 function change2(){
 	$(".shop-content").load("shop-exchange-productSold.html");
 }

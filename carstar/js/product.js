@@ -8,7 +8,8 @@ $(".subNum").click(function(){
 		}
 		p = t.val() * parseFloat( $(this).parent().prev().find( "span[class*=text-price]" ).text() ) ;
 		$( $(this).parent().next().find("span[class*=product-total]") ).html(p.toFixed(2));
-		setTotal();
+		setPriceTotal();
+		setNumTotal();
 });
 $(".addNum").click(function(){
 	var t = $(this).parent().find("input[class*=text-box]");		
@@ -16,30 +17,42 @@ $(".addNum").click(function(){
 	t.val(parseInt(t.val()) +1) ;
 	p = t.val() * parseFloat( $(this).parent().prev().find( "span[class*=text-price]" ).text() ) ;
 	$( $(this).parent().next().find("span[class*=product-total]") ).html(p.toFixed(2));
-	setTotal();
+	setPriceTotal();
+	setNumTotal();
 });
 //-----------------END
+//计算总数量
+function setNumTotal(){
+	var n  = 0;
+	$(".text-box").each(function(){
+		
+		n += parseInt( $(this).val()  );
+		console.log( n );
+	});
+	$(".product-num").html(n);
+}
 //计算总价格
-function setTotal(){
+function setPriceTotal(){
 	var p = 0;
 	$(".product1").each(function(){
 		p += parseInt( $(this).find("input[class*=text-box]").val() ) * parseFloat( $(this).find("span[class*=text-price]").text());	
 			});
 		$(".total-all").html( p.toFixed(2) );
-		console.log("计算总价格" +p);
 	};
-//页面加载完毕的价格
+//页面加载完毕执行函数
 $(document).ready(function(){
+			selectAll();
+			setPriceTotal();
+			setNumTotal();
+			
 			var p = 0;
 			$(".product1").each(function(){
 //				p = parseFloat( $(this).find("span[class*=text-price]").text() );
 			p = parseInt( $(this).find("input[class*=text-box]").val() ) * parseFloat( $(this).find("span[class*=text-price]").text());	
 			$(this).find("span[class*=product-total]").html( p.toFixed(2) );
-				console.log("page:"+p);
 //				p += parseInt( $(this).find("input[class*=text-box]").val() ) * parseFloat( $(this).find("span[class*=text-price]").text());
 			}); 
 			$(".total-all").html( p.toFixed(2) );
-				console.log("计算总价格" +p);
 		});
 //-----------END
  
@@ -61,11 +74,17 @@ $(".cancel-address").click(function(){
 });
 
 //购物车全选  取消全选
-$(".select-btn").click(function(){
-	$("input[name='select']").attr("checked",true);
-	console.log("yes");
-});
-$(".cancel-btn").click(function(){
-	$("input[name='select']").removeAttr("checked",false);
-	console.log("no");
-});
+function selectAll(){
+			
+			var x = true;
+			$("#selectAll").click(function(){
+				if(x){
+					$(":checkbox").prop("checked",true);
+					x = false;
+				}else{
+					$(":checkbox").prop("checked",false);
+					x = true;
+				}
+			});
+			
+		};

@@ -1,9 +1,239 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-	</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>商品评价</title>
+	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <style>
+    		ol,ul{
+    			list-style: none;
+    		}
+    		.col-md-7{
+    			float: left;
+    			border: 1px solid #E7E7E7;
+    		}
+    		.db-icbu{
+    			margin-left: ;
+    			border: 1px solid #E7E7E7;
+    		}
+    		.db-icbu .ui-form-bd{
+    			display: block;
+    			padding: 19px;
+    			min-height: 160px;
+    		}
+    		.db-icbu .ui-form-row{
+    			margin-bottom: 15px;
+    			overflow: hidden;
+    		}
+    		.db-icbu .ui-form-label{
+    			float: left;
+    			color: #999;
+    		}
+    		.db-icbu .superstar-price{
+    			height: 27px;
+    			line-height: 27px;
+    		}
+    		.db-icbu .superstar-price strong{
+    			color: #c00;
+    			font-weight: 700;
+    			font-size: 27px;
+    			vertical-align: top;
+    		}
+    		.db-icbu .ui-form-right{
+    			margin-left: 70px;
+    			color: #666;
+    		}
+    		
+    		.db-icbu h3{
+    			padding: 3px 0;
+    			color: #000;
+    			font-size: 16px;
+    			vertical-align: top;
+    		}
+    		.scinfo-bd{
+    			display: block;
+    			padding: 9px;
+    			width: 474px;
+    			height: 152px;
+    			margin-left: 10px;
+    			background: #fdfdfa;
+    			border: 1px solid #f6f5f3;
+    		}
+    		.compose-main{
+    			background: #f6f6f6;
+    			padding-bottom: 25px;
+    			border: 2px solid #f0eceb;
+    			min-height: 100px;
+    		}
+    		.compose-main .compose-header span{
+    			display: block;
+    			overflow: hidden;
+    			height: 18px;
+    		}
+    		.compose-header{
+    			position: relative;
+    			padding: 25px 0 30px 5%;
+    		}
+    		.compose-master{
+    			float: left;
+    			width: 549px;
+    		}
+    		.compose-comment{
+    			margin-bottom: 30px;
+    			padding-left: 40px;
+    		}
+    		.compose-comment{
+    			margin-bottom: 30px;
+    			padding-left: 40px;
+    		}
+    		.compose-master .compose-comment .rate-box-title{
+    			border-top:1px solid #E7E7E7 ;
+    			line-height: 68px;
+    			height: 68px;
+    			width: 60px;
+    			text-align: center;
+    			vertical-align: top;
+    			color: #666;
+    			background-color: #efefef;
+    			border-left: 1px solid #E7E7E7;
+    			border-bottom: 1px solid #E7E7E7;
+    			border-right: 1px solid #E7E7E7;
+    		}
+    		.rate-input-box{
+    			float: left;
+    			display: block;
+    		}
+    		.text-input-box{
+    			width: 100%;
+    			height: 58px;
+		    overflow:hidden;
+		    border:1px solid #ccc;
+		    display:inline-block;
+		    *zoom:1;
+		    *display:inline;
+    		}
+    		.text-input-box textarea{
+    			width: 100%;
+    			height: 58px;
+    			border: 1px solid #eee;
+    			float: left;
+    		}
+    		.compose-commentStar{
+    			margin: 20px auto;
+    		}
+    		.compose-commentStar span{
+    			color: #999;
+    		}
+    		.compose-commentStar div{
+    			display: inline;
+    			margin-right: 10px;
+    		}
+    </style>
+  </head>
+
+  <body>
+  	<!--页面头部-->
+	<div class="header"></div>
+	
+		<div class="container">
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-5">
+					<img class="img-responsive" src="img/product.jpeg"/>
+				</div>
+				<div class="col-md-5 db-icbu">
+					<ol class="ui-form-bd">
+						<li class="ui-form-row"><label for="" class="ui-form-label">
+							<h3>黑色炫光时尚轮胎</h3>
+						</label></li>
+						<li class="ui-form-row superstar-price"><label for="" class="ui-form-label">
+							价格</label>
+							<div class="ui-form-right">
+								<strong>488.00</strong><span></span>元
+							</div>
+						</li>
+						<li class="ui-form-row"><label for="" class="ui-form-label">配送</label>
+							<div class="ui-form-right">
+								快递：  0.00
+							</div>
+						</li>
+						<li class="ui-form-row"><label for="" class="ui-form-label">月销量</label>
+							<div class="ui-form-right">
+								<strong>5111</strong>
+								件
+							</div>
+						</li>
+						<li class="ui-form-row"><label for="" class="ui-form-label">
+							评价
+						</label>
+						<div class="ui-form-right">
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
+								5分 <span>（累计评价 <span class="superstar-ratetotal"></span> ） </span>
+						</div>
+						</li>
+					</ol>
+					
+					<ol class="scinfo-bd">
+						<li class="ui-form-label">
+							<label for="" class="ui-form-label">颜色</label>
+							<div class="ui-form-right">黑色</div>
+						</li><br /><br />
+						<li class="ui-form-label">
+							<label for="" class="ui-form-label">重量</label>
+							<div class="ui-form-right">5.6KG</div>
+						</li>
+					</ol>
+				</div>
+			</div>
+			
+			<div class="row compose-main" style="display: block;">
+				<div class="compose-header">
+					<span>其他买家需要你的建议哦！</span>
+				</div>
+				<p>您的评价：</p>
+				<div class="text-input-box">
+					<textarea ></textarea>
+				</div>
+				<div class="compose-commentStar">
+					<div>服务星级：</div>
+					<span class="glyphicon glyphicon-star"></span> 
+					<span class="glyphicon glyphicon-star"></span> 
+					<span class="glyphicon glyphicon-star"></span> 
+					<span class="glyphicon glyphicon-star"></span> 
+					<span class="glyphicon glyphicon-star"></span> 
+				</div>
+			</div>
+			<button class="add-cart">提交评价</button>
+		</div>
+	<script>
+		$(function(){
+			
+			$(".compose-commentStar span").each(function(){
+				$(this).click(function(){
+					var n = $(this).index();
+					$( ".compose-commentStar span:lt("+n+")" ).css("color","#f7c058");
+				});
+			});
+		});
+	</script>
+	<!--页面底部-->
+	<div class="footer"></div>
+    	<script src="js/bootstrap.min.js"></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="js/load.js" ></script>
+  </body>
 </html>

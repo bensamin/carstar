@@ -138,21 +138,21 @@ function hover(){
 		
 		//,garage
 		var garage_w = $(".nav-garage").width();
-		var garage_w1 = $(".myform a:eq(4)").width();
+		var garage_w1 = $(".myform a:eq(5)").width();
 		
 		var nav_garage = new Object();
-		nav_garage.top = parseInt( $(".myform a:eq(4)").offset().top + $(".myform img:eq(4)").width() );
-		nav_garage.left = parseInt( $(".myform a:eq(4)").offset().left - (garage_w/2) + (garage_w1 / 2)  )   ;
+		nav_garage.top = parseInt( $(".myform a:eq(5)").offset().top + $(".myform img:eq(5)").width() );
+		nav_garage.left = parseInt( $(".myform a:eq(5)").offset().left - (garage_w/2) + (garage_w1 / 2)  )   ;
 		$(".nav-garage").css("left",nav_garage.left );
 		
 		//collection
 		var nav_collection = new Object();
 		var collection_w = $(".nav-collection").width();
-		var collection_w1 = $(".myform a:eq(5)").width();
+		var collection_w1 = $(".myform a:eq(4)").width();
 		
 		var nav_collection = new Object();
-		nav_collection.top = parseInt( $(".myform a:eq(5)").offset().top + $(".myform img:eq(5)").width() );
-		nav_collection.left = parseInt( $(".myform a:eq(5)").offset().left - (collection_w/2) )   ;
+		nav_collection.top = parseInt( $(".myform a:eq(4)").offset().top + $(".myform img:eq(4)").width() );
+		nav_collection.left = parseInt( $(".myform a:eq(4)").offset().left - (collection_w/2) )   ;
 		$(".nav-collection").css("left",nav_collection.left );
 		
 		
@@ -187,7 +187,7 @@ setInterval(hover,40);
     }      
 })(jQuery);
 
-
+//个人中心
 $(".myform a:eq(3)").hoverDelay({
 	hoverEvent:function(){
 			$(".nav-personal").fadeIn();
@@ -199,27 +199,28 @@ $(".myform a:eq(3)").hoverDelay({
 });
 
 
+//收藏
 $(".myform a:eq(4)").hoverDelay({
-	hoverEvent:function(){
-			$(".nav-garage").fadeIn();
-			$(".nav-garage").prev().css("display","none");
-			$(".nav-garage").next().css("display","none");
-	},
-	outEvent:function(){
-			$(".nav-garage").fadeOut();
-	}
-});
-
-$(".myform a:eq(5)").hoverDelay({
 	hoverEvent:function(){
 			$(".nav-collection").fadeIn();
 			$(".nav-collection").prev().css("display","none");
+			$(".nav-collection").next().css("display","none");
 	},
 	outEvent:function(){
 			$(".nav-collection").fadeOut();
 	}
 });
 
+//爱车
+$(".myform a:eq(5)").hoverDelay({
+	hoverEvent:function(){
+			$(".nav-garage").fadeIn();
+			$(".nav-garage").prev().css("display","none");
+	},
+	outEvent:function(){
+			$(".nav-garage").fadeOut();
+	}
+});
 
 
 

@@ -148,11 +148,14 @@ button{
   	width: 200px;
   	z-index: 2;
   }
-  table{
-  	border: 0px solid transparent !important;
+  form table tr th span{
+  	color: #fff;
   }
-  table tr th span{
-  	color: #e1f1f1;
+ #feature-maked table tr th a{
+  	color: #555;
+  }
+ #feature-maked table tr th{
+  	color: #555;
   	font-size: 16px;
   }
   .search-go{
@@ -202,8 +205,8 @@ button{
 }
 .home-product{
 	margin-top: 35px;
+	padding: 0px 30px;
 }
-
 .store{
 	min-height: 300px;
 	}
@@ -366,8 +369,9 @@ button{
 	color: #ffffff;
 	border: 1px solid #009740;
 	background: #009740;
-	width: 250px;
+	width: 200px;
 	height: 36px;
+	border-radius:3px ;
 }
 .product-product{
 	margin-top: 20px;

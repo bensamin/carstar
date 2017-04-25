@@ -15,24 +15,33 @@ $(document).ready(function(){
 		});
 	$(".footer").load("footer.html");
 
+
+//function addCookie(name,value,days,path){
+//	var name = escape(name);
+//	var value = escape(value);
+//	var expires = new Date();
+//	expires.setTime(expires.getTime()+ days*3600*24);
+//	path = path == ""?"":";path= "+path;
+//}
+
 function checkUser(){
 		var name  = $("#username").val();
-		var pwd = $("#pwd").val();
+		var pwd = $("#pwd1").val();
 		if (name == "" || name == null) {
-        alert("用户名不能为空");
-        return false;
-    } else if (pwd == "" || pwd == null) {
-        alert("密码不能为空");
-        return false;
-    } else if(name == "admin" & pwd == "123456"){
-    		$.cookie(name);
-    		$.cookie(pwd);
-        return true;
-    }else{
-    		alert("账户名或密码错误！")
-    		return false;
-    }
-    $.cookie(name);
+	        alert("用户名不能为空");
+	        return false;
+	    } else if (pwd == "" || pwd == null) {
+	        alert("密码不能为空");
+	        return false;
+	    } else if(name == "admin" & pwd == "123456"){
+//	    		addCookie("userName",name,1,"/");
+//	    		addCookie("pwd",userPass,1,"/");
+	    		window.location.href = "home.html";
+	        return true;
+	    }else{
+	    		alert("账户名或密码错误！")
+	    		return false;
+	    }
 }
 
 ////密码显示隐藏
