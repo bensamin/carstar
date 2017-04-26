@@ -204,8 +204,17 @@ button{
 	padding-left: 40px;
 }
 .home-product{
-	margin-top: 35px;
-	padding: 0px 30px;
+	padding-top: 70px;
+	padding-right: 30px;
+}
+.home-product img{
+	margin-bottom: 10px;
+}
+.home-product .col-md-3{
+	border: 1px solid #E7E7E7;
+}
+.home-product p{
+	color: #333;
 }
 .store{
 	min-height: 300px;

@@ -150,6 +150,9 @@ span a p{
 	width: 20%;
 	height: 230px;
 }
+.nav-personal .row{
+	
+}
 .nav-garage{
 	display: none;
 	margin-top: -10px;
@@ -160,6 +163,11 @@ span a p{
 	width: 20%;
 	height: 230px;
 }
+.nav-garage .row{
+	color: #666666;
+	padding-left: 20px;
+	margin-top: 10px;
+}
 .nav-collection{
 	display: none;
 	margin-top: -10px;
@@ -169,6 +177,13 @@ span a p{
 	border: 1px solid #858689;
 	width: 20%;
 	height: 230px;
+}
+.nav-collection .row{
+	margin-left: 5px;
+	margin-top: 10px;
+}
+.nav-collection .row span{
+	color: #666;
 }
 .glyphicon-menu-down{
 	color: #999999;

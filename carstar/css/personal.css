@@ -9,16 +9,13 @@
 	margin-left:5px ;
 }
 
-.row{
-	min-height: 50px;
-}
 .row-content{
 	background-color: #F1F1F1;
 	padding-top: 12px;
 }
-div[class^="col-md"]{
+/*div[class^="col-md"]{
 	vertical-align: middle;
-}
+}*/
 
 /***********personal.html*******************/
 .discount-yes{
@@ -48,7 +45,7 @@ div[class^="col-md"]{
 
 /***************personal_oreder.html************************/
 .col-md-1 img{
-	display: block;
+	/*display: block;*/
 }
 #order-greenround{
 	background-color: #008C3A;

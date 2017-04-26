@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>地图</title>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+       <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=f63315f6450e0a4c385082902766ebea"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+  </head>
+<style type="text/css">
+	.container{
+		min-height: 700px;
+	}
+	.location .select .value{
+		height: 28px;
+		line-height: 28px;
+		z-index: inherit;
+	}
+	.select .value{
+		display:block;
+		border: 1px solid #ddd;
+		position: relative;
+		line-height: 34px;
+		padding: 0 20px 0 10px;
+		z-index: 8;
+	}
+	.select{
+		float: left;
+		position: relative;
+		color: #666;
+		cursor: pointer;
+	}
+	
+	.location{
+		height: 34px;
+		border: 1px solid #ddd;
+		background-color: #fafafa;
+		padding-top:2px ;
+	}
+	.location .inner{
+		width: 490px;
+		margin: 2 auto;
+		position: relative;
+	}
+	.i-arrow{
+		border-width: 4px;
+		border-style: solid;
+		border-color: #666 transparent transparent transparent;
+		position: absolute;
+		right: 5px;
+		top: 50%;
+		margin-top: -2px;
+	}
+	.location .shop-address{
+		float: left;
+		padding: 0 10px;
+		width: 270px;
+		height: 28px;
+		line-height: 28px;
+		border-width: 1px 0;
+		border-style: solid;
+		border-color:#ddd ;
+		color: #333;
+		font-size: 12px;
+		outline: none;
+		border-bottom: 1px solid #fff;
+	}
+	#map-content{
+	width: 100%;
+	height: 670px;
+	}
+	.location .btn{
+		float: left;
+		width: 110px;
+		height: 30px;
+		background-color: #0E9939;
+		color: #fff;
+		text-align: center;
+		line-height: 20px;
+		font-size: 14px;
+		font-weight: bold;
+	}
+	#map-content{
+		margin:  20px auto;
+	}
+</style>
+  <body>
+  	<!--页面头部-->
+	<div class="header"></div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-3">
+					<div class="select">
+						<div class="value">
+							<span>上海市</span>
+							<i class="i-arrow"></i>
+						</div>
+					</div>	
+					<div class="select">	
+						<div class="value">
+							<span>所有类型</span>
+							<i class="i-arrow"></i>
+						</div>
+					</div>
+					<div class="select">
+						<div class="value">
+							<span>综合排序</span>
+							<i class="i-arrow"></i>
+						</div>
+					</div>	
+				
+			</div>
+			<div class="col-md-7 location">
+				<div class="inner">
+					<div class="select">
+						<div class="value">
+							<span>门店名称</span>
+						</div>
+					</div>
+					<input type="text" name="" id="" class="shop-address" value="" placeholder="请输入门店名称" />
+					<a href="" id="search" class="btn"> 定位 </a>
+				</div>
+				<div id="map-content">
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+	<!--页面底部-->
+	<div class="footer"></div>
+   
+   
+   <script> 
+   var map = new AMap.Map('map-content', {
+        resizeEnable: true,
+        zoom:10,
+        center: [121.25691, 31.34759]
+    });
+   </script>
+    	<script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="js/load.js" ></script>
+     <!--jQuery slick js-->
+  </body>
+</html>

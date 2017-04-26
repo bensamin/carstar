@@ -39,7 +39,7 @@ $(function(){
 			$(".home-product").append(
 			"<div class='col-md-3 col-xs-6'>"+	
 			"<img src="+obj['img']+"/>"+
-			"<p>"+obj['price']+"</p>" +
+			"<p>"+obj['category']+"</p>" +
 			"<p>"+obj['name']+"</p>" + 
 			"</div> " );
 		});
