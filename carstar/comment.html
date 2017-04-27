@@ -138,6 +138,20 @@
     			display: inline;
     			margin-right: 10px;
     		}
+    		.comment-message{
+    			display: none;
+    			position: fixed;
+    			border: 1px solid #E2E2E2;
+    			color: #333;
+    			background-color: #EFEFEF;
+    			text-align: center;
+    			font-size: 16px;
+    			top: 30%;
+    			left: 40%;
+    			width: 120px;
+    			height: 40px;
+    			padding: 10px;
+    		}
     </style>
   </head>
 
@@ -219,6 +233,9 @@
 			</div>
 			<button class="add-cart">提交评价</button>
 		</div>
+		<div class="comment-message">
+			<span>评价成功</span>
+		</div>
 	<script>
 		$(function(){
 			
@@ -229,6 +246,14 @@
 				});
 			});
 		});
+		
+		$(".add-cart").click(function(){
+			$(".comment-message").css("display","block");
+			setTimeout( commentHome(),3000 );
+		});
+		function commentHome(){
+			window.location.href = "personal.html";
+		}
 	</script>
 	<!--页面底部-->
 	<div class="footer"></div>
