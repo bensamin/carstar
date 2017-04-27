@@ -15,14 +15,52 @@ $(document).ready(function(){
 		});
 	$(".footer").load("footer.html");
 
+//将用户登陆信息保存到cookie中
+function saveCookie(){
+	var userName = document.getElementById("username").value;
+	var pwd1 = document.getElementById("pwd1").value;
+	console.log(userName + pwd1);
+	
+	var userDate = new Date();
+	userDate.setTime(userDate.getTime() +5000 );
+	setCookie("userName",userName,userDate.toGMTString(),"","","");
+	setCookie("pwd1",pwd1,userDate.toGMTString(),"","","");
+	getCookie();
+}
+//设置cookie
+function setCookie(name,value,expries,path,domain,secure){
+	document.cookie = name + "=" +encodeURI(value) + 
+	((expries) ? "; expries" + expries: "" ) +
+	( (path) ? ";path" +path: "" ) +
+	( (domain) ? ";domain" + domain: "") +
+	( (secure) ? ";secure" +secure: "" );
+}
 
-//function addCookie(name,value,days,path){
-//	var name = escape(name);
-//	var value = escape(value);
-//	var expires = new Date();
-//	expires.setTime(expires.getTime()+ days*3600*24);
-//	path = path == ""?"":";path= "+path;
-//}
+//获取cookie
+function getCookie(cname){
+	var m = document.cookie;
+	if(m){
+		return true;
+	}else{
+		window.location.href = "login.html";
+		return false;
+	}
+	var coookieString = decodeURI(document.cookie);
+	var cookieArray = coookieString.split(";");
+	console.log(cookieArray.length);
+	for(var i = 0;i< cookieArray.length; i++ ){
+		var cookieNum = cookieArray[i].split("=");
+		console.log(cookieNum.toString());
+		
+		var cookieName = cookieNum[0];
+		var cookieValue = cookieNum[1];
+		
+		if(cookieName == cname){
+			return cookieValue;
+		}
+	}
+	return false;
+}
 
 function checkUser(){
 		var name  = $("#username").val();
@@ -34,8 +72,6 @@ function checkUser(){
 	        alert("密码不能为空");
 	        return false;
 	    } else if(name == "admin" & pwd == "123456"){
-//	    		addCookie("userName",name,1,"/");
-//	    		addCookie("pwd",userPass,1,"/");
 	    		window.location.href = "home.html";
 	        return true;
 	    }else{

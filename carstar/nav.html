@@ -4,22 +4,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
 	<title>导航</title>
- 
 	<script src="js/jquery-1.11.1.min.js"></script>
-    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/left-menu.css" />
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/navbar.css" />
-    <!-- Custom styles for this template -->
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="js/ie-emulation-modes-warning.js"></script>
+    <script type="text/javascript" src="js/login.js" ></script>
     <body>
     	<!---------------购物车等图标------------>
     	<div class="top" style="background-color: #EDEEEF;height: 20px;color: #8F8F94;padding-left: 67%;font-weight: 400;">
@@ -34,11 +28,11 @@
   			<a href="home.html"><img  class="carstar-logo" src="img/logo.png"/> </a>
     			<input class="show-div" type="text" placeholder="输入查询的配件">
     			<a href="javascript:;" class="show-div2"> <img class="show-div" src="img/ss4.png" /></a>  
-    			<a href="personal.html"  > <img class="mine" src="img/mine.png" /> </a>
-    			<a href="collection.html"> <img  class="keep" src="img/收藏.png" /> </a>
-    			<a href="my-car.html" onmouseover=""> <img src="img/车辆.png"/> </a>
+    			<a href="personal.html" onclick="getCookie()"  > <img class="mine" src="img/mine.png" /> </a>
+    			<a href="collection.html" onclick="getCookie()" > <img  class="keep" src="img/收藏.png" /> </a>
+    			<a href="my-car.html" onclick="getCookie()"> <img src="img/车辆.png"/> </a>
     			
-    			<a href="shoppingCart.html"> <img class="cart" src="img/shopping.png" /> </a>
+    			<a href="shoppingCart.html" onclick="getCookie()"> <img class="cart" src="img/shopping.png" /> </a>
     		</form>   		
 	</div>
 	<div class="nav-personal" style="padding-bottom: 0px;">
@@ -46,8 +40,8 @@
 			<div class="col-md-4">
 				<img src="img/mine.png"/>				
 			</div>
-			<div class="col-md-8">
-				<span style="color: #666666;">我的账户</span>
+			<div class="col-md-8" style="padding: 15px 10px;">
+				<span style="color: #333;font-size: 16px;">我的账户</span>
 			</div>
 		</div>
 								<div class="row" >

@@ -148,7 +148,7 @@ span a p{
 	z-index: 9997;
 	border: 1px solid #858689;
 	width: 20%;
-	height: 230px;
+	height: 260px;
 }
 .nav-personal .row{
 	
@@ -161,7 +161,7 @@ span a p{
 	z-index: 9998;
 	border: 1px solid #858689;
 	width: 20%;
-	height: 230px;
+	height: 200px;
 }
 .nav-garage .row{
 	color: #666666;
@@ -176,7 +176,7 @@ span a p{
 	z-index: 9999;
 	border: 1px solid #858689;
 	width: 20%;
-	height: 230px;
+	height: 200px;
 }
 .nav-collection .row{
 	margin-left: 5px;

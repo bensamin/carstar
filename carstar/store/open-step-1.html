@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="first-title">
+			<!--<h1>免费开店</h1>-->
+			<p>申请店铺完全免费，一个身份只能开一家店，开店铺无法注销，申请到正式开通需要1～3个工作日。
+				了解更多请看 <a href="">开店规则必看</a> </p>
+		</div>
+		<div class="open-step">
+				<div class="steps-container"><!--定义宽度和颜色-->
+					<!--第一步-->
+					<div class="next-step-item-one">	
+					
+							<div class="step-item-cont">
+								<div class="step-item-num">1</div>
+								<div class="step-item-title">选择开店类型</div>
+								<div class="step-item-desc">个人店铺，企业店铺</div>
+							</div>	
+					</div>
+					<!--第二步-->
+				
+					<div class=" steps-container">
+						<div class="next-step-item-two">
+							<div class="step-item-cont">
+									<div class="step-item-num" style="left: 345px;">2</div>
+									<div class="step-item-title">开店须知</div>
+									<div class="step-item-desc">确认符合开店铺相关规定</div>
+								</div>	
+						</div>
+					</div>
+					<!--第三步-->
+					<div class="steps-container">
+					<div class="next-step-item-three">
+						<div class="step-item-cont">
+								<div class="step-item-num" style="left: 635px;">3</div>
+								<div class="step-item-title">申请开店认证</div>
+								<div class="step-item-desc">提供相关资料，等待审核</div>
+							</div>	
+					</div>						
+				</div>
+				</div>
+				<div class="row select-type-content">
+					<div class="select-type-next">
+						<div class="col-md-2"></div>
+						<div class="col-md-3" style="border: 1px solid #E7E7E7;">
+							<div class="select-icon"></div>
+							<div>个人店铺</div>
+							<p>通过支付宝实名认证的商家创建的店铺，就是个人店铺</p>
+							<a  class="next-btn next-btn-large">创建个人店铺</a>
+						</div>
+						<div class="col-md-2"></div>
+						<div class="col-md-3" style="margin-left: -50px;border: 1px solid #E7E7E7;">
+							<div class="select-icon"></div>
+							<div>企业店铺</div>
+							<p>通过支付宝实名认证的商家创建的店铺，就是个人店铺</p>
+							<a class="next-btn next-btn-large">创建企业店铺</a>
+						</div>
+						<div class="col-md-2"></div>
+					</div>	
+				</div>
+		</div>	
+		
+		<script>
+			$(".next-btn").click(function(){
+				$(".select-type-next").css("display","none");
+				$(".select-type-content").load("open-step-2.html");
+			});
+		</script>
+	</body>
+</html>

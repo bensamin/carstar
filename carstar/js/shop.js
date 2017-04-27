@@ -15,7 +15,7 @@ var c = true;
 	
 
 function change1(){
-	$(".shop-content").load("open-store.html");
+	$(".shop-content").load("open-step-1.html");
 }
 
 
