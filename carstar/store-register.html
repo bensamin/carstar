@@ -10,6 +10,11 @@
 	<script type="text/javascript" src="js/distpicker.data.js" ></script>
     <script type="text/javascript" src="js/distpicker.js" ></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.form.min.js" ></script>
+    <!--<script type="text/javascript" src="js/baiduMap.js" ></script>-->
+    <!--百度地图js-->
+   <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Knipf4QEONjsAzdABA6aRSb5a2i3yTtz"></script>-->
+    <!--<script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>-->
   </head>
 	
 	<style>
@@ -90,7 +95,7 @@
 			<div class="form-group">
 				<label for="store-user-name" class="col-sm-2 control-label">用户名：</label>
 				<div class="col-sm-3">
-					<input type="text" name="store-user-name" class="form-control" id="store-user-name" onblur="checkUserName()" placeholder="请输入商户名" />
+					<input type="text" name="user_name" class="form-control" id="store-user-name"  placeholder="请输入商户名" />
 				</div>
 				<div class="col-sm-4">
 					<span id="store-user-name-Info"></span>
@@ -100,7 +105,7 @@
 			<div class="form-group">
 				<label for="store-user-password" class="col-sm-2 control-label">用户密码：</label>
 				<div class="col-sm-3">
-					<input type="password"  name="store-userpassword" class="form-control" id="store-user-password" onblur="checkUserPassword()" placeholder="请输入密码" />
+					<input type="password"  name="password" class="form-control" id="store-user-password" onblur="checkUserPassword()" placeholder="请输入密码" />
 					<span> <img id="password-show-btn1" onclick="changepassword1()" src="img/show.png"/> </span> <br />
 				</div>
 				<div class="col-sm-4">
@@ -111,7 +116,7 @@
 			<div class="form-group">
 				<label for="store-user-repassword" class="col-sm-2 control-label">确认密码：</label>
 				<div class="col-sm-3">
-					<input type="password" name="store-ser-repassword"  class="form-control" id="store-user-repassword" onblur="checkUserRepassword()" placeholder="再输入一次密码" />
+					<input type="password" name=""  class="form-control" id="store-user-repassword" onblur="checkUserRepassword()" placeholder="再输入一次密码" />
 					<span> <img id="password-show-btn2" onclick="changepassword2()" src="img/show.png"/> </span> <br />
 				</div>
 				<div class="col-sm-4">
@@ -128,9 +133,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="store-link-Name" class="col-sm-2 control-label">联系人：</label>
+				<label for="store-link-Name" class="col-sm-2 control-label">联系人姓名：</label>
 				<div class="col-sm-3">
-					<input type="text" name="store-link-Name" class="form-control" id="store-link-Name" onblur="checkLinkName()" placeholder="请输入联系人信息" />
+					<input type="text" name="cantent_name" class="form-control" id="store-link-Name" onblur="checkLinkName()" placeholder="请输入联系人姓名" />
 				</div>
 				<div class="col-sm-4">
 					<span id="store-link-Name-Info"></span>
@@ -148,16 +153,16 @@
 			</div>-->
 			
 			<div class="form-group">
-				<label for="store-link-phone" class="col-sm-2 control-label">验证手机：</label>
+				<label for="store-link-phone" class="col-sm-2 control-label">联系人手机：</label>
 				<div class="col-sm-3">
-					<input type="text" name="store-link-phone" class="form-control" id="store-link-phone" onblur="checkUserPhone()" placeholder="请输入验证手机号码" />
+					<input type="text" name="phone" class="form-control" id="store-link-phone" onblur="checkUserPhone()" placeholder="请输入联系人手机号码" />
 				</div>
 				<div class="col-sm-4">
 					<span id="store-link-phone-Info"></span>
 				</div>
 			</div>
 			
-			<div class="form-group">
+			<!--<div class="form-group">
 				<label for="store-link-phoneCode" class="col-sm-2 control-label">短信验证码：</label>
 				<div class="col-sm-3">
 					<input type="text" name="store-link-phoneCode" class="form-control" id="store-link-phoneCode" onblur="" placeholder="请输入手机验证码" />
@@ -168,12 +173,12 @@
 				<div class="col-sm-4">
 					<span id="store-link-phoneCode-Info"></span>
 				</div>
-			</div>
+			</div>-->
 			
 			<div class="form-group">
 				<label for="store-link-email" class="col-sm-2 control-label">联系人邮箱：</label>
 				<div class="col-sm-3">
-					<input type="text" name="store-link-email" class="form-control" id="store-link-email" onblur="checkUserEmail()" placeholder="请输入邮箱" />
+					<input type="text" name="mail" class="form-control" id="store-link-email" onblur="checkUserEmail()" placeholder="请输入邮箱" />
 				</div>
 				<div class="col-sm-4">
 					<span id="store-link-email-Info"></span>
@@ -192,7 +197,7 @@
 			<div class="form-group">
 				<label for="store-shop-brand" class="col-sm-2 control-label">店铺品牌：</label>
 				<div class="col-sm-3">
-					<input type="text" name="store-shop-brand" class="form-control" id="store-shop-brand" onblur="checkStoreShopBrand()" placeholder="请输入店铺品牌" />
+					<input type="text" name="brand" class="form-control" id="store-shop-brand" onblur="checkStoreShopBrand()" placeholder="请输入店铺品牌" />
 				</div>
 				<div class="col-sm-4">
 					<span id="store-shop-brand-Info"></span>
@@ -202,7 +207,7 @@
 			<div class="form-group">
 				<label for="store-shop-type" class="col-sm-2 control-label">店铺类型：</label>
 				<div class="col-sm-3">
-					<input type="text" name="store-shop-type" class="form-control" id="store-shop-type" onblur="checkstoreShopType()" placeholder="店铺类型" />
+					<input type="text" name="store_type" class="form-control" id="store-shop-type" onblur="checkstoreShopType()" placeholder="店铺类型" />
 				</div>
 				<div class="col-sm-4">
 					<span id="store-shop-type-Info"></span>
@@ -212,7 +217,7 @@
 			<div class="form-group">
 				<label for="store-shop-area" class="col-sm-2 control-label">店铺面积：</label>
 				<div class="col-sm-3">
-					<input type="text" name="store-shop-area" class="form-control" id="store-shop-area" onblur="" placeholder="店铺面积" />
+					<input type="text" name="area" class="form-control" id="store-shop-area" onblur="" placeholder="店铺面积" />
 				</div>
 				<div class="col-sm-4">
 					<span id="store-shop-area-Info"></span>
@@ -222,7 +227,9 @@
 			<div class="form-group">
 				<label for="store-shop-address" class="col-sm-2 control-label">店铺地址：</label>
 				<div class="col-sm-3" id="distpicker5">
-									<select value="0"></select> <select value="1"></select> <select value="2"></select>
+									<select name="s1" value="0"></select> 
+									<select name="s2" value="1"></select> 
+									<select name="s3" value="2"></select>
 				</div>
 				<div class="col-sm-4">
 					<span id="store-shop-address-Info"></span>
@@ -232,7 +239,7 @@
 			<div class="form-group">
 				<label for="store-shop-detailAddress" class="col-sm-2 control-label">店铺详细地址：</label> <br />
 				<div class="col-sm-3">
-					<textarea  rows="2" class="form-control" form="store-register-submit" name="store-shop-detailAddress" id="store-shop-detailAddress"></textarea>
+					<textarea  rows="2" class="form-control" form="store-register-submit" name="address" id="store-shop-detailAddress"></textarea>
 				</div>
 				<div class="col-sm-4">
 					<span id="store-shop-areaAddress-Info"></span>
@@ -242,7 +249,7 @@
 			<div class="form-group">
 				<label for="store-shop-clerkNumber" class="col-sm-2 control-label">店铺职员数：</label>
 				<div class="col-sm-3">
-					<input type="text" name="store-shop-clerkNumber" class="form-control" id="store-shop-clerkNumber" onblur="" placeholder="店铺职员数" />
+					<input type="text" name="staff_number" class="form-control" id="store-shop-clerkNumber" onblur="" placeholder="店铺职员数" />
 				</div>
 				<div class="col-sm-4">
 					<span id="store-shop-areaAddress-Info"></span>
@@ -250,9 +257,9 @@
 			</div>
 			
 			<div class="form-group">
-				<label for="store-shop-stationNumber" class="col-sm-2 control-label">店铺工位：</label>
+				<label for="station_number" class="col-sm-2 control-label">现有门店工位：</label>
 				<div class="col-sm-3">
-					<input type="text" name="store-shop-stationNumber" class="form-control" id="store-shop-stationNumber" onblur="" placeholder="店铺工位" />
+					<input type="text" name="station_number" class="form-control" id="store-shop-stationNumber" onblur="" placeholder="店铺工位" />
 				</div>
 				<div class="col-sm-4">
 					<span id="store-shop-stationNumber-Info"></span>
@@ -270,7 +277,7 @@
 			<div class="form-group">
 				<label for="store-company-name" class="col-sm-2 control-label">公司名称：</label>
 				<div class="col-sm-3">
-					<input type="text" name="store-company-name" class="form-control" id="store-company-name" onblur="checkstoreCompanyName()" placeholder="公司名称" />
+					<input type="text" name="name" class="form-control" id="store-company-name" onblur="checkstoreCompanyName()" placeholder="公司名称" />
 				</div>
 				<div class="col-sm-4">
 					<span id="store-company-name-Info"></span>
@@ -278,12 +285,13 @@
 			</div>
 			
 			<div class="form-group">
-				<label for="store-company-type" class="col-sm-2 control-label">公司性质：</label>
+				<label for="store-company-type" class="col-sm-2 control-label">从业年限：</label>
 				<div class="col-sm-3">
-					<select name="">
-						<option value="">公司性质</option>
-						<option value="">公司性质1</option>
-						<option value="">公司性质2</option>
+					<select name="year">
+						<option value="1年">1年</option>
+						<option value="2年">2年</option>
+						<option value="3年">3年</option>
+						<option value="4年">4年</option>
 					</select>
 				</div>
 				<div class="col-sm-4">
@@ -294,7 +302,7 @@
 			<div class="form-group">
 				<label for="store-company-organization" class="col-sm-2 control-label">组织机构代码：</label>
 				<div class="col-sm-3">
-					<input type="text" name="store-company-organization" class="form-control" id="store-company-organization" onblur="" placeholder="组织机构代码" />
+					<input type="text" name="org_code" class="form-control" id="store-company-organization" onblur="" placeholder="组织机构代码" />
 				</div>
 				<div class="col-sm-4">
 					<span id="store-company-organization-Info"></span>
@@ -304,7 +312,7 @@
 			<div class="form-group">
 				<label for="store-company-legalPersonal" class="col-sm-2 control-label">法人姓名：</label>
 				<div class="col-sm-3">
-					<input type="text" name="store-company-legalPersonal" class="form-control" id="store-company-legalPersonal" onblur="checkstoreCompanyLegalPersonal()" placeholder="法人姓名" />
+					<input type="text" name="col_name" class="form-control" id="store-company-legalPersonal" onblur="checkstoreCompanyLegalPersonal()" placeholder="法人姓名" />
 				</div>
 				<div class="col-sm-4">
 					<span id="store-company-legalPersonal-Info"></span>
@@ -312,9 +320,9 @@
 			</div>
 			
 			<div class="form-group">
-				<label for="store-company-phone" class="col-sm-2 control-label">公司电话：</label>
+				<label for="store-company-phone" class="col-sm-2 control-label">营业执照上传：</label>
 				<div class="col-sm-3">
-					<input type="text" name="store-company-phone" class="form-control" id="store-company-phone" onblur="" placeholder="公司电话" />
+					<input type="text" name="image_path" class="form-control" id="store-company-phone" onblur="" placeholder="请上传图片" />
 				</div>
 				<div class="col-sm-4">
 					<span id="store-company-phone-Info"></span>
@@ -324,9 +332,9 @@
 		</form>	
 		
 		<div class="store-sure">
-				<input type="checkbox" style="width: 15px; vertical-align: middle;margin-top: -2px;"/>
+				<input type="checkbox" id="store-regist-check" style="width: 15px; vertical-align: middle;margin-top: -2px;"/>
 				<span >我已阅读并同意 <a href="store-agreement.html" style="color: #009640;"> 《商户注册协议》 </a> </span><br />
-				<button type="submit" class="store-regist-now" onclick="validateForm()" >立即注册</button>
+				<button type="submit" class="store-regist-now" onclick="checkRegist()" >立即注册</button>
 		</div>
 	</div>  	
   	

@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-	<style type="text/css">
-		body, html,#allmap {width: 80%;height: 80%;overflow: hidden;margin:0;font-family:"微软雅黑";}
-	</style>
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Knipf4QEONjsAzdABA6aRSb5a2i3yTtz"></script>
-	<title>地址解析</title>
-</head>
-<body>
-	<div id="allmap"></div>
-	<input type="button" value="查询" onclick="searchByStationName();"/>
-</body>
-</html>
-<script type="text/javascript">
-	// 百度地图API功能
+			// 百度地图API功能
 	var map = new BMap.Map("allmap");
 	var localSearch = new BMap.LocalSearch(map);
 	localSearch.enableAutoViewport(); //允许自动调节窗体大小
@@ -33,4 +16,3 @@
     　　localSearch.search(keyword);
 }
 	
-</script>
