@@ -8,19 +8,19 @@
  
  	function validateForm(){
    			console.log( $("form").serialize() );
-// 			$.ajax({
-// 				cache:true,
-// 				type:"post",
-// 				url:"",
-// 				data:$(".form-horizontal").serialize(),
-// 				async:false,
-//				error:function(request){
-//					console.log("erroe");	
-//				},
-//				success:function(data){
-//					console.log("success");
-//				}
-// 			});
+   			$.ajax({
+   				cache:true,
+   				type:"post",
+   				url:"",
+   				data:$(".form-horizontal").serialize(),
+   				async:false,
+				error:function(request){
+					console.log("error");	
+				},
+				success:function(data){
+					console.log("success");
+				}
+   			});
  	}	
  var nameRegex = /^[^@#]{3,16}$/;
  var passwordRegex = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/;
@@ -103,6 +103,7 @@ function checkUserPassword(){
 function checkUserRepassword(){
 	var storeUserPassword = document.getElementById("store-user-password").value;
 	var storeUserRepassword = document.getElementById("store-user-repassword").value;
+	console.log( storeUserPassword,storeUserRepassword );
 	if( storeUserPassword == storeUserRepassword ){
 		return true;
 	}else{
@@ -135,4 +136,99 @@ function checkUserEmail(){
 	}
 }
 
+//用户注册判断
+var msg_code
+function checkUserRegistCode(){
+	var userLinkephone = document.getElementById("user-RegistPhone").value.trim();  //获取手机号码
+	
+	var phoneRegex = /^1[3587][0123456789]\d{8}$/;
+	if( !phoneRegex.test(userLinkephone) ){
+		alert("请输入正确的手机号码");
+		return false;
+	}else{
+		
+			code_phone= "http://139.224.133.119:8080/CarStar/rest/sms/send/"+userLinkephone,
+			$.ajax({
+				type:"get",
+				contentType: "application/json; charset=utf-8",
+				url:code_phone,
+				async:false,
+				success:function(msg){
+					msg_code = msg.data;
+					alert("验证码发送成功！")
+					console.log(msg);
+				}
+			});
+	
+	}
+}
+function checkUserRegist(){
+	var code_phone = document.getElementById("user-RegistCode").value.trim();   //获取短信验证码
+	var UserPassword = document.getElementById("pwd1").value;  //获取第一次输入的密码
+	var UserRepassword = document.getElementById("pwd2").value;   //再一次输入的密码
+		console.log(code_phone,UserPassword,UserRepassword);
+		if ( msg_code != code_phone ){
+			alert("验证码错误")
+			return false;
+		}else if ( UserPassword != UserRepassword ){
+			alert("两次密码输入不一致");
+			return false;
+		}else if(  !$("#regist-check").prop("checked") ){
+			alert("未同意用户注册协议！");
+			return false;
+		}else{
+			registChange();
+		}
+}
+
+function registChange(){
+	//json格式转化
+		$.fn.serializeObject = function()  
+			{  
+			   var o = {};  
+			   var a = this.serializeArray();  
+			   $.each(a, function() {  
+			       if (o[this.name]) {  
+			           if (!o[this.name].push) {  
+			               o[this.name] = [o[this.name]];  
+			           }  
+			           o[this.name].push(this.value || '');  
+			       } else {  
+			           o[this.name] = this.value || '';  
+			       }  
+			   });  
+			   return o;  
+			};
+	    
+		    var infoJson =   $("#regist-form1").serializeObject();
+		    infoJson =  JSON.stringify(infoJson);
+		    infoJson = eval( "(" +infoJson +")" );
+		    infoJson.image_path = " ";
+		    infoJson.name = " ";
+		    infoJson.sex = " ";
+		    infoJson.balance = " ";
+		    infoJson.coin= " ";
+		    infoJson =  JSON.stringify(infoJson);
+		    console.log(infoJson);
+		
+			$.ajax({
+				cache:true,
+				type:"post",
+				contentType: "application/json; charset=utf-8",
+				url:"http://139.224.133.119:8080/CarStar/rest/sys/user/insert",
+				data:infoJson,
+	   			dataType:"json",
+	   			async:false,
+	   			success:function(regist){
+	   				if ( regist.code == 0 ){
+	   					alert("注册成功！")
+	   					window.location.href = "home.html";
+	   				}
+	   			},
+	   			eerror:function(){
+	   				alert("注册失败");
+	   			}
+			});
+	
+}
 

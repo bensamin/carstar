@@ -31,7 +31,6 @@
     			<a href="personal.html" onclick="getCookie()"  > <img class="mine" src="img/mine.png" /> </a>
     			<a href="collection.html" onclick="getCookie()" > <img  class="keep" src="img/收藏.png" /> </a>
     			<a href="my-car.html" onclick="getCookie()"> <img src="img/车辆.png"/> </a>
-    			
     			<a href="shoppingCart.html" onclick="getCookie()"> <img class="cart" src="img/shopping.png" /> </a>
     		</form>   		
 	</div>
@@ -41,11 +40,11 @@
 				<img src="img/mine.png"/>				
 			</div>
 			<div class="col-md-8" style="padding: 15px 10px;">
-				<span style="color: #333;font-size: 16px;">我的账户</span>
+				<span style="color: #333;font-size: 16px;">13524692153</span>
 			</div>
 		</div>
-								<div class="row" >
-									<div class="col-md-1"></div>
+		<div class="row login-cookie" style="display: none;" >
+			<div class="col-md-1"></div>
 									<div class="col-md-10">
 										<a href="login.html"> <button class="add-cart" type="button" style="margin-top: 0px;">登陆</button> </a>
 										<p style="color: #666666;">新用户？<a href="regist.html"> <span style="color: #0086B3;">去注册</span> </a> </p>
@@ -69,9 +68,12 @@
 									</div>
 									<div class="col-md-1"></div>
 								</div>
+								<div style="margin-left: 20px;">
+									<p class="add-cart log-out">退出</p>
+								</div>
 								<div class="row" style="margin-left: 30px;color: #666666;">
 									<p>创建一个账户，个性化你的经验</p>
-								</div>
+								</div>												
 	</div>
 	
 	<div class="nav-collection">
@@ -860,9 +862,9 @@
     		<div class="slide-mask"></div>
 		<aside class="slide-wrapper">
 			<div>
-				<div>
-					<!--<span class="glyphicon glyphicon-earphone"></span>-->
-					<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1492592732537" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2055" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40"><defs><style type="text/css"></style></defs><path d="M521.818 65.771c-246.632 0-446.566 199.937-446.565 446.57 0 246.613 199.934 446.549 446.565 446.551 246.633 0 446.549-199.936 446.55-446.55-0.001-246.635-199.917-446.57-446.55-446.571zM695.588 717.656c-31.473 31.489-148.828 1.642-264.773-114.292-115.946-115.968-145.744-233.304-114.307-264.775 27.315-27.278 60.574-74.96 110.423-12.892 49.886 62.087 25.343 79.429-2.772 107.582-19.711 19.674 21.368 69.436 64.328 112.394 42.996 42.94 92.719 83.986 112.43 64.368 28.153-28.155 45.511-52.679 107.562-2.792 62.049 49.904 14.405 83.125-12.891 110.406z" p-id="2056"></path></svg>
+				<div class="slider-phone">
+					<span class="glyphicon glyphicon-phone-alt"></span>
+
 					<strong >123-456789</strong>
 					<!--<span class="glyphicon glyphicon-remove"></span>-->
 				</div>
@@ -1006,6 +1008,11 @@
     	<script>
     		$(function(){
     			$(".myform a:gt(2)").css("margin-left","15px");
+    			$(".nav-tabs li").each(function(){
+    				$(this).click(function(){
+    					document.getElementById("home-drop").style.top = "670px";
+    				});
+    			});
     		});
     	</script>
     <!-- Bootstrap core JavaScript--->

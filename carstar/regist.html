@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Register</title>
+    <title>用户注册</title>
 	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
     <!-- Bootstrap core CSS -->
@@ -49,7 +49,8 @@
 		.regist{
 			text-align: center;
 			padding: ;
-			margin: 50px auto;
+			margin-top: 50px;
+			
 		}
 		
 		.regist input{
@@ -60,32 +61,40 @@
 		.regist p{
 			font-size: 24px;
 		}
-		.phone{
+		.regist span{
+			color: #333;
+			padding: 5px 10px;
+		}
+		#user-RegistPhone{
 			margin: 5px auto;
 			width: 250px;
 			height: 36px;
 		}
-		
 		.code{
 			color: white;
-			height: 33px;
+			padding: 6px 10px;
 			border-radius: 5px;
 			background: #008c3a;
 			border: 1px solid #4B5160;
 			position: absolute;
-			left: 54.5%;
+			top: 48%;
+			left: 55.2%;
+			cursor: pointer;
 		}
-		.sign-in{
-			color: white;
-			border: 1px solid #4B5160;
-			border-radius: 5px;
-			background: #008000;
+		.regist-button{
+			width: 80%;
+			margin: 0 auto;
+			text-align: center;
+			padding: 10px 0px;
 		}
-		.cancel-sign{
-			color: white;
-			border: 1px solid #4B5160;
-			border-radius: 5px;
-			background: #008000;
+		.regist-button span{
+			padding: 5px 30px ;
+			width: 200px;
+			border: 1px solid #E0E0DA;
+			background-color: #0E9939;
+			border-radius:3px ;
+			color: #fff;
+			cursor: pointer;
 		}
 		.set-regist{
 			/*display: none;*/
@@ -129,69 +138,30 @@
 
   </head>
   <body>
-  	<div class="container">
-		<div class="row">
-			<div class="col-md-3 col-xs-6">
-				<a href="home.html"> <img src="img/category.png"/> </a>	
-			</div>
-			<div class="col-md-6 header-text">
-				<span>Fast!Fast!!Fast!!!</span>
-			</div>
-			<div class="col-md-3 col-xs-6 login-carstar">
-			 	<a href="home.html"><span>车星商城</span></a>
-			</div>
-		</div>
-		<div class="regist">
+		<div class="header"></div>
+		<form class="regist" id="regist-form1">
 			<p class="text-center">用户注册</p>
-			手&nbsp;机&nbsp;号 &nbsp;：<input type="text" class="phone" placeholder="请输入手机号码" /> <br />
-			<input class="code" style="width: 92px;" type="button" value="获取验证码" />
-			验&nbsp;证&nbsp;码&nbsp;：<input type="text" class="phone-code" placeholder="请输入验证码" /> <br />
-			设置昵称：<input type="text" placeholder="昵称" /> <br />
-			邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：<input type="email" placeholder="邮箱" /> <br />
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您的密码：<input type="password" id="pwd1" placeholder="密码" /> 
-			<span id="password-show-btn1" onclick="changepasswordone()">显示</span><br />
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重输密码：<input type="password" id="pwd2" placeholder="再输一次密码" /> 
-			<span id="password-show-btn2" onclick="changepasswordtwo()">显示</span><br />
-			<input type="checkbox"  style="width: 20px;vertical-align:middle;"/>阅读并同意 <a href="user-agreement.html" style="color: #009640;">《CarStar用户注册协议》</a> <br />
-			<input type="button" class="sign-in" value="注册" style="width: 70px;"/>
-			<input type="button" class="cancel-sign" value="取消" style="width: 70px;"/>
-			
+			<span>手机号：</span>
+			<input type="text" id="user-RegistPhone" name="mobile_phone" placeholder="请输入手机号码" /> <br />
+			<span class="code" style="width: 92px;color: #333;" type="button" onclick="checkUserRegistCode()">获取验证码</span>
+			<span>验证码：</span>
+			<input type="text" id="user-RegistCode" class="phone-code"  placeholder="请输入验证码" /> <br />
+			<span>您的密码：</span>
+				<input type="password"  name="password" id="pwd1" placeholder="密码" />
+				<img id="password-show-btn1" onclick="changepassword1()" src="img/show.png"/> <br />
+			<span>重输密码：</span>
+				<input type="password" id="pwd2" placeholder="再输一次密码" /> 
+				<img id="password-show-btn2" onclick="changepassword2()" src="img/show.png"/>
+		</form>
+		<div class="regist-button">
+			<input type="checkbox"  id="regist-check" style="width: 20px;"/>阅读并同意 <a href="user-agreement.html" style="color: #009640;">《车星用户注册协议》</a> <br />
+			<p></p>
+			<span type="button"  onclick="checkUserRegist()">注册</span>
+			<span type="button"  />取消</span>
 		</div>
-	</div>
 	<!--cotainer end-->
-	<div class="footer">
-		<p>欢迎来到车星官网</p>
-	</div>
+	<div class="footer"></div>
 	<script>
-		var isShow=true;
-		var passwordtext1 = document.getElementById("password-show-btn1");
-		var passwordtext2 = document.getElementById("password-show-btn2");
-        function changepasswordone(){
-            var v = document.getElementById("pwd1");
-            if (isShow) {
-                v.type="text";
-                isShow=false;
-                passwordtext1.innerHTML = "隐藏";
-            }else{
-                v.type="password";
-                isShow=true;
-                passwordtext1.innerHTML = "显示";
-            }
-        };
-        
-         function changepasswordtwo(){
-            var v = document.getElementById("pwd2");
-            if (isShow) {
-                v.type="text";
-                isShow=false;
-                passwordtext2.innerText = "隐藏";
-            }else{
-                v.type="password";
-                isShow=true;
-                passwordtext2.innerText = "显示";	
-            }
-        };
-        
         $(".cancel-sign").click(function(){
         		window.location.href ="login.html";
         });
@@ -207,5 +177,7 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
     <script type="text/javascript" src="js/login.js" ></script>
+    <script type="text/javascript" src="js/load.js" ></script>
+    <script type="text/javascript" src="js/register.js" ></script>
   </body>
 </html>

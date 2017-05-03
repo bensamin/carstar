@@ -3,7 +3,7 @@ body {
 }
 @media only screen and (max-width: 767px) {
 	.hotImg{display: none;}
-	.our-carousel{display: none;}
+	/*.our-carousel{display: none;}*/
 	.introduce{display: none;}
 	.search-drop input{display: block;}
 	.search-drop{padding-left: 0%;}
@@ -148,7 +148,7 @@ button{
   	width: 200px;
   	z-index: 2;
   }
-  form table tr th span{
+  form>table>tr>th>span{
   	color: #fff;
   }
  #feature-maked table tr th a{
@@ -210,16 +210,18 @@ button{
 .home-product img{
 	margin-bottom: 10px;
 }
-.home-product .col-md-3{
+.home-product>.col-md-3{
 	border: 1px solid #E7E7E7;
 }
 .home-product p{
-	color: #333;
+	margin-top: 10px;
+	color: #666;
+	font-size: 12px;
 }
 .store{
 	min-height: 300px;
 	}
-#owl-demo .item{
+#owl-demo>.item{
         padding: 30px 0px;
         margin: 5px;
         color: #FFF;
@@ -372,8 +374,7 @@ button{
 	height: 36px;
 }
 .add-cart{
-	font-size: 1.4rem;
-	margin-top: 20px;
+	font-size: 1.4rem; 
 	margin-left: 0px;
 	color: #ffffff;
 	border: 1px solid #009740;
@@ -381,6 +382,7 @@ button{
 	width: 200px;
 	height: 36px;
 	border-radius:3px ;
+	text-align: center;
 }
 .product-product{
 	margin-top: 20px;

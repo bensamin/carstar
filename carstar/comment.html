@@ -234,7 +234,7 @@
 			<button class="add-cart">提交评价</button>
 		</div>
 		<div class="comment-message">
-			<span>评价成功</span>
+			<span>评价成功!</span>
 		</div>
 	<script>
 		$(function(){
@@ -249,7 +249,7 @@
 		
 		$(".add-cart").click(function(){
 			$(".comment-message").css("display","block");
-			setTimeout( commentHome(),3000 );
+			setTimeout( "commentHome()",2000);
 		});
 		function commentHome(){
 			window.location.href = "personal.html";

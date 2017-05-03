@@ -26,6 +26,7 @@ function saveCookie(){
 	setCookie("userName",userName,userDate.toGMTString(),"","","");
 	setCookie("pwd1",pwd1,userDate.toGMTString(),"","","");
 	getCookie();
+	checkUser();
 }
 //设置cookie
 function setCookie(name,value,expries,path,domain,secure){
@@ -62,6 +63,15 @@ function getCookie(cname){
 	return false;
 }
 
+//删除cookie
+function deleteCookie(){
+	var todate = new Date();
+	todate.setTime( todate.getTime()-1000 );
+	setCookie("username",userName,todate.toISOString(),"","");
+	setCookie("pwd1",pwd1,todate.toGMTString(),"","");
+}
+
+
 function checkUser(){
 		var name  = $("#username").val();
 		var pwd = $("#pwd1").val();
@@ -71,13 +81,50 @@ function checkUser(){
 	    } else if (pwd == "" || pwd == null) {
 	        alert("密码不能为空");
 	        return false;
-	    } else if(name == "admin" & pwd == "123456"){
-	    		window.location.href = "home.html";
-	        return true;
-	    }else{
-	    		alert("账户名或密码错误！")
-	    		return false;
 	    }
+	    
+	    $.fn.serializeObject = function()  
+			{  
+			   var o = {};  
+			   var a = this.serializeArray();  
+			   $.each(a, function() {  
+			       if (o[this.name]) {  
+			           if (!o[this.name].push) {  
+			               o[this.name] = [o[this.name]];  
+			           }  
+			           o[this.name].push(this.value || '');  
+			       } else {  
+			           o[this.name] = this.value || '';  
+			       }  
+			   });  
+			   return o;  
+			};
+	    
+		    var infoJson =   $("#login-form1").serializeObject();
+		    infoJson =  JSON.stringify(infoJson);
+		    
+   			$.ajax({
+   				cache:true,
+   				type:"post",
+   				contentType: "application/json; charset=utf-8",
+   				url:"http://139.224.133.119:8080/CarStar/rest/sys/user/login",
+   				data:infoJson,
+   				dataType:"json",
+   				async:false,
+				success:function(date){
+						if ( date.code == 0 ){
+							window.location.href="home.html";
+						}else if (date.code == 1) {
+							alert("密码错误");
+						}else{
+							alert("用户未注册");
+						}
+				},
+				error:function(){
+   					console.log("error");
+   				}
+   			});
+
 }
 
 ////密码显示隐藏

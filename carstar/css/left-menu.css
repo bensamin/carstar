@@ -210,25 +210,26 @@ aside.slide-wrapper {
   z-index: 1000;
   left: 0;
   top: 0;
-  width: 20%;
+  width: 280px;
   height: 100%;
   -webkit-transform: translate3d(-100%, 0, 0);
   -moz-transform: translate3d(-100%, 0, 0);
   -ms-transform: translate3d(-100%, 0, 0);
   -o-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  -webkit-transition: all 0s ease-out;
+  -moz-transition: all 0s ease-out;
+  -ms-transition: all 0s ease-out;
+  -o-transition: all 0s ease-out;
+  transition: all 0s ease-out;
 }
 aside.slide-wrapper > div {
   background-color: #FFFFFF;
   min-height: 100%;
 }
 aside.slide-wrapper > div > div {
-  padding: 0px 10px;
+  padding-left: 20px;
+  padding-top: 10px;
   height: 45px;
   background-color: #f2f2f2;
   color: #666666;
@@ -236,7 +237,7 @@ aside.slide-wrapper > div > div {
 }
 /*电话栏*/
 aside.slide-wrapper > div > div strong {
-	margin-bottom: 10px;
+  margin-left: 30px;
   height: 45px;
   vertical-align: auto;
   line-height: 35px;

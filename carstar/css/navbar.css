@@ -143,12 +143,16 @@ span a p{
 .nav-personal{
 	display: none;
 	margin-top: -10px;
+	padding: 0px 10px;
 	position: absolute;
 	background-color: #F1F1F1;
 	z-index: 9997;
 	border: 1px solid #858689;
 	width: 20%;
 	height: 260px;
+}
+.log-out{
+	padding: 7px 0px;
 }
 .nav-personal .row{
 	
@@ -171,6 +175,7 @@ span a p{
 .nav-collection{
 	display: none;
 	margin-top: -10px;
+	padding: 10px 0px;
 	position: absolute;
 	background-color: #F1F1F1;
 	z-index: 9999;
@@ -200,10 +205,9 @@ span a p{
 	font-size: 18px;
 	margin-left: 160px;
 }
-.glyphicon-earphone{
+.glyphicon-phone-alt{
 	color: #333333;
-	font-size: 1.66rem;
-	margin:0 10px;
+	font-size: 2rem;
 }
 .glyphicon-remove{
 	color: #666666;
@@ -212,6 +216,7 @@ span a p{
 	font-weight: 200;
 }
 svg{
+	display: inline-block;
 	margin-top: 3px;
 	fill: #333333;
 }
