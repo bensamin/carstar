@@ -230,4 +230,65 @@ function chooseOutPut(){
 //提交车辆信息
 function submitCarInfo(){
 	
+	$.fn.serializeObject = function()  
+		{  
+		  var o = {};  
+		  var a = this.serializeArray();  
+			  $.each(a, function() {  
+			     if (o[this.name]) {  
+			         if (!o[this.name].push) {  
+			             o[this.name] = [o[this.name]];  
+			         }  
+			         o[this.name].push(this.value || '');  
+			     } else {  
+			         o[this.name] = this.value || '';  
+			      }  
+		});  
+	  return o;  
+	};
+	
+	infoJson = $("#addcar").serializeObject();
+	infoJson =  JSON.stringify(infoJson);
+	infoJson = eval( "(" +infoJson +")" );
+	console.log(infoJson);
+	
+	var user_id = $.cookie("userId");
+	console.log(user_id);
+	infoJson.user_id = user_id;
+	
+	infoJson =  JSON.stringify(infoJson);
+	console.log(infoJson);
+	
+	$.ajax({
+		type:"post",
+		contentType:"application/json; charset=utf-8",
+		url:"http://139.224.133.119:8080/CarStar/rest/mycar/insert",
+		data:infoJson,
+		async:true,
+		success:function(date){
+			console.log(date);
+			infoJson = eval( "(" +infoJson +")" );
+			console.log(infoJson.year);
+			$(".myCar-append").append(
+				"	<div class='row '> " +
+				"	<div class='col-md-1'></div> " +
+				"	<div class='col-md-2 my-car col-xs-3'><span>"    
+						+infoJson.year+       "</span></div>"  +
+				"	<div class='col-md-2 my-car col-xs-3'><span>  " 
+						+infoJson.make_name +  "</span></div>" +
+				"	<div class='col-md-2 my-car col-xs-3'> <span>"  
+						+ infoJson.model_name+  " </span></div> " +
+				"	<div class='col-md-2 my-car col-xs-3'><span>"   +
+				         infoJson.output		 +   "</span></div>"    + 
+				"	<div class='col-md-2 my-car col-xs-3'><span>"   +
+						infoJson.type  		 +    "</span></div>"   +
+				"	<div class='col-md-1'></div></div>	");
+			setTimeout( alert("添加成功！"), 1000 )
+			$(".addcar-container").css("display","none");
+		},
+		error:function(){
+			console.log("error");
+		}
+	});
+	
 }

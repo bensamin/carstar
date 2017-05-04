@@ -27,12 +27,12 @@ $(document).ready(function(){
 function saveCookie(){
 	var userName = document.getElementById("username").value;
 	var pwd1 = document.getElementById("pwd1").value;
-	console.log(userName + pwd1);
+	console.log(userName,pwd1);
 	
 	var userDate = new Date();
 	userDate.setTime(userDate.getTime() +5000 );
-	setCookie("userName",userName,userDate.toGMTString(),"","","");
-	setCookie("pwd1",pwd1,userDate.toGMTString(),"","","");
+//	setCookie("userName",userName,userDate.toGMTString(),"","","");
+//	setCookie("pwd1",pwd1,userDate.toGMTString(),"","","");
 	getCookie();
 	checkUser();
 }
@@ -121,6 +121,9 @@ function checkUser(){
    				async:false,
 				success:function(date){
 						if ( date.code == 0 ){
+							//用户ID存入cookie
+							console.log(date.data.id);
+						 	$.cookie("userId",date.data.id);
 							window.location.href="home.html";
 						}else if (date.code == 1) {
 							alert("密码错误");
