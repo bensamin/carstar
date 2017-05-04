@@ -65,12 +65,12 @@
 		.forget-name{
 			text-align: center;
 		}
-		.forget-input{
+		#forget-input{
 			margin: 10px auto;
 			width: 250px;
 			height: 36px;
 		}
-		.foeget-identify{
+		#forget-identify{
 			margin: 10px auto;
 			width: 250px;
 			height: 36px;
@@ -124,35 +124,31 @@
 			 	<a href="home.html"><span>车星商城</span></a>
 			</div>
 		</div>
-		<div class="forget-find">
-			<p class="forget-text">：找回密码</p>
-			<p class="forget-please">请输入你需要找回的登陆密码的手机号或邮箱！</p>
-			<p class="forget-name">
-				登&nbsp;&nbsp;&nbsp;录&nbsp;&nbsp;&nbsp;名：<input type="text" class="forget-input" placeholder="手机/邮箱" /><br />
-				输入验证码：<input type="text" class="foeget-identify" placeholder="验证码"/> <br />
-				<input type="button" class="forget-check" value="发送验证码" />
-				<input type="button" class="forget-sure" value="确定" />
-			</p>
-		</div>	
-		<div class="forget-reset">
-			<p>重置密码</p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您的密码：<input type="password" id="pwd1" placeholder="密码" /> <br />
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重输密码：<input type="password" id="pwd2" placeholder="再输一次密码" /> <br />
-			<input type="button" value="确定" style="width: 80px;margin-left: 30px; background-color: #008C3A; color: white;border: 1px solid #008C3A;
-			border-radius: 5px;"/>
-			<input type="reset" value="重置" style="width: 80px;margin-left: 10px; background-color: #008C3A; color: white;border: 1px solid #008C3A;
-			border-radius: 5px;"/>
-		</div>
+		<form class="forget-password">
+			<div class="forget-find">
+					<p class="forget-text">：找回密码</p>
+					<p class="forget-please">请输入你需要找回的登陆密码的手机号！</p>
+					<p class="forget-name">
+						登&nbsp;&nbsp;&nbsp;录&nbsp;&nbsp;&nbsp;名：<input type="text" name="mobile_phone" id="forget-input" placeholder="手机/邮箱" /><br />
+						输入验证码：<input type="text" id="forget-identify" placeholder="验证码"/> <br />
+						<input type="button" class="forget-check" onclick="getRePasswordCode()" value="发送验证码" />
+						<input type="button" class="forget-sure" onclick="checkRepasswordCode()" value="确定" />
+					</p>
+			</div>	
+			<div class="forget-reset">
+				<p>重置密码</p>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您的密码：<input type="password" name="password" id="pwd1" placeholder="密码" /> <br />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重输密码：<input type="password"  id="pwd2" placeholder="再输一次密码" /> <br />
+				<input type="button" onclick="checkRepassword()" value="确定" style="width: 80px;margin-left: 30px; background-color: #008C3A; color: white;border: 1px solid #008C3A;
+				border-radius: 5px;"/>
+				<input type="reset" value="重置" style="width: 80px;margin-left: 10px; background-color: #008C3A; color: white;border: 1px solid #008C3A;
+				border-radius: 5px;"/>
+			</div>
+		</form>	
 	</div>
 	<!--cotainer end-->
 	<div class="footer"></div>
-	<script>
-		$(".forget-sure").click(function(){
-			$(".forget-find").css("display","none");
-			$(".forget-reset	").css("display","block")
-		});
-	</script>
-	
+		
 	<!-------------------Jscript------------------------------->
 	<!-- Bootstrap core JavaScript
     ================================================== -->

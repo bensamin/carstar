@@ -16,6 +16,7 @@
  
  
  	function validateForm(){
+ 		
  		$.fn.serializeObject = function()  
 			{  
 			   var o = {};  
@@ -240,6 +241,8 @@ function checkUserRegistCode(){
 	
 	}
 }
+
+//用户注册
 function checkUserRegist(){
 	var code_phone = document.getElementById("user-RegistCode").value.trim();   //获取短信验证码
 	var UserPassword = document.getElementById("pwd1").value;  //获取第一次输入的密码
