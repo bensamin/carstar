@@ -21,7 +21,7 @@ $(document).ready(function(){
 			});
 			$(".user-login").parent().css("border-right","1px dashed #ADADAD")
 		});
-	$(".footer").load("footer.html");
+$(".footer").load("footer.html");
 
 //将用户登陆信息保存到cookie中
 function saveCookie(){
@@ -221,6 +221,7 @@ function checkRepassword(){
 	
 }
 
+//修改密码
 function ChangePassword(){
 	//json格式转化
 		$.fn.serializeObject = function()  
@@ -270,5 +271,70 @@ function ChangePassword(){
 	   				alert("用户未注册");
 	   			}
 			});
+	
+}
+
+
+//商户登陆
+function checkShop(){
+	
+	var name  = $("#shopname").val();
+		var pwd = $("#pwd2").val();
+		if (name == "" || name == null) {
+	        alert("商户名不能为空");
+	        return false;
+	    } else if (pwd == "" || pwd == null) {
+	        alert("密码不能为空");
+	        return false;
+	    }
+	
+	 $.fn.serializeObject = function()  
+			{  
+			   var o = {};  
+			   var a = this.serializeArray();  
+			   $.each(a, function() {  
+			       if (o[this.name]) {  
+			           if (!o[this.name].push) {  
+			               o[this.name] = [o[this.name]];  
+			           }  
+			           o[this.name].push(this.value || '');  
+			       } else {  
+			           o[this.name] = this.value || '';  
+			       }  
+			   });  
+			   return o;  
+			};
+		  var infoJson =   $("#login-form2").serializeObject();
+		      infoJson =  JSON.stringify(infoJson);	
+		      infoJson = eval( "(" +infoJson+ ")" );
+		      infoJson.flag = "1";
+//		      infoJson =  JSON.stringify(infoJson);	
+		      console.log(infoJson.user_name,infoJson.password,infoJson.flag);
+		      
+		    var url_Shop = "http://139.224.133.119:8080/CarStar/rest/shop/login?user_name="+infoJson.user_name+"&password="+infoJson.password+"&flag="+infoJson.flag;
+			
+			$.ajax({
+				type:"get",
+				contentType: "application/json; charset=utf-8",
+				url:url_Shop,
+				async:false,
+				success:function(msg){
+					if( msg.code == 0 ){
+						alert("商户登陆成功！");
+						window.location.href="home.html";
+					}else if (msg.code == 1){
+						alert("密码错误！");
+					}else {
+						alert("商户未注册！");
+					}
+				},
+				eerror:function(){
+					console.log("error");	
+				}
+			});
+}
+
+//商户忘记密码
+function getStorePassword(){
 	
 }

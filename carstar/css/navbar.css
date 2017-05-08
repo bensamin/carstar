@@ -118,19 +118,35 @@ span a p{
 .category-one{
 	margin: 0 auto;
 	margin-top: 0px;
-	width: 70%;
+	width: 100%;
+	font-size: 11px;
 }
-.category-nav span{
-	font-size: 12px;
+
+.prod_dd_img {
+	float: left;
+}
+.prod_dd_span{
+	padding-left: 10px;
+	float: left;
+	padding-top: 10px;
 	color: #666;
+}
+.prod_dd_t{
+	color: #383838;	
+	font-weight: 700;
+	font-size: 13px;
+	padding-bottom: 4px;
 }
 .nav-tabs{
 	font-size: 1.66rem;
+	margin-left: 20%;
 }
 .tab-content{
 	margin-top: 20px;
+	padding-left: 3%;
 }
 .category-nav{
+	padding: 10px 0px;
 	border-bottom: 1px dashed #ADADAD;
 }
 .left-drop{

@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>忘记密码</title>
+    <title>商户忘记密码</title>
 	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
     <!-- Bootstrap core CSS -->
@@ -40,12 +40,7 @@
 		.forget{
 			background-color: #f0f0f0;
 		}
-		.header-text{
-			font-family: ;
-			font-style: oblique;
-			font-size: 60px;
-			letter-spacing: 5px;
-		}
+		
 		.login-carstar {
 			font-size: 24px;
 			padding-top:30px ;
@@ -83,7 +78,7 @@
 			border: 1px solid #4B5160;
 			position: absolute;
 			margin-top: -44px;
-			left: 56%;
+			left: 57%;
 		}
 		.forget-sure{
 			margin-top:10px ;
@@ -120,31 +115,23 @@
 
   </head>
   <body>
+  	<div class="header"></div>
   	<div class="container">
-		<div class="row forget">
-			<div class="col-md-3 col-xs-6">
-				<a href="home.html"> <img src="img/category.png"/> </a>	
-			</div>
-			<div class="col-md-6 header-text">
-				<span>找回密码</span>
-			</div>
-			<div class="col-md-3 col-xs-6 login-carstar">
-			 	<a href="home.html"><span>车星商城</span></a>
-			</div>
-		</div>
 		<div class="forget-find">
 			<p class="forget-text">商户找回密码</p>
-			<p class="forget-please">请输入你需要找回的登陆密码的手机号或邮箱！</p>
-			<p class="forget-name">
-				登&nbsp;&nbsp;&nbsp;录&nbsp;&nbsp;&nbsp;名：<input type="text" class="forget-input" placeholder="手机/邮箱" /><br />
+			<p class="forget-please">请输入你需要找回的登陆密码的手机号！</p>
+			<form class="forget-name">
+				登&nbsp;&nbsp;&nbsp;录&nbsp;&nbsp;&nbsp;名：<input type="text" name="store_id" class="forget-input" placeholder="店铺名称" /><br />
 				输入验证码：<input type="text" class="foeget-identify" placeholder="验证码"/> <br />
 				<input type="button" class="forget-check" value="发送验证码" />
-				<input type="button" class="forget-sure" value="确定" />
-			</p>
+			</form>
+			<div style="text-align: center;">
+				<input type="button" onclick="getStorePassword()" class="forget-sure" value="确定" />
+			</div>
 		</div>	
 		<div class="forget-reset">
 			<p>重置密码</p>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您的密码：<input type="password" id="pwd1" placeholder="密码" /> 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您的密码：<input type="password" name="password" id="pwd1" placeholder="密码" /> 
 			 <span> <img id="password-show-btn1" onclick="changepassword1()" src="img/show.png"/> </span> <br />
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重输密码：<input type="password" id="pwd2" placeholder="再输一次密码" /> 
 			 <span> <img id="password-show-btn2" onclick="changepassword2()" src="img/show.png"/> </span> <br />
@@ -172,5 +159,6 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
     <script type="text/javascript" src="js/login.js" ></script>
+    <script type="text/javascript" src="js/load.js" ></script>
   </body>
 </html>

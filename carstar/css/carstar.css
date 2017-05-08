@@ -145,7 +145,7 @@ button{
   	background: url(../img/drop.png) no-repeat scroll right center #F1F1F1;
   	padding-right:24px ;
   	height: 30px;
-  	width: 200px;
+  	width: 160px;
   	z-index: 2;
   }
   form>table>tr>th>span{
@@ -451,4 +451,10 @@ button{
 	line-height: 60px;
 	vertical-align: middle;
 	color: #858689;
+}
+
+
+/*mycar.html*/
+.myCar-append input{
+	vertical-align: bottom;
 }

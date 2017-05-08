@@ -1,5 +1,9 @@
 //添加车辆
+$(function(){
+	queryCar();
+})
 
+ var user_id = $.cookie("userId");  //user_id  用户id
 //选择年份，获取品牌
 function chooseCarYear(){
 	$.fn.serializeObject = function()  
@@ -251,9 +255,6 @@ function submitCarInfo(){
 	infoJson =  JSON.stringify(infoJson);
 	infoJson = eval( "(" +infoJson +")" );
 	console.log(infoJson);
-	
-	var user_id = $.cookie("userId");
-	console.log(user_id);
 	infoJson.user_id = user_id;
 	
 	infoJson =  JSON.stringify(infoJson);
@@ -270,20 +271,20 @@ function submitCarInfo(){
 			infoJson = eval( "(" +infoJson +")" );
 			console.log(infoJson.year);
 			$(".myCar-append").append(
-				"	<div class='row '> " +
-				"	<div class='col-md-1'></div> " +
-				"	<div class='col-md-2 my-car col-xs-3'><span>"    
+				"	<div class='row my-car'> " + 
+				"	<div class='col-md-1' style='text-align:right' >" +"<input type='radio' name='radio' />" +  "</div> " +
+				"	<div class='col-md-2 col-xs-3'><span>"    
 						+infoJson.year+       "</span></div>"  +
-				"	<div class='col-md-2 my-car col-xs-3'><span>  " 
+				"	<div class='col-md-2  col-xs-3'><span>  " 
 						+infoJson.make_name +  "</span></div>" +
-				"	<div class='col-md-2 my-car col-xs-3'> <span>"  
+				"	<div class='col-md-2  col-xs-3'> <span>"  
 						+ infoJson.model_name+  " </span></div> " +
-				"	<div class='col-md-2 my-car col-xs-3'><span>"   +
+				"	<div class='col-md-2  col-xs-3'><span>"   +
 				         infoJson.output		 +   "</span></div>"    + 
-				"	<div class='col-md-2 my-car col-xs-3'><span>"   +
+				"	<div class='col-md-2  col-xs-3'><span>"   +
 						infoJson.type  		 +    "</span></div>"   +
 				"	<div class='col-md-1'></div></div>	");
-			setTimeout( alert("添加成功！"), 1000 )
+			setTimeout( alert("添加成功！"), 1000 );
 			$(".addcar-container").css("display","none");
 		},
 		error:function(){
@@ -291,4 +292,70 @@ function submitCarInfo(){
 		}
 	});
 	
+}
+
+var carId = {};   //存放汽车id的数组
+//查询汽车信息
+function queryCar(){
+	var user_id = $.cookie("userId");
+	query_url = "http://139.224.133.119:8080/CarStar/rest/mycar/query/"+user_id;
+	$.ajax({
+		type:"get",
+		contentType:"application/json; charset=utf-8",
+		url:query_url,
+		async:false,
+		success:function(msg){
+//			console.log(msg.data[1]);
+			var  infoJson = msg.data;
+//			console.log(infoJson);
+			$.each(infoJson, function(i) {
+				carId[i] = infoJson[i].id;  //汽车id存在全局数组中
+//				console.log(carId);
+			});
+		}
+		
+	});
+}
+
+
+var i = 0;
+
+//删除车辆---获取id，user_id
+function getCarId(){
+	i = 0;  
+	$(".myCar-append input").each(function(){
+		if( $(this).prop("checked") ){
+			console.log(carId,i);
+			console.log(carId[i]);
+		 	 deleteCar();
+//			if (msg.code == 0){
+//				alert("删除成功");
+//			}
+			$(this).parent().parent().remove();
+		}
+		i++;
+	});
+}
+
+//删除车辆--传递user_id,id
+function deleteCar(){
+	console.log(carId[i],user_id);
+	var infoJson = {}; 
+	infoJson.user_id = user_id ;
+	infoJson.id = carId[i];
+	infoJson =  JSON.stringify(infoJson);
+	console.log(infoJson);
+	deleteCar_url = "http://139.224.133.119:8080/CarStar/rest/mycar/delete";
+	$.ajax({
+		type:"post",
+		contentType:"application/json; charset=utf-8",
+		url:deleteCar_url,
+		data:infoJson,
+		dataType:"json",
+		async:false,
+		success:function(msg){
+			console.log(msg);
+			return msg.code;
+		}
+	});
 }

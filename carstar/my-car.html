@@ -4,17 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>我的爱车</title>
-	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
-    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!--jQuery cookie-->
    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+   <link rel="stylesheet" href="css/carstar.css" />
     <style>
     	@media only screen and (max-width:767px ) {
     		.car-img{
@@ -28,9 +25,9 @@
     			font-size: 35px;
     		}
     	.my-car{
-    		padding-top: 32px;
+    		padding-top: 20px;
     	}	
-    	.add-lovecart{
+    	.add-Mycart{
     		margin-top: 20px;
     		margin-left: 90px;
     		background-color: #009640;
@@ -51,7 +48,8 @@
 		<div class="myCar-append">
 			<p class="text-center">我的爱车</p>
 			<div class="row">
-				<div class="col-md-1"></div>
+				<div class="col-md-1" style="text-align: right;">
+				</div>
 				<div class="col-md-2 col-xs-3">年份</div>
 				<div class="col-md-2 col-xs-3">车辆信息</div>
 				<div class="col-md-2 col-xs-3">车系</div>
@@ -59,27 +57,10 @@
 				<div class="col-md-2 col-xs-3">款型</div>
 				<div class="col-md-1"></div>
 			</div>	
-			<div class="row ">
-				<div class="col-md-1"></div>
-				<div class="col-md-2 my-car col-xs-3">
-					<span>2017</span>
-				</div>
-				<div class="col-md-2 my-car col-xs-3">
-					<span>2016奥迪A8</span>
-				</div>
-				<div class="col-md-2 my-car col-xs-3">
-					<span>XXX车系</span>
-				</div>
-				<div class="col-md-2 my-car col-xs-3">
-					<span>2.0T</span>
-				</div>
-				<div class="col-md-2 my-car col-xs-3">
-					<span>豪华型</span>
-				</div>
-				<div class="col-md-1"></div>
-			</div>	
+			
 		</div>
-		<input type="button" class="add-lovecart	" value="添加爱车" />
+		<input type="button" class="add-Mycart	 add-lovecart" value="添加爱车" />
+		<input type="button" class="add-Mycart  add-deletecart" onclick="getCarId()" value="删除车辆" />
 	</div>
 	<!--页面底部-->
 	<div class="footer"></div>
@@ -98,6 +79,7 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
     <script type="text/javascript" src="js/load.js" ></script>
+    <script type="text/javascript" src="js/car.js" ></script>
      <!--jQuery slick js-->
   </body>
 </html>

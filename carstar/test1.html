@@ -2,22 +2,20 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<title>cookie</title>
-	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
-	<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+	<title>Document</title>
 </head>
 <body>
-	<input type="text" name="adc" id="adc" value="" />
-	<span id="jung">点击</span>
 	<script>
-		$("#jung").click(function(){
-			var adc = $("#adc").val();
-			console.log(adc);
-			$.cookie( "name11",adc,{expires:1} );
-			
-			var test = $.cookie("userName");
-			console.log(test);
-		});
-	</script>
+	function a(){
+       var i=0;
+		function b(){
+		           alert(i);       
+		}       
+		alert("1")
+		return b;   
+		}   
+		var c = a();   
+		c();
+	</script>		
 </body>
 </html>
