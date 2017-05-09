@@ -23,60 +23,22 @@ $(document).ready(function(){
 		});
 $(".footer").load("footer.html");
 
-//将用户登陆信息保存到cookie中
-function saveCookie(){
-	var userName = document.getElementById("username").value;
-	var pwd1 = document.getElementById("pwd1").value;
-	console.log(userName,pwd1);
-	
-	var userDate = new Date();
-	userDate.setTime(userDate.getTime() +5000 );
-//	setCookie("userName",userName,userDate.toGMTString(),"","","");
-//	setCookie("pwd1",pwd1,userDate.toGMTString(),"","","");
-	getCookie();
-	checkUser();
-}
-//设置cookie
-function setCookie(name,value,expries,path,domain,secure){
-	document.cookie = name + "=" +encodeURI(value) + 
-	((expries) ? "; expries" + expries: "" ) +
-	( (path) ? ";path" +path: "" ) +
-	( (domain) ? ";domain" + domain: "") +
-	( (secure) ? ";secure" +secure: "" );
-}
 
-//获取cookie
-function getCookie(cname){
-	var m = document.cookie;
-	if(m){
+//cookie判断是否登陆
+function getCookie(){
+	var userCookie = $.cookie("userId");
+	if ( userCookie != "" ){
 		return true;
 	}else{
 		window.location.href = "login.html";
 		return false;
 	}
-	var coookieString = decodeURI(document.cookie);
-	var cookieArray = coookieString.split(";");
-	console.log(cookieArray.length);
-	for(var i = 0;i< cookieArray.length; i++ ){
-		var cookieNum = cookieArray[i].split("=");
-		console.log(cookieNum.toString());
-		
-		var cookieName = cookieNum[0];
-		var cookieValue = cookieNum[1];
-		
-		if(cookieName == cname){
-			return cookieValue;
-		}
-	}
-	return false;
 }
 
-//删除cookie
+//删除cookie，退出登录
 function deleteCookie(){
-	var todate = new Date();
-	todate.setTime( todate.getTime()-1000 );
-	setCookie("username",userName,todate.toISOString(),"","");
-	setCookie("pwd1",pwd1,todate.toGMTString(),"","");
+	$.cookie("userId","");
+	console.log("删除cookie成功！")
 }
 
 //登陆验证
@@ -121,9 +83,8 @@ function checkUser(){
    				async:false,
 				success:function(date){
 						if ( date.code == 0 ){
-							//用户ID存入cookie
-							console.log(date.data.id);
-						 	$.cookie("userId",date.data.id);
+//							console.log(date.data.id);
+						 	$.cookie("userId",date.data.id, {expires:1} );  //设置一个用户登陆的cookie,保存时间为1天
 							window.location.href="home.html";
 						}else if (date.code == 1) {
 							alert("密码错误");

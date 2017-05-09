@@ -168,6 +168,7 @@ span a p{
 	height: 260px;
 }
 .log-out{
+	cursor: pointer;
 	padding: 7px 0px;
 }
 .nav-personal .row{

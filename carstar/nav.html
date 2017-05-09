@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="css/left-menu.css" />
 	<link rel="stylesheet" href="css/navbar.css" />
     <script type="text/javascript" src="js/login.js" ></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <body>
     	<!---------------购物车等图标------------>
     	<div class="top" style="background-color: #EDEEEF;height: 20px;color: #8F8F94;padding-left: 67%;font-weight: 400;">
@@ -67,7 +68,7 @@
 									<div class="col-md-1"></div>
 								</div>
 								<div style="margin-left: 20px;">
-									<p class="add-cart log-out">退出</p>
+									<p class="add-cart log-out" onclick="deleteCookie()" >退出</p>
 								</div>
 								<div class="row" style="margin-left: 30px;color: #666666;">
 									<p>创建一个账户，个性化你的经验</p>
