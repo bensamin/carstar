@@ -19,7 +19,7 @@ $(".goToBtn").click(function(){
 
 //价格，评论，品牌分类下拉按
 $(document).ready(function(){
-	console.log("choose");
+//	console.log("choose");
 	$(".add1").click(function(){
    		$(".add1").css("display","none");
 		$(".reduce1").css("display","inline");

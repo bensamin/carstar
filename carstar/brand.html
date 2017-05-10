@@ -14,13 +14,10 @@
 		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 		<!-- Bootstrap core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		<link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 		<!-- Custom styles for this template -->
 		<link href="css/carstar.css" rel="stylesheet">
 		 <link href="css/owl.carousel.css" rel="stylesheet">
     		<link href="css/owl.theme.css" rel="stylesheet">
-		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 		<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 		<script src="js/ie-emulation-modes-warning.js"></script>
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -79,8 +76,8 @@
 						</option>
 					</select>
 					<span class="search-go" >GO</span>
-					<input type="submit" class="search-choose" name="" id="" value="选择产品种类" />
-					<input type="submit" class="search-choose" name="" id="" value="选择产品品牌" />
+					<input type="" class="search-choose" name="" id="" value="选择产品种类" />
+					<input type="" class="search-choose" name="" id="" value="选择产品品牌" />
 					<p style="margin-top: 15px;margin-left: 5px; "><a href="my-car.html" style="color: #FFFFFF;">
 						<span class="glyphicon glyphicon-th-list" style="color: rgb(255,255,255);"></span>
 						车库（选择车辆）</a> </p>
@@ -416,6 +413,11 @@
 		<div class="footer"></div>
 		<script type="text/javascript">
 			$(".result p	").addClass("text-center");
+			$(".nav-tabs li").each(function(){
+    				$(this).click(function(){
+    					document.getElementById("home-drop").style.top = "670px";
+    				});
+    			});
 			$(document).ready(function() {
           var $window = $(window),
               $search_drop = $(".search-drop");

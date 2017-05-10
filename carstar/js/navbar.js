@@ -227,4 +227,46 @@ $(".myform a:eq(5)").hoverDelay({
 });
 
 
-
+//点击一级分类载入二级分类
+var categoryOne = new Array();
+	categoryOne[0] = "车内部件";
+	categoryOne[1] = "车外部件";
+	categoryOne[2] = "汽车性能";
+	categoryOne[3] = "灯光";
+	categoryOne[4] = "车轮";
+	categoryOne[5] = "音频";
+	categoryOne[6] = "修理";
+	categoryOne[7] = "工具";
+	
+$(document).ready(function(){
+	$(".nav-category li").click(function(){
+		var num = $(this).index() - 1 ;
+		var a = "http://192.168.1.106:8080/CarStar/rest/goods/showmenu?menu="+ categoryOne[num] +"&startNum=0&pageSize=11";
+			$.ajax({
+				type:"get",
+				contentType:"application/json; charset=utf-8",
+				url:a,
+				async:false,
+				success:function(msg){
+					console.log(msg);
+					var data1 = msg.data;
+					console.log(data1.length);
+					$("#one"+num).empty();
+					for( var i =0 ; i< data1.length;i++ ){
+//						console.log(i);
+						$("#one"+num).append(
+//						" <div class='category-nav'> " +	
+						"	<div class='col-md-3 prod_dd_li'>" +
+	    		  					" <a href='brand.html'> " + " <div class='prod_dd_img'> " +
+	    		  					" <img class='img-responsive' src=' img/exhaust.png '/> </div>" +
+	    		  					" <span class='prod_dd_t' >" + data1[i].n2  +  "</span> </a>" +
+	    		  				"</div>"
+						)}
+					},
+				error:function(){
+					console.log("error");
+				}
+				
+			});
+	});
+})

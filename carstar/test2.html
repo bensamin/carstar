@@ -6,30 +6,21 @@
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
 </head>
 <body>
-	<input type="text" id="search" />
-	<span onclick="b()">点击</span>
-
- 
-
-    <div id="first" style="border:1px #666 solid;">
-        <div id="first1">
-            <p id="p1">这里是p标签</p>    
-            <img src="up.png" alt="" id="img"/>
-         </div>
-        <input type="button" value="button"  id="bt"/>
-    </div>
-
+	<div>
+		<!--<input type="text" id="search" />-->
+		<!--<span onclick="b()">搜索点击</span>-->
+	</div>
+	
+	<div>
+		<input type="text" id="category" />
+		<span onclick="d()">车内部件</span>
+	</div>
+	<div class="class">
+		<div class="class2"></div>
+	</div>
 	<script>
 		
-		$(document).ready(function(){
-        $(document).mousedown(function(event){
-                    if((event.target.id==""||$("#first").find("#"+event.target.id).length==0)&&event.target.id!="first"){
-                            $("#first").hide();
-                        }
-            });
-     })
-		
-		function b(){
+	function b(){
 		var goods = $("#search").val();
 		var pagenum = 4;
 		console.log(goods);
@@ -41,8 +32,47 @@
 			async:false,
 			success:function(data){
 				console.log(data);
+			},
+			error:function(){
+				console.log("error");
 			}
+			
 		});
+		}
+		
+		
+		
+		function d(){
+			var menu = $("#category").val();
+			console.log(menu);
+			var a = "http://192.168.1.106:8080/CarStar/rest/goods/showmenu?menu="+menu+"&startNum=0&pageSize=510";
+			$.ajax({
+				type:"get",
+				contentType:"application/json; charset=utf-8",
+				url:a,
+				async:false,
+				success:function(data){
+					var data1 = data.data;
+					console.log(data);
+					for( var i =0;i<data1.length;i++ ){
+						$(".class2").append(
+							" <span> "+ data1[i].n2 +" </span> "
+						);
+					}
+					var num = Math.ceil(data.data.length / 5 );
+//					for ( var i = 0;i<num;i++ ){
+//						console.log(i);
+//						 for( var j =0;j<5;j++ ){
+//						 	console.log(data1[j].n2);
+//						 }
+//
+//					}
+				},
+				error:function(){
+					console.log("error");
+				}
+				
+			});
 		}
 	</script>
 </body>

@@ -2,41 +2,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-
-<style type="text/css">
-*{
-    margin:0;
-    padding:0;
-    }
-.div{
-    width:600px;
-    height:600px;
-    position:absolute;
-    top:50px;
-    left:100px;
-    background:#00BCF3;
-    
-    }
-    .div1{
-    	width: 100px;
-    	height: 100px;
-    	background-color: red;
-    }
-</style>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+<title>动态创建div</title>
 </head>
+
 <body>
-<div class="div">
-	<div class="div1"></div>
+	<input type="button" value="js动态添加div" onclick="addDiv()"/>
+	<input type="button" name="" id="" value="shanchu" onclick="delete1()" />
+<div id="id1">
+	
+	
 </div>
 
-<script>
-	$(".div").click(function(e){
-		if( !$( e.target ).closest(".div1").length ){
-			$(".div1").hide();
-		}
-	});
-</script>
+
 </body>
+
+<script>
+function addDiv(){
+//创建一个div
+var div = document.createElement('div');
+
+//设置div的属性
+div.innerHTML = '<h1>js动态创建的div</h1>'; //设置显示的数据，可以是标签．
+div.style.background = "blue";//设置css样式,s设置背景颜色\
+var bo = document.getElementById("id1");//获取body对象.
+//动态插入到body中
+bo.insertBefore(div,bo.lastChild);
+}
+function delete1(){
+	$("#id1").empty();
+}
+
+</script>
+
 </html>

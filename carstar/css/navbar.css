@@ -99,6 +99,7 @@ span a p{
 	margin-left: 15px;
 	cursor: pointer;
 	border: 1px solid #a1a1a1;
+	border-radius:2px 0 0 2px;
 }
 .myform img{
 	vertical-align: middle;
@@ -121,7 +122,9 @@ span a p{
 	width: 100%;
 	font-size: 11px;
 }
-
+.prod_dd_li{
+	border-bottom: 1px dashed #ADADAD;
+}
 .prod_dd_img {
 	float: left;
 }
@@ -147,7 +150,6 @@ span a p{
 }
 .category-nav{
 	padding: 10px 0px;
-	border-bottom: 1px dashed #ADADAD;
 }
 .left-drop{
 	display: none;

@@ -123,33 +123,32 @@ function searchResult(){
 			console.log(data);
 			pro = data.data;
 			var i = 0;
+			//产品搜索结果插入
 			$.each(pro, function() {
 				console.log( pro[i] );
+					$(".searchResult").append(
+					" <a href='product.html'> <div class='row' style='margin:20px auto'>"+
+					" <div class='col-md-3'> <img class='img-responsive' src=' " + pro[0].img1 + " ' /> </div> " +
+						" <div class='col-md-5 text-left'>" +
+							" <p style='color:#666'> " + pro[0].b + " </p> " + 
+							" <p style='color:#666'> " +pro[0].name + "  </p> " +
+							" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
+							" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
+							" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
+							" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
+							" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
+							" <p style='color:#666'> " + pro[0].des1 + " </p> " + 
+						"</div>" +
+						" <div class='col-md-3'> " +
+							" <span style='color:#f80000;'>¥</span> "+
+							" <span style='color:#f80000; font-size:1.8rem;'> " + pro[0].price +"</span> <p></p>" +
+							" <span class='category-product-list-buy'> 立即购买 </span> " +
+					 	"</div> "+
+						"</div>"+
+					"</a> "
+					)
 				i++;
 			});
-			console.log(pro[0].a);
-			$(".searchResult").append(
-				" <a href='product.html'> <div class='row' style='margin:20px auto'>"+
-				" <div class='col-md-3'> <img class='img-responsive' src=' " + pro[0].img1 + " ' /> </div> " +
-					" <div class='col-md-5 text-left'>" +
-						" <p style='color:#666'> " + pro[0].b + " </p> " + 
-						" <p style='color:#666'> " +pro[0].name + "  </p> " +
-						" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
-						" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
-						" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
-						" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
-						" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
-						" <p style='color:#666'> " + pro[0].des1 + " </p> " + 
-					"</div>" +
-					" <div class='col-md-3'> " +
-						" <span style='color:#f80000;'>¥</span> "+
-						" <span style='color:#f80000; font-size:1.8rem;'> " + pro[0].price +"</span> <p></p>" +
-						" <span class='category-product-list-buy'> 立即购买 </span> " +
-				 	"</div> "+
-					"</div>"+
-				"</a> "
-			)
-
 		}
 	});
 }

@@ -16,6 +16,25 @@ body {
 }
 /******************标签*************************/
 
+input[type="submit"] {
+    background: #5c6675 url(../svg/search.svg) no-repeat 50% 50%;
+    background-size: 50px;
+    border: 0;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+    font-size: 0;
+    height: 65px;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    position: absolute;
+    right: 133px;
+    top: 68px;
+    width: 82px;
+    z-index: 1;
+    -webkit-appearance: none;
+}
+
 a{
 	text-decoration: none;
 	color: #000000;
@@ -173,6 +192,7 @@ th > span{
  .search-choose{
  	color: #ffffff;
   	background-color:#0e9939;
+  	padding-left: 23px;
   	line-height: 40px;
   	width: 152px;
   	height: 49px;
@@ -407,6 +427,19 @@ th > span{
 	width: 100px;
 	height: 100px;
 	margin: 5px;
+}
+.productPrice{
+	color: #f80000;
+	font-size: 2.8rem;
+}
+
+.productName{
+	font-weight: 420;
+	color: #4B5160;
+	font-size: 1.5rem;
+}
+.productDesc{
+	color: #999;
 }
 /*footer.html*/
 .foot{	
