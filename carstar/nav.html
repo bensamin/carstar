@@ -25,8 +25,8 @@
     		<form class="myform">
 			<a href="javascript:;" class="slide-menu" target="_self"><img src="img/menu.png" alt=""></a>
   			<a href="home.html"><img  class="carstar-logo" src="img/logo.png"/> </a>
-    			<input class="show-div" type="text" placeholder="输入查询的配件">
-    			<a href="javascript:;" class="show-div2"> <img class="show-div" src="img/ss4.png" /></a>  
+    			<input class="show-div" type="text" onclick="clickSearch()" placeholder="输入查询的配件">
+    			<a href="javascript:;" class="show-div2"> <img class="show-div"  src="img/ss4.png" /></a>  
     			<a href="personal.html" onclick="getCookie()"  > <img class="mine" src="img/mine.png" /> </a>
     			<a href="collection.html" onclick="getCookie()" > <img  class="keep" src="img/收藏.png" /> </a>
     			<a href="my-car.html" onclick="getCookie()"> <img src="img/车辆.png"/> </a>
@@ -125,13 +125,15 @@
 	
 		<!----------弹出的查询框--------------->
 		<div class="show-search">
-    				<input class="show-div1" type="text" placeholder="输入查询的配件">
-    				<img src="img/ss4.png" style="background-color: #4c555f;height: 59px;margin-top: -4px;margin-left: -5px;"/>
+			<p class="search-text">
+    				<input class="show-div1 search-value" type="text" placeholder="输入查询的配件">
+    				<img src="img/ss4.png" style="background-color: #4c555f;height: 59px;margin-top: -4px;margin-left: -5px;cursor: pointer;" onclick="changeResult()"/>
+    			</p>	
     		</div>
     		<!----------一级分类菜单--------------->
 		<div class="category-one">
 			<!--一级分类目录-->
-    		  	<ul class="nav nav-tabs" >
+    		  	<ul class="nav nav-tabs nav-category" >
     		  		<li> <a href="#one8" data-toggle="tab"> <span></span> </a> </li>
     		  		<li> <a href="#one0" data-toggle="tab"> <span style="color: #555555;font-weight: 500;">车内部件</span> </a> </li>
     		  		<li> <a href="#one1" data-toggle="tab"> <span style="color: #555555;font-weight: 500;">车外部件</span> </a> </li>
@@ -321,8 +323,8 @@
     		  					 		<img src="img/brakes.png"/> 
     		  					 	</div>	
     		  						<div class="prod_dd_span">
-	    		  						<span class="prod_dd_t">排气系统</span> <br />
-	    		  					    <span>消声器，接头，转换器</span>
+	    		  						<span class="prod_dd_t">制动</span> <br />
+	    		  					    <span>刹车片，转子，卡钳</span>
 	    		  					 </div>   
     		  					</a> 
     		  				</div>
@@ -332,8 +334,8 @@
     		  					 		<img src="img/systems.png"/> 
     		  					 	</div>	
     		  						<div class="prod_dd_span">
-	    		  						<span class="prod_dd_t">排气系统</span> <br />
-	    		  					    <span>消声器，接头，转换器</span>
+	    		  						<span class="prod_dd_t">悬架系统</span> <br />
+	    		  					    <span>上升套件，冲击</span>
 	    		  					 </div>   
     		  					</a>
     		  				</div>
@@ -343,8 +345,8 @@
     		  					 		<img src="img/intakes.png"/> 
     		  					 	</div>	
     		  						<div class="prod_dd_span">
-	    		  						<span class="prod_dd_t">排气系统</span> <br />
-	    		  					    <span>消声器，接头，转换器</span>
+	    		  						<span class="prod_dd_t">进气系统</span> <br />
+	    		  					    <span>冷气，短路，过滤器</span>
 	    		  					 </div>   
     		  					</a>
     		  				</div>
@@ -357,7 +359,7 @@
     		  					 	</div>	
     		  						<div class="prod_dd_span">
 	    		  						<span class="prod_dd_t">性能芯片</span> <br />
-	    		  					    <span></span>
+	    		  					    <span>高密度芯片，边缘</span>
 	    		  					 </div>   
     		  					</a>
     		  				</div>

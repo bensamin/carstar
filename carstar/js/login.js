@@ -38,7 +38,8 @@ function getCookie(){
 //删除cookie，退出登录
 function deleteCookie(){
 	$.cookie("userId","");
-	console.log("删除cookie成功！")
+	alert("退出登陆成功！")
+	window.location.href ="home.html"
 }
 
 //登陆验证

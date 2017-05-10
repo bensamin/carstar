@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>    
+  var thisURL = document.URL;    
+  var  getval =thisURL.split('?')[1];  
+  var showval= getval.split("=")[1];  
+  function  showvalf(){  
+     alert(showval);  
+     document.getElementById('ee').value=showval;  
+  }  
+</script>  
+	</head>
+	 <body onload="showvalf()">  
+  <input type="text"  id ="ee" />  
+ </body>  
+</html>

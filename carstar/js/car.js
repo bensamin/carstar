@@ -26,7 +26,7 @@ function chooseCarYear(){
 	infoJson = $("#addcar").serializeObject();
 	infoJson =  JSON.stringify(infoJson);
 	infoJson = eval( "(" +infoJson +")" );
-	console.log(infoJson.year);
+//	console.log(infoJson.year);
 	
 	addcar_url = "http://139.224.133.119:8080/CarStar/rest/car/query2?year=" + infoJson.year;
 	$.ajax({
@@ -36,7 +36,7 @@ function chooseCarYear(){
 		async:false,
 		success:function(date){
 			carJson = date.data;
-			console.log(carJson);
+//			console.log(carJson);
 			
 			//清空option
 			makeNameId = document.getElementById("addcar-makeName");
@@ -87,14 +87,14 @@ function chooseMakeName(){
 	infoJson = $("#addcar").serializeObject();
 	infoJson =  JSON.stringify(infoJson);
 	infoJson = eval( "(" +infoJson +")" );
-	console.log(infoJson.year,infoJson.make_name);
+//	console.log(infoJson.year,infoJson.make_name);
 	
 	//定义数组传送
 	var infoJsonStr = {};
 	infoJsonStr.year = infoJson.year;
 	infoJsonStr.make_name = infoJson.make_name;
 	infoJsonStr =  JSON.stringify(infoJsonStr);
-	console.log(infoJsonStr);
+//	console.log(infoJsonStr);
 	
 	addcar_url="http://139.224.133.119:8080/CarStar/rest/car/query3";
 	$.ajax({
@@ -105,7 +105,7 @@ function chooseMakeName(){
 		async:true,
 		success:function(date){
 			carJson = date.data;
-			console.log(carJson);
+//			console.log(carJson);
 			modelNameId = document.getElementById("addcar-modelName");
 			delectOption(modelNameId);
 			$.each(carJson, function(i,obj) {
@@ -142,14 +142,14 @@ function chooseModelName(){
 	infoJson = $("#addcar").serializeObject();
 	infoJson =  JSON.stringify(infoJson);
 	infoJson = eval( "(" +infoJson +")" );
-	console.log(infoJson.year,infoJson.make_name,infoJson.model_name);
+//	console.log(infoJson.year,infoJson.make_name,infoJson.model_name);
 	
 	var infoJsonStr = {};
 	infoJsonStr.year = infoJson.year;
 	infoJsonStr.make_name = infoJson.make_name;
 	infoJsonStr.model_name = infoJson.model_name;
 	infoJsonStr =  JSON.stringify(infoJsonStr);
-	console.log(infoJsonStr);
+//	console.log(infoJsonStr);
 	
 	addcar_url="http://139.224.133.119:8080/CarStar/rest/car/query4";
 	$.ajax({
@@ -160,7 +160,7 @@ function chooseModelName(){
 		async:true,
 		success:function(date){
 			carJson = date.data;
-			console.log(carJson);
+//			console.log(carJson);
 			 outPutId = document.getElementById("addcar-output");
 			delectOption(outPutId);
 			$.each(carJson, function(i,obj) {
@@ -197,7 +197,7 @@ function chooseOutPut(){
 	infoJson = $("#addcar").serializeObject();
 	infoJson =  JSON.stringify(infoJson);
 	infoJson = eval( "(" +infoJson +")" );
-	console.log(infoJson.year,infoJson.make_name,infoJson.model_name,infoJson.output);
+//	console.log(infoJson.year,infoJson.make_name,infoJson.model_name,infoJson.output);
 	
 	var infoJsonStr = {};
 	infoJsonStr.year = infoJson.year;
@@ -205,7 +205,7 @@ function chooseOutPut(){
 	infoJsonStr.model_name = infoJson.model_name;
 	infoJsonStr.output = infoJson.output;
 	infoJsonStr =  JSON.stringify(infoJsonStr);
-	console.log(infoJsonStr);
+//	console.log(infoJsonStr);
 	
 	addcar_url="http://139.224.133.119:8080/CarStar/rest/car/query5";
 	$.ajax({
@@ -216,7 +216,7 @@ function chooseOutPut(){
 		async:true,
 		success:function(date){
 			carJson = date.data;
-			console.log(carJson);
+//			console.log(carJson);
 			typeId = document.getElementById("addcar-type");
 			delectOption(typeId);
 			$.each(carJson, function(i,obj) {
@@ -269,7 +269,7 @@ function submitCarInfo(){
 		success:function(date){
 			console.log(date);
 			infoJson = eval( "(" +infoJson +")" );
-			console.log(infoJson.year);
+//			console.log(infoJson.year);
 			$(".myCar-append").append(
 				"	<div class='row my-car'> " + 
 				"	<div class='col-md-1' style='text-align:right' >" +"<input type='radio' name='radio' />" +  "</div> " +
@@ -295,7 +295,8 @@ function submitCarInfo(){
 }
 
 var carId = {};   //存放汽车id的数组
-//查询汽车信息
+
+//查询汽车信息并显示
 function queryCar(){
 	var user_id = $.cookie("userId");
 	query_url = "http://139.224.133.119:8080/CarStar/rest/mycar/query/"+user_id;
@@ -305,12 +306,26 @@ function queryCar(){
 		url:query_url,
 		async:false,
 		success:function(msg){
-//			console.log(msg.data[1]);
+			console.log(msg.data);
 			var  infoJson = msg.data;
 //			console.log(infoJson);
 			$.each(infoJson, function(i) {
 				carId[i] = infoJson[i].id;  //汽车id存在全局数组中
 //				console.log(carId);
+				$(".myCar-append").append(
+				"	<div class='row my-car'> " + 
+				"	<div class='col-md-1' style='text-align:right' >" +"<input type='radio' name='radio' />" +  "</div> " +
+				"	<div class='col-md-2 col-xs-3'><span>"    
+						+infoJson[i].year+       "</span></div>"  +
+				"	<div class='col-md-2  col-xs-3'><span>  " 
+						+infoJson[i].make_name +  "</span></div>" +
+				"	<div class='col-md-2  col-xs-3'> <span>"  
+						+ infoJson[i].model_name+  " </span></div> " +
+				"	<div class='col-md-2  col-xs-3'><span>"   +
+				         infoJson[i].output		 +   "</span></div>"    + 
+				"	<div class='col-md-2  col-xs-3'><span>"   +
+						infoJson[i].type  		 +    "</span></div>"   +
+				"	<div class='col-md-1'></div></div>	");
 			});
 		}
 		
@@ -332,6 +347,7 @@ function getCarId(){
 //				alert("删除成功");
 //			}
 			$(this).parent().parent().remove();
+//			queryCar();
 		}
 		i++;
 	});

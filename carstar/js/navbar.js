@@ -4,20 +4,24 @@ $(function(){
 	if( window.innerWidth < 767 ){
 		$(".myform").append("<span>商城</span>")
 	}
-
-});
-
-$(document).ready(function(){
 	
-	//搜索框 div弹出
-			$(".show-div").click(function(){
-			$(".show-search").css("display","block")
-				})
-    					
-			$(".show-div1").blur(function(){
-				$(".show-search").css("display","none")
-				});
+
 });
+
+//弹出框隐藏
+function clickSearch(){
+			$(".show-search").css("display","block");
+//			console.log("1");
+}
+
+//弹出框隐藏
+ $(".show-search").click(function(e){
+		if( !$( e.target ).closest(".search-value").length ){
+			$(".show-search").hide();
+			console.log("3");
+		}
+	});
+
 
 //一级分类下拉框
 

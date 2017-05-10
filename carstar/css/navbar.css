@@ -88,8 +88,8 @@ span a p{
 	top:0px;
 	padding-top: 5%;
 	padding-left: 15%;
-	background: rgba(92,102,117, 0.8);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#995c6675, endColorstr=#995c6675);
+	background: rgba(0,0,0, 0.75);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#bf000000, endColorstr=#bf000000);
 	display: none;
 	z-index: 99999;
 }
@@ -137,7 +137,7 @@ span a p{
 	font-size: 13px;
 	padding-bottom: 4px;
 }
-.nav-tabs{
+.nav-category{
 	font-size: 1.66rem;
 	margin-left: 20%;
 }

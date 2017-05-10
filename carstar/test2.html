@@ -1,50 +1,49 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta http-equiv="content-Type" content="text/html;charset=utf-8">
-<meta name="keywords" content="111" />
-<meta name="description" content="222" />
-<title>网页特效 只能单选的复选框 </title>
-<script>
-function chewww_zzjs_netValidate(cb) {
-for (j = 0; j < 8; j++) {
-if (eval("document.zzjs_net.www_zzjs_net[" + j + "].checked") == true) {
-document.zzjs_net.www_zzjs_net[j].checked = false;
-if (j == cb) {
-document.zzjs_net.www_zzjs_net[j].checked = true;
-}
-}
-}
-}
-</script>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
 </head>
 <body>
-<a href="http://www.zzjs.net/">站长特效网</a><hr>
+	<input type="text" id="search" />
+	<span onclick="b()">点击</span>
 
-<form name="zzjs_net">
-<div align="center">选框 1
-<input type="checkBox" name="www_zzjs_net" onClick="javascript:chewww_zzjs_netValidate(0)">
-<br>
-选框 2
-<input type="checkBox" name="www_zzjs_net" onClick="javascript:chewww_zzjs_netValidate(1)">
-<br>
-选框 3
-<input type="checkBox" name="www_zzjs_net" onClick="javascript:chewww_zzjs_netValidate(2)">
-<br>
-选框 4
-<input type="checkBox" name="www_zzjs_net" onClick="javascript:chewww_zzjs_netValidate(3)">
-<br>
-选框 5
-<input type="checkBox" name="www_zzjs_net" onClick="javascript:chewww_zzjs_netValidate(4)">
-<br>
-选框 6
-<input type="checkBox" name="www_zzjs_net" onClick="javascript:chewww_zzjs_netValidate(5)">
-<br>
-选框 7
-<input type="checkBox" name="www_zzjs_net" onClick="javascript:chewww_zzjs_netValidate(6)">
-<br>
-选框 8
-<input type="checkBox" name="www_zzjs_net" onClick="javascript:chewww_zzjs_netValidate(7)">
-</div>
-</form>
+ 
+
+    <div id="first" style="border:1px #666 solid;">
+        <div id="first1">
+            <p id="p1">这里是p标签</p>    
+            <img src="up.png" alt="" id="img"/>
+         </div>
+        <input type="button" value="button"  id="bt"/>
+    </div>
+
+	<script>
+		
+		$(document).ready(function(){
+        $(document).mousedown(function(event){
+                    if((event.target.id==""||$("#first").find("#"+event.target.id).length==0)&&event.target.id!="first"){
+                            $("#first").hide();
+                        }
+            });
+     })
+		
+		function b(){
+		var goods = $("#search").val();
+		var pagenum = 4;
+		console.log(goods);
+		var a = "http://192.168.1.106:8080/CarStar/rest/goods/showgoods?goods="+goods+"&shop=all&startNum=0&pageSize=4";
+		$.ajax({
+			type:"get",
+			contentType:"application/json; charset=utf-8",
+			url:a,
+			async:false,
+			success:function(data){
+				console.log(data);
+			}
+		});
+		}
+	</script>
 </body>
 </html>

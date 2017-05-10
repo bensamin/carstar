@@ -24,54 +24,55 @@
   </head>
   <body>
   		<div class="header">	</div>
-  	<div class="our-carousel">
-			<div id="ImageSlider">
-				<div id="gellery">
-					<div><img class="img-responsive" src="img/index.png"><p></p></div>
-					<div><img class="img-responsive" src="img/index.png"><p></p></div>
-					<div><img class="img-responsive" src="img/index.png"><p></p></div>	
+  		<!--切片轮播图-->
+  			<div class="our-carousel">
+				<div id="ImageSlider">
+					<div id="gellery">
+						<div><img class="img-responsive" src="img/index.png"><p></p></div>
+						<div><img class="img-responsive" src="img/index.png"><p></p></div>
+						<div><img class="img-responsive" src="img/index.png"><p></p></div>	
 				</div>
 			</div>	   		
   	</div>
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!--选择-->
+  	
+    <!--5种选择-->
     <div id="home-drop">
     		<div id="home-searchAll">
     			<ul >
-            			<li> <span style="font-size: 1.83rem;"> 全部查询  </span> </li>
-            			<li> <span style="font-size: 1.83rem;"> 部件查询  </span> </li>
-            			<li> <span style="font-size: 1.83rem;"> 热门商店  </span> </li>
+            			<li> <span style="font-size: 1.83rem;"> 选择车型 </span> </li>
+            			<li> <span style="font-size: 1.83rem;"> 选择型号  </span> </li>
+            			<li> <span style="font-size: 1.83rem;"> 热门类型  </span> </li>
             		</ul>
     		</div>
     		<div id="home-searchContent">
 	    			<form>
 					<select class="home-year" >
 						<option>
-							<span>&nbsp;1.&nbsp;&nbsp;&nbsp;选择年份&nbsp;...</span>
+							<span>&nbsp;1&nbsp;&nbsp;&nbsp;选择年份&nbsp;</span>
 						</option>
 					</select>
 					<select class="home-brand">
 						<option>
-							<span>&nbsp;2.&nbsp;&nbsp;&nbsp;选择汽车品牌&nbsp;...</span>
+							<span>&nbsp;2&nbsp;&nbsp;&nbsp;选择汽车品牌&nbsp;</span>
 						</option>
 					</select>
 					<select class="home-model">
 						<option>
-							<span>&nbsp;3.&nbsp;&nbsp;&nbsp;选择车系&nbsp;...</span>
+							<span>&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</span>
 						</option>
 					</select>
 					<select class="home-model">
 						<option>
-							<span>&nbsp;4.&nbsp;&nbsp;&nbsp;选择排量&nbsp;...</span>
+							<span>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</span>
 						</option>
 					</select>
 					<select class="home-model">
 						<option>
-							<span>&nbsp;4.&nbsp;&nbsp;&nbsp;选择款型&nbsp;...</span>
+							<span>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</span>
 						</option>
 					</select>
 					
-					<input type="submit" class="search-go" value="GO" style="background-color: #0E9939;" />
+					<span class="search-go" >GO</span>
 					<input type="submit" class="search-choose" name="" id="" value="选择产品种类" />
 					<input type="submit" class="search-choose" name="" id="" value="选择产品品牌" />
 					<p style="margin-top: 15px;margin-left: 5px; "><a href="my-car.html" style="color: #FFFFFF;">
@@ -83,7 +84,7 @@
 					<input type="search" name="" required="" placeholder="Search" x-webkit-speech="" class="home-searchPart"  x-webkit-grammar="builtin:search" lang="zh-CN">
 					<input type="submit" class="search-go1" value="查询" style="color: #ffffff;font-size: 1.66rem; margin-left:-3px;border: 1px solid #0E9939;height:50px;line-height: 48px; background-color: #0E9939;"/>
 				</form> 
-				<form style="display: none;">
+				<form style="display: none;" class="home-hotShop">
 					<table border="0"  width="90%">
 						<tr>
 							<th> <img src="img/sp-suv-accessories.png"/> <span>SUV商店</span> </th>
@@ -105,39 +106,41 @@
     		
     </div>
     
+    <!--固定在顶部的搜索框-->
     <div class="drop">
     		 <div class="scroll-top"></div>
 		 <div class="search-drop">
 			<form>
 				<select class="home-year">
 					<option value="0">
-						<span >&nbsp;1.&nbsp;&nbsp;&nbsp;选择年份&nbsp;...</span>
+						<span >&nbsp;1&nbsp;&nbsp;&nbsp;选择年份&nbsp;</span>
 					</option>
 				</select>
 				<select class="home-brand">
 					<option value="1">
-						<span>&nbsp;2.&nbsp;&nbsp;&nbsp;选择汽车品牌&nbsp;...</span>
+						<span>&nbsp;2&nbsp;&nbsp;&nbsp;选择汽车品牌&nbsp;</span>
 					</option>
 				</select>
 				<select class="home-model">
 					<option value="2">
-						<span>&nbsp;3.&nbsp;&nbsp;&nbsp;选择车系&nbsp;...</span>
+						<span>&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</span>
 					</option>
 				</select>
 				<select class="home-model">
 					<option value="2">
-						<span>&nbsp;4.&nbsp;&nbsp;&nbsp;选择排量&nbsp;...</span>
+						<span>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</span>
 					</option>
 				</select>
 				<select class="home-model">
 					<option value="2">
-						<span>&nbsp;4.&nbsp;&nbsp;&nbsp;选择款型&nbsp;...</span>
+						<span>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</span>
 					</option>
 				</select>
-				<input type="search" class="search-go1  text-center" value="查询" style="border: 1px solid #0E9939;height:50px;line-height: 48px; background-color: #0E9939;"/>
+				<span class="search-go" >GO</span>
 			</form>		
 		 </div>    		
     </div>
+    
     <!--产品-->
     <div class="product" style="margin-top: 120px;margin-right: 60px;margin-left: 40px;">
     		<div class="row">
@@ -212,6 +215,8 @@
         </div>
     	   </div>
     </div>
+    
+    <!--汽车品牌 车系-->
     <div style="width: 90%;margin: 0 auto;">
 		<ul class="nav nav-tabs"  style="border-color: #fff;">
 			<li class="active"><a href="#feature-maked" data-toggle="tab" style="border:0px solid transparent;" >汽车品牌</a></li>

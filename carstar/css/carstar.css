@@ -142,13 +142,13 @@ button{
   	appearance: none;
   	-moz-appearance: none;
   	-webkit-appearance: none;
-  	background: url(../img/drop.png) no-repeat scroll right center #F1F1F1;
+  	/*background: url(../img/drop.png) no-repeat scroll right center #F1F1F1;*/
   	padding-right:24px ;
   	height: 30px;
   	width: 160px;
   	z-index: 2;
   }
-  form>table>tr>th>span{
+th > span{
   	color: #fff;
   }
  #feature-maked table tr th a{
@@ -160,15 +160,15 @@ button{
   }
   .search-go{
   	color: #ffffff;
-  	font-size: 1.66rem
-  	background-color:#0E9939;
-  	line-height: 40px;
-  	width: 64px;
-  	height: 50px;
   	font-size: 20px;
-  	margin-top: -5px;
+  	font-weight: 500;
+  	line-height: 40px;
+  	background-color: #0E9939;
+  	padding:10px  10px 13px 10px ;
   	border: 1px solid #424344;
-  	border-radius: 1px;
+  	border-radius: 2px;
+  	margin-left: -3px;
+  	margin-right: 10px;
   }
  .search-choose{
  	color: #ffffff;
@@ -177,7 +177,7 @@ button{
   	width: 152px;
   	height: 49px;
   	font-size: 1.66rem;
-  	margin-top: -3px;
+  	margin-right: -5px;
   	border: 1px solid #424344;
   	border-radius: 4px;
   }
@@ -186,6 +186,7 @@ button{
   	width: 80%;
   }
   .search-go1{
+  	
   	width: 70px; 
   	font-size: 20px;
   	border-radius: 2px;
@@ -259,7 +260,6 @@ button{
 	min-height: 120px;
 	border:1px solid rgb(202,203,205) ;
 	padding: 5px;
-
 }
 .type{
 	border:1px solid rgb(202,203,205) ;
@@ -291,12 +291,6 @@ button{
 .ccategory-product-list-four{
 	margin: 20px auto;
 }
-/*.result-category{
-	min-height:600px;
-	
-	margin-left: 2%;
-	margin-top: 10px;	
-}*/
 .category-brand{
 	margin: 10px 5%
 }
@@ -346,7 +340,8 @@ button{
 	width: 100%;
 }
 .detail ul li a{
-	font-size: 1.1rem;
+	font-size: 1.rem;
+	color: #333;
 	font-weight: 400;
 }
 .flag input:hover{
@@ -457,4 +452,23 @@ button{
 /*mycar.html*/
 .myCar-append input{
 	vertical-align: bottom;
+}
+
+/*search.html*/
+.search-allResult{
+	padding-left: 100px;
+}
+.search-brands{
+	border: 1px solid #E5E5E5;
+}
+.small-button{
+	cursor: pointer;
+	padding: 2px 8px;
+	border: 1px solid #999;
+}
+.category-product-list-buy{
+	padding: 10px 70px;
+	background-color: #e4e5e6;
+	color: #999;
+	border: 1px solid #e4e5e6;
 }
