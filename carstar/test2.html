@@ -19,9 +19,12 @@
 		<input type="text" name="brand" id="brand" value="" />
 		<span onclick="e()">二级分类：座椅---->三级分类</span>
 	</div>
+	<div>
+		<input type="text" name="" id="" value="" />
+	</div>
 	<div class="qwe"></div>
 	<script>
-	document.getElementsByClassName("qwe").innerHTML  = "123";	
+	document.getElementsByClassName("qwe").item(0).innerHTML  = "123";	
 	function b(){
 		var goods = $("#search").val();
 		var pagenum = 4;
@@ -31,7 +34,7 @@
 			type:"get",
 			contentType:"application/json; charset=utf-8",
 			url:a,
-			async:false,
+			async:true,
 			success:function(data){
 				console.log(data);
 			},

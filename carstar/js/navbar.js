@@ -246,7 +246,7 @@ $(document).ready(function(){
 				type:"get",
 				contentType:"application/json; charset=utf-8",
 				url:a,
-				async:false,
+				async:true,
 				success:function(msg){
 					console.log(msg);
 					var data1 = msg.data;

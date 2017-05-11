@@ -71,6 +71,10 @@ function addYear(year){
 	});
 }
 
+//五级分类的检索
+
+
+
 //category.html
 
 $(function(){
@@ -164,7 +168,7 @@ function clickBrand(){
 	$(".prod_dd_li").unbind("click").click(function(){
 		console.log( $(this).index() ); 
 		var brand = $(this).find("span").text();
-		window.location.href = "brand.html?menu=" + brand;
+		window.location.href = encodeURI( "brand.html?menu=" + brand );
 	});	
 }
 
@@ -196,13 +200,13 @@ function addBrand(brand,data){
 	console.log(brands);
 	$.each(brands, function(i) {
 		if ( brands[i].n3 == undefined ){
-			document.getElementById("addBrand_append").innerHTML = brand + "无结果";
+			document.getElementsByClassName("addBrand_append").item(0).innerHTML = decodeURI( brand ) + "无结果";
 			return false;
 		}else{
-				$("#addBrand_append").append(
+				$(".addBrand_append").append(
 					" <div class='col-xs-2' > " +
 					" <a > " + " <img class='img-responsive' src=' " + brands[i].m3 + "  '  > "  +
-					" <p class='text-center'> " + 
+					" <p class='text-center'> " +  
 					" <span>" + brands[i].n3 + "</span> "+
 					" </p> " +
 					" </a> " +

@@ -1,7 +1,3 @@
-//添加车辆
-$(function(){
-	queryCar();
-})
 
  var user_id = $.cookie("userId");  //user_id  用户id
 //选择年份，获取品牌

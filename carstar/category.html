@@ -47,32 +47,38 @@
             		</ul>
     		</div>
     		<div id="home-searchContent" >
-	    			<form>
-					<select class="home-year" style="height: 50px;color: #555555;font-size: 1.66rem;">
+	    			<form id="home_carInfo">
+					<select name="year" onchange="chooseCarYear()" class="home-year  boring" >
 						<option>
-							<span style="color: #666666;">&nbsp;1&nbsp;&nbsp;&nbsp;选择年份&nbsp;</span>
+							<span>&nbsp;1&nbsp;&nbsp;&nbsp;选择年份&nbsp;</span>
+						</option>
+							<option value="2017">2017</option>
+							<option value="2016">2016</option>
+							<option value="2015">2015</option>
+							<option value="2014">2014</option>
+							<option value="2013">2013</option>
+							<option value="2012">2012</option>
+							<option value="2011">2011</option>
+					</select>
+					<select class="home-brand boring" id="addcar-makeName1" name="make_name" onclick="chooseMakeName()">
+						<option>&nbsp;2&nbsp;&nbsp;&nbsp;选择汽车品牌&nbsp;</option>
+					</select>
+					<select class="home-model boring" id="addcar-modelName1" name="model_name" onclick="chooseModelName()">
+						<option>
+							<span>&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</span>
 						</option>
 					</select>
-					<select class="home-brand" style="height: 50px;color: #555555;font-size: 1.66rem;">
-						<option>
-							<span style="color: #666666;">&nbsp;2&nbsp;&nbsp;&nbsp;选择品牌&nbsp;</span>
-						</option>
-					</select>
-					<select class="home-model"style="height: 50px;color: #555555;font-size: 1.66rem;">
-						<option>
-							<span style="color: #666666;">&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</span>
-						</option>
-					</select>
-					<select class="home-model"style="height: 50px;color: #555555;font-size: 1.66rem;">
+					<select class="home-model boring" id="addcar-output1" name="output" onclick="chooseOutPut()">
 						<option>
 							<span>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</span>
 						</option>
 					</select>
-					<select class="home-model"style="height: 50px;color: #555555;font-size: 1.66rem;">
+					<select class="boring" id="addcar-type1" name="type">
 						<option>
 							<span>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</span>
 						</option>
 					</select>
+					
 					<span class="search-go" >GO</span>
 					<input type="" class="search-choose" name="" id="" value="选择产品种类" />
 					<input type="" class="search-choose" name="" id="" value="选择产品品牌" />
@@ -109,34 +115,39 @@
     <div class="drop">
     		 <div class="scroll-top"></div>
 		 <div class="search-drop">
-			<form>
-				<select class="home-year" style="height: 50px;color: #555555;font-size: 1.66rem;">
-					<option value="0">
-						<span >&nbsp;1&nbsp;&nbsp;&nbsp;选择年份&nbsp;</span>
-					</option>
+			<form id="home_carInfo1">
+				<select name="year"  class="boring home-year" onchange="chooseCarYear2()" >
+					<option value="0">&nbsp;1&nbsp;&nbsp;&nbsp;选择年份&nbsp;</option>
+							<option value="2017">2017</option>
+							<option value="2016">2016</option>
+							<option value="2015">2015</option>
+							<option value="2014">2014</option>
+							<option value="2013">2013</option>
+							<option value="2012">2012</option>
+							<option value="2011">2011</option>
 				</select>
-				<select class="home-brand" style="height: 50px;color: #555555;font-size: 1.66rem;">
+				<select class="home-brand boring" id="addcar-makeName2" name="make_name" onclick="chooseMakeName2()">
 					<option value="1">
-						<span>&nbsp;2&nbsp;&nbsp;&nbsp;选择品牌&nbsp;</span>
+						<span>&nbsp;2&nbsp;&nbsp;&nbsp;选择汽车品牌&nbsp;</span>
 					</option>
 				</select>
-				<select class="home-model" style="height: 50px;color: #555555;font-size: 1.66rem;">
+				<select class="home-model boring" id="addcar-modelName2" name="model_name" onclick="chooseModelName2()">
 					<option value="2">
 						<span>&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</span>
 					</option>
 				</select>
-				<select class="home-model"style="height: 50px;color: #555555;font-size: 1.66rem;">
-						<option>
-							<span>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</span>
-						</option>
-					</select>
-					<select class="home-model"style="height: 50px;color: #555555;font-size: 1.66rem;">
-						<option>
-							<span>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</span>
-						</option>
-					</select>
-					<span class="search-go">GO</span>
-			</form>		
+				<select class="home-model boring"  id="addcar-output2" name="output" onclick="chooseOutPut2()">
+					<option value="2">
+						<span>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</span>
+					</option>
+				</select>
+				<select class="home-model boring" id="addcar-type2" name="type">
+					<option value="2">
+						<span>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</span>
+					</option>
+				</select>
+				<span class="search-go" >GO</span>
+			</form>			
 		 </div>    		
     </div>
 			<div class="search-result">
@@ -474,11 +485,10 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     	<script src="js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript" src="js/owl.carousel.js" ></script>
 	<script type="text/javascript" src="js/transformer.js" ></script>
 	<!--jQuery load js-->
+	<script type="text/javascript" src="js/carSearch.js" ></script>
 	<script type="text/javascript" src="js/carstar.js" ></script>
 	<script type="text/javascript" src="js/load.js" ></script>  	
 	<script type="text/javascript" src="js/dropdown.js" ></script>
