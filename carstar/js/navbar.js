@@ -250,17 +250,22 @@ $(document).ready(function(){
 				success:function(msg){
 					console.log(msg);
 					var data1 = msg.data;
-					console.log(data1.length);
-					$("#one"+num).empty();
+					$("#one"+num).children().empty();
 					for( var i =0 ; i< data1.length;i++ ){
-//						console.log(i);
-						$("#one"+num).append(
+						$("#one"+num).children().append(
 //						" <div class='category-nav'> " +	
 						"	<div class='col-md-3 prod_dd_li'>" +
-	    		  					" <a href='brand.html'> " + " <div class='prod_dd_img'> " +
+	    		  					" <a  onclick='clickBrand()'> " + " <div class='prod_dd_img'> " +
 	    		  					" <img class='img-responsive' src=' img/exhaust.png '/> </div>" +
-	    		  					" <span class='prod_dd_t' >" + data1[i].n2  +  "</span> </a>" +
+	    		  					" <div class='prod_dd_span'> " +
+	    		  					" <span class='prod_dd_t' >" + data1[i].n2  +  "</span> </div> </a>" +
 	    		  				"</div>"
+//							"<li class=' prod_dd_li'>" +
+//	    		  					" <a href='brand.html'> " + " <div class='prod_dd_img'> " +
+//	    		  					" <img class='img-responsive' src=' img/exhaust.png'/> </div>" +
+//	    		  					" <div class='prod_dd_span'> " +
+//	    		  					" <span class='prod_dd_t' >" + data1[i].n2  +  "</span> </div> </a>" +
+//	    		  				"</li>"
 						)}
 					},
 				error:function(){

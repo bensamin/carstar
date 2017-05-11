@@ -97,12 +97,11 @@ function addBand(brand){
 	});
 }
 
-var pro = {};
 
-//
+
+//获取搜索值并将其传递给search页面
 function changeResult(){
 	var goods = $(".search-value").val();
-//	var pagenum = 4;
 	console.log(goods);
 	window.location.href = "search.html?goods="+goods;
 }
@@ -120,47 +119,96 @@ function searchResult(){
 		url:search_url,
 		async:false,
 		success:function(data){
-			console.log(data);
-			pro = data.data;
-			var i = 0;
 			//产品搜索结果插入
-			$.each(pro, function() {
-				console.log( pro[i] );
-					$(".searchResult").append(
-					" <a href='product.html'> <div class='row' style='margin:20px auto'>"+
-					" <div class='col-md-3'> <img class='img-responsive' src=' " + pro[0].img1 + " ' /> </div> " +
-						" <div class='col-md-5 text-left'>" +
-							" <p style='color:#666'> " + pro[0].b + " </p> " + 
-							" <p style='color:#666'> " +pro[0].name + "  </p> " +
-							" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
-							" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
-							" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
-							" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
-							" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
-							" <p style='color:#666'> " + pro[0].des1 + " </p> " + 
-						"</div>" +
-						" <div class='col-md-3'> " +
-							" <span style='color:#f80000;'>¥</span> "+
-							" <span style='color:#f80000; font-size:1.8rem;'> " + pro[0].price +"</span> <p></p>" +
-							" <span class='category-product-list-buy'> 立即购买 </span> " +
-					 	"</div> "+
-						"</div>"+
-					"</a> "
-					)
-				i++;
-			});
+			searchProduct(data);
 		}
 	});
 }
 
+var pro = {};
 //产品插入
-function searchProduct(){
+function searchProduct(data){
+	console.log(data);
+	pro = data.data;
 	console.log(pro);
-//	$(".searchResult").append(
-//		" <a href='product.html'> <div class='row' style='margin:20px auto'>"+
-//		" <div class='col-md-3'> <img src=' " + pro[i].img1 + " ' /> </div> "
-//		
-//		
-//		+"</div> </a> "
-//	)
+	var i = 0;
+	$.each(pro, function() {
+					console.log( pro[i] );
+						$(".searchResult").append(
+						" <a href='product.html'> <div class='row' style='margin:20px auto'>"+
+						" <div class='col-md-3'> <img class='img-responsive' src=' " + pro[0].img1 + " ' /> </div> " +
+							" <div class='col-md-5 text-left'>" +
+								" <p style='color:#666'> " + pro[0].b + " </p> " + 
+								" <p style='color:#666'> " +pro[0].name + "  </p> " +
+								" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
+								" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
+								" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
+								" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
+								" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
+								" <p style='color:#666'> " + pro[0].des1 + " </p> " + 
+							"</div>" +
+							" <div class='col-md-3'> " +
+								" <span style='color:#f80000;'>¥</span> "+
+								" <span style='color:#f80000; font-size:1.8rem;'> " + pro[0].price +"</span> <p></p>" +
+								" <span class='category-product-list-buy'> 立即购买 </span> " +
+						 	"</div> "+
+							"</div>"+
+						"</a> "
+						)
+					i++;
+				});
+}
+
+//三级分类的展示
+function clickBrand(){
+	$(".prod_dd_li").unbind("click").click(function(){
+		console.log( $(this).index() ); 
+		var brand = $(this).find("span").text();
+		window.location.href = "brand.html?menu=" + brand;
+	});	
+}
+
+function onloadBrand(){
+		var thisURL = document.URL;
+		var getVal = thisURL.split('?')[1];
+		var brand = getVal.split("=")[1];
+		console.log(brand);
+		var a = "http://192.168.1.106:8080/CarStar/rest/goods/showmenu?menu="+brand+"&startNum=0&pageSize=510";
+		$.ajax({
+			type:"get",
+			contentType:"application/json; charset=utf-8",
+			url:a,
+			async:false,
+			success:function(data){
+				console.log(data);
+				addBrand(brand,data);
+			},
+			error:function(){
+				console.log("error");
+			}
+			
+		});
+}
+
+
+function addBrand(brand,data){
+	var brands = data.data;
+	console.log(brands);
+	$.each(brands, function(i) {
+		if ( brands[i].n3 == undefined ){
+			document.getElementById("addBrand_append").innerHTML = brand + "无结果";
+			return false;
+		}else{
+				$("#addBrand_append").append(
+					" <div class='col-xs-2' > " +
+					" <a > " + " <img class='img-responsive' src=' " + brands[i].m3 + "  '  > "  +
+					" <p class='text-center'> " + 
+					" <span>" + brands[i].n3 + "</span> "+
+					" </p> " +
+					" </a> " +
+					"</div> "
+				)
+				return true;
+			}
+		});
 }

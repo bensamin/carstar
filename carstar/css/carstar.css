@@ -36,6 +36,7 @@ input[type="submit"] {
 }
 
 a{
+	cursor: pointer;
 	text-decoration: none;
 	color: #000000;
 }
@@ -256,10 +257,16 @@ th > span{
 	margin: 0 auto;
 	width: 90%;
 }
-
+.introduce-img{
+	overflow: hidden;
+}
 .introduce-img img{
 	cursor: pointer;
 	margin-bottom: 10px;
+	transition: all 0.6s;
+}
+.introduce-img img:hover{
+	transform: scale(1.1);
 }
 .introduce p{
 	margin-top: 10px;
@@ -274,6 +281,15 @@ th > span{
 	min-height: 30px;
 	padding: 5px;
 	padding-left: 8%;
+}
+.category_two{
+	margin-top: 30px;
+	padding-left: 100px;
+}
+.category_two p{
+	margin-top: 10px;
+	text-align: center;
+	font-weight: 700;
 }
 /***********Category.html*******************/
 .brand{
@@ -440,6 +456,26 @@ th > span{
 }
 .productDesc{
 	color: #999;
+}
+
+#product-detail ul{
+	padding: 0 20px 18px;
+	text-indent: 0;
+	border-top: 1px solid #fff;
+	list-style: none;
+}
+#product-detail li{
+	display: inline;
+	float: left;
+	width: 220px;
+	height: 18px;
+	overflow: hidden;
+	margin: 10px 15px 0 0 ;
+	line-height: 18px;
+	vertical-align: top;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: #666;
 }
 /*footer.html*/
 .foot{	

@@ -7,19 +7,21 @@
 </head>
 <body>
 	<div>
-		<!--<input type="text" id="search" />-->
-		<!--<span onclick="b()">搜索点击</span>-->
+		<input type="text" id="search" />
+		<span onclick="b()">搜索</span>
 	</div>
 	
 	<div>
 		<input type="text" id="category" />
-		<span onclick="d()">车内部件</span>
+		<span onclick="d()">一级分类：车内部件--->二级分类</span>
 	</div>
-	<div class="class">
-		<div class="class2"></div>
+	<div>
+		<input type="text" name="brand" id="brand" value="" />
+		<span onclick="e()">二级分类：座椅---->三级分类</span>
 	</div>
+	<div class="qwe"></div>
 	<script>
-		
+	document.getElementsByClassName("qwe").innerHTML  = "123";	
 	function b(){
 		var goods = $("#search").val();
 		var pagenum = 4;
@@ -42,7 +44,7 @@
 		
 		
 		
-		function d(){
+	function d(){
 			var menu = $("#category").val();
 			console.log(menu);
 			var a = "http://192.168.1.106:8080/CarStar/rest/goods/showmenu?menu="+menu+"&startNum=0&pageSize=510";
@@ -74,6 +76,26 @@
 				
 			});
 		}
-	</script>
+
+	function e(){
+		var goods = $("#brand").val();
+		var pagenum = 4;
+		console.log(goods);
+		var a = "http://192.168.1.106:8080/CarStar/rest/goods/showmenu?menu="+goods+"&startNum=0&pageSize=510";
+		$.ajax({
+			type:"get",
+			contentType:"application/json; charset=utf-8",
+			url:a,
+			async:false,
+			success:function(data){
+				console.log(data);
+			},
+			error:function(){
+				console.log("error");
+			}
+			
+		});
+	}
+</script>
 </body>
 </html>
