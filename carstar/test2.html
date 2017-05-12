@@ -20,11 +20,15 @@
 		<span onclick="e()">二级分类：座椅---->三级分类</span>
 	</div>
 	<div>
-		<input type="text" name="" id="" value="" />
+		<input type="text" name="" id="price1" value="" />------
+		<input type="text" name="" id="price2" value="" />
+		<span onclick="f()" >搜索价格范围的产品</span>
 	</div>
-	<div class="qwe"></div>
+	<div>
+		<input type="text" name="searchType" id="searchType" value="" />
+		<span onclick="j()" >五级检索</span>
+	</div>
 	<script>
-	document.getElementsByClassName("qwe").item(0).innerHTML  = "123";	
 	function b(){
 		var goods = $("#search").val();
 		var pagenum = 4;
@@ -45,8 +49,6 @@
 		});
 		}
 		
-		
-		
 	function d(){
 			var menu = $("#category").val();
 			console.log(menu);
@@ -65,13 +67,6 @@
 						);
 					}
 					var num = Math.ceil(data.data.length / 5 );
-//					for ( var i = 0;i<num;i++ ){
-//						console.log(i);
-//						 for( var j =0;j<5;j++ ){
-//						 	console.log(data1[j].n2);
-//						 }
-//
-//					}
 				},
 				error:function(){
 					console.log("error");
@@ -92,6 +87,8 @@
 			async:false,
 			success:function(data){
 				console.log(data);
+				var i = 0;
+				for(  )
 			},
 			error:function(){
 				console.log("error");
@@ -99,6 +96,38 @@
 			
 		});
 	}
-</script>
+
+	function f(){
+		var price1 = document.getElementById("price1").value;
+		var price2 = document.getElementById("price2").value;
+		console.log(price1,price2)
+		var a_url = "http://192.168.1.106:8080/CarStar/rest/goods/queryprice?price1=" + price1 + "&price2="+ price2 +"&startNum=0&pageSize=11";
+	 
+	 	$.ajax({
+			type:"get",
+			contentType:"application/json; charset=utf-8",
+			url:a_url,
+			async:true,
+			success:function(data){
+				console.log(data);
+			},
+			error:function(){
+				console.log("error");
+			}
+			
+		});
+	}
+	
+	function j(){
+	}
+	
+	function getJsonLength(JsonData){
+		var jsonLength = 0;
+		for( var item in JsonData ){
+			jsonLength++;
+		}
+		return jsonLength;
+	}
+	</script>
 </body>
 </html>

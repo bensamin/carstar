@@ -88,3 +88,46 @@ function selectAll(){
 			});
 			
 		};
+		
+//产品详情 接受产品id和商品信息
+function viewProduct(){
+	var thisURL =  document.URL;
+	var getVal = thisURL.split('?')[1];
+	var pid = getVal.split("=")[1];
+	console.log(pid);
+	var p_url = "http://192.168.1.106:8080/CarStar/rest/goods/querygoods?goodsid="+pid;
+	
+	$.ajax({
+		type:"get",
+		url:p_url,
+		async:true,
+		success:function(p_msg){
+			console.log(p_msg);
+			insertProductInfo(p_msg.data)
+		}
+	});
+}
+
+function insertProductInfo(data){
+	var a = getJsonLength( data.rev_info );
+	console.log(a);
+	document.getElementsByClassName("productPriceFont").item(0).innerHTML = data.price;
+	document.getElementsByClassName("productName").item(0).innerHTML = data.goodsname;  
+	document.getElementsByClassName("productDesc").item(0).innerHTML = data.des;
+	document.getElementsByClassName("productBrand").item(0).innerHTML =data.zzs;
+	document.getElementsByClassName("productID").item(0).innerHTML = data.goods_id;
+	document.getElementsByClassName("shopName").item(0).innerHTML = data.shopname;
+	document.getElementsByClassName("productName").item(1).innerHTML = data.goodsname;
+	document.getElementsByClassName("productType").item(0).innerHTML = data.des;
+	document.getElementsByClassName("productOther").item(0).innerHTML = data.des;
+}
+
+
+//获取json数组长度
+function getJsonLength(JsonData){
+	var jsonLength = 0;
+	for( var item in JsonData ){
+		jsonLength++;
+	}
+	return jsonLength;
+}

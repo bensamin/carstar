@@ -188,205 +188,135 @@
 			<div class="row">
 				<div class="col-md-2">
 					<div class="choose">
-						<span style="margin-left: 55px;">价格</span>  <input type="image" src="img/add.png" class="add add1"/>
+						<span>价格</span>  <input type="image" src="img/add.png" class="add add1"/>
 						<input type="image" src="img/reduce.png" class="reduce reduce1" />
-						<div class="price1">
-								<input name="price" type="checkbox" />50-100 <br />
-								<input name="price" type="checkbox" />100-1000<br />
-								<input name="price" type="checkbox" />1000-2000 <br />
-								<input name="price" type="checkbox" />2000-3000<br />
-								<input name="price" type="checkbox" />3000-4000 <br />
-								<input name="price" type="checkbox" />5000-6000
-						</div>
+						<ul class="price1">
+							<li> <input name="price" type="checkbox" /> <span> 0-50 </span></li>
+							<li> <input name="price" type="checkbox" /> <span> 50-200 </span></li>
+							<li> <input name="price" type="checkbox" /> <span> 200-500 </span></li>
+							<li> <input name="price" type="checkbox" /> <span> 500-1000 </span></li>
+							<li> <input name="price" type="checkbox" /> <span> 1000-2000 </span></li>
+							<li> <input name="price" type="checkbox" /> <span> 2000-5000 </span></li>
+							<li> <input name="price" type="checkbox" /> <span> 5000-10000 </span></li>
+						</ul>
 					</div>
 					<div class="choose">
 						<p>评论
 							<input type="image" src="img/add.png" class="add add2" />
 							<input type="image" src="img/reduce.png" class="reduce reduce2" /> </p>
-						<div class="price2">
-							<input name="comment" type="checkbox" /> 
+						<ul class="price2">
+							<li>	<input name="comment" type="checkbox" /> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
-							<br />
-							<input name="comment" type="checkbox" />
+							</li>
+								<li>	<input name="comment" type="checkbox" />
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
-							<br />
-							<input name="comment" type="checkbox" />
+							</li>
+							<li>	<input name="comment" type="checkbox" />
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
-							<br />
-							<input name="comment" type="checkbox" />
+							</li>
+								<li>	<input name="comment" type="checkbox" />
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
-							<br />
+							</li>
 							
-						</div>
+						</ul>
 					</div>
 					<div class="choose">
 						<p>品牌
 							<input type="image" src="img/add.png" class="add add3" />
 							<input type="image" src="img/reduce.png" class="reduce reduce3" /> </p>
-						<div class="price3">
-							<input name="brand" type="checkbox" />本田<br />
-							<input name="brand" type="checkbox" />奥迪
-						</div>
+						<ul class="price3">
+							<li> <input name="price" type="checkbox" /> <span> 本田 </span></li>
+							<li> <input name="price" type="checkbox" /> <span> 奥迪 </span></li>
+						</ul>
 					</div>
 				</div>
 				<!--------------商品--------------->
-				<div class="col-md-9 text-center">
-					<div class="row">
-						<div class="col-md-3 col-xs-6">
-						<a href="product.html"> 
-							<img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p> </a>	
+				<div class="col-md-9">
+					<div class="row category-product">
+							<a href="product.html">	<div class="col-md-4 col-xs-6 ccategory-product-list-four  text-left" >
+								<img src="img/custom-floor-mats_ic_5.jpeg"/>
+								<p style="color: #666666;">汽车脚踏垫</p>
+								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: 0px;"></span> 	
+								<div class="product-color-choose">
+									<span class="prod-lst-colors-item"></span>
+									<span class="prod-lst-colors-item1"></span>
+								</div>
+								<div class="brand-price">
+									<span style="color: #f80000;">¥</span>
+									<span style="color: #f80000;font-size: 1.8rem;">000.00</span>&nbsp;&nbsp;
+								</div>
+								 <span class="category-product-list-buy">立即购买</span>
+							</div></a>
+							<a href="product.html">	<div class="col-md-4 col-xs-6 ccategory-product-list-four  text-left" >
+								<img src="img/custom-floor-mats_ic_5.jpeg"/>
+								<p style="color: #666666;">汽车脚踏垫</p>
+								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: 0px;"></span> 	
+								<div class="product-color-choose">
+									<span class="prod-lst-colors-item"></span>
+									<span class="prod-lst-colors-item1"></span>
+								</div>
+								<div class="brand-price">
+									<span style="color: #f80000;">¥</span>
+									<span style="color: #f80000;font-size: 1.8rem;">000.00</span>&nbsp;&nbsp;
+								</div>
+								 <span class="category-product-list-buy">立即购买</span>
+							</div></a>
+							<a href="product.html">	<div class="col-md-4 col-xs-6 ccategory-product-list-four  text-left" >
+								<img src="img/custom-floor-mats_ic_5.jpeg"/>
+								<p style="color: #666666;">汽车脚踏垫</p>
+								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: 0px;"></span> 	
+								<div class="product-color-choose">
+									<span class="prod-lst-colors-item"></span>
+									<span class="prod-lst-colors-item1"></span>
+								</div>
+								<div class="brand-price">
+									<span style="color: #f80000;">¥</span>
+									<span style="color: #f80000;font-size: 1.8rem;">000.00</span>&nbsp;&nbsp;
+								</div>
+								 <span class="category-product-list-buy">立即购买</span>
+							</div></a>
 						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" /ƒ>
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-3 col-xs-6">
-						<a href="product.html"> <img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p> </a>	
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" /ƒ>
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-3 col-xs-6">
-						<a href="product.html"> <img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p> </a>	
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" /ƒ>
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-3 col-xs-6">
-						<a href="product.html"> <img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p> </a>	
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" /ƒ>
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-3 col-xs-6">
-						<a href="product.html"> <img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p> </a>	
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" /ƒ>
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-3 col-xs-6">
-						<a href="product.html"> <img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p> </a>	
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" /ƒ>
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-						<div class="col-md-3 col-xs-6">
-							<img src="img/test.png" />
-							<p>Price</p>
-							<p>Decrition</p>
-						</div>
-					</div>
+				
+					
+					
+					
 				</div>
 			</div>
 		</div>
 		<!--页面底部-->
 		<div class="footer"></div>
 		<script type="text/javascript">
-			$(".result p	").addClass("text-center");
 			$(".nav-tabs li").each(function(){
     				$(this).click(function(){
     					document.getElementById("home-drop").style.top = "670px";

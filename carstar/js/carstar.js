@@ -1,4 +1,9 @@
-	    //切片轮播
+$(document).ready(function(){
+	priceSort();
+	buyMouseHover();
+})
+
+//切片轮播
 $(function(){
 			$('#gellery').transformer({
 				__Effects:new Array('Optimus','Ironhide','Scorponok','Megatron','Starscream','Jazz'),	
@@ -34,15 +39,16 @@ $(function(){
 			addBox(data);
 		});
 });
-	function addBox(result){
-		$.each(result,function(index,obj){
-			$(".home-product").append(
-			"<div class='col-md-3 col-xs-6'>"+	
-			"<img src="+obj['img']+"/>"+
-			"<div>"+obj['category']+"</div>" +
-			"<p>"+obj['name']+"</p>" + 
-			"</div> " );
-		});
+
+function addBox(result){
+//		$.each(result,function(index,obj){
+//			$(".home-product").append(
+//			"<div class='col-md-3 col-xs-6'>"+	
+//			"<img src="+obj['img']+"/>"+
+//			"<div>"+obj['category']+"</div>" +
+//			"<p>"+obj['name']+"</p>" + 
+//			"</div> " );
+//		});
 	}
 //$(function(){
 //		$.ajax({
@@ -107,7 +113,7 @@ function addBand(brand){
 function changeResult(){
 	var goods = $(".search-value").val();
 	console.log(goods);
-	window.location.href = "search.html?goods="+goods;
+	window.location.href = encodeURI( "search.html?goods="+goods );
 }
 
 //搜索结果的展示
@@ -115,7 +121,7 @@ function searchResult(){
 	var thisURL = document.URL;
 	var getVal = thisURL.split('?')[1];
 	var goods = getVal.split("=")[1];
-	console.log(goods);
+	console.log( decodeURI( goods ) );
 	var search_url = "http://192.168.1.106:8080/CarStar/rest/goods/showgoods?goods="+goods+"&shop=all&startNum=0&pageSize=4";
 	$.ajax({
 		type:"get",
@@ -168,15 +174,16 @@ function clickBrand(){
 	$(".prod_dd_li").unbind("click").click(function(){
 		console.log( $(this).index() ); 
 		var brand = $(this).find("span").text();
-		window.location.href = encodeURI( "brand.html?menu=" + brand );
+		window.location.href = encodeURI(  "brand.html?menu=" +  brand  );
 	});	
 }
 
 function onloadBrand(){
-		var thisURL = document.URL;
+		var thisURL =  document.URL ;
 		var getVal = thisURL.split('?')[1];
 		var brand = getVal.split("=")[1];
-		console.log(brand);
+		
+		console.log(  decodeURI(brand) );
 		var a = "http://192.168.1.106:8080/CarStar/rest/goods/showmenu?menu="+brand+"&startNum=0&pageSize=510";
 		$.ajax({
 			type:"get",
@@ -215,4 +222,80 @@ function addBrand(brand,data){
 				return true;
 			}
 		});
+		BrandProduct();
+}
+
+
+//购买按钮鼠标滑过变色
+function buyMouseHover(){
+	 $(".category-product-list-buy").mouseenter(function(){
+		$(this).css("background-color","#0E9939");
+		$(this).css("color","#ffffff");
+	});
+						
+	$(".category-product-list-buy").mouseleave(function(){
+		$(this).css("background-color","#e4e5e6");
+		$(this).css("color","#999999");
+	});	 
+}
+
+//brand.html价格排序
+function priceSort(){
+	$(".price1 li").click(function(){
+		var sort = $(this).find("span").text();
+		sort = sort.split("-");
+		console.log(sort[0],sort[1]);
+	
+	
+	var a_url = "http://192.168.1.106:8080/CarStar/rest/goods/queryprice?price1=" + sort[0] + "&price2="+ sort[1] +"&startNum=0&pageSize=11";
+	 
+	 	$.ajax({
+			type:"get",
+			contentType:"application/json; charset=utf-8",
+			url:a_url,
+			async:true,
+			success:function(data){
+				console.log(data);
+			},
+			error:function(){
+				console.log("error");
+			}
+			
+		});
+	});		
+}
+
+
+//跳转到产品详情页面
+function BrandProduct(){
+	var a_url = "http://192.168.1.106:8080/CarStar/rest/goods/querygoods?goodsid=1";
+	$.ajax({
+		type:"get",
+		url:a_url,
+		async:true,
+		success:function(data){
+			console.log(data);
+			addBrandProduct(data.data);
+		}
+	});
+}
+
+function addBrandProduct(data){
+	console.log(data.goods_id);
+	$(".category-product").append(
+		" <div class='col-md-4-col-xs-6 ccategory-product-list-four text-left'>" +
+		" <img src='img/custom-floor-mats_ic_5.jpeg'/> " +
+		" <p> " + data.goodsname + " </p> " +
+		" <p> "  + data.des+ " </p> " +
+		" <span>评价的星级</span> " +
+		" <div class='product-color-choose'> 颜色 </div> " +
+		" <div class='brand-price'> <span class='productPriceColor'>¥</span> " +
+		" <span class='productPriceColor'> " + data.price + " </span></div>  " +	
+		" <span class='category-product-list-buy'>立即购买</span> " +
+ 		"</div> "
+	)
+	
+	$(".ccategory-product-list-four").click(function(){
+		window.location.href = encodeURI(  "product.html?goodsid=" +  data.goods_id  );
+	})
 }
