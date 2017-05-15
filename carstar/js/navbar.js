@@ -241,7 +241,9 @@ var categoryOne = new Array();
 $(document).ready(function(){
 	$(".nav-category li").click(function(){
 		var num = $(this).index() - 1 ;
-		var a = "http://192.168.1.106:8080/CarStar/rest/goods/showmenu?menu="+ categoryOne[num] +"&startNum=0&pageSize=11";
+		$.cookie("category1","");
+		var category1 = $.cookie("category1",categoryOne[num]);
+		var a = "http://139.224.133.119:8080/CarStar/rest/goods/showmenu?menu="+ categoryOne[num] +"&startNum=0&pageSize=11";
 			$.ajax({
 				type:"get",
 				contentType:"application/json; charset=utf-8",

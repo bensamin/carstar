@@ -25,7 +25,7 @@
 		
 	</style>
   </head>
-  <body>
+  <body onload="onloadCategory()">
 		<!--页面头部-->
 		<div class="header">	</div>
 		<div class="category-menu"></div>
@@ -79,7 +79,7 @@
 						</option>
 					</select>
 					
-					<span class="search-go" >GO</span>
+					<span class="search-go" onclick="searchCar()">GO</span>
 					<input type="" class="search-choose" name="" id="" value="选择产品种类" />
 					<input type="" class="search-choose" name="" id="" value="选择产品品牌" />
 					<p style="margin-top: 15px;margin-left: 5px; "><a href="my-car.html" style="color: #FFFFFF;">
@@ -146,7 +146,7 @@
 						<span>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</span>
 					</option>
 				</select>
-				<span class="search-go" >GO</span>
+				<span class="search-go" onclick="searchCar()">GO</span>
 			</form>			
 		 </div>    		
     </div>
@@ -203,121 +203,71 @@
 		<div class="result result-category">
 			<div class="row" >
 				<div class="col-md-2">
-					<p style="color: #666666;font-size: medium; ">1&nbsp;-&nbsp;60／12620件</p>
-					<div class="choose" style="color: #333333;font-weight: 400; ">
-						价&nbsp;格 
-							<input type="image" src="img/add.png"  class="add add1" />
-							<input type="image" src="img/reduce.png" class="reduce reduce1" />
-							<div class="price1">
-								<div class="row">
-							 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-							 		<div class="col-xs-6"> <a href="brand.html"><50</a>  </div>
-							 	</div>
-							 	<div class="row">
-							 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-							 		<div class="col-xs-6"> <a href="brand.html">50-100</a>  </div>
-							 	</div>
-							 	<div class="row">
-							 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-							 		<div class="col-xs-6"> <a href="brand.html">100-300</a>  </div>
-							 	</div>
-							 	<div class="row">
-							 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-							 		<div class="col-xs-6"> <a href="brand.html">300-500</a>  </div>
-							 	</div>
-							 	<div class="row">
-							 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-							 		<div class="col-xs-6"> <a href="brand.html">500-700</a>  </div>
-							 	</div>
-							 	<div class="row">
-							 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-							 		<div class="col-xs-6"> <a href="brand.html">700-900</a>  </div>
-							 	</div>
-							 	<div class="row">
-							 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-							 		<div class="col-xs-6"> <a href="brand.html">900-1100</a>  </div>
-							 	</div>
-							</div>	
+					<div class="choose">
+						<span>价格</span>  <input type="image" src="img/add.png" class="add add1"/>
+						<input type="image" src="img/reduce.png" class="reduce reduce1" />
+						<ul class="price1">
+							<li> <label for="one"></label> <input name="one" type="checkbox" /> <span> 1-50 </span></li>
+							<li> <label for="two"></label> <input name="two" type="checkbox" /> <span> 50-200 </span></li>
+							<li> <label for="three"></label> <input name="three" type="checkbox" /> <span> 200-500 </span></li>
+							<li> <label for="four"></label> <input name="four" type="checkbox" /> <span> 500-1000 </span></li>
+							<li> <label for="five"></label> <input name="five" type="checkbox" /> <span> 1000-2000 </span></li>
+							<li> <label for="six"></label> <input name="six" type="checkbox" /> <span> 2000-5000 </span></li>
+							<li> <label for="seven"></label> <input name="seven" type="checkbox" /> <span> 5000-10000 </span></li>
+						</ul>
 					</div>
 					<div class="choose">
-						<p>评&nbsp;论
-						<input type="image" src="img/add.png" class="add add2"/>
-						<input type="image" src="img/reduce.png" class="reduce reduce2" /> </p>
-						<div class="price2">
-							<input name="comment" type="checkbox" /> 
+						<p>评论
+							<input type="image" src="img/add.png" class="add add2" />
+							<input type="image" src="img/reduce.png" class="reduce reduce2" /> </p>
+						<ul class="price2">
+							<li>	<input name="comment" type="checkbox" /> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+							</li>
+							<li>	<input name="comment" type="checkbox" /> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
-							<br />
-							<input name="comment" type="checkbox" />
+							</li>
+								<li>	<input name="comment" type="checkbox" />
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
-							<br />
-							<input name="comment" type="checkbox" />
+							</li>
+							<li>	<input name="comment" type="checkbox" />
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
-							<br />
-							<input name="comment" type="checkbox" />
+							</li>
+								<li>	<input name="comment" type="checkbox" />
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: -15px;"></span> 
-							<br />
+							</li>
 							
-						</div>
+						</ul>
 					</div>
-					<!--<div class="choose">
-						<p>品&nbsp;牌
-						 <input type="image" src="img/add.png" class="add add3"/> 
-						 <input type="image" src="img/reduce.png" class="reduce reduce3"/> </p>
-						 <div class="price3">
-						 	<div class="row">
-						 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-						 		<div class="col-xs-6"> <a href="brand.html">本田</a>  </div>
-						 	</div>
-							<div class="row">
-						 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-						 		<div class="col-xs-6"> <a href="brand.html">大众</a>  </div>
-						 	</div> 
-						 	<div class="row">
-						 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-						 		<div class="col-xs-6"> <a href="brand.html">东风</a>  </div>
-						 	</div>
-						 	<div class="row">
-						 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-						 		<div class="col-xs-6"> <a href="brand.html">宝马</a>  </div>
-						 	</div>
-						 	<div class="row">
-						 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-						 		<div class="col-xs-6"> <a href="brand.html">福特</a>  </div>
-						 	</div>
-						 	<div class="row">
-						 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-						 		<div class="col-xs-6"> <a href="brand.html">现代</a>  </div>
-						 	</div>
-						 	<div class="row">
-						 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-						 		<div class="col-xs-6"> <a href="brand.html">奔驰</a>  </div>
-						 	</div>
-						 	<div class="row">
-						 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-						 		<div class="col-xs-6"> <a href="brand.html">比亚迪</a>  </div>
-						 	</div>
-						 	<div class="row">
-						 		<div class="col-xs-1 col-xs-offset-2"> <input name="brand" type="checkbox" /> </div>
-						 		<div class="col-xs-6"> <a href="brand.html">凯迪拉克</a>  </div>
-						 	</div>
-						 </div>
-					</div>-->
+					<div class="choose">
+						<p>品牌
+							<input type="image" src="img/add.png" class="add add3" />
+							<input type="image" src="img/reduce.png" class="reduce reduce3" /> </p>
+						<ul class="price3">
+							<li> <input name="price" type="checkbox" /> <span> 本田 </span></li>
+							<li> <input name="price" type="checkbox" /> <span> 奥迪 </span></li>
+						</ul>
+					</div>
 				</div>
 		<!--------------商品--------------->
 				<div class="col-md-9 " >
@@ -340,15 +290,17 @@
 							<span class="glyphicon glyphicon-th" style="font-size: 3rem;color: #666666;"></span> 
 						</div>
 					</div>
-					<div class="category-product-toal">	</div>
+					<div class="category-product">	</div>
 				</div>
 			</div>										
 		</div>
 	</div>	
+	
+	
 		<div class="more-product" style="width: 80%;margin: 0 auto;">
 			<p class="text-center" style="color:#666666;font-size: medium;"> 更多畅销 </p>
 			
-			     <div class="row category-product">
+			     <div class="row">
 							<div class="col-md-3 col-xs-6 ccategory-product-list-four">
 								<img src="img/custom-floor-mats_ic_5.jpeg"/>
 								<p style="color: #666666;">汽车脚踏垫</p>
@@ -428,9 +380,6 @@
     					document.getElementById("home-drop").style.top = "670px";
     				});
     			});
-		$(".row").addClass("text-center");
-		$(".result").addClass("text-center");
-		$(".category-product-toal").load("four.html");	
 		$(document).ready(function() {
 		$(".category-product-list-buy").mouseenter(function(){
 		 		$(this).css("background-color","#0E9939");

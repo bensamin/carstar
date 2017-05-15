@@ -81,7 +81,7 @@
 						</option>
 					</select>
 					
-					<span class="search-go" >GO</span>
+					<span class="search-go" onclick="searchCar()">GO</span>
 					<input type="" class="search-choose" name="" id="" value="选择产品种类" />
 					<input type="" class="search-choose" name="" id="" value="选择产品品牌" />
 					<p style="margin-top: 15px;margin-left: 5px; "><a href="my-car.html" style="color: #FFFFFF;">
@@ -148,7 +148,7 @@
 						<span>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</span>
 					</option>
 				</select>
-				<span class="search-go" >GO</span>
+				<span class="search-go" onclick="searchCar()">GO</span>
 			</form>		
 		 </div>    		
     </div>
@@ -181,7 +181,8 @@
 		<!--三级分类的种类-->
 		<div class="category_two">
 			<div class="text-center" style="font-size: 30px; color: #666;">种类</div>
-				<div class="row addBrand_append"></div>
+				<div class="row addBrand_append">
+				</div>
 		</div>
 		
 		<div class="result result-brand">
@@ -191,13 +192,13 @@
 						<span>价格</span>  <input type="image" src="img/add.png" class="add add1"/>
 						<input type="image" src="img/reduce.png" class="reduce reduce1" />
 						<ul class="price1">
-							<li> <input name="price" type="checkbox" /> <span> 0-50 </span></li>
-							<li> <input name="price" type="checkbox" /> <span> 50-200 </span></li>
-							<li> <input name="price" type="checkbox" /> <span> 200-500 </span></li>
-							<li> <input name="price" type="checkbox" /> <span> 500-1000 </span></li>
-							<li> <input name="price" type="checkbox" /> <span> 1000-2000 </span></li>
-							<li> <input name="price" type="checkbox" /> <span> 2000-5000 </span></li>
-							<li> <input name="price" type="checkbox" /> <span> 5000-10000 </span></li>
+							<li> <label for="one"></label> <input name="one" type="checkbox" /> <span> 1-50 </span></li>
+							<li> <label for="two"></label> <input name="two" type="checkbox" /> <span> 50-200 </span></li>
+							<li> <label for="three"></label> <input name="three" type="checkbox" /> <span> 200-500 </span></li>
+							<li> <label for="four"></label> <input name="four" type="checkbox" /> <span> 500-1000 </span></li>
+							<li> <label for="five"></label> <input name="five" type="checkbox" /> <span> 1000-2000 </span></li>
+							<li> <label for="six"></label> <input name="six" type="checkbox" /> <span> 2000-5000 </span></li>
+							<li> <label for="seven"></label> <input name="seven" type="checkbox" /> <span> 5000-10000 </span></li>
 						</ul>
 					</div>
 					<div class="choose">
@@ -205,6 +206,13 @@
 							<input type="image" src="img/add.png" class="add add2" />
 							<input type="image" src="img/reduce.png" class="reduce reduce2" /> </p>
 						<ul class="price2">
+							<li>	<input name="comment" type="checkbox" /> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
+							</li>
 							<li>	<input name="comment" type="checkbox" /> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: -15px;"></span> 
@@ -249,7 +257,7 @@
 				<!--------------商品--------------->
 				<div class="col-md-9">
 					<div class="row category-product">
-							<a href="product.html">	<div class="col-md-4 col-xs-6 ccategory-product-list-four  text-left" >
+							<!--<a href="product.html">	<div class="col-md-4 col-xs-6 ccategory-product-list-four  text-left" >
 								<img src="img/custom-floor-mats_ic_5.jpeg"/>
 								<p style="color: #666666;">汽车脚踏垫</p>
 								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
@@ -305,7 +313,7 @@
 									<span style="color: #f80000;font-size: 1.8rem;">000.00</span>&nbsp;&nbsp;
 								</div>
 								 <span class="category-product-list-buy">立即购买</span>
-							</div></a>
+							</div></a>-->
 						</div>
 				
 					

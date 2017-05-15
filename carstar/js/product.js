@@ -95,7 +95,7 @@ function viewProduct(){
 	var getVal = thisURL.split('?')[1];
 	var pid = getVal.split("=")[1];
 	console.log(pid);
-	var p_url = "http://192.168.1.106:8080/CarStar/rest/goods/querygoods?goodsid="+pid;
+	var p_url = "http://139.224.133.119:8080/CarStar/rest/goods/querygoods?goodsid="+pid;
 	
 	$.ajax({
 		type:"get",
@@ -109,7 +109,7 @@ function viewProduct(){
 }
 
 function insertProductInfo(data){
-	var a = getJsonLength( data.rev_info );
+	var a = getJsonLength( data.zgoodsRevImg );
 	console.log(a);
 	document.getElementsByClassName("productPriceFont").item(0).innerHTML = data.price;
 	document.getElementsByClassName("productName").item(0).innerHTML = data.goodsname;  
