@@ -168,21 +168,21 @@ function insertProductInfo2(data){
 	console.log(data.colors);
 	
 	if( data.colors.length > 0 ){
-		$('.product-sku').append(" <dt>颜色</dt> <ul class='product-color-choose'></ul>");
+		$('.product-sku').append("<div class='clearfix'> <dt>颜色</dt> <ul class='product-color-choose'></ul> </div>");
 		$.each(data.colors, function(i,value) {
 			$('.product-color-choose').append( "<li> <a href='javascript:;'> <span class='product-color'>"+value+"</span> </a> </li>" );
 		});
 	}
 	
 	if( data.materis.length > 0 ){
-		$('.product-sku').append(" <dt>材质</dt> <ul class='product-maters-choose'></ul>");
+		$('.product-sku').append(" <div class='clearfix'> <dt>材质</dt> <ul class='product-maters-choose'></ul> </div>");
 		$.each(data.materis, function(i,value){
 			$('.product-maters-choose').append( "<li> <a href='javascript:;'><span class='product-color'>"+value+"</span> </a> </li>" );
 		});
 	}
 
 	if( data.sizes.length > 0 ){
-		$('.product-sku').append(" <dt>尺寸</dt> <ul class='product-size-choose'></ul>");
+		$('.product-sku').append("<div class='clearfix'> <dt>尺寸</dt> <ul class='product-size-choose'></ul> </div>");
 		$.each(data.sizes, function(i,value) {
 			$('.product-size-choose').append( "<li> <a href='javascript:;'> <span class='product-color'>"+value+"</span> </a> </li>" );
 		});
