@@ -1,42 +1,25 @@
-<!--http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js
-http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.7/vue.min.js-->
-	<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-		<script src=" http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js"></script>
-		<script src=" http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.7/vue.min.js"></script>
-        
-    </head>
-
-    <body>
-        <!--这是我们的View-->
-        <div id="app">
-            {{ message }}
-        </div>
-        <div id="appq">
-      	  	{{  message1 }}
-        </div>
-    </body>
-    <script>
-        // 这是我们的Model
-        var exampleData = {
-            message: 'Hello World!',
-			message:'test1'
-        }
-
-        // 创建一个 Vue 实例或 "ViewModel"
-        // 它连接 View 与 Model                     
-        new Vue({
-            el: '#app',
-            data: exampleData
-        })
-        
-        new Vue({
-        	 	e2:'#appq',
-            data: exampleData
-        })
-        
-    </script>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<style>
+	ul li{float: left;}
+	div{
+		clear: left;
+	}
+</style>
+<body>
+	<ul>
+		<li>123</li>
+		<li>456</li>
+		<li>789</li>
+		<li>123</li>
+	</ul>
+	<div class="qwe">qwe</div>
+	<script>
+		
+	</script>
+</body>
 </html>

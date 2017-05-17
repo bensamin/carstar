@@ -148,7 +148,7 @@ function fivesearch(){
 	var type = decodeURI ( request['type'] );
 	console.log(year,make_name,model_name,output,type );
 	
-	car_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=150&startNum=0&pageSize=10&shop=all&a1="+year+"&a2="+make_name+"&a3="+model_name+"&a4="+output+"&a5="+type+"&b1=all&b2=all&b3=all&brand=all&level=all"
+	car_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=10000&startNum=0&pageSize=10&shop=all&a1="+year+"&a2="+make_name+"&a3="+model_name+"&a4="+output+"&a5="+type+"&b1=all&b2=all&b3=all&brand=all&level=9"
 	$.ajax({
 		type:"get",
 		url:car_url,
@@ -429,7 +429,7 @@ function priceSort(){
 		$(".category-product").empty();
 		
 	
-		var a_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3=all&brand=all&level=all&";
+		var a_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3=all&brand=all&level=9&";
 	 	//获取价格区间的产品  -------brand.html页面
 	 	$.ajax({
 			type:"get",
@@ -447,7 +447,7 @@ function priceSort(){
 		});
 		
 	 	//获取价格区间的产品  -------category.html页面
-		var b_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3="+category+"&brand=all&level=all&";
+		var b_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3="+category+"&brand=all&level=9&";
 		$.ajax({
 			type:"get",
 			contentType:"application/json; charset=utf-8",
@@ -493,7 +493,7 @@ function startRank(){
 		$(".category-product").empty();
 		
 	
-		var a_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3=all&brand=all&level=all&";
+		var a_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3=all&brand=all&level=9&";
 	 	//获取价格区间的产品  -------brand.html页面
 	 	$.ajax({
 			type:"get",
@@ -512,7 +512,7 @@ function startRank(){
 		});
 		
 	 	//获取价格区间的产品  -------category.html页面
-		var b_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3="+category+"&brand=all&level=all&";
+		var b_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3="+category+"&brand=all&level=9&";
 		$.ajax({
 			type:"get",
 			contentType:"application/json; charset=utf-8",

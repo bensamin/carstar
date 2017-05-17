@@ -485,9 +485,15 @@ th > span{
 .product-product{
 	margin-top: 20px;
 }
-.product-color-choose {
-	display: inline-block;
+.product-color-choose{
+	/*display: inline-block;*/
 }
+.product-maters-choose{
+	/*display: inline-block;*/
+}
+ .product-size-choose{
+  	/*display: inline-block;*/
+  }
 .product-color{
 	padding: 5px 15px;
 	font-weight: 500;
@@ -520,6 +526,7 @@ th > span{
 	padding: 10px;
 	font-size: 1.4rem;
 	color: #666;
+	clear: both;
 }
 #viewStar{
 	display: inline-block;
@@ -527,8 +534,16 @@ th > span{
 	vertical-align: middle;
 	padding-bottom: 10px;
 }
-.productMaters span:first-child{
-	color: #999;
+.product-sku dt{
+	float:left; 
+	/*display:inline;*/ 
+}
+.product-sku li{
+	float: left; 
+	margin: 2px 6px 2px 0;
+}
+.product-maters-choose{
+	clear: both;
 }
 #product-service{
 	padding: 20px 0px;

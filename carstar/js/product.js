@@ -165,21 +165,29 @@ function insertProductInfo1(data){
 
 var productcolor;
 function insertProductInfo2(data){
-	document.getElementsByClassName("productHeight").item(0).innerHTML = data.sizes[0];
-	document.getElementsByClassName("productWeight").item(0).innerHTML = data.sizes[1];
-	document.getElementsByClassName("productMater1").item(0).innerHTML = data.materis[0];
-	document.getElementsByClassName("productMater2").item(0).innerHTML = data.materis[1];
 	console.log(data.colors);
-	$.each(data.colors, function(i,value) {
-		$('.product-color-choose').append( " <span class='product-color'>"+value+"</span> " )
-	});
 	
-	$(".product-color-choose span").each(function(){
-			$(this).click(function(){
-				$(this).css("border","2px solid #009740").siblings().css("border","1px solid #969897");
-				productcolor = $(this).text();
-			});
+	if( data.colors.length > 0 ){
+		$('.product-sku').append(" <dt>颜色</dt> <ul class='product-color-choose'></ul>");
+		$.each(data.colors, function(i,value) {
+			$('.product-color-choose').append( "<li> <a href='javascript:;'> <span class='product-color'>"+value+"</span> </a> </li>" );
 		});
+	}
+	
+	if( data.materis.length > 0 ){
+		$('.product-sku').append(" <dt>材质</dt> <ul class='product-maters-choose'></ul>");
+		$.each(data.materis, function(i,value){
+			$('.product-maters-choose').append( "<li> <a href='javascript:;'><span class='product-color'>"+value+"</span> </a> </li>" );
+		});
+	}
+
+	if( data.sizes.length > 0 ){
+		$('.product-sku').append(" <dt>尺寸</dt> <ul class='product-size-choose'></ul>");
+		$.each(data.sizes, function(i,value) {
+			$('.product-size-choose').append( "<li> <a href='javascript:;'> <span class='product-color'>"+value+"</span> </a> </li>" );
+		});
+	}
+
 }
 
 //获取json数组长度
@@ -209,7 +217,10 @@ function commentProduct(){
 
 function testStar(msg){
 //$.each(msg.data,function(i){
-	console.log(msg.data.length);
+//	console.log(msg.data.length);
+	if( msg.data == null ){
+		$('#product-comment').text( "暂无评论！") ;
+	}else{
 	for(var i=0;i<msg.data.length;i++ ){
 				$("#product-comment").append(
 					"<div class='row commentDiv'>"+
@@ -238,6 +249,7 @@ function testStar(msg){
 				}
 
 			}
+	}
 			//评分
 //				var averageScore = Math.round( (msg.data[i].installation+msg.data[i].pricevalue+msg.data[i].quality+msg.data[i].appearance)/4 );
 //				jQuery('#commentStar'+i).raty({readOnly:true,score:averageScore});
@@ -247,7 +259,7 @@ function testStar(msg){
 //加入购物车
 function addShopCart(){
 	if( productcolor == undefined ){
-		alert("请选择颜色")
+		alert("请选择颜色!")
 	}else{
 		var userid = $.cookie("userId");
 		var num = $('#prodctNum').val();
