@@ -11,6 +11,8 @@
     <title>购物车</title>
 	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+	<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+	
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -30,7 +32,7 @@
     </style>
   </head>
 
-  <body>
+  <body onload="listShopCart()">
   	<!--页面头部-->
 	<div class="header"></div><br />
 	<div class="container">
@@ -55,11 +57,11 @@
 				</div>
 			</div>
 			
-		<form>
-		<p style=" auto;border-bottom:1px solid #E3E3E3 ;">
-		  <input type="checkbox" name="select shop-select"  /> <img src="img/light.png"/><span>店铺2号</span>	
-		</p>	
-		<div >
+		<div class="shopCart">
+			<p style="border-bottom:1px solid #E3E3E3 ;">
+			  <input type="checkbox" /> <img src="img/light.png"/>
+			  <span>店铺2号</span>	
+			</p>	
 			<div class="row product1">
 				<div class="col-md-4 col-xs-4">
 					<input type="checkbox" name="select"  />
@@ -83,7 +85,7 @@
 				</div>
 				<div class="col-md-2 col-xs-2">
 					<i class="subNum">-</i>
-					<input class="text-box" type="text" value="1" />
+					<input type="text" class="text-box" value="3"/>
 					<i class="addNum">+</i>
 				</div>
 				<div class="col-md-2 col-xs-2">
@@ -93,79 +95,8 @@
 					<img src="img/delete.png" />
 				</div>
 			</div>
-			<div class="row product1">
-				<div class="col-md-4 col-xs-4">
-					<input type="checkbox" name="select"  />
-					<div class="row">
-						<div class="col-md-1"></div>
-						<div class="col-md-4">
-							<img src="img/small-product.png" />
-						</div>
-						<div class="col-md-7">
-							<p>倒车镜</p>
-							<p>汽车倒车镜小圆镜&nbsp;后视镜盲点广角镜助镜反光镜清晰（一对装）</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-1 col-xs-1">
-					<span>黑色</span>
-				</div>
-				<div class="col-md-2 col-xs-2">
-					<span>¥</span>
-					<span class="text-price">101.11</span>
-				</div>
-				<div class="col-md-2 col-xs-2">
-					<i class="subNum">-</i>
-					<input class="text-box" type="text" value="1" />
-					<i class="addNum">+</i>
-				</div>
-				<div class="col-md-2 col-xs-2">
-					<span></span> <span class="product-total" style="color: red;"></span>
-				</div>
-				<div class="col-md-1 col-xs-1">
-					<img src="img/delete.png" />
-				</div>
-			</div>
-		</div>	
-		<div>
-		<p style="border-bottom:1px solid #E3E3E3 ;">
-		  <input type="checkbox" name="select shop-select"  /> <img src="img/light.png"/><span>店铺3号</span>	
-		</p>	
-			<div class="row product1">
-				<div class="col-md-4 col-xs-4">
-					<input type="checkbox" name="select product-select"  />
-					<div class="row">
-						<div class="col-md-1"></div>
-						<div class="col-md-4">
-							<img src="img/small-product.png" />
-						</div>
-						<div class="col-md-7">
-							<p>倒车镜</p>
-							<p>汽车倒车镜小圆镜&nbsp;后视镜盲点广角镜助镜反光镜清晰（一对装）</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-1 col-xs-1">
-					<span>黑色</span>
-				</div>
-				<div class="col-md-2 col-xs-2">
-					<span></span>
-					<span class="text-price">456.789</span>
-				</div>
-				<div class="col-md-2 col-xs-2">
-					<i class="subNum">-</i>
-					<input class="text-box" type="text" value="1" />
-					<i class="addNum">+</i>
-				</div>
-				<div class="col-md-2 col-xs-2">
-					<span></span> <span class="product-total" style="color: red;"></span>
-				</div>
-				<div class="col-md-1 col-xs-1">
-					<img src="img/delete.png" />
-				</div>
-			</div>		
-		</div>	
-		</form>
+			
+		</div>
 			<!---------------分割线----------------------------->
 			<div class="row">
 				<div class="col-md-10 col-xs-8">

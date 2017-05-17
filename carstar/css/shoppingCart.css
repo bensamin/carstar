@@ -49,5 +49,12 @@
 	margin: 20px auto;
 	border-bottom:1px dashed #E3E3E3 ;
 }
-.text-price{
+.text-box{
+	border: 1px solid #999;
+}
+.shopCartStoreImg{
+	margin-left: -65px;
+}
+.shopName3{
+	padding: 10px;
 }

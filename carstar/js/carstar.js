@@ -1,28 +1,14 @@
 $(document).ready(function(){
+	//星星
+	$('.price2 li span').each(function(){
+		var n = $(this).parent().index()+1;
+		$(this).raty({ readOnly:true,score: n} );
+	})
 	priceSort();
+	startRank();
 	buyMouseHover();
 })
 
-//切片轮播
-$(function(){
-			$('#gellery').transformer({
-				__Effects:new Array('Optimus','Ironhide','Scorponok','Megatron','Starscream','Jazz'),	
-				__Columns:7,
-				__Rows:3,
-				__Speed:5000,
-				__Title_Height:100,
-				__Title_Width:0,
-			});
-	});
- 	
-	//店铺轮播图
- $(document).ready(function() {
-      $("#owl-demo").owlCarousel({
-        navigation : true
-      });
-    });
-    
-    
    //获取产品数据  home页面
 $(function(){
 		$.ajax({
@@ -126,6 +112,54 @@ function fivesearch(){
 	});
 }
 
+function searchCar1(){
+	$.fn.serializeObject = function()  
+		{  
+		  var o = {};  
+		  var a = this.serializeArray();  
+			  $.each(a, function() {  
+			     if (o[this.name]) {  
+			         if (!o[this.name].push) {  
+			             o[this.name] = [o[this.name]];  
+			         }  
+			         o[this.name].push(this.value || '');  
+			     } else {  
+			         o[this.name] = this.value || '';  
+			      }  
+		});  
+	  return o;  
+	};
+			
+	infoJson = $("#home_carInfo1").serializeObject();
+	infoJson =  JSON.stringify(infoJson);
+	infoJson = eval( "(" +infoJson +")" );
+	
+	window.location.href = encodeURI( "fivesearch.html?year="+infoJson.year+"&make_name="+infoJson.make_name+"&model_name="+infoJson.model_name+"&output="+infoJson.output+"&type="+infoJson.type);
+
+}
+//车型搜索结果展示
+function fivesearch(){
+	var request = new Object();
+	request = GetRequest();
+	var year = request['year'];
+	var make_name =request['make_name'];
+	var model_name = request['model_name'];
+	var output = request['output'];
+	var type = decodeURI ( request['type'] );
+	console.log(year,make_name,model_name,output,type );
+	
+	car_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=150&startNum=0&pageSize=10&shop=all&a1="+year+"&a2="+make_name+"&a3="+model_name+"&a4="+output+"&a5="+type+"&b1=all&b2=all&b3=all&brand=all&level=all"
+	$.ajax({
+		type:"get",
+		url:car_url,
+		async:true,
+		success:function(data){
+			console.log(data);
+			searchProduct(data);
+		}
+	});
+}
+
 //分割URL中的参数
 function GetRequest() {
 	var url = location.search; //获取url中"?"符后的字串
@@ -200,9 +234,7 @@ function searchProduct(data){
 	console.log(data);
 	pro = data.data;
 	console.log(pro);
-	var i = 0;
-	$.each(pro, function() {
-					console.log( pro[i] );
+	$.each(pro, function(i) {
 						$(".searchResult").append(
 						" <a href='product.html?goodsid=" +pro[i].id+ " '> <div class='row' style='margin:20px auto'>"+
 						" <div class='col-md-3'> <img class='img-responsive' src=' " + pro[i].img1 + " ' /> </div> " +
@@ -218,13 +250,12 @@ function searchProduct(data){
 							"</div>" +
 							" <div class='col-md-3'> " +
 								" <span style='color:#f80000;'>¥</span> "+
-								" <span style='color:#f80000; font-size:1.8rem;'> " + pro[0].price +"</span> <p></p>" +
+								" <span style='color:#f80000; font-size:1.8rem;'> " + pro[i].price +"</span> <p></p>" +
 								" <span class='category-product-list-buy'> 立即购买 </span> " +
 						 	"</div> "+
 							"</div>"+
 						"</a> "
 						)
-					i++;
 				});
 }
 
@@ -261,7 +292,7 @@ function onloadBrand(){
 		});
 		
 		//产品
-		var b = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=10000&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3=all&brand=all&level=all&";
+		var b = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=10000&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3=all&brand=all&level=9&";
 		$.ajax({
 			type:"get",
 			contentType:"application/json; charset=utf-8",
@@ -283,7 +314,7 @@ function onloadCategory(){
 		var request = new Object();
 		request = GetRequest();
 		var category = request['category'];
-		var a = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=80&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1=all&b2=all&b3="+category+"&brand=all&level=all&";
+		var a = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=80&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1=all&b2=all&b3="+category+"&brand=all&level=9&";
 		$.ajax({
 			type:"get",
 			contentType:"application/json; charset=utf-8",
@@ -393,10 +424,13 @@ function priceSort(){
 		var menu = request['menu'];
 		var brand = request['brand'];
 		var category = request['category'];
+		var goods = request['goods'];
 		console.log(sort[0],sort[1]);
+		$(".category-product").empty();
+		
 	
 		var a_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3=all&brand=all&level=all&";
-	 
+	 	//获取价格区间的产品  -------brand.html页面
 	 	$.ajax({
 			type:"get",
 			contentType:"application/json; charset=utf-8",
@@ -404,7 +438,6 @@ function priceSort(){
 			async:true,
 			success:function(data){
 				console.log(data);
-				$(".category-product").empty();
 				addBrandProduct(data.data);
 			},
 			error:function(){
@@ -413,6 +446,72 @@ function priceSort(){
 			
 		});
 		
+	 	//获取价格区间的产品  -------category.html页面
+		var b_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3="+category+"&brand=all&level=all&";
+		$.ajax({
+			type:"get",
+			contentType:"application/json; charset=utf-8",
+			url:b_url,
+			async:true,
+			success:function(data){
+//				console.log(data);
+//				addBrandProduct(data.data);
+			},
+			error:function(){
+				console.log("error");
+			}
+			
+		});
+		
+		//获取价格区间的产品  -------search.html页面
+//		var b_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3="+category+"&brand=all&level=all&";
+//		$.ajax({
+//			type:"get",
+//			contentType:"application/json; charset=utf-8",
+//			url:b_url,
+//			async:true,
+//			success:function(data){
+//			},
+//			error:function(){
+//				console.log("error");
+//			}
+//			
+//		});
+	});		
+}
+//星级排序
+function startRank(){
+	$(".price2 li").click(function(){
+		var sort = $(this).find("span").text();
+		sort = sort.split("-");
+		var request = new Object();
+		request = GetRequest();
+		var menu = request['menu'];
+		var brand = request['brand'];
+		var category = request['category'];
+		console.log(sort[0],sort[1]);
+		$(".category-product").empty();
+		
+	
+		var a_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3=all&brand=all&level=all&";
+	 	//获取价格区间的产品  -------brand.html页面
+	 	$.ajax({
+			type:"get",
+			contentType:"application/json; charset=utf-8",
+			url:a_url,
+			async:true,
+			success:function(data){
+				console.log(data);
+				
+				addBrandProduct(data.data);
+			},
+			error:function(){
+				console.log("error");
+			}
+			
+		});
+		
+	 	//获取价格区间的产品  -------category.html页面
 		var b_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3="+category+"&brand=all&level=all&";
 		$.ajax({
 			type:"get",
@@ -421,8 +520,7 @@ function priceSort(){
 			async:true,
 			success:function(data){
 				console.log(data);
-				$(".category-product").empty();
-				addBrandProduct(data.data);
+//				addBrandProduct(data.data);
 			},
 			error:function(){
 				console.log("error");
@@ -431,4 +529,3 @@ function priceSort(){
 		});
 	});		
 }
-

@@ -382,7 +382,6 @@ th > span{
 	vertical-align: middle;
 	padding-top:10px ;
 	padding-left: 22px;
-	word-spacing: 15px;
 }
 .choose input{
 	margin-bottom: 10px;
@@ -430,7 +429,7 @@ th > span{
 
 .detail{
 	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-bottom: 100px;
 	width: 100%;
 }
 .detail ul li a{
@@ -462,6 +461,16 @@ th > span{
 	width: 250px;
 	height: 36px;
 }
+.subNum,.addNum{
+	border: 1px  solid #ADADAD;
+	display: inline-block; 
+	width: 16px; 
+	height: 16px; 
+	text-align: center;
+	line-height: 11px;
+	cursor: pointer;
+	border-radius: 8px;	
+}
 .add-cart{
 	font-size: 1.4rem; 
 	margin-left: 0px;
@@ -476,16 +485,24 @@ th > span{
 .product-product{
 	margin-top: 20px;
 }
+.product-color-choose {
+	display: inline-block;
+}
 .product-color{
-	font-weight: 300;
-	color: #FFFDEF;
+	padding: 5px 15px;
+	font-weight: 500;
+	color: #333;
 	width: 60px;
 	height: 30px;
-	border: 2px solid #969896;
+	border: 1px solid #969896;
 	border-radius:5px ;
+	cursor: pointer;
 }
-
+.productAll span{
+	margin-right:5px ;
+}
 .product-type{
+	margin-right:  10px;
 	font-weight: 350;
 	color: #5E5E5E;
 	width: 60px;
@@ -493,7 +510,34 @@ th > span{
 	border: 1px solid #969896;
 	border-radius:7px ;
 }
-
+.font-through{
+	text-decoration: line-through;
+}
+.font-color{
+	color: #999;
+}
+.productMaters{
+	padding: 10px;
+	font-size: 1.4rem;
+	color: #666;
+}
+#viewStar{
+	display: inline-block;
+	margin-left: 10px;
+	vertical-align: middle;
+	padding-bottom: 10px;
+}
+.productMaters span:first-child{
+	color: #999;
+}
+#product-service{
+	padding: 20px 0px;
+}
+.productService{
+	color: #666;
+	font-size: 2rem;
+	margin-right: 20px;
+}
 .product-small{
 	font-size: 0rem;
 }
@@ -513,10 +557,6 @@ th > span{
 	color: #4B5160;
 	font-size: 1.5rem;
 }
-.productDesc{
-	color: #999;
-}
-
 #product-detail ul{
 	padding: 0 20px 18px;
 	text-indent: 0;
@@ -535,6 +575,16 @@ th > span{
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	color: #666;
+}
+.commentDiv{
+	padding: 5px;
+	border-bottom: 1px dashed #cbcbcb;
+}
+.commentImg{
+	display: inline-block;
+	width: 120px;
+	height: 60px;
+	margin-right: 10px;
 }
 /*footer.html*/
 .foot{	

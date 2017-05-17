@@ -1,4 +1,8 @@
-//购物车数量加减
+ 
+ $(document).ready(function(){
+ })
+ 
+ //购物车数量加减
 $(".subNum").click(function(){
 	var t = $(this).parent().find("input[class*=text-box]");
 	var p = 0;   //单个商品总价
@@ -27,7 +31,7 @@ function setNumTotal(){
 	$(".text-box").each(function(){
 		
 		n += parseInt( $(this).val()  );
-		console.log( n );
+//		console.log( n );
 	});
 	$(".product-num").html(n);
 }
@@ -88,40 +92,95 @@ function selectAll(){
 			});
 			
 		};
-		
-//产品详情 接受产品id和商品信息
-function viewProduct(){
+	
 	var thisURL =  document.URL;
 	var getVal = thisURL.split('?')[1];
-	var pid = getVal.split("=")[1];
-	console.log(pid);
-	var p_url = "http://139.224.133.119:8080/CarStar/rest/goods/querygoods?goodsid="+pid;
-	
+	var pid = getVal.split("=")[1];	
+//产品详情 接受产品id和商品信息
+function viewProduct(){
+//	console.log(pid);
+	var p_url1 = "http://139.224.133.119:8080/CarStar/rest/goods/querygoods?goodsid="+pid;
 	$.ajax({
 		type:"get",
-		url:p_url,
+		url:p_url1,
 		async:true,
 		success:function(p_msg){
 			console.log(p_msg);
-			insertProductInfo(p_msg.data)
+
+			detailProduct();
+			insertProductInfo1(p_msg.data);
+			commentProduct();
+			
+		}
+	});
+	
+}
+
+function detailProduct(){
+	var p_url2 = "http://139.224.133.119:8080/CarStar/rest/property/getprop?goodsid="+pid;
+	$.ajax({
+		type:"get",
+		url:p_url2,
+		async:true,
+		success:function(p_msg){
+			console.log(p_msg);
+			insertProductInfo2(p_msg.data);
 		}
 	});
 }
 
-function insertProductInfo(data){
-	var a = getJsonLength( data.zgoodsRevImg );
-	console.log(a);
+function insertProductInfo1(data){
 	document.getElementsByClassName("productPriceFont").item(0).innerHTML = data.price;
+	document.getElementsByClassName("font-through").item(0).innerHTML = data.price2;
 	document.getElementsByClassName("productName").item(0).innerHTML = data.goodsname;  
 	document.getElementsByClassName("productDesc").item(0).innerHTML = data.des;
+	document.getElementsByClassName("businessAddress").item(0).innerHTML = data.address;
+	document.getElementsByClassName("mailPrice").item(0).innerHTML = data.mailprice;
 	document.getElementsByClassName("productBrand").item(0).innerHTML =data.zzs;
 	document.getElementsByClassName("productID").item(0).innerHTML = data.goods_id;
 	document.getElementsByClassName("shopName").item(0).innerHTML = data.shopname;
 	document.getElementsByClassName("productName").item(1).innerHTML = data.goodsname;
 	document.getElementsByClassName("productType").item(0).innerHTML = data.des;
-	document.getElementsByClassName("productOther").item(0).innerHTML = data.des;
+	document.getElementsByClassName("productnumber").item(0).innerHTML = data.number+'件';
+	document.getElementsByClassName("shopName2").item(0).innerHTML = data.shopname;
+	
+	
+	$('.shopImg').append(
+		" <img class='img-responsive' src=' "+data.shopimg+" '  > "
+	)
+
+	var starNum = Math.round( data.revlevel );
+//	console.log(starNum);
+	$('#viewStar').raty( {readOnly:true,score: starNum} );
+	var n=getJsonLength(data.service);
+	$.each(data.service, function(i,value) {
+//		console.log(i,value);
+				$('#product-service').append(
+					"<span class='productService'>"+value+"</span>"
+				)
+	});
+
+	
 }
 
+var productcolor;
+function insertProductInfo2(data){
+	document.getElementsByClassName("productHeight").item(0).innerHTML = data.sizes[0];
+	document.getElementsByClassName("productWeight").item(0).innerHTML = data.sizes[1];
+	document.getElementsByClassName("productMater1").item(0).innerHTML = data.materis[0];
+	document.getElementsByClassName("productMater2").item(0).innerHTML = data.materis[1];
+	console.log(data.colors);
+	$.each(data.colors, function(i,value) {
+		$('.product-color-choose').append( " <span class='product-color'>"+value+"</span> " )
+	});
+	
+	$(".product-color-choose span").each(function(){
+			$(this).click(function(){
+				$(this).css("border","2px solid #009740").siblings().css("border","1px solid #969897");
+				productcolor = $(this).text();
+			});
+		});
+}
 
 //获取json数组长度
 function getJsonLength(JsonData){
@@ -130,4 +189,113 @@ function getJsonLength(JsonData){
 		jsonLength++;
 	}
 	return jsonLength;
+}
+
+
+//商品评价
+function commentProduct(){
+	var a_url = "http://139.224.133.119:8080/CarStar/rest/goodsrev/revinfo?goodsid="+pid+"&startNum=0&pageSize=5";
+	$.ajax({
+		type:"get",
+		url:a_url,
+		async:false,
+		success:function(msg){
+			testStar(msg);
+		}
+	});
+				
+}
+
+
+function testStar(msg){
+//$.each(msg.data,function(i){
+	console.log(msg.data.length);
+	for(var i=0;i<msg.data.length;i++ ){
+				$("#product-comment").append(
+					"<div class='row commentDiv'>"+
+					" <div class='col-md-2'> " +
+						" <img src='img/A8.jpeg'/>" +
+						" <div> 用户名：<span class='comment_userid'>"+msg.data[i].userid+"</span> </div>"+
+					" </div>"+
+					"<div class='col-md-10'>"+
+						"<p>评分：<span class='commentStar"+i+" '></span></p>"+
+						"<p>内容：<span class='use-comment'>"+msg.data[i].content+"</span></p>"+
+						"<p class='commentImg"+i+"'>晒图：</p>"+
+						"<p>时间：<span class='commentTime"+i+" '></span></p>"+
+					"</div>"+
+					"</div>"
+				)
+				var averageScore = Math.round( (msg.data[i].installation+msg.data[i].pricevalue+msg.data[i].quality+msg.data[i].appearance)/4 );
+				$('.commentStar'+i).text(averageScore);
+//				$('.commentStar'+i).raty({readOnly:true,score:averageScore});
+				//时间戳
+				var ctime = new Date( msg.data[i].ctime).toLocaleString();
+				$('.commentTime'+i).text(ctime);
+//				console.log( msg.data[i].revimg.length);
+				//图片
+				for(var j=0;j < msg.data[i].revimg.length;j++ ){
+				$('.commentImg'+i).append( "<img class='img-responsive commentImg ' src=' "+msg.data[i].revimg[j]+" ' >" )
+				}
+
+			}
+			//评分
+//				var averageScore = Math.round( (msg.data[i].installation+msg.data[i].pricevalue+msg.data[i].quality+msg.data[i].appearance)/4 );
+//				jQuery('#commentStar'+i).raty({readOnly:true,score:averageScore});
+			
+	
+}
+//加入购物车
+function addShopCart(){
+	if( productcolor == undefined ){
+		alert("请选择颜色")
+	}else{
+		var userid = $.cookie("userId");
+		var num = $('#prodctNum').val();
+		var p_url = "http://139.224.133.119:8080/CarStar/rest/goodscart/cartadd?userid="+userid+"&goodsid="+pid+"&num="+num+"&property="+productcolor;
+		$.ajax({
+			type:"get",
+			url:p_url,
+			async:true,
+			success:function(msg){
+				console.log(msg,productcolor);
+				alert("加入购物车成功！");
+			}
+		});
+	}
+
+	
+}
+
+//查询购物车数据
+function listShopCart(){
+	var userid = $.cookie('userId');
+	var l_url = "http://139.224.133.119:8080/CarStar/rest/goodscart/getcartinfo?userid="+userid+"&startNum=0&pageSize=133"
+	
+	$.ajax({
+		type:"get",
+		url:l_url,
+		async:true,
+		success:function(msg){
+			console.log(msg);
+			addShopCart(msg.data);
+		}
+	});
+}
+
+function addShopCart(data){
+	console.log(data);
+	$.each(data, function(i) {
+		//遍历店铺
+			$('.shopCart').append(
+				  "<div class='row' style='border-bottom:1px solid #E3E3E3;padding-bottom:10px;'> " +
+				  "<div class='col-md-1 shopName3'> <input type='checkbox' /> </div>"+
+				 	 " <div class='col-md-1 shopCartStoreImg'><img class='' src=' "+ data[i].shopimg+" ' width='70' height='40'> </div>"+  
+				  "	<div class='col-md-1 shopName3'> <span> "+data[i].shopname+"</span> </div> </div>"
+			)
+		//遍历商品	
+		$.each(data.goods,function(i){
+			
+		});
+	});
+	
 }

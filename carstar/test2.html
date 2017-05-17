@@ -35,13 +35,27 @@
 	<div>
 		<span onclick="priceUp()">价格筛选</span>
 	</div>
+	<button onclick="comment()">点击</button>
 	<script>
+	
+	function comment(){
+		var a = "http://139.224.133.119:8080/CarStar/rest/goodsrev/revinfo?goodsid=1&startNum=0&pageSize=5"
+		$.ajax({
+			type:"get",
+			url:a,
+			async:true,
+			success:function(msg){
+				var d = new Date(msg.data[1].ctime);
+				console.log(d.toLocaleString());
+			}
+		});
+	}
 	function priceUp(){
 		var menu = $("#category").val();
 		var goods = $("#brand").val();
 		var price1 = document.getElementById("price1").value;
 		var price2 = document.getElementById("price2").value;
-		var a = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+price1+"&price2="+price2+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+goods+"&b3=all&brand=all&level=all&";
+		var a = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+price1+"&price2="+price2+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+goods+"&b3=all&brand=all&level=9&";
 		$.ajax({
 			type:"get",
 			contentType:"application/json; charset=utf-8",
@@ -61,7 +75,7 @@
 		console.log(goods);
 		var a = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=80&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1=all&b2=all&b3="+goods+"&brand=all&level=all&";
 		$.ajax({
-			type:"get",
+			type:"post",
 			contentType:"application/json; charset=utf-8",
 			url:a,
 			async:true,
@@ -80,7 +94,7 @@
 		console.log(goods);
 		var a = "http://139.224.133.119:8080/CarStar/rest/goods/showgoods?goods="+goods+"&shop=all&startNum=0&pageSize=4";
 		$.ajax({
-			type:"get",
+			type:"post",
 			contentType:"application/json; charset=utf-8",
 			url:a,
 			async:true,
