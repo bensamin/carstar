@@ -49,6 +49,12 @@ button{
 .glyphicon{
 	cursor: pointer;
 }
+.disBlue{
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select:none;
+}
 /*header*/
 .header{
 	min-height: 130px;
@@ -495,13 +501,10 @@ th > span{
   	/*display: inline-block;*/
   }
 .product-color{
-	padding: 5px 15px;
+	padding: 5px 10px;
 	font-weight: 500;
 	color: #333;
-	width: 60px;
-	height: 30px;
 	border: 1px solid #969896;
-	border-radius:5px ;
 	cursor: pointer;
 }
 .productAll span{
@@ -536,13 +539,58 @@ th > span{
 }
 .product-sku dt{
 	float:left; 
-	/*display:inline;*/ 
 }
-.product-sku li{
+dl.iteminfo_parameter{
+	margin-bottom: 0px;
+	padding-left: 11px;
+}
+.iteminfo_parameter dt{
+	line-height: 50px;
+	color: #666;
+}
+.sys_spec_text li{
 	float: left; 
 	margin: 2px 6px 2px 0;
+	position: relative;
+	outline: none;
 }
-
+.sys_spec_text li a{
+	height:28px; 
+	padding:1px 6px; 
+	border:1px solid #ccc; 
+	background:#fff; 
+	display:inline-block; 
+	line-height:24px;
+	text-decoration: none;
+}
+.sys_spec_text li a:hover{ 
+	border:2px solid #e4393c; 
+	padding:0 5px; 
+	color: #c00;
+	text-decoration:none;
+}
+.sys_spec_text li a:visited{
+	color: #333;
+}
+.sys_spec_text li i{
+	position:absolute; 
+	width:10px; 
+	height:10px; 
+	font-size:0; 
+	line-height:0; 
+	right:0px;
+	bottom:0px;
+	background:url(../img/sys_item_selected.gif) no-repeat right bottom; 
+	z-index:99; 
+	display:none;
+}
+.sys_spec_text li.selected a{
+	border: 2px solid #E4393C;
+	padding:  0 5px;
+}
+.sys_spec_text li.selected i{
+	display: block;
+}
 #product-service{
 	padding: 20px 0px;
 }

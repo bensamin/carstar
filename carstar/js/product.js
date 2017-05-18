@@ -2,23 +2,33 @@
  $(document).ready(function(){
  })
  
- //购物车数量加减
+ //商品数量加减
 $(".subNum").click(function(){
 	var t = $(this).parent().find("input[class*=text-box]");
 	var p = 0;   //单个商品总价
-	t.val( parseInt(t.val() )-1 )
-		if( parseInt(t.val()) < 0 ){
-			t.val(0);
+	t.val( parseInt(t.val() )-1 );
+	
+	if( parseInt(t.val()) < 2){
+			t.val(1);
 		}
+	
 		p = t.val() * parseFloat( $(this).parent().prev().find( "span[class*=text-price]" ).text() ) ;
 		$( $(this).parent().next().find("span[class*=product-total]") ).html(p.toFixed(2));
 		setPriceTotal();
 		setNumTotal();
 });
+
 $(".addNum").click(function(){
 	var t = $(this).parent().find("input[class*=text-box]");		
 	var p = 0;
-	t.val(parseInt(t.val()) +1) ;
+	var n = $('.productnumber').text();
+	
+	t.val(parseInt(t.val()) + 1) ;
+	
+	if( parseInt(t.val()) > n ){
+		t.val(n);
+	}
+	
 	p = t.val() * parseFloat( $(this).parent().prev().find( "span[class*=text-price]" ).text() ) ;
 	$( $(this).parent().next().find("span[class*=product-total]") ).html(p.toFixed(2));
 	setPriceTotal();
@@ -105,7 +115,7 @@ function viewProduct(){
 		url:p_url1,
 		async:true,
 		success:function(p_msg){
-			console.log(p_msg);
+//			console.log(p_msg);
 
 			detailProduct();
 			insertProductInfo1(p_msg.data);
@@ -123,7 +133,7 @@ function detailProduct(){
 		url:p_url2,
 		async:true,
 		success:function(p_msg){
-			console.log(p_msg);
+//			console.log(p_msg);
 			insertProductInfo2(p_msg.data);
 		}
 	});
@@ -141,7 +151,7 @@ function insertProductInfo1(data){
 	document.getElementsByClassName("shopName").item(0).innerHTML = data.shopname;
 	document.getElementsByClassName("productName").item(1).innerHTML = data.goodsname;
 	document.getElementsByClassName("productType").item(0).innerHTML = data.des;
-	document.getElementsByClassName("productnumber").item(0).innerHTML = data.number+'件';
+	document.getElementsByClassName("productnumber").item(0).innerHTML = data.number;
 	document.getElementsByClassName("shopName2").item(0).innerHTML = data.shopname;
 	
 	
@@ -163,31 +173,123 @@ function insertProductInfo1(data){
 	
 }
 
-var productcolor;
 function insertProductInfo2(data){
-	console.log(data.colors);
 	
 	if( data.colors.length > 0 ){
-		$('.product-sku').append("<div class='clearfix'> <dt>颜色</dt> <ul class='product-color-choose'></ul> </div>");
+		$('.product-sku').append("<dl class='clearfix iteminfo_parameter'> <dt>颜色：</dt> <dd> <ul class='product-color-choose sys_spec_text'></ul> </dd> </dl>");
 		$.each(data.colors, function(i,value) {
-			$('.product-color-choose').append( "<li> <a href='javascript:;'> <span class='product-color'>"+value+"</span> </a> </li>" );
+			$('.product-color-choose').append( "<li data-aid='"+value+"' > <a href='javascript:;'>"+value+"<i></i> </a> </li>" );
 		});
 	}
 	
 	if( data.materis.length > 0 ){
-		$('.product-sku').append(" <div class='clearfix'> <dt>材质</dt> <ul class='product-maters-choose'></ul> </div>");
+		$('.product-sku').append(" <dl class='clearfix iteminfo_parameter'> <dt>材质：</dt> <dd> <ul class='product-maters-choose sys_spec_text'></ul> </dd> </dl>");
 		$.each(data.materis, function(i,value){
-			$('.product-maters-choose').append( "<li> <a href='javascript:;'><span class='product-color'>"+value+"</span> </a> </li>" );
+			$('.product-maters-choose').append( "<li data-aid='"+value+"'> <a href='javascript:;'>"+value+"<i></i> </a> </li>" );
 		});
 	}
 
 	if( data.sizes.length > 0 ){
-		$('.product-sku').append("<div class='clearfix'> <dt>尺寸</dt> <ul class='product-size-choose'></ul> </div>");
+		$('.product-sku').append("<dl class='clearfix iteminfo_parameter'> <dt>尺寸：</dt> <dd>  <ul class='product-size-choose sys_spec_text'></ul> </dd> </dl>");
 		$.each(data.sizes, function(i,value) {
-			$('.product-size-choose').append( "<li> <a href='javascript:;'> <span class='product-color'>"+value+"</span> </a> </li>" );
+			$('.product-size-choose').append( "<li data-aid='"+value+"'> <a href='javascript:;'>"+value+"<i></i> </a> </li>" );
+		});
+	}
+	
+	//商品规格选择
+	$('.iteminfo_parameter').each(function(){
+		var i =$(this);
+		var p = i.find('ul>li');
+		var w = new Array();
+		p.click(function(){
+			if( !!$(this).hasClass('selected') ){
+				$(this).removeClass('selected');
+				i.removeAttr('data-attrval');
+			}else{
+				$(this).addClass('selected').siblings('li').removeClass('selected');
+				i.attr('data-attrval',$(this).attr('data-aid') );
+				var wa = i.attr('data-attrval');
+				w.push(wa);
+//				pullPdata(w);
+			}
+			getTotalprice(data);
+		})
+	})
+	
+	
+}
+
+function pullPdata(){
+//	var a_url = "http://139.224.133.119:8080/CarStar/rest/property/getprinum?goodsid="+pid+"&property="+v[0]+","+v[1];
+}
+
+var defaultstats = true;
+var defaultstats2 = false;
+var v=new Array();
+var v1=new Array();
+function getTotalprice(data){
+	defaultstats2 = true;
+	$('.iteminfo_parameter').each(function(){
+		var i = $(this);
+		var _val = i.attr('data-attrval');
+		if(!_val){
+			defaultstats = false;
+		}else{
+			 v.push(_val);
+			 defaultstats = true;
+//			 console.log(v);
+		}
+	})
+	v1 = v;
+	if(defaultstats){ 
+		var a_url = "http://139.224.133.119:8080/CarStar/rest/property/getprinum?goodsid="+pid+"&property="+v[0]+","+v[1]+","+v[2];
+		$.ajax({
+			type:"get",
+			url:a_url,
+			async:true,
+			success:function(msg){
+				if( msg.data == null ){
+					document.getElementsByClassName("productPriceFont").item(0).innerHTML = "0";
+					document.getElementsByClassName("productnumber").item(0).innerHTML = "0";
+					document.getElementsByClassName("text-box").item(0).value= "0";
+				}else{
+					document.getElementsByClassName("productPriceFont").item(0).innerHTML = msg.data[0].pprice;
+					document.getElementsByClassName("productnumber").item(0).innerHTML = msg.data[0].pnumber;
+					document.getElementsByClassName("text-box").item(0).value= "1";
+					v=[]
+				}
+			}
+			
+		});
+	}
+	//商品选择属性清空
+	v=[];
+}
+
+//加入购物车
+function addShopCart1(){
+	var userid = $.cookie("userId");
+	var num = $('#prodctNum').val();
+	if( !defaultstats2 ){
+		alert("请选择类型!")
+	}else if( !defaultstats ){
+		alert("请选择其余类型！");
+	}else if( num == 0){
+		alert("库存不足！")
+	}else{
+//		console.log(v1);
+		var p_url = "http://139.224.133.119:8080/CarStar/rest/goodscart/cartadd?userid="+userid+"&goodsid="+pid+"&num="+num+"&property="+v1[0]+","+v1[1]+","+v1[2];
+		$.ajax({
+			type:"get",
+			url:p_url,
+			async:true,
+			success:function(msg){
+				alert("加入购物车成功！");
+			}
 		});
 	}
 
+	
 }
 
 //获取json数组长度
@@ -254,27 +356,6 @@ function testStar(msg){
 //				var averageScore = Math.round( (msg.data[i].installation+msg.data[i].pricevalue+msg.data[i].quality+msg.data[i].appearance)/4 );
 //				jQuery('#commentStar'+i).raty({readOnly:true,score:averageScore});
 			
-	
-}
-//加入购物车
-function addShopCart(){
-	if( productcolor == undefined ){
-		alert("请选择颜色!")
-	}else{
-		var userid = $.cookie("userId");
-		var num = $('#prodctNum').val();
-		var p_url = "http://139.224.133.119:8080/CarStar/rest/goodscart/cartadd?userid="+userid+"&goodsid="+pid+"&num="+num+"&property="+productcolor;
-		$.ajax({
-			type:"get",
-			url:p_url,
-			async:true,
-			success:function(msg){
-				console.log(msg,productcolor);
-				alert("加入购物车成功！");
-			}
-		});
-	}
-
 	
 }
 
