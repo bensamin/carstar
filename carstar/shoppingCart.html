@@ -9,7 +9,6 @@
     <meta name="author" content="">
 
     <title>购物车</title>
-	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
 	<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 	
@@ -29,20 +28,30 @@
   	<!--页面头部-->
 	<div class="header"></div><br />
 	<div class="container">
-			<div class="row" style="border-bottom: 1px solid #E3E3E3;">
-				<div class="col-md-4 col-xs-4">
-					<span>产品</span>
+		<!--<div class="search-shopcart_p">
+			<input type="text" name="" id="" class="search-shopcart_input" value="" placeholder="输入商品名称进行搜索" />
+			<button class="search-shopcart_btn" onclick="searchShopcart()">购物车搜索</button>
+		</div>-->
+			<div class="row cart-main">
+				<div class="col-md-1">
+					<div class="cart-checkbox">
+						<input type="checkbox" name="select-all" id="SlectAllCbx1" value="true" onclick="selectAll()"/>
+						<label for="SelectAllCbx1">全选</label>
+					</div>
 				</div>
-				<div class="col-md-1 col-xs-1">
-					<span>颜色</span>
+				<div class="col-md-3 col-xs-4">
+					<span>商品</span>
 				</div>
-				<div class="col-md-2 col-xs-2">
-					<span>价格</span>
+				<div class="col-md-2 col-xs-1">
+					<span>属性</span>
+				</div>
+				<div class="col-md-1 col-xs-2">
+					<span>单价</span>
 				</div>
 				<div class="col-md-2 col-xs-2">
 					<span>数量</span>
 				</div>		
-				<div class="col-md-2 col-xs-2">
+				<div class="col-md-1 col-xs-2">
 					<span>金额</span>
 				</div>
 				<div class="col-md-1 col-xs-2">
@@ -51,54 +60,17 @@
 			</div>
 			
 		<div class="shopCart">
-			<p style="border-bottom:1px solid #E3E3E3 ;">
-			  <input type="checkbox" /> <img src="img/light.png"/>
-			  <span>店铺2号</span>	
-			</p>	
-			<div class="row product1">
-				<div class="col-md-4 col-xs-4">
-					<input type="checkbox" name="select"  />
-					<div class="row">
-						<div class="col-md-1"></div>
-						<div class="col-md-4">
-							<img src="img/small-product.png" />
-						</div>
-						<div class="col-md-7">
-							<p>倒车镜</p>
-							<p>汽车倒车镜小圆镜&nbsp;后视镜盲点广角镜助镜反光镜清晰（一对装）</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-1 col-xs-1">
-					<span>黑色</span>
-				</div>
-				<div class="col-md-2 col-xs-2">
-					<span>¥</span>
-					<span class="text-price">101.11</span>
-				</div>
-				<div class="col-md-2 col-xs-2">
-					<i class="subNum">-</i>
-					<input type="text" class="text-box" value="3"/>
-					<i class="addNum">+</i>
-				</div>
-				<div class="col-md-2 col-xs-2">
-					<span></span> <span class="product-total" style="color: red;"></span>
-				</div>
-				<div class="col-md-1 col-xs-1">
-					<img src="img/delete.png" />
-				</div>
-			</div>
 			
 		</div>
 			<!---------------分割线----------------------------->
 			<div class="row">
 				<div class="col-md-10 col-xs-8">
-					<input type="checkbox" name="select" id="selectAll" style="margin-right: 10px;"/><span style="color: #333333;font-size: 1.66rem;">全选</span>
-					<!--<input  class="cancel-btn" type="button" value="取消全选" />-->
+					<input type="checkbox" name="select" id="selectAll"/><span style="color: #333333;font-size: 1.66rem;margin:0px 20px;">全选</span>
+					<a href="#" onclick="deletesCrtp()"><span style="color: #333333;font-size: 1.66rem;">删除</span></a>
 				</div>
 				<div class="col-md-2 col-xs-4">
 					<p style="color: #666666;font-size: 1.66rem;">商品总数量：<span class="product-num"></span></p>
-					<p>合计：<span></span> <label class="total-all" style="color: red;font-size: 3rem;font-weight: 300;"></label></p>
+					<p>合计：<span style="color: red;">¥</span> <label class="total-all" style="color: red;font-size: 3rem;font-weight: 300;"></label></p>
 				</div>
 			</div>  
 			<a href="pay.html">
@@ -110,14 +82,8 @@
 	<script>
 		
 	</script>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     	<script src="js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
     <script type="text/javascript" src="js/load.js" ></script>
     <script type="text/javascript" src="js/product.js" ></script>
-     <!--jQuery slick js-->
   </body>
 </html>

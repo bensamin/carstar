@@ -54,6 +54,7 @@ button{
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select:none;
+	cursor: pointer;
 }
 /*header*/
 .header{
@@ -432,7 +433,13 @@ th > span{
 
 
 /***********product.html***************/
-
+.text1-box{
+	margin: 0px 5px;
+	border: 1px solid #999;
+	width: 30px;
+	height: 24px;
+	text-align: center;
+}
 .detail{
 	margin-top: 30px;
 	margin-bottom: 100px;
