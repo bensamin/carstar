@@ -158,7 +158,7 @@ function insertProductInfo2(data){
 var defaultstats = true;
 var defaultstats2 = false;
 var v=new Array();
-var v1=new Array();
+var v1=[];
 function getTotalprice(data){
 	var pid = XXURL();
 	defaultstats2 = true;
@@ -173,7 +173,11 @@ function getTotalprice(data){
 //			 console.log(v);
 		}
 	})
-	v1 = v;
+	v1 = [{
+		"color":v[0],
+		"materis":v[1],
+		"size":v[2]
+	}];
 	if(defaultstats){ 
 		var a_url = "http://139.224.133.119:8080/CarStar/rest/property/getprinum?goodsid="+pid+"&property="+v[0]+","+v[1]+","+v[2];
 		$.ajax({
@@ -198,6 +202,97 @@ function getTotalprice(data){
 	//商品选择属性清空
 	v=[];
 }
+
+//加入订单
+function productAddOrder(){
+	var pid = XXURL();   //商品id
+	var userid = $.cookie("userId");   //用户id
+	var num = $('#prodctNum').val();   //商品数量
+	var price1 = $('.productPriceFont').text();
+	var infostr =  {pid,userid,num,price1,} ;
+	console.log( typeof(v1),typeof(infostr) );
+//	v1.push( infostr );
+//	console.log(v1[0].color);
+
+	if( !defaultstats2 ){
+		alert("请选择类型!")
+	}else if( !defaultstats ){
+		alert("请选择其余类型！");
+	}else if( num == 0){
+		alert("库存不足！")
+	}else{
+				window.location.href = "order.html?pid="+pid+"&userid="+userid+"&num="+num+"&property="+v1[0].color+","+v1[0].materis+","+v1[0].size+"&price="+price1;
+	}
+}
+
+//立即购买订单页面
+function order_Now(){
+	var request = new Object();
+		request = GetRequest();
+		var pid = request['pid'];
+		var userid = request['userid'];
+		var num = request['num'];
+		var property = request['property'];
+		var price = request['price'];
+		$('.order_pTotal').text( price * num );
+
+		var b_url = "http://139.224.133.119:8080/CarStar/rest/goods/querygoods?goodsid="+pid;
+		
+		$.ajax({
+			type:"get",
+			url:b_url,
+			async:true,
+			success:function(msg){
+//				console.log(msg);
+				$('.order_pName').text(msg.data.goodsname) ;
+				$('.order_pPrice').text(price) ;
+				$('.order_pDesc').text(msg.data.des) ;
+				$('.oder_pNumber').text(num) ;
+				$('.order_pPar').text(property) ;
+				$('.order_pService').text(msg.data.service.service0+","+msg.data.service.service1+","+msg.data.service.service2) ;
+				if( msg.data.mailprice > 0 ){
+					$('.order_pMail').text(msg.data.mailprice) ;
+				}else{
+					$('.order_pMail').text("免运费") ;
+				}
+			}
+		});
+		
+}
+
+//订单状态改变
+function orderSubmit(){
+	var request = new Object();
+		request = GetRequest();
+		var pid = request['pid'];
+		var userid = request['userid'];
+		var num = request['num'];
+		var property = request['property'];
+		var price = request['price'];
+		var msg = $('.order_pMsg').val();
+		var a_url ="http://139.224.133.119:8080/CarStar/rest/goodsorder/orderadd?goodsid="+pid+"&userid="+userid+"&addrid=1&num="+num+"&property="+property+"&sell_ser=1&mail=1&message="+msg+"&price="+price;
+		$.ajax({
+			type:"get",
+			url:a_url,
+			async:true,
+			success:function(data){
+				console.log(data.data.orderids);
+					var c_url = "http://139.224.133.119:8080/CarStar/rest/goodsorder/payorder?orderids="+data.data.orderids;
+					$.ajax({
+						type:"get",
+						url:c_url,
+						async:true,
+						success:function(msg){
+							console.log(msg);
+						}
+					});
+			}
+		});
+}
+
+
+//付款成功
+
 
 //加入购物车
 function addShopCart1(){
@@ -315,52 +410,53 @@ function addShopCart(data){
 	$.each(data, function(i) {
 		//遍历店铺
 			$('.shopCart').append(
-				  "<div class='row' style='border-bottom:1px solid #E3E3E3;padding-bottom:10px;'> " +
-				  "<div class='col-md-1 shopName3'> <input type='checkbox'  name='cartCheckBox'/> </div>"+
-				 	 " <div class='col-md-1 shopCartStoreImg'><img class='' src=' "+ data[i].shopimg+" ' width='70' height='40'> </div>"+  
-				  "	<div class='col-md-3 shopName3'> 店铺：<span> "+data[i].shopname+"</span> </div> </div>"
+				  "<div class='shopCarta"+i+"'>" +
+					  "<div class='row' style='border-bottom:1px solid #E3E3E3;padding-bottom:10px;'> " +
+						  "<div class='col-md-1 shopName3'> <input type='checkbox' onclick='selectshopName(shopBox"+i+")' class='shopBox"+i+"' name='cartCheckBox'/> </div>"+
+						 	 " <div class='col-md-1 shopCartStoreImg'><img class='' src=' "+ data[i].shopimg+" ' width='70' height='40'> </div>"+  
+						  "	<div class='col-md-3 shopName3'> 店铺：<span> "+data[i].shopname+"</span> </div>"+
+					  " </div> <div class='shopCarts'></div>"+
+				  "</div>"
 			)
-//			console.log(data[i].goods);
 			var pgoods = data[i].goods;
-		//遍历商品	
-		$.each(pgoods,function(i){
-//			if ( pgoods[i].property == undefined ){ pgoods[i].property=''; }
-			$('.shopCart').append(
-				"<div class='row products' id='product"+i+"' data-pid='"+pgoods[i].orderid+"' >" +
-					"<div class='col-md-4 col-xs-4'>" +
-						"<input type='checkbox' name='cartCheckBox'  />"+
-						"<div class='row'>"+
-							"<div class='col-md-1'></div>"+
-							"<div class='col-md-4'>"+
-								"<img src='img/small-product.png'>"+
-							"</div>"+
-							"<div class='col-md-7'>"+
-								"<p>"+pgoods[i].goodsname+"</p>"+
-								"<p>"+pgoods[i].goodsdes+"</p>"+
+			//遍历商品	
+			$.each(pgoods,function(i){
+				$('.shopCarts').append(
+					"<div class='row products' id='product"+i+"' data-pid='"+pgoods[i].orderid+"' >" +
+						"<div class='col-md-4 col-xs-4'>" +
+							"<input type='checkbox' name='cartCheckBox' onclick='just()' />"+
+							"<div class='row'>"+
+								"<div class='col-md-1'></div>"+
+								"<div class='col-md-4'>"+
+									"<img src='img/small-product.png'>"+
+								"</div>"+
+								"<div class='col-md-7'>"+
+									"<p>"+pgoods[i].goodsname+"</p>"+
+									"<p>"+pgoods[i].goodsdes+"</p>"+
+								"</div>"+
 							"</div>"+
 						"</div>"+
-					"</div>"+
-					"<div class='col-md-2 col-xs-1'>"+
-						"<span>"+pgoods[i].property+"</span>"+
-					"</div>"+
-					"<div class='col-md-1 col-xs-2'>"+
-						"<span>¥</span>"+
-						"<span class='text-price'>"+pgoods[i].price+"</span>"+
-					"</div>"+
-					"<div class='col-md-2 col-xs-2'>"+
-						"<i class='disBlue subNum' onclick='changesumPnum(Pnum"+i+")'>-</i>"+
-						"<input type='text' id=Pnum"+i+" class='text-box' value='"+pgoods[i].num+"' />"+
-						"<i class='disBlue  addNum' onclick='changeaddPnum(Pnum"+i+")'>+</i>"+
-					"</div>"+
-					"<div class='col-md-1 col-xs-2'>"+
-						"<span style='color: red;'>¥</span> <span class='product-total' style='color: red;'></span>"+ //金额
-					"</div>"+
-					"<div class='col-md-1 col-xs-1'>"+
-						"<a href='javascript:deleteCartp(product"+i+");'>删除</a>"+
-					"</div>"+
-				"</div>"	
-			)
-		});
+						"<div class='col-md-2 col-xs-1'>"+
+							"<span>"+pgoods[i].property+"</span>"+
+						"</div>"+
+						"<div class='col-md-1 col-xs-2'>"+
+							"<span>¥</span>"+
+							"<span class='text-price'>"+pgoods[i].price+"</span>"+
+						"</div>"+
+						"<div class='col-md-2 col-xs-2'>"+
+							"<i class='disBlue subNum' onclick='changesumPnum(Pnum"+i+")'>-</i>"+
+							"<input type='text' id=Pnum"+i+" class='text-box' value='"+pgoods[i].num+"' />"+
+							"<i class='disBlue addNum' onclick='changeaddPnum(Pnum"+i+")'>+</i>"+
+						"</div>"+
+						"<div class='col-md-1 col-xs-2'>"+
+							"<span style='color: red;'>¥</span> <span class='product-total' style='color: red;'></span>"+ //金额
+						"</div>"+
+						"<div class='col-md-1 col-xs-1'>"+
+							"<a href='javascript:deleteCartp(product"+i+");'>删除</a>"+
+						"</div>"+
+					"</div>"	
+				)
+			});
 	});
 	testReady();
 }
@@ -441,20 +537,38 @@ function setNumTotal(){
 	$(".text-box").each(function(){
 		n += parseInt( $(this).val()  );
 	});
-	$(".product-num").html(n);
+	$(".product-num").html("0");
+	$(".total-all").html( "0.00" );
 }
 
 function setPriceTotal(){
 			var p = 0;
 			var p_all = 0;
+			
+			//单个商品价格的更新
 			$(".products").each(function(){
-				p =  parseInt( $(this).find("input[class*=text-box]").val() ) * parseFloat( $(this).find("span[class*=text-price]").text());	
-				$(this).find("span[class*=product-total]").html( p.toFixed(2) );
-//				console.log(p);
-				p_all += p;
+					p =  parseInt( $(this).find("input[class*=text-box]").val() ) * parseFloat( $(this).find("span[class*=text-price]").text());	
+					$(this).find("span[class*=product-total]").html( p.toFixed(2) );
+					p_all += p;
 			}); 
-			$(".total-all").html( p_all.toFixed(2) );	
 }
+
+function just(){
+	var p=0,n=0,n1=0,p_all=0;
+	$('.products').each(function(){
+				if ( $(this).find("input[type=checkbox]").prop('checked') ){
+						p =  parseInt( $(this).find("input[class*=text-box]").val() ) * parseFloat( $(this).find("span[class*=text-price]").text());	
+						n =  parseInt( $(this).find("input[class*=text-box]").val() );
+						p_all += p;
+						n1 += n;
+						console.log(n);
+					}
+				$(".total-all").html( p_all.toFixed(2) );	
+				$(".product-num").html(n1);
+
+		});
+}
+
 //页面加载完毕计算价格
 function testReady(){
 			changesumPnum();   //计算数量
@@ -464,6 +578,13 @@ function testReady(){
 }
 //-----------END
 
+//店铺选择
+function selectshopName(shopcartid){
+//	var a = $(shopcartid);
+//	a.find("input[type=checkbox]").checked = $(shopcartid).checked;
+////	deletesCrtp();
+//	testReady();
+}
 
 /*复选框全选或全不选效果*/
 function selectAll(){
@@ -492,7 +613,6 @@ function  deleteCartp(productid){
 
 //批量删除
 function deletesCrtp(){
-	console.log("1");
 	var oInput=document.getElementsByName("cartCheckBox");
 	var cartids = [];
 	$(":checked").each(function(){
@@ -531,3 +651,34 @@ function searchShopcart(){
 		}
 	});
 }
+ 
+//购物车提交订单
+function submitCartOrder(){
+	var jsonstr = {"addrid":"1","shops":[{"goods":[{"cartid":"5"}],"sellser":"售后,免费退换","message":"留言","mail":"快递"}]};
+	$('.products').each(function(){
+				if ( $(this).find("input[type=checkbox]").prop('checked') ){
+						var cartid = $(this).attr('data-pid');
+						arr = { "cartid":cartid }
+						jsonstr.shops[0].goods.push(arr);
+
+					}
+		});
+		jsonstr = JSON.stringify(jsonstr);
+		var a_url = "http://139.224.133.119:8080/CarStar/rest/goodscart/paycart";
+						
+						$.ajax({
+							cache:true,
+							type:"post",
+							contentType: "application/json; charset=utf-8",
+							url:a_url,
+							data:jsonstr,
+				   			dataType:"json",
+				   			async:false,
+							success:function(msg){
+								console.log(msg);
+							}
+								
+			});					
+}
+
+//订单列表接口

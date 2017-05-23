@@ -43,7 +43,6 @@
 			text-align: center;
 			line-height: 11px;
 			cursor: pointer;
-			/*margin-left: -5px;*/
 			border-radius: 8px;
 		}
 		.subNum{
@@ -65,7 +64,7 @@
 	</style>
   </head>
 
-  <body>
+  <body onload="order_Now()">
   	<div class="header"></div>
 	<div class="container">
 		<p style="color: #333333;font-size: 2.5rem;">订单</p>
@@ -90,40 +89,37 @@
 				<img src="img/small-product.png"/>
 			</div>
 			<div class="col-md-10">
-				<p>倒车镜</p>
-				<p> <span>¥</span> <span>000.000</span> </p>
-				<p>汽车倒车镜小圆镜&nbsp;&nbsp;后视镜盲点广角镜&nbsp;&nbsp;助镜反光镜高清（一对装）</p>
+				<p class="order_pName">倒车镜</p>
+				<p> <span>¥</span> <span class="order_pPrice"></span> </p>
+				<p class="order_pDesc"></p>
 			</div>
 		</div>
 		
 		<div class="row">
 			<div class="col-md-2">
 				<span>购买数量：</span>
-				<i class="subNum">-</i>
-				<input class="text-box" type="text" value="1" />
-				<i class="addNum">+</i>
+				<span class="oder_pNumber"></span>
 			</div>
 		</div>
 		
 		<div class="row">
 			<div class="col-md-4">
-				<span>颜色分类：</span>
-				<span>黑色</span> &nbsp;&nbsp;&nbsp; <input type="color" name="" id="" value="#000000" style="vertical-align: middle;border: 1px solid #000000;"/>
+				<span>产品参数：</span>
+				<span class="order_pPar"></span> 
 			</div>
 		</div>
 		
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-8">
 				<span>售后服务：</span>
-				<input type="button" value="延保一年"/>
-				<input type="button" value="延保两年" />
+				<span class="order_pService"></span>
 			</div>
 		</div>
 		
 		<div class="row">
 			<div class="col-md-2">
 				<span>配送方式：</span>
-				<span>快递&nbsp;&nbsp;&nbsp;&nbsp;免邮</span>
+				<span class="order_pMail"></span>
 			</div>
 				
 		</div>
@@ -133,20 +129,20 @@
 				<span>留言</span>
 			</div>
 		</div>
-		<textarea style="width: 100%;"></textarea>
+		<textarea style="width: 100%;" class="order_pMsg"></textarea>
 		
 		<div class="row">
 			<div class="col-md-9"></div>
 			<div class="col-md-3">
-				<span>总价：</span>
-				<span style="color: red;font-size: 3.66rem;">000.00</span>
+				<span>总价：</span><span style="font-size: 3.66rem;">¥</span>
+				<span style="color: red;font-size: 3.66rem;" class="order_pTotal" ></span>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-4">
 			</div>
 			<div class="col-md-4">
-				<a href="order2.html"> <button class="add-cart" type="button">提交订单</button> </a>
+				 <button class="add-cart" onclick="orderSubmit()" type="button">提交订单</button> 
 			</div> 
 		</div>
 	</div>

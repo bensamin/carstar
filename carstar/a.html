@@ -4,21 +4,25 @@
 	<meta charset="UTF-8" />
 	<title>Document</title>
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
-	<script type="text/javascript" src="js/jquery.raty.min.js" ></script>
+	<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+	<sc
 </head>
 <body>
-	
-	<span id="start1"></span>
-	<span id="start2"></span>
-	<span id="start3"></span>
-	<span id="start4"></span>
-	<span id="start5"></span>
-	<span onclick="test()">123123</span>
-	<div id="qwe"></div>
+	<span onclick="submitCartOrder()">123</span>
 	<script>
-		$.each(array, function() {
-			
-		});
+		function submitCartOrder(){
+			var userid = $.cookie("userId");
+				var a = "http://139.224.133.119:8080/CarStar/rest/goodsorder/orderlist?userid="+userid+"&goodsname=all&startNum=0&pageSize=99&type=2";
+				$.ajax({
+					type:"get",
+					url:a,
+					async:true,
+					success:function(msg){
+						console.log(msg);
+					}
+				});
+		}
+				
 	</script>
 </body>
 </html>
