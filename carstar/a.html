@@ -4,25 +4,23 @@
 	<meta charset="UTF-8" />
 	<title>Document</title>
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
-	<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-	<sc
+	<script src="https://cdn.bootcss.com/jquery.form/4.2.1/jquery.form.min.js"></script>
 </head>
 <body>
-	<span onclick="submitCartOrder()">123</span>
-	<script>
-		function submitCartOrder(){
-			var userid = $.cookie("userId");
-				var a = "http://139.224.133.119:8080/CarStar/rest/goodsorder/orderlist?userid="+userid+"&goodsname=all&startNum=0&pageSize=99&type=2";
-				$.ajax({
-					type:"get",
-					url:a,
-					async:true,
-					success:function(msg){
-						console.log(msg);
-					}
-				});
-		}
-				
-	</script>
+					<form id= "uploadForm" action= "http://139.224.133.119:8080/CarStar/rest/sys/user/imgup" method="post" enctype ="multipart/form-data">  
+        						 <p >上传图片： <input type="file"  name="files" /></p>  
+         					<button type ="submit" >上传</button>  
+    						</form> 
+    						
+    						<script>
+    							var a;
+    							$('#uploadForm').ajaxForm(function(msg) { 
+    								console.log(msg.data.img[0]);
+    								a = msg.data.img[0];
+    								b()
+						     }); 
+						     function b(){
+						     console.log(a);}
+    						</script>
 </body>
 </html>

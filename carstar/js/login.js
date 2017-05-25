@@ -27,17 +27,17 @@ $(".footer").load("footer.html");
 //cookie判断是否登陆
 function getCookie(){
 	var userCookie = $.cookie("userId");
-	if ( userCookie != "" ){
-		return true;
-	}else{
+	if ( userCookie == "logout" || userCookie == undefined ){
 		window.location.href = "login.html";
 		return false;
+	}else{
+		return true;
 	}
 }
 
 //删除cookie，退出登录
 function deleteCookie(){
-	$.cookie("userId","");
+	$.cookie("userId","logout");
 	alert("退出登陆成功！")
 	window.location.href ="home.html"
 }
@@ -85,7 +85,7 @@ function checkUser(){
 				success:function(date){
 						if ( date.code == 0 ){
 //							console.log(date.data.id);
-						 	$.cookie("userId",date.data.id, {expires:1} );  //设置一个用户登陆的cookie,保存时间为1天
+						 	$.cookie("userId",date.data.id );  //设置一个用户登陆的cookie,保存时间为1天
 							window.location.href="home.html";
 						}else if (date.code == 1) {
 							alert("密码错误");

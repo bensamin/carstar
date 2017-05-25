@@ -61,6 +61,7 @@ function viewProduct(){
 	
 }
 
+//商品评价
 function detailProduct(){
 	var pid = XXURL();
 	var p_url2 = "http://139.224.133.119:8080/CarStar/rest/property/getprop?goodsid="+pid;
@@ -70,11 +71,13 @@ function detailProduct(){
 		async:true,
 		success:function(p_msg){
 //			console.log(p_msg);
-			insertProductInfo2(p_msg.data);
+			insertProductInfo2(p_msg.data);  //评价
 		}
 	});
 }
 
+
+//评价
 function insertProductInfo1(data){
 	document.getElementsByClassName("productPriceFont").item(0).innerHTML = data.price;
 	document.getElementsByClassName("font-through").item(0).innerHTML = data.price2;
@@ -276,14 +279,14 @@ function orderSubmit(){
 			url:a_url,
 			async:true,
 			success:function(data){
-				console.log(data.data.orderids);
+//				console.log(data.data.orderids);
 					var c_url = "http://139.224.133.119:8080/CarStar/rest/goodsorder/payorder?orderids="+data.data.orderids;
 					$.ajax({
 						type:"get",
 						url:c_url,
 						async:true,
 						success:function(msg){
-							console.log(msg);
+//							console.log(msg);
 						}
 					});
 			}
@@ -348,12 +351,11 @@ function commentProduct(){
 
 
 function testStar(msg){
-//$.each(msg.data,function(i){
-//	console.log(msg.data.length);
 	if( msg.data == null ){
 		$('#product-comment').text( "暂无评论！") ;
 	}else{
 	for(var i=0;i<msg.data.length;i++ ){
+		var averageScore = Math.round( (msg.data[i].installation+msg.data[i].pricevalue+msg.data[i].quality+msg.data[i].appearance)/4 );
 				$("#product-comment").append(
 					"<div class='row commentDiv'>"+
 					" <div class='col-md-2'> " +
@@ -361,20 +363,24 @@ function testStar(msg){
 						" <div> 用户名：<span class='comment_userid'>"+msg.data[i].userid+"</span> </div>"+
 					" </div>"+
 					"<div class='col-md-10'>"+
-						"<p>评分：<span class='commentStar"+i+" '></span></p>"+
+						"<p>评分：<span class='commentStar"+i+"' data-score='"+averageScore+"'></span></p>"+
 						"<p>内容：<span class='use-comment'>"+msg.data[i].content+"</span></p>"+
 						"<p class='commentImg"+i+"'>晒图：</p>"+
 						"<p>时间：<span class='commentTime"+i+" '></span></p>"+
 					"</div>"+
 					"</div>"
 				)
-				var averageScore = Math.round( (msg.data[i].installation+msg.data[i].pricevalue+msg.data[i].quality+msg.data[i].appearance)/4 );
+
+//				$('.commentStar'+i).raty({
+//					readOnly:true,
+//					score:function(){
+//						return $(this).attr('data-score');
+//						}
+//				});
 				$('.commentStar'+i).text(averageScore);
-//				$('.commentStar'+i).raty({readOnly:true,score:averageScore});
 				//时间戳
 				var ctime = new Date( msg.data[i].ctime).toLocaleString();
 				$('.commentTime'+i).text(ctime);
-//				console.log( msg.data[i].revimg.length);
 				//图片
 				for(var j=0;j < msg.data[i].revimg.length;j++ ){
 				$('.commentImg'+i).append( "<img class='img-responsive commentImg ' src=' "+msg.data[i].revimg[j]+" ' >" )
@@ -677,8 +683,151 @@ function submitCartOrder(){
 							success:function(msg){
 								console.log(msg);
 							}
-								
 			});					
 }
 
 //订单列表接口
+function viewListOrder(){
+	var b = $.cookie("userId");
+	var a_url = "http://139.224.133.119:8080/CarStar/rest/goodsorder/orderlist?userid="+b+"&goodsname=all&startNum=0&pageSize=99&type=0";
+	$.ajax({
+		type:"get",
+		url:a_url,
+		async:true,
+		success:function(msg){
+			console.log(msg);
+			personalAppend(msg.data);
+		}
+	});
+}
+
+//遍历全部订单
+function personalAppend(data){
+	$.each(data,function(i) {
+		if( data[i].type == "1" )
+		{
+			data[i].type = "待付款";
+		}if( data[i].type == "2" )
+		{
+			data[i].type = "待发货";
+		}if( data[i].type == "3" )
+		{
+			data[i].type = "待收货";
+		}if( data[i].type == "4" )
+		{
+			data[i].type = "待评价";
+		}if( data[i].type == "5" )
+		{
+			data[i].type = "售后";
+		}
+			$(".person_order").append(
+						"<div class='row' id='order"+i+"' data-oid='"+data[i].id+"'>"+
+								"<div class='col-md-0.1'>"+
+									"<input type='checkbox' />"+
+								"</div>"+
+								"<div class='col-md-1'>"+
+									"<a href='product.html'> <img class='img-responsive' src='img/small-product.png'/> </a>"+
+								"</div>"+
+								"<div class='col-md-3'>"+
+									"<p>"+data[i].goodsname+"</p>"+
+									"<p>"+data[i].goodsdesc+"</p>"+
+								"</div>"+
+								"<div class='col-md-1'>"+
+									"<span>"+data[i].number+"</span>"+
+								"</div>"+
+								"<div class='col-md-1'>"+
+									"<span>"+data[i].property+"</span>"+
+								"</div>"+
+								"<div class='col-md-1'>"+
+								 	"<span>¥</span>"+
+									"<span>"+data[i].price+"</span>"+
+								"</div>"+
+								"<div class='col-md-1'>"+
+								 	"<span>¥</span>"+
+									"<span>300.00</span>"+
+								"</div>"+
+								"<div class='col-md-1'>"+
+									"<a href='refund.html'> <span>申请售后</span> </a> "+
+									"<p>  <a href='order.html'> <span>订单详情</span> </a>  </p>"+
+									
+								"</div>"+
+								"<div class='col-md-1'>"+
+									"<span>"+data[i].type+"</span>"+
+								"</div>"+
+								"<div class='col-md-1'>"+
+									"<a href='javascript:personalDeleteOrder(order"+i+");'>删除订单</a>"+
+									"<a href='comment.html?orderid="+data[i].id+" '>评价</a>"+
+								"</div>"+
+							"</div>"
+	)
+	});
+}
+
+//删除订单
+function personalDeleteOrder(orderid){
+	var orderdiv =$(orderid);
+	var oid = orderdiv.attr("data-oid");
+	orderdiv.remove();
+	var a_url = "http://139.224.133.119:8080/CarStar/rest/goodsorder/remove?orderid="+oid;
+	$.ajax({
+		type:"get",
+		url:a_url,
+		async:true,
+		success:function(msg){
+//			console.log(msg);
+		}
+	});
+}
+
+//订单------->评价comment.html
+//获取订单的信息
+
+//将订单的信息显示在页面上
+function viewOrderinfo(){
+	var a_url = "http://139.224.133.119:8080/CarStar/rest/goodsorder/query?orderid=";
+	var iteminfo =  getItemInfo(a_url);
+	console.log(iteminfo);
+}
+
+//接受评价分数----只弄明白了数组的方式，json的以后再想想吧
+//var scoreall = { "pricevalue":"1","appearance":"1","installation":"1","quality":"1" };
+var scoreall = [ {},{},{},{} ]
+function starScore(arr,i){
+	scoreall[i] = arr;
+}
+
+//评价提交
+function commentSubmit(imgpath){
+
+	var a_url = "http://139.224.133.119:8080/CarStar/rest/goodsorder/query?orderid=";
+	var iteminfo =  getItemInfo(a_url);
+//	console.log(iteminfo);
+	
+	//商品id，用户id，评论内容content
+	var userid = $.cookie('userId');   //用户id
+	var pid = iteminfo.data[0].goodsid;   //商品id
+	var content = $('.comment_content').val();  //评论内容
+	var imgpath;
+//	console.log("用户信息："+userid,pid,content);
+	//图片提交获取图片URL
+//	console.log(imgpath);
+	//评价分数
+//	console.log("分数："+scoreall[0].pricevalue);
+	
+	//提交评价
+	var c_url = "http://139.224.133.119:8080/CarStar/rest/goodsrev/revadd?goodsid=";
+	$.ajax({
+		type:"get",
+		url:c_url+pid+"&userid="+userid+"&content="+content+"&appearance="+scoreall[1].appearance+"&installation="+scoreall[2].installation+"&pricevalue="+scoreall[0].pricevalue+"&quality="+scoreall[3].quality+"&imgpaths="+imgpath,                                                     
+		async:true,
+		success:function(msg){
+			console.log(msg);
+		}
+	});
+}
+
+
+
+
+
+

@@ -1,19 +1,24 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<script>    
-  var thisURL = document.URL;    
-  var  getval =thisURL.split('?')[1];  
-  var showval= getval.split("=")[1];  
-  function  showvalf(){  
-     alert(showval);  
-     document.getElementById('ee').value=showval;  
-  }  
-</script>  
-	</head>
-	 <body onload="showvalf()">  
-  <input type="text"  id ="ee" />  
- </body>  
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+		function a(x){
+			var a=110 + x;
+			function b(a){
+				var y = 100;
+			}
+			var c = b();
+			return c;
+		}
+		
+		var a1 =  a(1);
+		console.log(a1);
+	</script>
+	
+</body>
 </html>

@@ -3,192 +3,25 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Document</title>
-	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
 </head>
 <body>
-	<div>
-		<input type="text" id="search" />
-		<span onclick="b()">搜索</span>
-	</div>
-	
-	<div>
-		<input type="text" id="category" />
-		<span onclick="d()">一级分类：车内部件--->二级分类</span>
-	</div>
-	<div>
-		<input type="text" name="brand" id="brand" value="" />
-		<span onclick="e()">二级分类：座椅---->三级分类</span>
-	</div>
-	<div>
-		<input type="text" name="" id="price1" value="" />------
-		<input type="text" name="" id="price2" value="" />
-		<span onclick="f()" >搜索价格范围的产品</span>
-	</div>
-	<div>
-		<input type="text" name="searchType" id="searchType" value="" />
-		<span onclick="j()" >五级检索</span>
-	</div>
-	<div>
-		<input type="text" name="three" id="three" value="" />
-		<span onclick="categoryThree()">三级分类的产品</span>
-	</div>
-	<div>
-		<span onclick="priceUp()">价格筛选</span>
-	</div>
-	<button onclick="comment()">点击</button>
-	<script>
-	
-	function comment(){
-		var a = "http://139.224.133.119:8080/CarStar/rest/goodsrev/revinfo?goodsid=1&startNum=0&pageSize=5"
-		$.ajax({
-			type:"get",
-			url:a,
-			async:true,
-			success:function(msg){
-				var d = new Date(msg.data[1].ctime);
-				console.log(d.toLocaleString());
-			}
-		});
-	}
-	function priceUp(){
-		var menu = $("#category").val();
-		var goods = $("#brand").val();
-		var price1 = document.getElementById("price1").value;
-		var price2 = document.getElementById("price2").value;
-		var a = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+price1+"&price2="+price2+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+goods+"&b3=all&brand=all&level=9&";
-		$.ajax({
-			type:"get",
-			contentType:"application/json; charset=utf-8",
-			url:a,
-			async:true,
-			success:function(data){
-				console.log(data);
-			},
-			error:function(){
-				console.log("error");
-			}
-			
-		});
-	}
-	function categoryThree(){
-		var goods = $("#three").val();
-		console.log(goods);
-		var a = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=80&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1=all&b2=all&b3="+goods+"&brand=all&level=all&";
-		$.ajax({
-			type:"post",
-			contentType:"application/json; charset=utf-8",
-			url:a,
-			async:true,
-			success:function(data){
-				console.log(data);
-			},
-			error:function(){
-				console.log("error");
-			}
-			
-		});
-	}
-	function b(){
-		var goods = $("#search").val();
-		var pagenum = 4;
-		console.log(goods);
-		var a = "http://139.224.133.119:8080/CarStar/rest/goods/showgoods?goods="+goods+"&shop=all&startNum=0&pageSize=4";
-		$.ajax({
-			type:"post",
-			contentType:"application/json; charset=utf-8",
-			url:a,
-			async:true,
-			success:function(data){
-				console.log(data);
-			},
-			error:function(){
-				console.log("error");
-			}
-			
-		});
-		}
-		
-	function d(){
-			var menu = $("#category").val();
-			console.log(menu);
-			var a = "http://139.224.133.119:8080/CarStar/rest/goods/showmenu?menu="+menu+"&startNum=0&pageSize=510";
-			$.ajax({
-				type:"get",
-				contentType:"application/json; charset=utf-8",
-				url:a,
-				async:false,
-				success:function(data){
-					var data1 = data.data;
-					console.log(data);
-					for( var i =0;i<data1.length;i++ ){
-						$(".class2").append(
-							" <span> "+ data1[i].n2 +" </span> "
-						);
-					}
-					var num = Math.ceil(data.data.length / 5 );
-				},
-				error:function(){
-					console.log("error");
-				}
-				
-			});
-		}
-
-	function e(){
-		var goods = $("#brand").val();
-		var pagenum = 4;
-		console.log(goods);
-		var a = "http://139.224.133.119:8080/CarStar/rest/goods/showmenu?menu="+goods+"&startNum=0&pageSize=510";
-		$.ajax({
-			type:"get",
-			contentType:"application/json; charset=utf-8",
-			url:a,
-			async:false,
-			success:function(data){
-				console.log(data);
-				var i = 0;
-			},
-			error:function(){
-				console.log("error");
-			}
-			
-		});
-	}
-
-	function f(){
-		var price1 = document.getElementById("price1").value;
-		var price2 = document.getElementById("price2").value;
-		price1 = $.trim(price1);
-		price2 = $.trim(price2);
-		console.log( $.trim(price1),$.trim(price2));
-		
-		var a_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+price1+"&price2="+price2+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1=all&b2=all&b3=all&brand=all&level=all&";
-	 
-	 	$.ajax({
-			type:"get",
-			contentType:"application/json; charset=utf-8",
-			url:a_url,
-			async:true,
-			success:function(data){
-				console.log(data);
-			},
-			error:function(){
-				console.log("error");
-			}
-			
-		});
-	}
-	
-	function j(){
-	}
-	
-	function getJsonLength(JsonData){
-		var jsonLength = 0;
-		for( var item in JsonData ){
-			jsonLength++;
-		}
-		return jsonLength;
-	}
-	</script>
+	<div style="padding-top: 15px">  
+<label for="pic">更新广告图片 :</label>  
+<!-- <a class="btn btn-warning btn-sm" id="choice" ng-click="doChoice()" style="font-size:14px; color:red; font-family:微软雅黑; border-radius: 9px;">选择文件</a> -->  
+<input id="imageInput" type="file" accept="image/jpeg"     onchange="loadImageFile();" />  
+<i id="img" hidden="hidden"></i>  
+<i id="imgName" hidden="hidden"></i>  
+</div> 
+<script>
+	function loadImageFile(){
+	    arr = oPreviewImg.src.toString().split(",");  
+    document.getElementById("img").innerHTML = arr[1];  
+    document.getElementById("imgName").innerHTML =      document.getElementById("imageInput").files[0].name;  
+    //alert(document.getElementById("img").innerHTML);  
+    //alert(document.getElementById("imageInput").files[0].name);// 获取      图片名称(PS:瞬间感觉自己好聪明啊~~)  
+    //alert(arr[0]);// 获取图片格式与编码方式  
+    //alert(arr[1]);// 获取图片Base 64编码字节  
+   }
+</script>
 </body>
 </html>

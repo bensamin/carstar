@@ -4,17 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>商品评价</title>
-	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+	<script type="text/javascript" src="js/jquery.raty.min.js" ></script>   
+	<script src="https://cdn.bootcss.com/jquery.form/4.2.1/jquery.form.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-    <script src="js/ie-emulation-modes-warning.js"></script>
     <style>
+    	input[type=file]{
+    		display: inline-block !important;
+    	}
     		ol,ul{
     			list-style: none;
     		}
@@ -114,29 +116,36 @@
     			display: block;
     		}
     		.text-input-box{
-    			width: 100%;
-    			height: 58px;
+    			width: 40%;
+    			height: 100px;
 		    overflow:hidden;
-		    border:1px solid #ccc;
+		    /*border:1px solid #ccc;*/
 		    display:inline-block;
 		    *zoom:1;
 		    *display:inline;
+		    padding-left: 25px;
+    		}
+    		.upload-holder{
+    			padding-left: 25px;
     		}
     		.text-input-box textarea{
     			width: 100%;
-    			height: 58px;
-    			border: 1px solid #eee;
+    			height: 100%;
+    			border: 1px solid #ccc;
     			float: left;
     		}
     		.compose-commentStar{
-    			margin: 20px auto;
+    			 display:inline-block;
+    			 padding-left:80px ;
     		}
     		.compose-commentStar span{
     			color: #999;
     		}
-    		.compose-commentStar div{
+    		.tm-dsr-item{
+    			margin-bottom: 10px;
+    		}
+    		.tm-dsr-item div{
     			display: inline;
-    			margin-right: 10px;
     		}
     		.comment-message{
     			display: none;
@@ -155,83 +164,92 @@
     </style>
   </head>
 
-  <body>
+  <body onload="viewOrderinfo()">
   	<!--页面头部-->
 	<div class="header"></div>
 	
 		<div class="container">
 			<div class="row">
 				<div class="col-md-1"></div>
-				<div class="col-md-5">
+				<div class="col-md-5" style="padding: 40px;">
 					<img class="img-responsive" src="img/product.jpeg"/>
 				</div>
 				<div class="col-md-5 db-icbu">
 					<ol class="ui-form-bd">
-						<li class="ui-form-row"><label for="" class="ui-form-label">
-							<h3>黑色炫光时尚轮胎</h3>
-						</label></li>
-						<li class="ui-form-row superstar-price"><label for="" class="ui-form-label">
-							价格</label>
+						<li class="ui-form-row">
+							<label for="" class="ui-form-label"><h3 class="comment_name">黑色炫光时尚轮胎</h3></label>
+						</li>
+						<li class="ui-form-row superstar-price">
+							<label for="" class="ui-form-label">价格</label>
 							<div class="ui-form-right">
-								<strong>488.00</strong><span></span>元
+								<strong class="comment_price">488.00</strong><span></span>元
 							</div>
 						</li>
 						<li class="ui-form-row"><label for="" class="ui-form-label">配送</label>
 							<div class="ui-form-right">
-								快递：  0.00
+								快递：  <span class="comment_mail"></span>
 							</div>
 						</li>
 						<li class="ui-form-row"><label for="" class="ui-form-label">月销量</label>
 							<div class="ui-form-right">
-								<strong>5111</strong>
-								件
+								<strong>5111</strong>件
 							</div>
 						</li>
-						<li class="ui-form-row"><label for="" class="ui-form-label">
-							评价
-						</label>
-						<div class="ui-form-right">
-								<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
-								<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
-								<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
-								<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
-								<span class="glyphicon glyphicon-star" style="color: #f7c058;"></span> 
-								5分 <span>（累计评价 <span class="superstar-ratetotal"></span> ） </span>
-						</div>
+						<li class="ui-form-row">
+							<label for="" class="ui-form-label">评价</label>
+							<div class="ui-form-right">
+									5分 <span>（累计评价 <span class="superstar-ratetotal"></span> ） </span>
+							</div>
 						</li>
 					</ol>
 					
 					<ol class="scinfo-bd">
 						<li class="ui-form-label">
-							<label for="" class="ui-form-label">颜色</label>
+							<label for="" class="ui-form-label">产品类型</label>
 							<div class="ui-form-right">黑色</div>
 						</li><br /><br />
-						<li class="ui-form-label">
+						<!--<li class="ui-form-label">
 							<label for="" class="ui-form-label">重量</label>
 							<div class="ui-form-right">5.6KG</div>
-						</li>
+						</li>-->
 					</ol>
 				</div>
 			</div>
-			
-			<div class="row compose-main" style="display: block;">
-				<div class="compose-header">
-					<span>其他买家需要你的建议哦！</span>
+				<div class="row compose-main" style="display: block;">
+					<div class="compose-header">
+						<span>其他买家需要你的建议哦！</span>
+					</div>
+					
+					<div class="text-input-box">
+						<p>您的评价：</p>
+						<textarea name="content" class="comment_content"></textarea>
+					</div>
+					<div class="compose-commentStar">
+						<div class="tm-dsr-item">
+							<div class="tm-dsr-item-title">性价比：</div> 
+							<div class="tm-dsr-item-content-pricevalue"></div>
+						</div>
+						<div class="tm-dsr-item">
+							<div class="tm-dsr-item-title">外观：</div> 
+							<div class="tm-dsr-item-content-appearance"></div>
+						</div>
+						<div class="tm-dsr-item">
+							<div class="tm-dsr-item-title">安装：</div> 
+							<div class="tm-dsr-item-content-installation"></div>
+						</div>
+						<div class="tm-dsr-item">
+							<div class="tm-dsr-item-title">质量：</div> 
+							<div class="tm-dsr-item-content-quality"></div>
+						</div>
+					</div>
+					<div class="upload-holder">
+						 <form id= "uploadForm" action= "http://139.224.133.119:8080/CarStar/rest/sys/user/imgup" method="post" enctype ="multipart/form-data">  
+        						 <p >上传图片： <input type="file"  name="files" /></p>  
+        						 <button type="submit" >提交评价</button>
+    						</form>  
+					</div>
 				</div>
-				<p>您的评价：</p>
-				<div class="text-input-box">
-					<textarea ></textarea>
-				</div>
-				<div class="compose-commentStar">
-					<div>服务星级：</div>
-					<span class="glyphicon glyphicon-star"></span> 
-					<span class="glyphicon glyphicon-star"></span> 
-					<span class="glyphicon glyphicon-star"></span> 
-					<span class="glyphicon glyphicon-star"></span> 
-					<span class="glyphicon glyphicon-star"></span> 
-				</div>
-			</div>
-			<button class="add-cart">提交评价</button>
+				
 		</div>
 		<div class="comment-message">
 			<span>评价成功!</span>
@@ -239,14 +257,53 @@
 	<script>
 		$(function(){
 			
-			$(".compose-commentStar span").each(function(){
-				$(this).click(function(){
-					var n = $(this).index();
-					$( ".compose-commentStar span:lt("+n+")" ).css("color","#f7c058");
-				});
+			$('#uploadForm').ajaxForm(function(msg) { 
+		    			console.log(msg);
+		    			imgpath = msg.data.img[0];  
+		    			commentSubmit(imgpath);
+			}); 
+			//性价比
+			$('.tm-dsr-item-content-pricevalue').raty({
+				click:function(score,evt){
+					var pricevalue={
+						"pricevalue":score
+					};
+					starScore(pricevalue,0);
+				}
 			});
+			
+			//外观
+			$('.tm-dsr-item-content-appearance').raty({
+				click:function(score,evt){
+					var appearance={
+						"appearance":score
+					};
+					starScore(appearance,1);
+				}
+			});
+			
+			//安装
+			$('.tm-dsr-item-content-installation').raty({
+				click:function(score,evt){
+					var installation={
+						"installation":score
+					};
+					starScore(installation,2);
+				}
+			});
+			
+			//质量
+			$('.tm-dsr-item-content-quality').raty({
+				click:function(score,evt){
+					var quality={
+						"quality":score
+					};
+					starScore(quality,3);
+				}
+			});
+			
+			
 		});
-		
 		$(".add-cart").click(function(){
 			$(".comment-message").css("display","block");
 			setTimeout( "commentHome()",2000);
@@ -258,7 +315,7 @@
 	<!--页面底部-->
 	<div class="footer"></div>
     	<script src="js/bootstrap.min.js"></script>
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
     <script type="text/javascript" src="js/load.js" ></script>
+    <script type="text/javascript" src="js/product.js" ></script>
   </body>
 </html>

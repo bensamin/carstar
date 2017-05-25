@@ -23,3 +23,23 @@ function GetRequest() {
 }
 return theRequest;
 } 
+
+
+//get请求通过URL中的id获取信息
+function getItemInfo(url){
+	var request = new Object();
+		request = GetRequest();
+		var id = request['orderid'];
+		var a;
+		var a_url = url+id;
+			$.ajax({
+				type:"get",
+				url:a_url,
+				async:false,
+				success:function(msg){
+					a = msg;
+				}
+			});
+		return a;
+		
+}

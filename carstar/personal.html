@@ -4,26 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
     <title>个人中心</title>
-	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
-    <!-- Bootstrap core CSS -->
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <link rel="stylesheet" href="css/personal.css" />
-    <!-- Custom styles for this template -->
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="js/ie-emulation-modes-warning.js"></script>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <style type="text/css">
+    	span{
+    		cursor: pointer;
+    	}
     	.container-content{
     		margin: 0px 5%;
     	}
@@ -50,7 +39,7 @@
     </style>
   </head>
 
-  <body>
+  <body onload="viewListOrder()">
   	<!--页面头部-->
 	<div class="personalInfo" style="display: none;"></div>	
 	<div class="bankInfo" style="display: none;"></div>	
@@ -102,7 +91,7 @@
 									<span>数量</span>
 								</div>
 								<div class="col-md-1 col-xs-1">
-									<span>颜色</span>
+									<span>类型</span>
 								</div>
 								<div class="col-md-1 col-xs-1">
 									<span>单价</span>
@@ -113,91 +102,15 @@
 								<div class="col-md-1">
 									<span>商品操作</span>
 								</div>
-								<div class="col-md-2 col-xs-1">
+								<div class="col-md-1 col-xs-1">
 									<span>订单状态</span>
 								</div>
 								<div class="col-md-1 col-xs-1">
-									<span>其他</span>
+									<span>订单操作</span>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-0.1">
-									<input type="checkbox" />
-								</div>
-								<div class="col-md-1">
-									<a href="product.html"> <img src="img/small-product.png"/> </a>
-								</div>
-								<div class="col-md-3">
-									<p>倒车镜</p>
-									<p>倒车镜的描述倒车镜的描述倒车镜的描述</p>
-								</div>
-								<div class="col-md-1">
-									<span>3</span>
-								</div>
-								<div class="col-md-1">
-									<span>黑色</span>
-								</div>
-								<div class="col-md-1">
-								 	<span>¥</span>
-									<span>100.00</span>
-								
-								</div>
-								<div class="col-md-1">
-								 	<span>¥</span>
-									<span>300.00</span>
-								
-								</div>
-								<div class="col-md-1">
-									<span>投诉卖家</span>
-								</div>
-								<div class="col-md-2">
-									<a href="refund.html"> <span>退款/退货</span> </a> 
-									<p>  <a href="order.html"> <span>订单详情</span> </a>  </p>
-								</div>
-								<div class="col-md-1">
-									<span>已退货</span>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-0.1">
-									<input type="checkbox" />
-								</div>
-								<div class="col-md-1">
-									<a href="product.html"> <img src="img/small-product.png"/> </a>
-								</div>
-								<div class="col-md-3">
-									<p>倒车镜</p>
-									<p>倒车镜的描述倒车镜的描述倒车镜的描述</p>
-								</div>
-								<div class="col-md-1">
-									<span>3</span>
-								</div>
-								<div class="col-md-1">
-									<span>黑色</span>
-								</div>
-								<div class="col-md-1">
-								 	<span>¥</span>
-									<span>100.00</span>
-								</div>
-								<div class="col-md-1">
-								 	<span>¥</span>
-									<span>300.00</span>
-								
-								</div>
-								<div class="col-md-1">
-									<span>投诉卖家</span>
-								</div>
-								<div class="col-md-2">
-									<p>  <a href="refund.html"> <span>退款/退货</span> </a>  </p>
-									<p>  <a href="order.html"> <span>订单详情</span> </a>  </p>
-								</div>
-								<div class="col-md-1">
-									<!--<input type="button" value="取消订单" /> <br />
-									<input type="button" value="删除订单" /><br />
-									<a href="pay.html"><input type="button" value="付款" /></a>-->
-									<span>确认收货 </span>
-								</div>
-							</div>
+							<div class="person_order"></div>
+							
 			 			</div>
 						<!--待付款-->
 						<div class="tab-pane fade" id="personal-order-waitPay">
@@ -709,12 +622,7 @@
 	});
 	</script>	
 		
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     	<script src="js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
     <script type="text/javascript" src="js/load.js" ></script>
     <script type="text/javascript" src="js/product.js" ></script>
      <!--jQuery slick js-->
