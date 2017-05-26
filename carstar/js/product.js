@@ -67,7 +67,9 @@ function insertProductInfo1(data){
 	document.getElementsByClassName("productType").item(0).innerHTML = data.des;
 	document.getElementsByClassName("productnumber").item(0).innerHTML = data.number;
 	document.getElementsByClassName("shopName2").item(0).innerHTML = data.shopname;
-	
+	$('.shop_fuck').append(
+		"<a href='shop.html?shopid="+data.shopid+"'>进入店铺</a>"
+		)
 	
 	$('.shopImg').append(
 		" <img class='img-responsive' src=' "+data.shopimg+" '  > "

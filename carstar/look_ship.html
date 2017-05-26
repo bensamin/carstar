@@ -2,8 +2,80 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>物流状态</title>
+		<title>物流详情</title>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/personal.css"/>
 	</head>
 	<body>
+		<div class="container">
+			<ol class="breadcrumb">
+				  <li><a href="home.html">首页</a></li>
+				  <li><a href="personal.html">我的订单</a></li>
+				  <li class="active">物流详情</li>
+			</ol>
+			
+			<!--物流详情-->
+			<div class="ship_detail">
+				<div class="ship_detail2">
+					<!--订单状态图片-->
+					<div class="row ship_detail_img">
+						<div class="col-md-1"></div>
+						<div class="col-md-1">
+							<div class="ship_signin1"></div>
+							<p>待揽件</p>
+						</div>
+						<div class="col-md-2"></div>
+						<div class="col-md-1">
+							<div class="ship_signin2"></div>
+							<p>运输</p>
+						</div>
+						<div class="col-md-2"></div>
+						<div class="col-md-1">
+							<div class="ship_signin3"></div>
+							<p>派送</p>
+						</div>
+						<div class="col-md-2"></div>
+						<div class="col-md-1">
+							<div class="ship_signin4"></div>
+							<p>签收</p>
+						</div>
+					</div>
+					<!--接受的物流信息-->
+					<div class="ship_detail_msg">
+						<p>嘉定的张大大正在派件</p>
+					</div>
+					<!--物流信息-->
+					<div class="ship_shipInfo">
+						您的物流信息
+					</div>
+					<!--订单信息-->
+					<div class="ship_orderInfo">
+						<div class="ship_shipping order-row">
+							<label class="label">运单编号：</label>
+							<span class="em">1234567890</span>
+							<label class="label">物流公司：</label>
+							<span class="em">韵达快递</span>
+							<label class="label">客服电话：</label>
+							<span class="em">1234567890</span>
+						</div>
+						<div class="ship_shipName order-row">
+							<label class="label">卖家昵称：</label>
+							<span class="em">车星官方旗舰店</span>
+						</div>
+						<div class="ship_deliverAddress order-row">
+							<label class="label">发货地址：</label>
+							<span class="em">北京市朝阳区</span>
+						</div>
+						<div class="ship_receiveAddress order-row">
+							<label class="label">收货地址：</label>
+							<span class="em">上海市嘉定区白银路</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<script src="js/bootstrap.min.js"></script>
 	</body>
 </html>

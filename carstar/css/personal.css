@@ -62,3 +62,46 @@
 	width: 100%;
 	border: 1px solid #666666;
 }	
+
+/**/
+.ship_detail{
+	padding: 60px;
+	border: 1px solid #c1c1c1;
+}
+.ship_detail_msg{
+	border-bottom: 1px solid #C1C1C1;
+}
+.ship_signin4{
+	background: url(../svg/ship_signin.svg) repeat scroll top left;
+    background-size: 80px;
+    border: 0;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+    font-size: 0;
+    height: 80px;
+    outline: 0;
+    width: 80px;
+    -webkit-appearance: none;
+}
+
+.ship_detail_img p{
+	font-size: 1.8rem;
+	margin:20px 0px;
+	text-align: center;
+}
+
+.ship_orderInfo{
+	border-top: 1px solid #C1C1C1;
+}
+.ship_shipInfo{
+	padding: 30px 15px;
+}
+.label{
+	color: #333 !important;
+}
+.order-row{
+	margin: 5px;
+}
+.order-row span{
+	margin-right: 20px;
+}
