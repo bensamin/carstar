@@ -9,7 +9,6 @@
     <meta name="author" content="">
 
     <title>付款</title>
-	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +22,7 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="js/ie-emulation-modes-warning.js"></script>
-
+	<script type="text/javascript" src="js/product.js" ></script>
 	<!--jQuery slick  css-->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -46,37 +45,34 @@
     			width: 200px;
     			height: 50px;
     		}
-    		/*.payment{
-    			width: 60%;
-    			border: 1px dashed #9D9D9D;
-    			margin: 10px 0;
-    			padding: 5px 10px;
+    		.pay_orderDiv{
+    			padding-bottom: 50px;
     		}
-    		
-    		.payment label{
-    			margin: 0 20px;
-    		}*/
+    		.pay_order{
+    			margin-right: 20px;
+    			float: left;
+    		}
     </style>
   </head>
+  <body onload="payOrder()">
   <div class="header"></div>
 	<div class="container">
-				<!--<span>订单号：xxxxxxxxxx</span>&nbsp;&nbsp;&nbsp;
-				<span>共计：xxxxx元</span>
-				<p>选择付款方式:</p>
-				<div class="payment">
-					<input type="radio" name="payment" id="aliPay" /><label for="aliPay">支付宝</label><br />
-					<input type="radio" name="payment"  id="weChat" /><label for="weChat">微信支付<img src="img/chat.png"/> </label><br />
-					<input type="radio" name="payment"  id="bankCard" /><label for="bankCard">余额</label>
-				</div>
-				<button type="button">付款</button>
-			</div>	-->
 		<ol class="breadcrumb">
 				<li><a href="order">订单</a></li> 
 				<li><a href="#">支付</a></li>
 				<li><a href="#">支付方式</a></li>
-				<!--<span class="shop-content-help">查看帮助</span>-->
 		</ol>
-		<div class="row">
+		<div class="pay_orderDiv"> 
+			<div class="pay_order">
+				<span>订单编号：</span>
+				<span class="order_number"></span>
+			</div>
+			<div class="pay_order">
+				<span>订单金额：</span>¥
+				<span class="order_payMoney"></span>
+			</div>
+		</div>
+		<div class="row" style="clear: both;">
 			<div class="col-md-4">
 				<span>选择支付方式</span>
 			</div>
@@ -99,7 +95,7 @@
 			<div class="col-md-4">
 			</div>
 			<div class="col-md-4">
-				<a href="order-finish.html"> <button class="add-cart" type="button">确定</button> </a>
+				 <button class="add-cart" type="button" onclick="orderPay()">确定</button> 
 			</div> 
 		</div>
 	</div>
@@ -122,8 +118,6 @@
     <script type="text/javascript" src="js/carstar.js" ></script>
     	<script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-     <script type="text/javascript" src="js/owl.carousel.js" ></script>
-    <script type="text/javascript" src="js/transformer.js" ></script>
     <script src="js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript" src="js/load.js" ></script>
   </body>

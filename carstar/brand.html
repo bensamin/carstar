@@ -5,26 +5,24 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<meta name="description" content="">
 		<meta name="author" content="">
 
 		<title>二级分类</title>
-		<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 		<!-- Bootstrap core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<script type="text/javascript" src="js/jquery.raty.min.js" ></script>
 		<!-- Custom styles for this template -->
 		<link href="css/carstar.css" rel="stylesheet">
-		 <link href="css/owl.carousel.css" rel="stylesheet">
-    		<link href="css/owl.theme.css" rel="stylesheet">
-		<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 		<script src="js/ie-emulation-modes-warning.js"></script>
 		<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+    	
+    </style>
 	</head>
 
 	<body onload="onloadBrand()">
@@ -91,7 +89,7 @@
 
 				<form style="display: none;">
 					<input type="search" name="" required="" placeholder="Search" x-webkit-speech="" class="home-searchPart"  x-webkit-grammar="builtin:search" lang="zh-CN">
-					<input type="submit" class="search-go1" value="查询" style="color: #ffffff;font-size: 1.66rem; margin-left:-3px;border: 1px solid #0E9939;height:50px;line-height: 48px; background-color: #0E9939;"/>
+					<span class="search-go2">查询</span>
 				</form> 
 				<form style="display: none;">
 					<table border="0"  width="90%">
@@ -206,11 +204,11 @@
 							<input type="image" src="img/add.png" class="add add2" />
 							<input type="image" src="img/reduce.png" class="reduce reduce2" /> </p>
 						<ul class="price2">
-							<li>	<input name="comment" type="checkbox" /><span class="start5"></span></li>
-							<li>	<input name="comment" type="checkbox" /><span class="start4"></span></li>
-							<li>	<input name="comment" type="checkbox" /><span class="start3"></span></li>
-							<li>	<input name="comment" type="checkbox" /><span class="start2"></span></li>
-							<li>	<input name="comment" type="checkbox" /><span class="start1"></span></li>
+							<li>	<input name="comment" type="checkbox" /><span class="start5" data-bStar='5'></span></li>
+							<li>	<input name="comment" type="checkbox" /><span class="start4" data-bStar='4'></span></li>
+							<li>	<input name="comment" type="checkbox" /><span class="start3" data-bStar='3'></span></li>
+							<li>	<input name="comment" type="checkbox" /><span class="start2" data-bStar='2'></span></li>
+							<li>	<input name="comment" type="checkbox" /><span class="start1" data-bStar='1'></span></li>
 						</ul>
 					</div>
 					<div class="choose">
@@ -278,7 +276,6 @@
 	<script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
 	<script src="js/transformer.js" type="text/javascript"></script>    	
      <!--jQuery owl carousel js--> 
-     <script src="js/owl.carousel.js"></script>
 	<script type="text/javascript" src="js/carSearch.js" ></script>
      <!--load.js-->
 	<script type="text/javascript" src="js/carstar.js" ></script>

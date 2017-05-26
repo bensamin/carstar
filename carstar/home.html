@@ -13,12 +13,10 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/carstar.css" />
     <!-- jQuery owl carousel css  -------->
-    <link href="css/owl.carousel.css" rel="stylesheet">
-    <link href="css/owl.theme.css" rel="stylesheet">
     <link rel="stylesheet" href="css/slick-theme.css" />
     <link rel="stylesheet" href="css/slick.css" />
     <script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
-    <script src="js/ie-emulation-modes-warning.js"></script>
+    <!--<script src="js/ie-emulation-modes-warning.js"></script>-->
     <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 
   </head>
@@ -31,9 +29,9 @@
 						<div><img class="img-responsive" src="img/index.png"><p></p></div>
 						<div><img class="img-responsive" src="img/index.png"><p></p></div>
 						<div><img class="img-responsive" src="img/index.png"><p></p></div>	
-				</div>
-			</div>	   		
-  	</div>
+					</div>
+				</div>	   		
+  			</div>
   	
     <!--5种选择-->
     <div id="home-drop">
@@ -86,8 +84,8 @@
 				</form>	
 
 				<form style="display: none;">
-					<input type="search" name="" required="" placeholder="Search" x-webkit-speech="" class="home-searchPart"  x-webkit-grammar="builtin:search" lang="zh-CN">
-					<input type="submit" class="search-go1" value="查询" style="color: #ffffff;font-size: 1.66rem; margin-left:-3px;border: 1px solid #0E9939;height:50px;line-height: 48px; background-color: #0E9939;"/>
+					<input type="search"  placeholder="Search" x-webkit-speech="" class="home-searchPart"  x-webkit-grammar="builtin:search" lang="zh-CN">
+					<span class="search-go2">查询</span>
 				</form> 
 				<form style="display: none;" class="home-hotShop">
 					<table border="0"  width="90%">
@@ -435,16 +433,6 @@
 	<div class="footer"></div>
 	<script>
 		$(document).ready(function(){
-			
-			$('#gellery').transformer({
-				__Effects:new Array('Optimus','Ironhide','Scorponok','Megatron','Starscream','Jazz'),	
-				__Columns:7,
-				__Rows:3,
-				__Speed:5000,
-				__Title_Height:100,
-				__Title_Width:0,
-			});
-			
 			$(".regular").slick({
 		        dots: true,
 		        infinite: true,

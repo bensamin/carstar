@@ -10,6 +10,14 @@
 		//添加 类名
 	});    
 
+function XXURL(){
+	var thisURL =  document.URL;
+	var getVal = thisURL.split('?')[1];
+	var pid = getVal.split("=")[1];	
+	return pid;
+}
+
+
 //分割URL中的参数
 function GetRequest() {
 	var url = location.search; //获取url中"?"符后的字串

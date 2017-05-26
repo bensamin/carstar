@@ -1,3 +1,16 @@
+$(document).ready(function(){
+	//切片轮播执行代码
+	$('#gellery').transformer({
+				__Effects:new Array('Optimus','Ironhide','Scorponok','Megatron','Starscream','Jazz'),	
+				__Columns:7,
+				__Rows:3,
+				__Speed:5000,
+				__Title_Height:100,
+				__Title_Width:0,
+			});
+	
+});
+
 //选择年份，获取品牌
 function chooseCarYear(){
 	$.fn.serializeObject = function()  

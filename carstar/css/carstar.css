@@ -3,7 +3,6 @@ body {0px0px
 }
 @media only screen and (max-width: 767px) {
 	.hotImg{display: none;}
-	/*.our-carousel{display: none;}*/
 	.introduce{display: none;}
 	.search-drop input{display: block;}
 	.search-drop{padding-left: 0%;}
@@ -38,7 +37,7 @@ input[type="submit"] {
 a{
 	cursor: pointer;
 	text-decoration: none;
-	color: #000000;
+	color: #000 ;
 }
 a:hover{
 	text-decoration: none;
@@ -182,7 +181,6 @@ button{
 	height: 45px;
 }  
   select{
-  	margin-right:-4px ;
   	font-size: 1.5rem;
   	height: 50px;
   	border: 1px solid #4B5160;
@@ -191,7 +189,7 @@ button{
   	-moz-appearance: none;
   	-webkit-appearance: none;
   	/*background: url(../img/drop.png) no-repeat scroll right center #F1F1F1;*/
-  	padding-right:24px ;
+  	/*padding-right:24px ;*/
   	height: 30px;
   	width: 160px;
   	z-index: 2;
@@ -216,6 +214,19 @@ th > span{
   	border: 1px solid #424344;
   	border-radius: 2px;
   	margin-left: -3px;
+  	margin-right: 10px;
+  	cursor: pointer;
+  }
+  .search-go2{
+  	color: #ffffff;
+  	font-size: 16px;
+  	font-weight: 300;
+  	line-height: 50px;
+  	background-color: #0E9939;
+  	padding:14px  30px 16px 30px ;
+  	border: 1px solid #424344;
+  	border-radius: 2px;
+  	margin-left: -4px;
   	margin-right: 10px;
   	cursor: pointer;
   }
@@ -379,7 +390,8 @@ th > span{
 	margin-bottom: 20px;
 }
 .category-brand{
-	margin: 10px 5%
+	margin: 10px 0px;
+	padding-left: 8%;
 }
 .category-brand p{
 	margin-top:20px ;
@@ -390,7 +402,7 @@ th > span{
 	padding-top:10px ;
 	padding-left: 22px;
 }
-.choose input{
+.choose ul>li>input{
 	margin-bottom: 10px;
 	margin-right: 5px;
 }

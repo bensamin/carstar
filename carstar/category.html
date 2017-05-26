@@ -16,28 +16,21 @@
 
     <!-- Custom styles for this template -->
     <link href="css/carstar.css" rel="stylesheet">
-
-	<!--jQuery slick  css-->
-	<link rel="stylesheet" href="css/owl.carousel.css" />
-	<link rel="stylesheet" href="css/owl.theme.css" />
-    
-	<style type="text/css">
-		
-	</style>
   </head>
   <body onload="onloadCategory()">
 		<!--页面头部-->
 		<div class="header">	</div>
-		<div class="category-menu"></div>
+		
 		<div class="our-carousel">
-			<div id="ImageSlider">
-				<div id="gellery">
-					<div><img src="img/index.png"><p></p></div>
-					<div><img src="img/index.png"><p></p></div>
-					<div><img src="img/index.png"><p></p></div>	
-				</div>
-			</div>	   		
-  		</div>
+				<div id="ImageSlider">
+					<div id="gellery">
+						<div><img class="img-responsive" src="img/index.png"><p></p></div>
+						<div><img class="img-responsive" src="img/index.png"><p></p></div>
+						<div><img class="img-responsive" src="img/index.png"><p></p></div>	
+					</div>
+				</div>	   		
+  			</div>
+  		
   		<div id="home-drop">
     		<div id="home-searchAll">
     			<ul >
@@ -88,8 +81,8 @@
 				</form>	
 
 				<form style="display: none;">
-					<input type="search" name="" required="" placeholder="Search" x-webkit-speech="" class="home-searchPart"  x-webkit-grammar="builtin:search" lang="zh-CN">
-					<input type="submit" class="search-go1" value="查询" style="color: #ffffff;font-size: 1.66rem; margin-left:-3px;border: 1px solid #0E9939;height:50px;line-height: 48px; background-color: #0E9939;"/>
+					<input type="search"placeholder="Search" x-webkit-speech="" class="home-searchPart"  x-webkit-grammar="builtin:search" lang="zh-CN">
+					<span class="search-go2">查询</span>
 				</form> 
 				<form style="display: none;">
 					<table border="0"  width="90%">
@@ -155,7 +148,6 @@
 				<ol class="breadcrumb">
 					<li><a href="home.html" style="color: #333333;">首页</a></li> 
 					<li><a href="#"  style="color: #666666;">品牌</a></li>
-					<!--<span class="shop-content-help">查看帮助</span>-->
 				</ol>
 			</div>
 		<div class="introduce">
@@ -177,11 +169,8 @@
 				<p  style="color: #666666;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;皮革是高级汽车座椅的代名词。传统上豪华型汽车的标准设备，皮革也通常位于其他型号的座椅选项列表的顶部。天然材料，皮革赋予其他面料和人造材料不匹配的车辆内饰的外观，感觉和香气。成本是皮革的少数缺点之一，因此大多数汽车和卡车都有布或乙烯基座椅。如果您想升级内饰，我们的皮革座椅套是经济实惠的解决方案。 </p>
 			</div>
 		</div>
-		
 
-		<!--种类-->
-		<p class="text-center" style="font-size: 2rem;color: #555555;">种类</p>
-		<div class="row category-brand"></div>
+		<!--我也不知道是啥的品牌-->
 		<p class="text-center" style="font-size: 2rem;color: #555555;">特色品牌</p>
 		<div class="row text-center" style="margin-bottom: 30px;">
 			<div class="col-md-3 col-xs-6">
@@ -220,11 +209,11 @@
 							<input type="image" src="img/add.png" class="add add2" />
 							<input type="image" src="img/reduce.png" class="reduce reduce2" /> </p>
 						<ul class="price2">
-							<li>	<input name="comment" type="checkbox" /><span class="start5"></span></li>
-							<li>	<input name="comment" type="checkbox" /><span class="start4"></span></li>
-							<li>	<input name="comment" type="checkbox" /><span class="start3"></span></li>
-							<li>	<input name="comment" type="checkbox" /><span class="start2"></span></li>
-							<li>	<input name="comment" type="checkbox" /><span class="start1"></span></li>
+							<li>	<input name="comment" type="checkbox" /><span class="start5" data-cStar='5'></span></li>
+							<li>	<input name="comment" type="checkbox" /><span class="start4" data-cStar='4'></span></li>
+							<li>	<input name="comment" type="checkbox" /><span class="start3" data-cStar='3'></span></li>
+							<li>	<input name="comment" type="checkbox" /><span class="start2" data-cStar='2'></span></li>
+							<li>	<input name="comment" type="checkbox" /><span class="start1" data-cStar='1'></span></li>
 						</ul>
 					</div>
 					<div class="choose">
@@ -402,8 +391,8 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     	<script src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/owl.carousel.js" ></script>
-	<script type="text/javascript" src="js/transformer.js" ></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+	<script src="js/transformer.js" type="text/javascript"></script>
 	<!--jQuery load js-->
 	<script type="text/javascript" src="js/carSearch.js" ></script>
 	<script type="text/javascript" src="js/carstar.js" ></script>

@@ -1,0 +1,92 @@
+input[type="submit"] {
+    background: #fff url(../svg/shop_search.svg) no-repeat 50% 50%;
+    background-size: 50px;
+    border: 0;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+    font-size: 0;
+    height: 38px;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    top: -6px;
+    right: 58px;
+    width: 35px;
+    z-index: 1;
+    -webkit-appearance: none;
+}
+.shop_header{
+	min-height: 140px;
+	padding-top: 30px;
+	background-color: #edeeef;
+}
+.shop_header_head{
+	padding-left: 10%;
+	color: #666;
+}
+.shop_header_logo, .shop_header_shopName, .shop_header_shopCollection{
+	float: left;
+}
+.shop_header_shopName{
+	padding-left: 10%;
+}
+.shop_header_shopName div{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.shop_header_itemName span{
+	font-size: 40px;
+}
+.shop_header_itemService span{
+	font-size: 20px;
+}
+.shop_header_shopCollection{
+	padding-left: 30%;
+}
+.shop_header_shopCollection{
+	text-align: center;
+}
+.shop_header_shopCollection div{
+	margin-bottom: 10px;
+}
+
+/**/
+#navbar ul>li{
+	margin-right: 20px;
+}
+#navbar{
+	margin-top: 10px;
+	/*margin-bottom: 7px;*/
+}
+.navbar-collapse{
+	font-size: 24px;
+	padding-left: 10% !important;
+}
+.navbar-form{
+}
+.form-control{
+	width: 220px !important;
+	height: 44px !important;
+	margin-left: 27%;
+	border-radius: 20px !important;
+}
+/**/
+.shop_slogan{
+	margin: 20px auto;
+}
+.shop_slogan p{
+	text-align: center;
+	font-size: 2rem;
+}
+/*店铺商品*/
+.shop_pProduct{
+	padding-top:20px ;
+}
+.shop_pProduct div{
+	margin: 5px 0px;
+}
+.shop_pProduct div>span{
+	color: #333;
+	font-size: 30px;
+}

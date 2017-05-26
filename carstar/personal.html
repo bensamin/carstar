@@ -78,9 +78,9 @@
 						<li><a href="#personal-order-waitService" data-toggle="tab">售后</a></li>
 					</ul>
 					<div class="tab-content">
-						<!--全部订单-->
-						<div class="tab-pane fade in active" id="personal-order-all">
-							<div class="row row-content">
+						
+						<!--总条目-->
+						<div class="row row-content">
 								<div class="col-md-1 col-xs-1">
 									<span>商品</span>
 								</div>
@@ -109,226 +109,33 @@
 									<span>订单操作</span>
 								</div>
 							</div>
+						<!--全部订单-->
+						<div class="tab-pane fade in active" id="personal-order-all">
 							<div class="person_order"></div>
-							
 			 			</div>
 						<!--待付款-->
 						<div class="tab-pane fade" id="personal-order-waitPay">
-							<div class="row row-content">
-								<div class="col-md-1">
-								</div>
-								<div class="col-md-3">
-									<span>商品</span>
-								</div>
-								<div class="col-md-1">
-									<span>数量</span>
-								</div>
-								<div class="col-md-1">
-									<span>颜色</span>
-								</div>
-								<div class="col-md-1">
-									<span>价格</span>
-								</div>
-								<div class="col-md-2">
-									<span>交易状态</span>
-								</div>
-								<div class="col-md-2" >
-									<span>操作</span>
-								</div>
-							</div>
-							<div class="row">
-								<div >
-									<input type="checkbox" />
-								</div>
-								<div class="col-md-1">
-									<a href="product.html"> <img src="img/small-product.png"/> </a>
-								</div>
-								<div class="col-md-3">
-									<p>倒车镜</p>
-									<p>倒车镜的描述倒车镜的描述倒车镜的描述</p>
-								</div>
-								<div class="col-md-1">
-									<span>1</span>
-								</div>
-								<div class="col-md-1">
-									<span>黑色</span>
-								</div>
-								<div class="col-md-1">
-									<span>¥</span>
-									<span>123.45</span>
-								</div>
-								<div class="col-md-2">
-									<span>未付款</span>
-								</div>
-								<div class="col-md-2">
-									<!--<input type="button" value="取消订单" />-->
-									<!--<input type="button" value="删除订单" /><br />-->
-									<a href="pay.html"><input type="button" value="付款" /></a>
-								</div>
-							</div>
+							<div class="person_waitPay"></div>
 					</div>
 						<!--待发货-->
 						<div class="tab-pane fade" id="personal-order-waitShip">
-							<div class="row row-content">
-								<div class="col-md-1">
-								</div>
-								<div class="col-md-3">
-									<span>商品</span>
-								</div>
-								<div class="col-md-1">
-									<span>数量</span>
-								</div>
-								<div class="col-md-1">
-									<span>颜色</span>
-								</div>
-								<div class="col-md-1">
-									<span>价格</span>
-								</div>
-								<div class="col-md-2">
-									<span>交易状态</span>
-								</div>
-								<div class="col-md-2">
-									<span>操作</span>
-								</div>
-							</div>
-							<div class="row">
-								<div>
-									<input type="checkbox" />
-								</div>
-								<div class="col-md-1">
-									<a href="product.html"> <img src="img/small-product.png"/> </a>
-								</div>
-								<div class="col-md-3">
-									<p>倒车镜</p>
-									<p>倒车镜的描述倒车镜的描述倒车镜的描述</p>
-								</div>
-								<div class="col-md-1">
-									<span>1件</span>
-								</div>
-								<div class="col-md-1">
-									<span>黑色</span>
-								</div>
-								<div class="col-md-1">
-									<span>¥</span>
-									<span>123.45</span>
-								</div>
-								<div class="col-md-2">
-									<span>商家未发货</span>
-								</div>
-								<div class="col-md-2">
-									<input type="button" value="提醒发货" />
-								</div>
-							</div>
+							<div class="person_waitShip"></div>							
 						</div>
 						<!--待收货-->
 						<div class="tab-pane fade" id="personal-order-waitReceive">
-							<div class="row">
-								<div class="col-md-2 col-xs-2">
-									<a href="product.html"> <img src="img/small-product.png"/> </a>
-								</div>
-								<div class="col-md-3 col-xs-3">
-									<p>倒车镜</p>
-									<p>描述</p>
-								</div>
-								<div class="col-md-4 col-xs-4">
-									<p>
-										<span>共xxxx件商品</span>
-										<span>颜色：</span><span>黑色</span>
-										共计<span>xxxx</span>元
-									</p>
-								</div>
-								<div class="col-md-1 ">
-									<input class="order-ship" type="button"  value="查看物流" />
-								</div>
-								<div class="col-md-1 ">
-									<input type="button"   value="确认收货" />
-								</div>
-							</div>
-						<div class="row">
-							<div class="col-md-2 col-xs-2">
-								<a href="product.html"> <img src="img/small-product.png"/> </a>
-							</div>
-							<div class="col-md-3 col-xs-3">
-								<p>倒车镜</p>
-								<p>描述</p>
-							</div>
-							<div class="col-md-4 col-xs-4">
-								<p>
-									<span>共xxxx件商品</span>
-									<span>颜色：</span><span>黑色</span>
-									共计<span>xxxx</span>元
-								</p>
-							</div>
-							<div class="col-md-1 ">
-								<input class="order-ship" type="button"  value="查看物流" />
-							</div>
-							<div class="col-md-1 ">
-								<input type="button"   value="确认收货" />
-							</div>
+							<div class="person_waitReceive"></div>
 						</div>
-								<div class="order-addship">
-									<div class="row">
-										<div class="col-md-1 col-xs-1" id="order-greenAll">
-											<div id="order-greenround"></div>
-											<canvas width="60" height="90" id="order-greenline"></canvas>
-										</div>
-										<div class="col-md-2 col-xs-2">2017/4/10日10:12</div>
-										<div class="col-md-9 col-xs-9">货物已进入xxxx区xxxx处</div>
-									</div>
-									<div class="row">
-										<div class="col-md-1 col-xs-1">
-											<div id="order-greenround"></div>
-										</div>
-										<div class="col-md-2 col-xs-2">2017/4/11日23:45</div>
-										<div class="col-md-9 col-xs-9">货物已进入xxxx区xxxx处</div>
-									</div>	
-								</div>
-				</div>
 						<!--待评价-->
 						<div class="tab-pane fade" id="personal-order-waitComment">
-							<div class="row">
-								<div class="col-md-2">
-									<a href="product.html"> <img src="img/small-product.png"/> </a>
-								</div>
-								<div class="col-md-3">
-									<p>倒车镜</p>
-									<p>描述</p>
-								</div>
-								<div class="col-md-4">
-									<p>
-										<span>共xxxx件商品</span>
-										<span>颜色：</span><span>黑色</span>
-										共计<span>xxxx</span>元
-									</p>
-								</div>
-								<div class="col-md-1">
-									<a href="comment.html">  <input type="button" value="评价" /> </a>
-								</div>
-							</div>
+							<div class="person_waitComment"></div>
 						</div>
 						<!--售后-->
 						<div class="tab-pane fade" id="personal-order-waitService">
-							<div class="row">
-								<div class="col-md-2">
-									<a href="product.html"> <img src="img/small-product.png"/> </a>
-								</div>
-								<div class="col-md-3">
-									<p>倒车镜</p>
-									<p>描述</p>
-								</div>
-								<div class="col-md-4">
-									<p>
-										<span>共xxxx件商品</span>
-										<span>颜色：</span><span>黑色</span>
-										共计<span>xxxx</span>元
-									</p>
-								</div>
-								<div class="col-md-1">
-									<span>已退货</span>
-								</div>
-							</div>
+							<div class="person_waitService"></div>
 						</div>
+						
 					</div>	
+					
 				</div>
 				<div class="row personal-navbal-address">
 					<div class="row" style="margin-top: 20px;padding-top: 20px; border-top: 1px solid #E2E2E2;height: 50px;font-size:large;color: #333333;min-height: 120px;">
@@ -352,7 +159,6 @@
 						</div>
 					</div>
 					
-				
 					<div class="new-address">
 								<p>收&nbsp;件&nbsp;人&nbsp;: <input type="text" id="address-name" placeholder="姓名" /> </p>
 								<p>联系电话: <input type="text"  id="address-phone" placeholder="联系电话" /> </p>
@@ -567,23 +373,20 @@
 				$(this).css("color","#FFFDEF").siblings().css("color","#333333");
 			});
 		});
-		
-//			$(function () {
-//			      $('.nav-tabs li:eq(0)').tab('show');
-//			   });
+
 	$(function(){
 //		$(window).resize(function(){
-		 var rect =document.querySelector("#order-greenAll").getBoundingClientRect();
-		 var c = document.getElementById("order-greenline");
-		 var a = document.getElementById("order-greenAll");
-		 var ctx = c.getContext("2d");
-		 ctx.beginPath();
-		 ctx.lineWidth = 0.6;
-		 ctx.lineCap = "butt";
-		 ctx.moveTo(32,5);
-		 ctx.lineTo(32,100);
-		 ctx.strokeStyle = "#5E5E5E";
-		 ctx.stroke();  
+//		 var rect =document.querySelector("#order-greenAll").getBoundingClientRect();
+//		 var c = document.getElementById("order-greenline");
+//		 var a = document.getElementById("order-greenAll");
+//		 var ctx = c.getContext("2d");
+//		 ctx.beginPath();
+//		 ctx.lineWidth = 0.6;
+//		 ctx.lineCap = "butt";
+//		 ctx.moveTo(32,5);
+//		 ctx.lineTo(32,100);
+//		 ctx.strokeStyle = "#5E5E5E";
+//		 ctx.stroke();  
 		   
 //		  });
 	});

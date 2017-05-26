@@ -11,8 +11,10 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/left-menu.css" />
 	<link rel="stylesheet" href="css/navbar.css" />
+	<!--其他页面没有这个css文件，删除会导致右侧下滑菜单显示错误-->
+	<link rel="stylesheet" href="css/carstar.css" />  
     <script type="text/javascript" src="js/login.js" ></script>
-	<!--<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>-->
+	<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <body>
     	<!---------------购物车等图标------------>
     	<div class="top" style="background-color: #EDEEEF;height: 20px;color: #8F8F94;padding-left: 67%;font-weight: 400;">
@@ -28,8 +30,8 @@
     			<input class="show-div" type="text" onclick="clickSearch()" placeholder="输入查询的配件">
     			<a href="javascript:;" class="show-div2"> <img class="show-div"  src="img/ss4.png" /></a>  
     			<a href="personal.html" onclick="getCookie()"  > <img class="mine" src="img/mine.png" /> </a>
-    			<a href="collection.html" onclick="getCookie()" > <img  class="keep" src="img/收藏.png" /> </a>
-    			<a href="my-car.html" onclick="getCookie()"> <img src="img/车辆.png"/> </a>
+    			<a href="collection.html" onclick="getCookie()" > <img  class="keep" src="img/my_collection.png" /> </a>
+    			<a href="my-car.html" onclick="getCookie()"> <img src="img/my_car.png"/> </a>
     			<a href="shoppingCart.html" onclick="getCookie()"> <img class="cart" src="img/shopping.png" /> </a>
     		</form>   		
 	</div>
@@ -79,7 +81,7 @@
 		<button class="add-cart" type="button" style="color: #FFFDEF;background-color: #535353;border: 1px solid #535353;margin-left: 35px;">愿望清单</button>
 							<div class="row" >
 								<div class="col-md-2">
-									<img src="img/收藏的副本.png"/>
+									<img src="img/collection_next.png"/>
 								</div>
 								<div class="col-md-8">
 									<span >收藏产品，图片，项目</span>
@@ -87,7 +89,7 @@
 							</div>
 							<div class="row" >
 								<div class="col-md-2">
-									<img src="img/九宫格.png"/>
+									<img src="img/collection_nine.png"/>
 								</div>
 								<div class="col-md-8">
 									<span>按车辆</span>
@@ -95,7 +97,7 @@
 							</div>
 							<div class="row" >
 								<div class="col-md-2">
-									<img src="img/分享.png"/>
+									<img src="img/collection_share.png"/>
 								</div>
 								<div class="col-md-8">
 									<span>分享给你的朋友</span>
@@ -193,15 +195,15 @@
 						<span class="glyphicon glyphicon-menu-down left-down1"></span>
 					</a>
 						<ul class="left-drop">
-							<li style="border-top: 1px solid #dcdcdc;"><a href="brand.html">  <img src="img/图层-2.png"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;车内部件  </a>
+							<li style="border-top: 1px solid #dcdcdc;"><a href="brand.html">  <img src="img/left-2.png"/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;车内部件  </a>
 							</li>
-							<li><a href="brand.html"><img src="img/图层-1.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;车外部件</a></li>
-							<li><a href="brand.html"><img src="img/图层-3.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;汽车性能</a></li>
-							<li><a href="brand.html"><img src="img/图层-4.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;灯光</a></li>
-							<li><a href="brand.html"><img src="img/图层-5.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;车轮</a></li>
-							<li><a href="brand.html"><img src="img/图层-6.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音频</a></li>
-							<li><a href="brand.html"><img src="img/图层-7.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修理</a></li>
-							<li><a href="brand.html"><img src="img/图层-8.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工具</a></li>
+							<li><a href="brand.html"><img src="img/left-1.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;车外部件</a></li>
+							<li><a href="brand.html"><img src="img/left-3.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;汽车性能</a></li>
+							<li><a href="brand.html"><img src="img/left-4.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;灯光</a></li>
+							<li><a href="brand.html"><img src="img/left-5.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;车轮</a></li>
+							<li><a href="brand.html"><img src="img/left-6.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;音频</a></li>
+							<li><a href="brand.html"><img src="img/left-7.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修理</a></li>
+							<li><a href="brand.html"><img src="img/left-8.png"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工具</a></li>
 						</ul>
 					</li>
 					<li class="left-img left-mine" style="border-top: 1px solid #dcdcdc;"><a>我的账户 

@@ -16,30 +16,7 @@ $(".add-address").click(function(){
 $(".cancel-address").click(function(){
 	$(".new-address").slideUp();
 });
-
-//购物车全选  取消全选
-function selectAll(){
-			
-			var x = true;
-			$("#selectAll").click(function(){
-				if(x){
-					$(":checkbox").prop("checked",true);
-					x = false;
-				}else{
-					$(":checkbox").prop("checked",false);
-					x = true;
-				}
-			});
-			
-		};
 	
-function XXURL(){
-	var thisURL =  document.URL;
-	var getVal = thisURL.split('?')[1];
-	var pid = getVal.split("=")[1];	
-	return pid;
-}
-
 //产品详情 接受产品id和商品信息
 function viewProduct(){
 //	console.log(pid);
@@ -50,8 +27,6 @@ function viewProduct(){
 		url:p_url1,
 		async:true,
 		success:function(p_msg){
-//			console.log(p_msg);
-
 			detailProduct();
 			insertProductInfo1(p_msg.data);
 			commentProduct();
@@ -61,7 +36,7 @@ function viewProduct(){
 	
 }
 
-//商品评价
+//显示商品评价
 function detailProduct(){
 	var pid = XXURL();
 	var p_url2 = "http://139.224.133.119:8080/CarStar/rest/property/getprop?goodsid="+pid;
@@ -228,7 +203,7 @@ function productAddOrder(){
 	}
 }
 
-//立即购买订单页面
+//立即购买订单页面----先生成订单----在付款
 function order_Now(){
 	var request = new Object();
 		request = GetRequest();
@@ -246,7 +221,6 @@ function order_Now(){
 			url:b_url,
 			async:true,
 			success:function(msg){
-//				console.log(msg);
 				$('.order_pName').text(msg.data.goodsname) ;
 				$('.order_pPrice').text(price) ;
 				$('.order_pDesc').text(msg.data.des) ;
@@ -263,7 +237,7 @@ function order_Now(){
 		
 }
 
-//订单状态改变
+//提交订单，将订单的信息更新到后台同时，返回值中有订单号oi;
 function orderSubmit(){
 	var request = new Object();
 		request = GetRequest();
@@ -280,15 +254,8 @@ function orderSubmit(){
 			async:true,
 			success:function(data){
 //				console.log(data.data.orderids);
-					var c_url = "http://139.224.133.119:8080/CarStar/rest/goodsorder/payorder?orderids="+data.data.orderids;
-					$.ajax({
-						type:"get",
-						url:c_url,
-						async:true,
-						success:function(msg){
-//							console.log(msg);
-						}
-					});
+//					orderPay(data.data.orderids);     //支付函数
+					window.location.href = "pay.html?oid="+data.data.orderids;
 			}
 		});
 }
@@ -399,13 +366,11 @@ function testStar(msg){
 function listShopCart(){
 	var userid = $.cookie('userId');
 	var l_url = "http://139.224.133.119:8080/CarStar/rest/goodscart/getcartinfo?userid="+userid+"&startNum=0&pageSize=133"
-	
 	$.ajax({
 		type:"get",
 		url:l_url,
 		async:true,
 		success:function(msg){
-//			console.log(msg);
 			addShopCart(msg.data);
 		}
 	});
@@ -503,7 +468,7 @@ function changesumPnum(PnumId){
 			$.ajax({
 				type:"get",
 				url:"http://139.224.133.119:8080/CarStar/rest/goodscart/modifynum?cartid="+cartId+"&num="+newNum,
-				async:true,
+				async:false,
 				success:function(msg){
 				}
 			});
@@ -530,7 +495,7 @@ function changeaddPnum(PnumId){
 			$.ajax({
 				type:"get",
 				url:"http://139.224.133.119:8080/CarStar/rest/goodscart/modifynum?cartid="+cartId+"&num="+newNum,
-				async:true,
+				async:false,
 				success:function(msg){
 				}
 			});
@@ -703,64 +668,488 @@ function viewListOrder(){
 
 //遍历全部订单
 function personalAppend(data){
+	
 	$.each(data,function(i) {
-		if( data[i].type == "1" )
-		{
-			data[i].type = "待付款";
-		}if( data[i].type == "2" )
-		{
-			data[i].type = "待发货";
-		}if( data[i].type == "3" )
-		{
-			data[i].type = "待收货";
-		}if( data[i].type == "4" )
-		{
-			data[i].type = "待评价";
-		}if( data[i].type == "5" )
-		{
-			data[i].type = "售后";
+		
+		switch( data[i].type ){
+			case -1:
+					data[i].type = "交易关闭";
+									$(".person_order").append(
+											"<div class='row' id='order"+i+"' data-oid='"+data[i].id+"'>"+
+													"<div class='col-md-0.1'>"+
+														"<input type='checkbox' />"+
+													"</div>"+
+													"<div class='col-md-1'>"+
+														"<a href='product.html'> <img class='img-responsive' src='img/small-product.png'/> </a>"+
+													"</div>"+
+													"<div class='col-md-3'>"+
+														"<p>"+data[i].goodsname+"</p>"+
+														"<p>"+data[i].goodsdesc+"</p>"+
+													"</div>"+
+													"<div class='col-md-1'>"+
+														"<span>"+data[i].number+"</span>"+
+													"</div>"+
+													"<div class='col-md-1'>"+
+														"<span>"+data[i].property+"</span>"+
+													"</div>"+
+													"<div class='col-md-1'>"+
+													 	"<span>¥</span>"+
+														"<span>"+data[i].price+"</span>"+
+													"</div>"+
+													"<div class='col-md-1'>"+
+													 	"<span>¥</span>"+
+														"<span>300.00</span>"+
+													"</div>"+
+													"<div class='col-md-1'>"+
+														"<a href='refund.html'> <span>申请售后</span> </a> "+
+														"<p>  <a href='order.html'> <span>订单详情</span> </a>  </p>"+
+														
+													"</div>"+
+													"<div class='col-md-1'>"+
+														"<span>"+data[i].type+"</span>"+
+													"</div>"+
+													"<div class='col-md-1'>"+
+													"</div>"+
+												"</div>"
+						)
+			    break;
+			case 0:
+			
+			
+			    break;
+			case 1:
+				data[i].type = "待付款";
+							//全部订单---->待付款
+							$(".person_order").append(
+									"<div class='row' id='order"+i+"' data-oid='"+data[i].id+"'>"+
+											"<div class='col-md-0.1'>"+
+												"<input type='checkbox' />"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='product.html'> <img class='img-responsive' src='img/small-product.png'/> </a>"+
+											"</div>"+
+											"<div class='col-md-3'>"+
+												"<p>"+data[i].goodsname+"</p>"+
+												"<p>"+data[i].goodsdesc+"</p>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].number+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].property+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+											 	"<span>¥</span>"+
+												"<span>"+data[i].price+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+											 	"<span>¥</span>"+
+												"<span>300.00</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='refund.html'> <span>申请售后</span> </a> "+
+												"<p>  <a href='order.html'> <span>订单详情</span> </a>  </p>"+
+												
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].type+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='javascript:cancelOrder("+data[i].id+");'>取消订单</a>"+
+												"<a href='pay.html?oid="+data[i].id+" '>付款</a>"+
+											"</div>"+
+										"</div>"
+						)
+							
+							//待付款------>
+							$(".person_waitPay").append(
+									"<div class='row' id='order"+i+"' data-oid='"+data[i].id+"'>"+
+											"<div class='col-md-0.1'>"+
+												"<input type='checkbox' />"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='product.html'> <img class='img-responsive' src='img/small-product.png'/> </a>"+
+											"</div>"+
+											"<div class='col-md-3'>"+
+												"<p>"+data[i].goodsname+"</p>"+
+												"<p>"+data[i].goodsdesc+"</p>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].number+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].property+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+											 	"<span>¥</span>"+
+												"<span>"+data[i].price+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+											 	"<span>¥</span>"+
+												"<span>300.00</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='refund.html'> <span>申请售后</span> </a> "+
+												"<p>  <a href='order.html'> <span>订单详情</span> </a>  </p>"+
+												
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].type+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='javascript:cancelOrder("+data[i].id+");'>取消订单</a>"+
+												"<a href='pay.html="+data[i].id+" '>付款</a>"+
+											"</div>"+
+										"</div>"
+						)
+			    break;
+			case 2:
+				data[i].type = "待发货";
+								//全部订单----待发货
+								$(".person_order").append(
+										"<div class='row' id='order"+i+"' data-oid='"+data[i].id+"'>"+
+												"<div class='col-md-0.1'>"+
+													"<input type='checkbox' />"+
+												"</div>"+
+												"<div class='col-md-1'>"+
+													"<a href='product.html'> <img class='img-responsive' src='img/small-product.png'/> </a>"+
+												"</div>"+
+												"<div class='col-md-3'>"+
+													"<p>"+data[i].goodsname+"</p>"+
+													"<p>"+data[i].goodsdesc+"</p>"+
+												"</div>"+
+												"<div class='col-md-1'>"+
+													"<span>"+data[i].number+"</span>"+
+												"</div>"+
+												"<div class='col-md-1'>"+
+													"<span>"+data[i].property+"</span>"+
+												"</div>"+
+												"<div class='col-md-1'>"+
+												 	"<span>¥</span>"+
+													"<span>"+data[i].price+"</span>"+
+												"</div>"+
+												"<div class='col-md-1'>"+
+												 	"<span>¥</span>"+
+													"<span>300.00</span>"+
+												"</div>"+
+												"<div class='col-md-1'>"+
+													"<a href='refund.html'> <span>申请售后</span> </a> "+
+													"<p>  <a href='order.html'> <span>订单详情</span> </a>  </p>"+
+													
+												"</div>"+
+												"<div class='col-md-1'>"+
+													"<span>"+data[i].type+"</span>"+
+												"</div>"+
+												"<div class='col-md-1'>"+
+													"<span>"+data[i].type+"</span><br>"+
+													"<a href='look_ship.html?oid="+data[i].id+" '>查看物流</a>"+
+												"</div>"+
+											"</div>"
+					)
+							//待发货	------->
+								$(".person_waitShip").append(
+									"<div class='row' id='order"+i+"' data-oid='"+data[i].id+"'>"+
+											"<div class='col-md-0.1'>"+
+												"<input type='checkbox' />"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='product.html'> <img class='img-responsive' src='img/small-product.png'/> </a>"+
+											"</div>"+
+											"<div class='col-md-3'>"+
+												"<p>"+data[i].goodsname+"</p>"+
+												"<p>"+data[i].goodsdesc+"</p>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].number+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].property+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+											 	"<span>¥</span>"+
+												"<span>"+data[i].price+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+											 	"<span>¥</span>"+
+												"<span>300.00</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='refund.html'> <span>申请售后</span> </a> "+
+												"<p>  <a href='order.html'> <span>订单详情</span> </a>  </p>"+
+												
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].type+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].type+"</span><br>"+
+												"<a href='look_ship.html?oid="+data[i].id+" '>查看物流</a>"+
+											"</div>"+
+										"</div>"
+						)
+			    break;
+			case 3:
+				data[i].type = "待收货";
+				
+				//全部订单----->待收货
+						$(".person_order").append(
+								"<div class='row' id='order"+i+"' data-oid='"+data[i].id+"'>"+
+										"<div class='col-md-0.1'>"+
+											"<input type='checkbox' />"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<a href='product.html'> <img class='img-responsive' src='img/small-product.png'/> </a>"+
+										"</div>"+
+										"<div class='col-md-3'>"+
+											"<p>"+data[i].goodsname+"</p>"+
+											"<p>"+data[i].goodsdesc+"</p>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<span>"+data[i].number+"</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<span>"+data[i].property+"</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+										 	"<span>¥</span>"+
+											"<span>"+data[i].price+"</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+										 	"<span>¥</span>"+
+											"<span>300.00</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<a href='refund.html'> <span>申请售后</span> </a> "+
+											"<p>  <a href='order.html'> <span>订单详情</span> </a>  </p>"+
+											
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<span>"+data[i].type+"</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<span>确认收货</span>"+
+											"<a href='comment.html?orderid="+data[i].id+" '>查看物流</a>"+
+										"</div>"+
+									"</div>"
+					)
+						
+						//待收货------->
+						$(".person_waitReceive").append(
+									"<div class='row' id='order"+i+"' data-oid='"+data[i].id+"'>"+
+											"<div class='col-md-0.1'>"+
+												"<input type='checkbox' />"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='product.html'> <img class='img-responsive' src='img/small-product.png'/> </a>"+
+											"</div>"+
+											"<div class='col-md-3'>"+
+												"<p>"+data[i].goodsname+"</p>"+
+												"<p>"+data[i].goodsdesc+"</p>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].number+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].property+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+											 	"<span>¥</span>"+
+												"<span>"+data[i].price+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+											 	"<span>¥</span>"+
+												"<span>300.00</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='refund.html'> <span>申请售后</span> </a> "+
+												"<p>  <a href='order.html'> <span>订单详情</span> </a>  </p>"+
+												
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].type+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>确认收货</span>"+
+												"<a href='comment.html?orderid="+data[i].id+" '>查看物流</a>"+
+											"</div>"+
+										"</div>"
+						)
+						
+			    break; 
+			case 4:
+				data[i].type = "待评价";
+				//全部订单--------待评价
+						$(".person_order").append(
+								"<div class='row' id='order"+i+"' data-oid='"+data[i].id+"'>"+
+										"<div class='col-md-0.1'>"+
+											"<input type='checkbox' />"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<a href='product.html'> <img class='img-responsive' src='img/small-product.png'/> </a>"+
+										"</div>"+
+										"<div class='col-md-3'>"+
+											"<p>"+data[i].goodsname+"</p>"+
+											"<p>"+data[i].goodsdesc+"</p>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<span>"+data[i].number+"</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<span>"+data[i].property+"</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+										 	"<span>¥</span>"+
+											"<span>"+data[i].price+"</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+										 	"<span>¥</span>"+
+											"<span>300.00</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<a href='refund.html'> <span>申请售后</span> </a> "+
+											"<p>  <a href='order.html'> <span>订单详情</span> </a>  </p>"+
+											
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<span>"+data[i].type+"</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<a href='javascript:personalDeleteOrder(order"+i+");'>删除订单</a>"+
+											"<a href='comment.html?orderid="+data[i].id+" '>评价</a>"+
+										"</div>"+
+									"</div>"
+						)
+						//待评价
+						$(".person_waitComment").append(
+									"<div class='row' id='order"+i+"' data-oid='"+data[i].id+"'>"+
+											"<div class='col-md-0.1'>"+
+												"<input type='checkbox' />"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='product.html'> <img class='img-responsive' src='img/small-product.png'/> </a>"+
+											"</div>"+
+											"<div class='col-md-3'>"+
+												"<p>"+data[i].goodsname+"</p>"+
+												"<p>"+data[i].goodsdesc+"</p>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].number+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].property+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+											 	"<span>¥</span>"+
+												"<span>"+data[i].price+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+											 	"<span>¥</span>"+
+												"<span>300.00</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='refund.html'> <span>申请售后</span> </a> "+
+												"<p>  <a href='order.html'> <span>订单详情</span> </a>  </p>"+
+												
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].type+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='javascript:personalDeleteOrder(order"+i+");'>删除订单</a>"+
+												"<a href='comment.html?orderid="+data[i].id+" '>评价</a>"+
+											"</div>"+
+										"</div>"
+						)
+			    break;
+			case 5:
+				data[i].type = "售后";
+					//全部订单------->售后
+						$(".person_order").append(
+								"<div class='row' id='order"+i+"' data-oid='"+data[i].id+"'>"+
+										"<div class='col-md-0.1'>"+
+											"<input type='checkbox' />"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<a href='product.html'> <img class='img-responsive' src='img/small-product.png'/> </a>"+
+										"</div>"+
+										"<div class='col-md-3'>"+
+											"<p>"+data[i].goodsname+"</p>"+
+											"<p>"+data[i].goodsdesc+"</p>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<span>"+data[i].number+"</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<span>"+data[i].property+"</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+										 	"<span>¥</span>"+
+											"<span>"+data[i].price+"</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+										 	"<span>¥</span>"+
+											"<span>300.00</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<a href='refund.html'> <span>申请售后</span> </a> "+
+											"<p>  <a href='order.html'> <span>订单详情</span> </a>  </p>"+
+											
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<span>"+data[i].type+"</span>"+
+										"</div>"+
+										"<div class='col-md-1'>"+
+											"<a href='javascript:personalDeleteOrder(order"+i+");'>删除订单</a>"+
+											"<a href='comment.html?orderid="+data[i].id+" '>评价</a>"+
+										"</div>"+
+									"</div>"
+					)
+						
+						//售后
+						$(".person_waitService").append(
+									"<div class='row' id='order"+i+"' data-oid='"+data[i].id+"'>"+
+											"<div class='col-md-0.1'>"+
+												"<input type='checkbox' />"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='product.html'> <img class='img-responsive' src='img/small-product.png'/> </a>"+
+											"</div>"+
+											"<div class='col-md-3'>"+
+												"<p>"+data[i].goodsname+"</p>"+
+												"<p>"+data[i].goodsdesc+"</p>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].number+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].property+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+											 	"<span>¥</span>"+
+												"<span>"+data[i].price+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+											 	"<span>¥</span>"+
+												"<span>300.00</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='refund.html'> <span>申请售后</span> </a> "+
+												"<p>  <a href='order.html'> <span>订单详情</span> </a>  </p>"+
+												
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<span>"+data[i].type+"</span>"+
+											"</div>"+
+											"<div class='col-md-1'>"+
+												"<a href='javascript:personalDeleteOrder(order"+i+");'>删除订单</a>"+
+												"<a href='comment.html?orderid="+data[i].id+" '>评价</a>"+
+											"</div>"+
+										"</div>"
+						)
+			    break;     
 		}
-			$(".person_order").append(
-						"<div class='row' id='order"+i+"' data-oid='"+data[i].id+"'>"+
-								"<div class='col-md-0.1'>"+
-									"<input type='checkbox' />"+
-								"</div>"+
-								"<div class='col-md-1'>"+
-									"<a href='product.html'> <img class='img-responsive' src='img/small-product.png'/> </a>"+
-								"</div>"+
-								"<div class='col-md-3'>"+
-									"<p>"+data[i].goodsname+"</p>"+
-									"<p>"+data[i].goodsdesc+"</p>"+
-								"</div>"+
-								"<div class='col-md-1'>"+
-									"<span>"+data[i].number+"</span>"+
-								"</div>"+
-								"<div class='col-md-1'>"+
-									"<span>"+data[i].property+"</span>"+
-								"</div>"+
-								"<div class='col-md-1'>"+
-								 	"<span>¥</span>"+
-									"<span>"+data[i].price+"</span>"+
-								"</div>"+
-								"<div class='col-md-1'>"+
-								 	"<span>¥</span>"+
-									"<span>300.00</span>"+
-								"</div>"+
-								"<div class='col-md-1'>"+
-									"<a href='refund.html'> <span>申请售后</span> </a> "+
-									"<p>  <a href='order.html'> <span>订单详情</span> </a>  </p>"+
-									
-								"</div>"+
-								"<div class='col-md-1'>"+
-									"<span>"+data[i].type+"</span>"+
-								"</div>"+
-								"<div class='col-md-1'>"+
-									"<a href='javascript:personalDeleteOrder(order"+i+");'>删除订单</a>"+
-									"<a href='comment.html?orderid="+data[i].id+" '>评价</a>"+
-								"</div>"+
-							"</div>"
-	)
-	});
+		
+		})	
 }
 
 //删除订单
@@ -776,6 +1165,35 @@ function personalDeleteOrder(orderid){
 		success:function(msg){
 //			console.log(msg);
 		}
+	});
+}
+
+//订单-------取消订单
+function cancelOrder(oid){
+	var a_url = "http://139.224.133.119:8080/CarStar/rest/goodsorder/cancorder?orderid=";
+	$.ajax({
+		type:"get",
+		url:a_url+oid,
+		async:true,
+		success:function(msg){
+			console.log(msg);
+			alert("取消订单成功！");
+		}
+	});
+}
+
+//订单-----已生成订单，直接传入订单号付款
+function orderPay(){
+	var oid = XXURL();
+	var c_url = "http://139.224.133.119:8080/CarStar/rest/goodsorder/payorder?orderids="+oid;
+		$.ajax({
+			type:"get",
+			url:c_url,
+			async:true,
+			success:function(msg){
+				alert("支付成功！");
+				window.location.href = "order-finish.html?oid="+oid;
+			}
 	});
 }
 
@@ -826,7 +1244,15 @@ function commentSubmit(imgpath){
 	});
 }
 
-
+//pay.html-----
+function payOrder(){
+	var oid = XXURL();
+	var o_url = "http://139.224.133.119:8080/CarStar/rest/goodsorder/query?orderid="+oid;
+	var msg = getItemInfo(o_url);
+	console.log(msg);
+	document.getElementsByClassName("order_number").item(0).innerHTML = msg.data.id;
+	document.getElementsByClassName("order_payMoney").item(0).innerHTML = (msg.data.price) * (msg.data.number);
+}
 
 
 

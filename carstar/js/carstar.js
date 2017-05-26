@@ -1,8 +1,9 @@
 $(document).ready(function(){
 	//星星
+	var z=5;
 	$('.price2 li span').each(function(){
-		var n = $(this).parent().index()+1;
-		$(this).raty({ readOnly:true,score: n} );
+		$(this).raty({ readOnly:true,score: z} );
+		z--;
 	})
 	priceSort();
 	startRank();
@@ -27,28 +28,8 @@ $(function(){
 });
 
 function addBox(result){
-//		$.each(result,function(index,obj){
-//			$(".home-product").append(
-//			"<div class='col-md-3 col-xs-6'>"+	
-//			"<img src="+obj['img']+"/>"+
-//			"<div>"+obj['category']+"</div>" +
-//			"<p>"+obj['name']+"</p>" + 
-//			"</div> " );
-//		});
 	}
-//$(function(){
-//		$.ajax({
-//			type:"GET",
-//			url:"json/year.json",
-//			data:"json",
-//			success:function(year){
-////				var yearobj = eval( "( "+year+" )" );
-//				addYear(year);
-//			},
-//			error:function(){
-//			}
-//		});
-//	});	
+
 function addYear(year){
 	$.each(year,function(index,obj){
 		$(".home-year").append(
@@ -160,44 +141,22 @@ function fivesearch(){
 	});
 }
 
-//分割URL中的参数
-//function GetRequest() {
-//	var url = location.search; //获取url中"?"符后的字串
-//	var theRequest = new Object();
-//	if (url.indexOf("?") != -1) {
-//	var str = url.substr(1);
-//		strs = str.split("&");
-//	for(var i = 0; i < strs.length; i ++) {
-//			theRequest[strs[i].split("=")[0]]=decodeURI(strs[i].split("=")[1]);
-//		}
-//}
-//return theRequest;
-//} 
-
 //category.html
-
-$(function(){
-		$.ajax({
+function addBand(){
+	$.ajax({
 			type:"GET",
 			url:"json/category_one.json",
 			data:"json",
 			success:function(brand){
-//				var yearobj = eval( "( "+year+" )" );
-				addBand(brand);
-			},
-			error:function(){
+				$.each(brand,function(index,obj){
+					$(".category-brand").append(
+						"<div class='col-md-3 col-xs-6'>"+
+						"<img src="+obj['category_img']+"/>"+
+						"<p class='text-center'>"+obj['brand']+"</p>"+
+						"</div>");
+				});
 			}
 		});
-	});	
-function addBand(brand){
-	$.each(brand,function(index,obj){
-		
-		$(".category-brand").append(
-			"<div class='col-md-3 col-xs-6'>"+
-			"<img src="+obj['category_img']+"/>"+
-			"<p class='text-center'>"+obj['brand']+"</p>"+
-			"</div>");
-	});
 }
 
 
@@ -231,9 +190,7 @@ function searchResult(){
 var pro = {};
 //搜索结果产品插入
 function searchProduct(data){
-	console.log(data);
 	pro = data.data;
-	console.log(pro);
 	$.each(pro, function(i) {
 						$(".searchResult").append(
 						" <a href='product.html?goodsid=" +pro[i].id+ " '> <div class='row' style='margin:20px auto'>"+
@@ -241,11 +198,7 @@ function searchProduct(data){
 							" <div class='col-md-5 text-left'>" +
 								" <p style='color:#666'> " + pro[i].brand + " </p> " + 
 								" <p style='color:#666'> " +pro[i].name + "  </p> " +
-								" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
-								" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
-								" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
-								" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
-								" <span class='glyphicon glyphicon-star' style='color:#F7ECB5;'></span> " +
+								" <span class='search_star"+i+"'></span> " +
 								" <p style='color:#666'> " + pro[i].des1 + " </p> " + 
 							"</div>" +
 							" <div class='col-md-3'> " +
@@ -256,6 +209,12 @@ function searchProduct(data){
 							"</div>"+
 						"</a> "
 						)
+						//产品的评论星级		
+						var star_n = Math.round( pro[i].revlevel );
+						$('.search_star'+i).raty({
+							readOnly:true,
+							score: star_n
+						})
 				});
 }
 
@@ -311,10 +270,11 @@ function onloadBrand(){
 
 //三级分类的那些产品们
 function onloadCategory(){
+		addBand();
 		var request = new Object();
 		request = GetRequest();
 		var category = request['category'];
-		var a = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=80&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1=all&b2=all&b3="+category+"&brand=all&level=9&";
+		var a = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=1000000&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1=all&b2=all&b3="+category+"&brand=all&level=9&";
 		$.ajax({
 			type:"get",
 			contentType:"application/json; charset=utf-8",
@@ -334,7 +294,6 @@ function onloadCategory(){
 //种类遍历
 function addBrand(brand,data){
 	var brands = data.data;
-	console.log(brands);
 	$.each(brands, function(i) {
 		if ( data.code == 1 ){
 			document.getElementsByClassName("addBrand_append").item(0).innerHTML = decodeURI( brand ) + "无结果";
@@ -355,37 +314,29 @@ function addBrand(brand,data){
 }
 
 
-//跳转到产品详情页面
-//function BrandProduct(){
-//	var a_url = "http://139.224.133.119:8080/CarStar/rest/goods/querygoods?goodsid=1";
-//	$.ajax({
-//		type:"get",
-//		url:a_url,
-//		async:true,
-//		success:function(data){
-//			console.log(data);
-//			addBrandProduct(data.data);
-//		}
-//	});
-//}
 
 //产品遍历
 function addBrandProduct(data){
 	var n = getJsonLength(data) ;  // 获取json数组的长度
-	console.log(n);
 	for( var i=0;i<n;i++ ){
 		$(".category-product").append(
 			"  <a href='product.html?goodsid=" +data[i].id+ " '> <div class='col-md-4 col-xs-6 ccategory-product-list-four text-left'>" +
 			" <img src='img/custom-floor-mats_ic_5.jpeg'/> " +
 			" <p> " + data[i].name + " </p> " +
 			" <p> "  + data[i].des1+ " </p> " +
-			" <span>评价的星级</span> " +
-			" <div class='product-color-choose'> 颜色 </div> " +
+			" <span class='brand_star"+i+"'></span>" +
 			" <div class='brand-price'> <span class='productPriceColor'>¥</span> " +
 			" <span class='productPriceColor'> " + data[i].price + " </span></div>  " +	
 			" <span class='category-product-list-buy'>立即购买</span> " +
 	 		"</div> </a>"
 		)
+			//产品的评论星级		
+			var star_n = Math.round( data[i].revlevel );
+			$('.brand_star'+i).raty({
+				readOnly:true,
+				score: star_n
+			})
+			//跳转产品详情
 			$(".ccategory-product-list-four").click(function(){
 			window.location.href = encodeURI(  "product.html?goodsid=" +  data[i].goods_id  );
 		
@@ -414,22 +365,24 @@ function buyMouseHover(){
 	});	 
 }
 
-//brand.html价格排序
+//brand.html价格筛选-----调试出现事件重复注册的问题，用unbind去除重复点击就OK了
 function priceSort(){
-	$(".price1 li").click(function(){
+	$(".price1 li").unbind("click").click(function(){
 		var sort = $(this).find("span").text();
 		sort = sort.split("-");
+		//获取URL中的内容
 		var request = new Object();
 		request = GetRequest();
 		var menu = request['menu'];
 		var brand = request['brand'];
 		var category = request['category'];
 		var goods = request['goods'];
+		
 		console.log(sort[0],sort[1]);
 		$(".category-product").empty();
 		
 	
-		var a_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3=all&brand=all&level=9&";
+		var a_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3=all&brand=all&level=9";
 	 	//获取价格区间的产品  -------brand.html页面
 	 	$.ajax({
 			type:"get",
@@ -447,7 +400,7 @@ function priceSort(){
 		});
 		
 	 	//获取价格区间的产品  -------category.html页面
-		var b_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3="+category+"&brand=all&level=9&";
+		var b_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3="+category+"&brand=all&level=9";
 		$.ajax({
 			type:"get",
 			contentType:"application/json; charset=utf-8",
@@ -455,7 +408,7 @@ function priceSort(){
 			async:true,
 			success:function(data){
 //				console.log(data);
-//				addBrandProduct(data.data);
+				addBrandProduct(data.data);
 			},
 			error:function(){
 				console.log("error");
@@ -479,30 +432,29 @@ function priceSort(){
 //		});
 	});		
 }
-//星级排序
+
+//星级筛选
 function startRank(){
-	$(".price2 li").click(function(){
-		var sort = $(this).find("span").text();
-		sort = sort.split("-");
+	$(".price2 li").unbind("click").click(function(){
+		var sort = $(this).find("span").attr('data-bStar');
+		var sortc = $(this).find("span").attr('data-cStar');
 		var request = new Object();
 		request = GetRequest();
 		var menu = request['menu'];
 		var brand = request['brand'];
 		var category = request['category'];
-		console.log(sort[0],sort[1]);
+		console.log(sort,sortc);
 		$(".category-product").empty();
-		
 	
-		var a_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3=all&brand=all&level=9&";
+		var a_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=0&price2=1000001&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3=all&brand=all&level=";
 	 	//获取价格区间的产品  -------brand.html页面
 	 	$.ajax({
 			type:"get",
 			contentType:"application/json; charset=utf-8",
-			url:a_url,
+			url:a_url+sort,
 			async:true,
 			success:function(data){
 				console.log(data);
-				
 				addBrandProduct(data.data);
 			},
 			error:function(){
@@ -511,21 +463,24 @@ function startRank(){
 			
 		});
 		
-	 	//获取价格区间的产品  -------category.html页面
-		var b_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1="+sort[0]+"&price2="+sort[1]+"&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3="+category+"&brand=all&level=9&";
+	 	//获取评价星级区间的产品  -------category.html页面
+		var b_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=0&price2=100000&startNum=0&pageSize=10&shop=all&a1=all&a2=all&a3=all&a4=all&a5=all&b1="+menu+"&b2="+brand+"&b3="+category+"&brand=all&level=";
 		$.ajax({
 			type:"get",
 			contentType:"application/json; charset=utf-8",
-			url:b_url,
+			url:b_url+sortc,
 			async:true,
 			success:function(data){
 				console.log(data);
-//				addBrandProduct(data.data);
+				addBrandProduct(data.data);
 			},
 			error:function(){
 				console.log("error");
 			}
 			
 		});
+		
+		
+		//多种筛选
 	});		
 }
