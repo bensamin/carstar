@@ -81,7 +81,7 @@ function fivesearch(){
 	var type = decodeURI ( request['type'] );
 	console.log(year,make_name,model_name,output,type );
 	
-	car_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=150&startNum=0&pageSize=10&shop=all&a1="+year+"&a2="+make_name+"&a3="+model_name+"&a4="+output+"&a5="+type+"&b1=all&b2=all&b3=all&brand=all&level=all"
+	var car_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=150&startNum=0&pageSize=10&shop=all&a1="+year+"&a2="+make_name+"&a3="+model_name+"&a4="+output+"&a5="+type+"&b1=all&b2=all&b3=all&brand=all&level=all"
 	$.ajax({
 		type:"get",
 		url:car_url,
@@ -129,7 +129,7 @@ function fivesearch(){
 	var type = decodeURI ( request['type'] );
 	console.log(year,make_name,model_name,output,type );
 	
-	car_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=10000&startNum=0&pageSize=10&shop=all&a1="+year+"&a2="+make_name+"&a3="+model_name+"&a4="+output+"&a5="+type+"&b1=all&b2=all&b3=all&brand=all&level=9"
+	var car_url = "http://139.224.133.119:8080/CarStar/rest/querygoods/allgoods?price1=1&price2=10000&startNum=0&pageSize=10&shop=all&a1="+year+"&a2="+make_name+"&a3="+model_name+"&a4="+output+"&a5="+type+"&b1=all&b2=all&b3=all&brand=all&level=9"
 	$.ajax({
 		type:"get",
 		url:car_url,
@@ -335,7 +335,7 @@ function addBrandProduct(data){
 			$('.brand_star'+i).raty({
 				readOnly:true,
 				score: star_n
-			})
+			});
 			//跳转产品详情
 			$(".ccategory-product-list-four").click(function(){
 			window.location.href = encodeURI(  "product.html?goodsid=" +  data[i].goods_id  );

@@ -5,7 +5,7 @@
 .name-id{
 	font-size:medium;
 	vertical-align: middle;
-	vertical-align: -webkit-baseline-middle;
+	/*vertical-align: -webkit;*/
 	margin-left:5px ;
 }
 
@@ -104,4 +104,13 @@
 }
 .order-row span{
 	margin-right: 20px;
+}
+
+/*行间距*/
+.row_spacing{
+	padding: 10px;
+}
+/*转化为行内元素*/
+.display_inline{
+	display: inline;
 }

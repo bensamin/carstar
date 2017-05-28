@@ -189,7 +189,7 @@ function productAddOrder(){
 	var userid = $.cookie("userId");   //用户id
 	var num = $('#prodctNum').val();   //商品数量
 	var price1 = $('.productPriceFont').text();
-	var infostr =  {pid,userid,num,price1,} ;
+	//var infostr =  {pid,userid,num,price1};
 	console.log( typeof(v1),typeof(infostr) );
 //	v1.push( infostr );
 //	console.log(v1[0].color);
@@ -631,7 +631,7 @@ function submitCartOrder(){
 	$('.products').each(function(){
 				if ( $(this).find("input[type=checkbox]").prop('checked') ){
 						var cartid = $(this).attr('data-pid');
-						arr = { "cartid":cartid }
+						arr = { "cartid":cartid };
 						jsonstr.shops[0].goods.push(arr);
 
 					}

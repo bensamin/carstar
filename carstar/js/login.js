@@ -19,7 +19,7 @@ $(document).ready(function(){
 				$(".user-text").css("display","none");
 				$(".merchant-text").fadeIn();
 			});
-			$(".user-login").parent().css("border-right","1px dashed #ADADAD")
+			$(".user-login").parent().css("border-right","1px dashed #ADADAD");
 		});
 $(".footer").load("footer.html");
 
@@ -38,7 +38,7 @@ function getCookie(){
 //删除cookie，退出登录
 function deleteCookie(){
 	$.cookie("userId","logout");
-	alert("退出登陆成功！")
+	alert("退出登陆成功！");
 	window.location.href ="home.html"
 }
 
@@ -115,7 +115,8 @@ function checkUser(){
                 passtext1.src="img/show.png";
                 isShow=true;
             }
-        };
+        }
+
         function changepassword2(){
         	var v = document.getElementById("pwd2");
             if (isShow) {
@@ -127,7 +128,7 @@ function checkUser(){
                 passtext2.src="img/show.png";
                 isShow=true;
             }
-        };
+        }
         
 //忘记密码--获取验证码验证
 function getRePasswordCode(){
@@ -139,7 +140,7 @@ function getRePasswordCode(){
 		return false;
 	}else{
 		
-			code_phone= "http://139.224.133.119:8080/CarStar/rest/sms/send/"+userLinkephone,
+			var code_phone= "http://139.224.133.119:8080/CarStar/rest/sms/send/"+userLinkephone;
 			$.ajax({
 				type:"get",
 				contentType: "application/json; charset=utf-8",
@@ -147,7 +148,7 @@ function getRePasswordCode(){
 				async:false,
 				success:function(msg){
 					msg_code = msg.data;
-					alert("验证码发送成功！")
+					alert("验证码发送成功！");
 					console.log(msg);
 				}
 			});
@@ -225,12 +226,12 @@ function ChangePassword(){
 	   			async:false,
 	   			success:function(regist){
 	   				if ( regist.code == 0 ){
-	   					alert("密码修改成功！")
+	   					alert("密码修改成功！");
 	   					window.location.href = "home.html";
 	   				}
 	   			},
-	   			eerror:function(){
-	   				alert("用户未注册");
+	   			error:function(){
+	   				alert("用户未注册!");
 	   			}
 			});
 	
@@ -290,7 +291,7 @@ function checkShop(){
 						alert("商户未注册！");
 					}
 				},
-				eerror:function(){
+				error:function(){
 					console.log("error");	
 				}
 			});
@@ -299,4 +300,11 @@ function checkShop(){
 //商户忘记密码
 function getStorePassword(){
 	
+}
+
+
+//个人信息添加
+//个人地址添加
+function person_addaddress(){
+
 }

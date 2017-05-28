@@ -7,6 +7,8 @@
     <title>个人中心</title>
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
     <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+	  <script type="text/javascript" src="js/distpicker.data.js" ></script>
+	  <script type="text/javascript" src="js/distpicker.js" ></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/personal.css" />
     <style type="text/css">
@@ -56,13 +58,13 @@
 			<div class="row personal-navbal">
 				<div class="col-md-"></div>
 				<div class="col-md-11" style="color: #333333; font-size: 2rem;">
-					<input type="button" name="" id="" value="我的订单" style="background-color: #424344;color: #FFFDEF;" />
+					<input type="button" name=""  value="我的订单" style="background-color: #424344;color: #FFFDEF;" />
 				
-					<input type="button" name="" id="" value="我的收货地址" />
+					<input type="button" name=""  value="我的收货地址" />
 				
 					<input type="button" value="我的优惠券" />
 				
-					<input type="button" name="" id="" value="个人信息" />
+					<input type="button" name=""  value="个人信息" />
 				</div>
 				<div class="col-md-2"></div>
 			</div>
@@ -137,6 +139,8 @@
 					</div>	
 					
 				</div>
+
+				<!-- 地址的添加-->
 				<div class="row personal-navbal-address">
 					<div class="row" style="margin-top: 20px;padding-top: 20px; border-top: 1px solid #E2E2E2;height: 50px;font-size:large;color: #333333;min-height: 120px;">
 						<div class="col-md-8">
@@ -160,16 +164,35 @@
 					</div>
 					
 					<div class="new-address">
-								<p>收&nbsp;件&nbsp;人&nbsp;: <input type="text" id="address-name" placeholder="姓名" /> </p>
-								<p>联系电话: <input type="text"  id="address-phone" placeholder="联系电话" /> </p>
-								<p>所在地区： <select></select> </p>
-								<p>街道：</p>
-								<textarea  class="address-detail" placeholder="详细地址"></textarea>
-								<input type="button" value="确认新增"></input>
+						<form id="person_addAddress">
+							<div class="row_spacing">
+								<label class="control-label">收&nbsp;件&nbsp;人&nbsp;: </label>
+								<input type="text" name="name" id="address-name" placeholder="姓名" />
+							</div>
+							<div class="row_spacing">
+								<label class="control-label">联系电话: </label>
+								<input type="text" name="phone" id="address-phone" placeholder="联系电话" />
+							</div>
+							<div class="row_spacing">
+								<label class="control-label">地址：</label>
+								<div  id="distpicker5" class="display_inline">
+									<select name="s1" value="0"></select>
+									<select name="s2" value="1"></select>
+									<select name="s3" value="2"></select>
+								</div>
+							</div>
+							<div>
+								<label class="control-label">街道地区：</label>
+								<textarea  class="address-detail" name="address" placeholder="详细地址"></textarea>
+							</div>
+								<input type="button" value="确认新增"/>
 								<input type="button" class="cancel-address" value="取消" />
+						</form>
 					</div>
 						 <p style="margin-top: 20px;font-size:1.8rem;color: #EAFFEA; margin: 0 auto;" class="add-address add-cart text-center" > 新增地址</p>
 				</div>
+
+				<!-- 个人信息----优惠券-->
 				<div class="row personal-navbal-discount">
 					<div class="row" style="margin-top: 20px;">
 						<div class="col-md-5 col-xs-3">
@@ -406,11 +429,11 @@
 		if(comment){
 			$(".order-comment-content").slideDown();
 			comment = false;
-			$(".order-comment").val() = "收起评论";
+			$(".order-comment").val("收起评论");
 		}else{
 			$(".order-comment-content").slideUp();
 			comment = true;
-			$(".order-comment").val() = "评论";
+			$(".order-comment").val("评论");
 		}
 	});
 	
@@ -425,7 +448,8 @@
 	});
 	</script>	
 		
-    	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/main.js" ></script>
     <script type="text/javascript" src="js/load.js" ></script>
     <script type="text/javascript" src="js/product.js" ></script>
      <!--jQuery slick js-->
