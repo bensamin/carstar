@@ -655,6 +655,8 @@ function submitCartOrder(){
 
 //订单列表接口
 function viewListOrder(){
+	//地址列表
+	person_viewAddress();
 	var b = $.cookie("userId");
 	var a_url = "http://139.224.133.119:8080/CarStar/rest/goodsorder/orderlist?userid="+b+"&goodsname=all&startNum=0&pageSize=99&type=0";
 	$.ajax({

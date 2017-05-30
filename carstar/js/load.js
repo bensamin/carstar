@@ -30,10 +30,11 @@ function GetRequest() {
 		}
 }
 return theRequest;
-} 
+}
 
 
-//get请求通过URL中的id获取信息
+	//get请求通过URL中的orderid即订单id获取信息
+	//是否将获取url上的信息修改一下，变成xxURL函数？
 function getItemInfo(url){
 	var request = new Object();
 		request = GetRequest();
@@ -51,3 +52,7 @@ function getItemInfo(url){
 		return a;
 		
 }
+
+	function checkInputValue() {
+
+	}

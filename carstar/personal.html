@@ -185,11 +185,12 @@
 								<label class="control-label">街道地区：</label>
 								<textarea  class="address-detail" name="address" placeholder="详细地址"></textarea>
 							</div>
-								<input type="button" value="确认新增"/>
+                            <input type="button" onclick="person_addaddress()" value="确认新增"/>
 								<input type="button" class="cancel-address" value="取消" />
 						</form>
 					</div>
-						 <p style="margin-top: 20px;font-size:1.8rem;color: #EAFFEA; margin: 0 auto;" class="add-address add-cart text-center" > 新增地址</p>
+                    <p style="margin-top: 20px;font-size:1.8rem;color: #EAFFEA; margin: 0 auto;"
+                       class="add-address add-cart text-center"> 新增地址</p>
 				</div>
 
 				<!-- 个人信息----优惠券-->
@@ -236,6 +237,8 @@
 						<div class="col-md-3"></div>
 					</div>
 				</div>
+
+                <!-- 个人信息-----帐号信息-->
 				<div class="row personal-navbal-personalInfo">
 					<p style="margin-top:20px;background-color: #EDEEEF;height: 50px;font-size:large;color: #333333;">个人信息设置</p>
 					<div class="row " style="margin-left: 5%;">
@@ -451,6 +454,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/main.js" ></script>
     <script type="text/javascript" src="js/load.js" ></script>
+    <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/product.js" ></script>
      <!--jQuery slick js-->
   </body>

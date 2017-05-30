@@ -303,8 +303,75 @@ function getStorePassword(){
 }
 
 
+//展示收货地址
+function person_viewAddress() {
+	var userid = $.cookie("userId");
+	var a_url = "http://139.224.133.119:8080/CarStar/rest/user/list?userid=" + userid;
+
+	$.ajax({
+		type: "get",
+		url: a_url,
+		async: false,
+		success: function (msg) {
+			console.log(msg);
+		}
+	});
+
+	//更新地址信息到个人信息中的地址中
+	$('.personal-navbal-address').append(
+
+	)
+}
+
+
 //个人信息添加
 //个人地址添加
 function person_addaddress(){
+	//json格式转化
+	$.fn.serializeObject = function () {
+		var o = {};
+		var a = this.serializeArray();
+		$.each(a, function () {
+			if (o[this.name]) {
+				if (!o[this.name].push) {
+					o[this.name] = [o[this.name]];
+				}
+				o[this.name].push(this.value || '');
+			} else {
+				o[this.name] = this.value || '';
+			}
+		});
+		return o;
+	};
 
+	//将表单的字符串转换成数组
+	var infoJson = $("#person_addAddress").serializeObject();
+	//infoJson =  JSON.stringify(infoJson);
+	//将地址放于一个元素中，并将省市区删除
+	infoJson.address = infoJson.s1 + infoJson.s2 + infoJson.s3 + infoJson.address;
+	infoJson.userid = $.cookie("userId");    //用户id
+	infoJson.type = "0";   // 是否为默认地址
+	delete infoJson.s1;   //删除省
+	delete infoJson.s2;   //删除市
+	delete infoJson.s3;    //删除区
+
+	infoJson = JSON.stringify(infoJson);
+	//console.log(infoJson,infoJson);
+	var a_url = "http://139.224.133.119:8080/CarStar/rest/user/addlist";
+
+	$.ajax({
+		cache: true,
+		type: "post",
+		contentType: "application/json; charset=utf-8",
+		url: a_url,
+		data: infoJson,
+		dataType: "json",
+		async: true,
+		success: function (date) {
+			console.log(date);
+		},
+		error: function () {
+			console.log("error");
+		}
+	});
 }
