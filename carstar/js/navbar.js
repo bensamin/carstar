@@ -252,12 +252,6 @@ $(document).ready(function(){
 	    		  					" <div class='prod_dd_span'> " +
 	    		  					" <span class='prod_dd_t' >" + data1[i].n2  +  "</span> </div> </a>" +
 	    		  				"</div>"
-//							"<li class=' prod_dd_li'>" +
-//	    		  					" <a href='brand.html'> " + " <div class='prod_dd_img'> " +
-//	    		  					" <img class='img-responsive' src=' img/exhaust.png'/> </div>" +
-//	    		  					" <div class='prod_dd_span'> " +
-//	    		  					" <span class='prod_dd_t' >" + data1[i].n2  +  "</span> </div> </a>" +
-//	    		  				"</li>"
 						)}
 					},
 				error:function(){
@@ -267,3 +261,13 @@ $(document).ready(function(){
 			});
 	});
 })
+
+
+//首页分类列表
+//function viewListHome(){
+//	$.each(categoryOne, function(i,value) {
+//		$('.product').append(
+//			
+//		)
+//	});
+//}

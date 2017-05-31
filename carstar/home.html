@@ -36,13 +36,14 @@
     <div class="home_test">
     <div id="home-drop">
     		<div id="home-searchAll">
-    			<ul >
+    				<ul >
             			<li> <span style="font-size: 1.83rem;"> 选择车型 </span> </li>
             			<li> <span style="font-size: 1.83rem;"> 选择型号  </span> </li>
             			<li> <span style="font-size: 1.83rem;"> 热门类型  </span> </li>
             		</ul>
     		</div>
     		<div id="home-searchContent">
+    				<div class="choose-vehicle"></div>
 	    			<form id="home_carInfo">
 					<select name="year" onchange="chooseCarYear()" class="home-year" >
 						<option>
@@ -69,15 +70,15 @@
 							<span>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</span>
 						</option>
 					</select>
-					<select id="addcar-type1" name="type">
+					<select class="home-model" id="addcar-type1" name="type">
 						<option>
 							<span>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</span>
 						</option>
 					</select>
 					
-					<span class="search-go" onclick="searchCar()" >GO</span>
-					<input type="" class="search-choose" name=""  value="选择产品种类" />
-					<input type="" class="search-choose" name=""  value="选择产品品牌" />
+					<div class="search-go" onclick="searchCar()" >GO</div>
+					<div  class="search-choose">选择产品种类</div>
+					<div  class="search-choose">选择产品品牌</div>
 					<p style="margin-top: 15px;margin-left: 5px; "><a href="my-car.html" style="color: #FFFFFF;">
 						<span class="glyphicon glyphicon-th-list" style="color: rgb(255,255,255);"></span>
 						车库（选择车辆）</a> </p>
@@ -230,8 +231,6 @@
 					     </a>
 					 </div>
 				  </section>
-    				
-    				<!--<div class="row home-product"></div>-->
     			</div>
     		</div>
     		
@@ -442,9 +441,13 @@
 					        slidesToScroll: 4 
 					      });
 					      
+					      $('#home-searchContent').addClass('home-searchContent1');
+					      $('.search-choose').addClass('search-choose1');
+					      $('.home_test').addClass('home_test1');
 					      //产品css响应式
 						$('.product').addClass('product1');
 						$('.product').removeClass('product2');
+						$('.search-go').addClass('search-go_one');
 					}else{
 						$(".regular").slick({
 					        dots: true,
@@ -452,8 +455,14 @@
 					        slidesToShow: 2,
 					        slidesToScroll: 2 
 						 });
+						 
+						 $('.search-go').addClass('search-go_two');
+						
+						 $('.search-choose').addClass('search-choose2');
+						 $('.home_test').addClass('home_test2');
+						 $('#home-searchContent').addClass('home-searchContent2');
 						   //产品css响应式
-						$('.our-carousel').append( "<a> <img class='img-responsive' src='img/index.png' /> </a>" );
+						$('.choose-vehicle').append( "<div>选择车型</div>" );
 						$('.shop').css('padding','15px');
 						$('.product').addClass('product2');
 						$('.product').removeClass('product1');
