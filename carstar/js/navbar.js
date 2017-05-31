@@ -1,13 +1,3 @@
-
-//图片
-$(function(){
-	if( window.innerWidth < 767 ){
-		$(".myform").append("<span>商城</span>")
-	}
-	
-
-});
-
 //弹出框隐藏
 function clickSearch(){
 			$(".show-search").css("display","block");

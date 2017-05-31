@@ -95,6 +95,7 @@ function checkUser(){
 				},
 				error:function(){
    					console.log("error");
+   					alert("网络错误！")
    				}
    			});
 
@@ -314,19 +315,60 @@ function person_viewAddress() {
 		async: false,
 		success: function (msg) {
 			console.log(msg);
+			//更新地址信息到个人信息中的地址中
+			$.each(msg.data,function(i,arr){
+					$('.personal_addaddress').append(
+					"<div class='row row_address' data-addid='"+arr.id+"'>"+
+									"<div class='col-md-7'>"+
+										"<div class='row'>"+
+											"<div class='col-md-4'>"+
+												"<span>收件人：</span>"+
+												"<span>"+arr.name+"</span>"+
+											"</div>"+
+											"<div class='col-md-8'>"+
+												"<span>手机号码：</span>"+
+												"<span>"+arr.phone+"</span>"+
+											"</div>"+
+										"</div>"+
+										"<div>"+
+												"<span>收货地址：</span>"+
+												"<span>"+arr.address+"</span>"+
+										"</div>"+
+//										"<p style='color: #e46211;font-size: 1rem;'>默认收货地址</p>"+
+									"</div>"+
+									"<div class='col-md-1'>"+
+										" <a onclick='editAddid("+arr.id+")'>  <img src='img/edit.png'/> </a>"+
+									"</div>"+
+									"<div class='col-md-1'>"+
+										" <a onclick='deleteAddid("+arr.id+")'> <img src='img/delete.png'/> </a> "+
+									"</div>"+
+									"<div class='col-md-2'>"+
+										"<span class='note'>设为默认</span>"+
+									"</div>"+
+								"</div>"
+				)
+			})   //each遍历
+			
 		}
 	});
 
-	//更新地址信息到个人信息中的地址中
-	$('.personal-navbal-address').append(
-
-	)
 }
 
 
 //个人信息添加
 //个人地址添加
 function person_addaddress(){
+	//检测昵称和手机号码的正确性
+	var username = document.getElementById("address-name").value;
+	var name = checkInputNameValue(username);
+	var phone = document.getElementById("address-phone").value;
+	var checkphone = checkInputPhonevalue(phone);
+	if( name && checkphone ){
+//		return true;
+	}else{
+		alert("请输入正确的姓名或手机号码！");
+		return false;
+	}
 	//json格式转化
 	$.fn.serializeObject = function () {
 		var o = {};
@@ -346,19 +388,55 @@ function person_addaddress(){
 
 	//将表单的字符串转换成数组
 	var infoJson = $("#person_addAddress").serializeObject();
-	//infoJson =  JSON.stringify(infoJson);
+	var infoType = document.getElementById("defaultAddress").checked;
+	if( infoType ){
+		infoJson.type = '0';   //默认地址
+	}else{
+		infoJson.type = '1';   //非默认地址
+	}
+	
 	//将地址放于一个元素中，并将省市区删除
 	infoJson.address = infoJson.s1 + infoJson.s2 + infoJson.s3 + infoJson.address;
 	infoJson.userid = $.cookie("userId");    //用户id
-	infoJson.type = "0";   // 是否为默认地址
-	delete infoJson.s1;   //删除省
-	delete infoJson.s2;   //删除市
+	delete infoJson.s1;    //删除省
+	delete infoJson.s2;    //删除市
 	delete infoJson.s3;    //删除区
+	console.log("2");
+	
+	$('.personal_addaddress').append(
+					"<div class='row row_address'>"+
+									"<div class='col-md-7'>"+
+										"<div class='row'>"+
+											"<div class='col-md-4'>"+
+												"<span>收件人：</span>"+
+												"<span>"+infoJson.name+"</span>"+
+											"</div>"+
+											"<div class='col-md-8'>"+
+												"<span>手机号码：</span>"+
+												"<span>"+infoJson.phone+"</span>"+
+											"</div>"+
+										"</div>"+
+										"<div>"+
+												"<span>收货地址：</span>"+
+												"<span>"+infoJson.address+"</span>"+
+										"</div>"+
+									"</div>"+
+									"<div class='col-md-1'>"+
+										" <a onclick='editAddid()'>  <img src='img/edit.png'/> </a>"+
+									"</div>"+
+									"<div class='col-md-1'>"+
+										" <a onclick='deleteAddid()'> <img src='img/delete.png'/> </a> "+
+									"</div>"+
+									"<div class='col-md-2'>"+
+										"<span class='note'>设为默认</span>"+
+									"</div>"+
+								"</div>"
+				)
 
-	infoJson = JSON.stringify(infoJson);
-	//console.log(infoJson,infoJson);
+	infoJson = JSON.stringify(infoJson);   //将数组转化为json格式
 	var a_url = "http://139.224.133.119:8080/CarStar/rest/user/addlist";
-
+	
+	
 	$.ajax({
 		cache: true,
 		type: "post",
@@ -368,10 +446,22 @@ function person_addaddress(){
 		dataType: "json",
 		async: true,
 		success: function (date) {
-			console.log(date);
+			alert("添加成功！")
 		},
 		error: function () {
-			console.log("error");
+			alert("添加失败！")
 		}
 	});
+}
+
+//删除地址信息
+function deleteAddid(addid){
+	console.log(addid);
+	var a_url = "http://139.224.133.119:8080/CarStar/rest/user/removelist?addrid="+addid;
+	deleteInfo(a_url);    
+}
+
+//编辑地址信息
+function editAddid(addid){
+	//取出数据，置于表单
 }

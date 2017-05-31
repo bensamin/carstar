@@ -7,8 +7,8 @@
     <title>个人中心</title>
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
     <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-	  <script type="text/javascript" src="js/distpicker.data.js" ></script>
-	  <script type="text/javascript" src="js/distpicker.js" ></script>
+	<script type="text/javascript" src="js/distpicker.data.js" ></script>
+	<script type="text/javascript" src="js/distpicker.js" ></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/personal.css" />
     <style type="text/css">
@@ -37,6 +37,17 @@
     	}
     	.personal-navbal-personalInfo{
     		display: none;
+    	}
+    	.row_address{
+    		padding-top: 20px;
+    		padding-bottom: 10px;
+    		border-top: 1px solid #E2E2E2;
+    		/*height: 50px;*/
+    		font-size:large;
+    		color: #333333;
+    	}
+    	.row_address div{
+    		margin: 10px 0;
     	}
     </style>
   </head>
@@ -142,35 +153,16 @@
 
 				<!-- 地址的添加-->
 				<div class="row personal-navbal-address">
-					<div class="row" style="margin-top: 20px;padding-top: 20px; border-top: 1px solid #E2E2E2;height: 50px;font-size:large;color: #333333;min-height: 120px;">
-						<div class="col-md-8">
-							<div class="row">
-								<div class="col-md-4">
-									<span>收件人：</span>
-								</div>
-								<div class="col-md-8">
-									1*********9
-								</div>
-							</div>
-							<p>上海市嘉定区白银路1199号XXXX</p>
-							<p style="color: #e46211;font-size: 1rem;">默认收货地址</p>
-						</div>
-						<div class="col-md-1">
-							<img src="img/delete.png"/>
-						</div>
-						<div class="col-md-2">
-							<img src="img/edit.png"/>
-						</div>
-					</div>
+					<div class="personal_addaddress"></div>
 					
 					<div class="new-address">
 						<form id="person_addAddress">
 							<div class="row_spacing">
-								<label class="control-label">收&nbsp;件&nbsp;人&nbsp;: </label>
+								<label class="control-label">收件人：</label>
 								<input type="text" name="name" id="address-name" placeholder="姓名" />
 							</div>
 							<div class="row_spacing">
-								<label class="control-label">联系电话: </label>
+								<label class="control-label">联系电话： </label>
 								<input type="text" name="phone" id="address-phone" placeholder="联系电话" />
 							</div>
 							<div class="row_spacing">
@@ -185,12 +177,18 @@
 								<label class="control-label">街道地区：</label>
 								<textarea  class="address-detail" name="address" placeholder="详细地址"></textarea>
 							</div>
-                            <input type="button" onclick="person_addaddress()" value="确认新增"/>
-								<input type="button" class="cancel-address" value="取消" />
+							<div class="i-chk">
+								<input type="checkbox" name="defaultAddress" id="defaultAddress"/>
+								<label for="defaultAddress">设为默认收货地址</label>
+							</div>
+							<div class="i-chk">
+								<input type="button"  class="btn1" onclick="person_addaddress()" value="保存"/>
+								<input type="button" class="cancel-address btn1" value="取消" />
+							</div>
 						</form>
 					</div>
-                    <p style="margin-top: 20px;font-size:1.8rem;color: #EAFFEA; margin: 0 auto;"
-                       class="add-address add-cart text-center"> 新增地址</p>
+                    <!--<p class="add-address add-cart text-center"> 添加地址</p>-->
+                    <button class="add-cart add-address">添加地址</button>
 				</div>
 
 				<!-- 个人信息----优惠券-->
@@ -400,7 +398,7 @@
 			});
 		});
 
-	$(function(){
+//	$(function(){
 //		$(window).resize(function(){
 //		 var rect =document.querySelector("#order-greenAll").getBoundingClientRect();
 //		 var c = document.getElementById("order-greenline");
@@ -415,7 +413,7 @@
 //		 ctx.stroke();  
 		   
 //		  });
-	});
+//	});
 	var ship = true;
 	$(".order-ship").click(function(){
 		if(ship){

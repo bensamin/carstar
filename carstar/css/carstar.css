@@ -1,4 +1,4 @@
-body {0px0px
+body {
   min-height: 768px;
 }
 @media only screen and (max-width: 767px) {
@@ -11,7 +11,7 @@ body {0px0px
 	.home-brand{width: 100%;}
 	.home-model{width: 100%;}
 	.search-drop input{width: 100%;}
-
+	#ImageSlider{display: none;}
 }
 /******************标签*************************/
 
@@ -124,8 +124,7 @@ button{
 #home-drop ul li{
 	float: left;
 }
-
-#home-drop{
+.home_test{
 	position: absolute;
 	margin-left:5%;
 	width: 90%;
@@ -133,6 +132,9 @@ button{
 	top:450px;
 	zoom: 1;
 	z-index:999;
+}
+#home-drop{
+	position: relative;
 }
 #home-searchAll{
 	font-size: 20px;
@@ -258,9 +260,13 @@ th > span{
     z-index: 1;
   }
 /***********商品***************/
-.product{
+.product1{
 	min-height: 200px;
 	margin-top: 120px;
+	margin-right: 60px;
+	margin-left: 40px;
+}
+.product2{
 	margin-right: 60px;
 	margin-left: 40px;
 }

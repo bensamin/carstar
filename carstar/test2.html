@@ -3,25 +3,33 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Document</title>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
 </head>
+<style>
+		.product1{
+			width: 200px;
+			height: 200px;
+			background: #000;
+		}
+		.product2{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
 <body>
-	<div style="padding-top: 15px">  
-<label for="pic">更新广告图片 :</label>  
-<!-- <a class="btn btn-warning btn-sm" id="choice" ng-click="doChoice()" style="font-size:14px; color:red; font-family:微软雅黑; border-radius: 9px;">选择文件</a> -->  
-<input id="imageInput" type="file" accept="image/jpeg"     onchange="loadImageFile();" />  
-<i id="img" hidden="hidden"></i>  
-<i id="imgName" hidden="hidden"></i>  
-</div> 
-<script>
-	function loadImageFile(){
-	    arr = oPreviewImg.src.toString().split(",");  
-    document.getElementById("img").innerHTML = arr[1];  
-    document.getElementById("imgName").innerHTML =      document.getElementById("imageInput").files[0].name;  
-    //alert(document.getElementById("img").innerHTML);  
-    //alert(document.getElementById("imageInput").files[0].name);// 获取      图片名称(PS:瞬间感觉自己好聪明啊~~)  
-    //alert(arr[0]);// 获取图片格式与编码方式  
-    //alert(arr[1]);// 获取图片Base 64编码字节  
-   }
-</script>
+	
+	<div class="product"></div>
+	<script>
+		$(document).ready(function(){
+			if(window.innerWidth >765 ){
+				$('.product').addClass('product1');
+				$('.product').removeClass('product2');
+			}else{
+				$('.product').addClass('product2');
+				$('.product').removeClass('product1');
+			}
+		})
+	</script>
 </body>
 </html>

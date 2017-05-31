@@ -74,3 +74,8 @@ function change15(){
 	$(".shop-content").load("costomer-service-advice.html");
 }	
 
+
+//查询已卖出的产品
+function productsold(){
+	
+}

@@ -33,8 +33,8 @@ return theRequest;
 }
 
 
-	//get请求通过URL中的orderid即订单id获取信息
-	//是否将获取url上的信息修改一下，变成xxURL函数？
+//get请求通过URL中的orderid即订单id,获取返回值信息，有去有回
+//是否将获取url上的信息修改一下，变成xxURL函数？
 function getItemInfo(url){
 	var request = new Object();
 		request = GetRequest();
@@ -53,6 +53,36 @@ function getItemInfo(url){
 		
 }
 
-	function checkInputValue() {
+// 传入url+id 删除某个信息，例如购物车，订单或者地址等等
+function deleteInfo(url){
+	$.ajax({
+		type:"get",
+		url:url,
+		async:false,
+		success:function(msg){
+			alert("删除成功!");
+		}
+	});
+}
 
+var nameRegex = /^[^@#]{3,16}$/;    //姓名检测
+var passwordRegex = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,21}$/;   //账号密码检测
+var phoneRegex = /^1[358][0123456789]\d{8}$/;   //电话号码检测
+
+function checkInputNameValue(name) {
+	if( !nameRegex.test(name) ){
+//			alert("姓名为3～16个字符，且不能包含 “@”,“#”,“_”,“%”等字符 ");
+ 			return false;
+	 	}else{
+	 		return true;
+	 	}
+}
+
+function checkInputPhonevalue(phone){
+	if( !phoneRegex.test(phone) ){
+//		alert("请输入正确的手机号码!");
+		return false;
+	}else{
+		return true;
 	}
+}

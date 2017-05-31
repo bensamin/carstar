@@ -11,10 +11,11 @@ $(".btnyes").click(function(){
 //购物车新增地址
 $(".add-address").click(function(){
 	$(".new-address").slideDown();
-	console.log("address");
+	$(this).fadeOut();
 });
 $(".cancel-address").click(function(){
 	$(".new-address").slideUp();
+	$(".add-address").fadeIn();
 });
 	
 //产品详情 接受产品id和商品信息
@@ -466,7 +467,7 @@ function changesumPnum(PnumId){
 			newNum= parseInt(pnumId.val() )-1
 			pnumId.val( newNum );
 			
-			//更新到后台
+		//数量更新到后台
 			$.ajax({
 				type:"get",
 				url:"http://139.224.133.119:8080/CarStar/rest/goodscart/modifynum?cartid="+cartId+"&num="+newNum,
