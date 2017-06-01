@@ -30,7 +30,7 @@
 					</div>
 				</div>	   		
   			</div>
-  		
+  		<div class="home_test">
   		<div id="home-drop">
     		<div id="home-searchAll">
     			<ul >
@@ -40,11 +40,10 @@
             		</ul>
     		</div>
     		<div id="home-searchContent" >
+    			<div class="choose-vehicle"></div>
 	    			<form id="home_carInfo">
 					<select name="year" onchange="chooseCarYear()" class="home-year  boring" >
-						<option>
-							<span>&nbsp;1&nbsp;&nbsp;&nbsp;选择年份&nbsp;</span>
-						</option>
+						<option>&nbsp;1&nbsp;&nbsp;&nbsp;选择年份&nbsp;</option>
 							<option value="2017">2017</option>
 							<option value="2016">2016</option>
 							<option value="2015">2015</option>
@@ -62,14 +61,10 @@
 						</option>
 					</select>
 					<select class="home-model boring" id="addcar-output1" name="output" onclick="chooseOutPut()">
-						<option>
-							<span>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</span>
-						</option>
+						<option>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</option>
 					</select>
-					<select class="boring" id="addcar-type1" name="type">
-						<option>
-							<span>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</span>
-						</option>
+					<select class="home-model boring" id="addcar-type1" name="type">
+						<option>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</option>
 					</select>
 					
 					<div class="search-go" onclick="searchCar()" >GO</div>
@@ -81,7 +76,7 @@
 				</form>	
 
 				<form style="display: none;">
-					<input type="search"placeholder="Search" x-webkit-speech="" class="home-searchPart"  x-webkit-grammar="builtin:search" lang="zh-CN">
+					<input type="search" placeholder="Search"  class="home-searchPart">
 					<span class="search-go2">查询</span>
 				</form> 
 				<form style="display: none;">
@@ -103,7 +98,7 @@
 					</table>
 				</form>
     		</div>    		
-    		 
+    	 </div>		 
     </div>
     <div class="drop">
     		 <div class="scroll-top"></div>
@@ -120,24 +115,16 @@
 							<option value="2011">2011</option>
 				</select>
 				<select class="home-brand boring" id="addcar-makeName2" name="make_name" onclick="chooseMakeName2()">
-					<option value="1">
-						<span>&nbsp;2&nbsp;&nbsp;&nbsp;选择汽车品牌&nbsp;</span>
-					</option>
+					<option value="1">&nbsp;2&nbsp;&nbsp;&nbsp;选择汽车品牌&nbsp;</option>
 				</select>
 				<select class="home-model boring" id="addcar-modelName2" name="model_name" onclick="chooseModelName2()">
-					<option value="2">
-						<span>&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</span>
-					</option>
+					<option value="2">&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</option>
 				</select>
 				<select class="home-model boring"  id="addcar-output2" name="output" onclick="chooseOutPut2()">
-					<option value="2">
-						<span>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</span>
-					</option>
+					<option value="2">&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</option>
 				</select>
 				<select class="home-model boring" id="addcar-type2" name="type">
-					<option value="2">
-						<span>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</span>
-					</option>
+					<option value="2">&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</option>
 				</select>
 				<span class="search-go" onclick="searchCar()">GO</span>
 			</form>			
@@ -208,7 +195,8 @@
 						<p>评论
 							<input type="image" src="img/add.png" class="add add2" />
 							<input type="image" src="img/reduce.png" class="reduce reduce2" /> </p>
-						<ul class="price2">
+							<!--评论星级-->
+						<ul class="price2">   
 							<li>	<input name="comment" type="checkbox" /><span class="start5" data-cStar='5'></span></li>
 							<li>	<input name="comment" type="checkbox" /><span class="start4" data-cStar='4'></span></li>
 							<li>	<input name="comment" type="checkbox" /><span class="start3" data-cStar='3'></span></li>
@@ -228,17 +216,17 @@
 				</div>
 		<!--------------商品--------------->
 				<div class="col-md-9 " >
-					<div class="row" style="margin-bottom: 20px;">
-						<div class="col-md-8 text-left" style="font-size: medium; color: #666666;">
+					<div class="row">
+						<div class="col-md-8 text-left category-levle" style="font-size: medium; color: #666666;">
 							<span style="color: #666666;">显示数量</span>
-							<input type="button" name="" id="" value="60" />
-							<input type="button" name="" id="" value="80" />
-							<input type="button" name="" id="" value="120" />
+							<input type="button"  value="60" />
+							<input type="button"  value="80" />
+							<input type="button"  value="120" />
 							<span  style="color: #666666;margin-left: 30px;">排序方式</span>
-							<select name="" style="width: 140px;">
-								<option value="">好评优先</option>
-								<option value="">价格由高到底</option>
-								<option value="">价格由低到高</option>
+							<select>
+								<option value="1">好评优先</option>
+								<option value="2">价格由高到底</option>
+								<option value="3">价格由低到高</option>
 							</select>
 						</div>
 						<div class="col-md-2"></div>
@@ -247,7 +235,7 @@
 							<span class="glyphicon glyphicon-th" style="font-size: 3rem;color: #666666;"></span> 
 						</div>
 					</div>
-					<div class="category-product">	</div>
+					<div class="row category-product">	</div>
 				</div>
 			</div>										
 		</div>

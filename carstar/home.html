@@ -46,9 +46,7 @@
     				<div class="choose-vehicle"></div>
 	    			<form id="home_carInfo">
 					<select name="year" onchange="chooseCarYear()" class="home-year" >
-						<option>
-							<span>&nbsp;1&nbsp;&nbsp;&nbsp;选择年份&nbsp;</span>
-						</option>
+						<option>>&nbsp;1&nbsp;&nbsp;&nbsp;选择年份&nbsp;</option>
 							<option value="2017">2017</option>
 							<option value="2016">2016</option>
 							<option value="2015">2015</option>
@@ -61,19 +59,13 @@
 						<option>&nbsp;2&nbsp;&nbsp;&nbsp;选择汽车品牌&nbsp;</option>
 					</select>
 					<select class="home-model" id="addcar-modelName1" name="model_name" onclick="chooseModelName()">
-						<option>
-							<span>&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</span>
-						</option>
+						<option>&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</option>
 					</select>
 					<select class="home-model" id="addcar-output1" name="output" onclick="chooseOutPut()">
-						<option>
-							<span>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</span>
-						</option>
+						<option>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</option>
 					</select>
 					<select class="home-model" id="addcar-type1" name="type">
-						<option>
-							<span>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</span>
-						</option>
+						<option>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</option>
 					</select>
 					
 					<div class="search-go" onclick="searchCar()" >GO</div>
@@ -125,24 +117,16 @@
 							<option value="2011">2011</option>
 				</select>
 				<select class="home-brand" id="addcar-makeName2" name="make_name" onclick="chooseMakeName2()">
-					<option value="1">
-						<span>&nbsp;2&nbsp;&nbsp;&nbsp;选择汽车品牌&nbsp;</span>
-					</option>
+					<option value="1">&nbsp;2&nbsp;&nbsp;&nbsp;选择汽车品牌&nbsp;</option>
 				</select>
 				<select class="home-model" id="addcar-modelName2" name="model_name" onclick="chooseModelName2()">
-					<option value="2">
-						<span>&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</span>
-					</option>
+					<option value="2">&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</option>
 				</select>
 				<select class="home-model" id="addcar-output2" name="output" onclick="chooseOutPut2()">
-					<option value="2">
-						<span>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</span>
-					</option>
+					<option value="2">&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</option>
 				</select>
 				<select class="home-model" id="addcar-type2" name="type">
-					<option value="2">
-						<span>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</span>
-					</option>
+					<option value="2">&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</option>
 				</select>
 				<span class="search-go" onclick="searchCar1()">GO</span>
 			</form>		
@@ -431,54 +415,24 @@
 	
 	</div>
 	<script>
+		
 		$(document).ready(function(){
-			//产品轮播图  显示个数
-			if( window.innerWidth > 756 ){
-						$(".regular").slick({
+			if(window.innerWidth > 765){
+				$(".regular").slick({
 					        dots: true,
 					        infinite: true,
 					        slidesToShow: 4,
 					        slidesToScroll: 4 
-					      });
-					      
-					      $('#home-searchContent').addClass('home-searchContent1');
-					      $('.search-choose').addClass('search-choose1');
-					      $('.home_test').addClass('home_test1');
-					      //产品css响应式
-						$('.product').addClass('product1');
-						$('.product').removeClass('product2');
-						$('.search-go').addClass('search-go_one');
-					}else{
-						$(".regular").slick({
+					     });
+			}else{
+				$(".regular").slick({
 					        dots: true,
 					        infinite: true,
 					        slidesToShow: 2,
 					        slidesToScroll: 2 
 						 });
-						 
-						 $('.search-go').addClass('search-go_two');
-						
-						 $('.search-choose').addClass('search-choose2');
-						 $('.home_test').addClass('home_test2');
-						 $('#home-searchContent').addClass('home-searchContent2');
-						   //产品css响应式
-						$('.choose-vehicle').append( "<div>选择车型</div>" );
-						$('.shop').css('padding','15px');
-						$('.product').addClass('product2');
-						$('.product').removeClass('product1');
-						
 			}
-			$(".row").addClass("text-center");
-			$("#home-searchAll ul li").addClass("text-center");
-			$("select").css("height","50px");
-			$("th").addClass("text-center");
-			
-			$(".nav-tabs li").each(function(){
-    				$(this).click(function(){
-    					document.getElementById("home-drop").style.top = "670px";
-    				});
-    			});
-		});
+		})
 		
 		$(document).ready(function() {
           var $window = $(window),

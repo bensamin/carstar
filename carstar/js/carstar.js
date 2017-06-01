@@ -300,7 +300,7 @@ function addBrand(brand,data){
 			return false;
 		}else{
 				$(".addBrand_append").append(
-					" <a href='category.html?menu="+brands[i].n1+"&brand="+brands[i].n2+"&category="+brands[i].n3+"'> <div class='col-xs-2' > " +
+					" <a href='category.html?menu="+brands[i].n1+"&brand="+brands[i].n2+"&category="+brands[i].n3+"'> <div class='col-md-2 col-xs-12' > " +
 					" <img class='img-responsive' src=' " + brands[i].m3 + "  '  > "  +
 					" <p class='text-center'> " +  
 					" <span>" + brands[i].n3 + "</span> "+
@@ -321,7 +321,7 @@ function addBrandProduct(data){
 	for( var i=0;i<n;i++ ){
 		$(".category-product").append(
 			"  <a href='product.html?goodsid=" +data[i].id+ " '> <div class='col-md-4 col-xs-6 ccategory-product-list-four text-left'>" +
-			" <img src='img/custom-floor-mats_ic_5.jpeg'/> " +
+			" <img class='img-responsive' src='img/custom-floor-mats_ic_5.jpeg'/> " +
 			" <p> " + data[i].name + " </p> " +
 			" <p> "  + data[i].des1+ " </p> " +
 			" <span class='brand_star"+i+"'></span>" +

@@ -38,6 +38,8 @@
 				</div>
 			</div>	   		
   		</div>
+  		
+  		<div class="home_test">
   		<div id="home-drop">
     		<div id="home-searchAll">
     			<ul >
@@ -47,11 +49,10 @@
             		</ul>
     		</div>
     		<div id="home-searchContent" >
+    			<div class="choose-vehicle"></div>
 	    			<form id="home_carInfo">
 					<select name="year" onchange="chooseCarYear()" class="home-year  boring" >
-						<option>
-							<span>&nbsp;1&nbsp;&nbsp;&nbsp;选择年份&nbsp;</span>
-						</option>
+						<option>&nbsp;1&nbsp;&nbsp;&nbsp;选择年份&nbsp;</option>
 							<option value="2017">2017</option>
 							<option value="2016">2016</option>
 							<option value="2015">2015</option>
@@ -64,19 +65,13 @@
 						<option>&nbsp;2&nbsp;&nbsp;&nbsp;选择汽车品牌&nbsp;</option>
 					</select>
 					<select class="home-model boring" id="addcar-modelName1" name="model_name" onclick="chooseModelName()">
-						<option>
-							<span>&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</span>
-						</option>
+						<option>&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</option>
 					</select>
 					<select class="home-model boring" id="addcar-output1" name="output" onclick="chooseOutPut()">
-						<option>
-							<span>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</span>
-						</option>
+						<option>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</option>
 					</select>
-					<select class="boring" id="addcar-type1" name="type">
-						<option>
-							<span>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</span>
-						</option>
+					<select class="home-model boring" id="addcar-type1" name="type">
+						<option>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</option>
 					</select>
 					
 					<div class="search-go" onclick="searchCar()" >GO</div>
@@ -110,7 +105,7 @@
 					</table>
 				</form>
     		</div>    		
-    		 
+    	 </div>	 
     </div>
      <div class="drop">
     		 <div class="scroll-top"></div>
@@ -127,24 +122,16 @@
 							<option value="2011">2011</option>
 				</select>
 				<select class="home-brand boring" id="addcar-makeName2" name="make_name" onclick="chooseMakeName2()">
-					<option value="1">
-						<span>&nbsp;2&nbsp;&nbsp;&nbsp;选择汽车品牌&nbsp;</span>
-					</option>
+					<option value="1">&nbsp;2&nbsp;&nbsp;&nbsp;选择汽车品牌&nbsp;</option>
 				</select>
 				<select class="home-model boring" id="addcar-modelName2" name="model_name" onclick="chooseModelName2()">
-					<option value="2">
-						<span>&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</span>
-					</option>
+					<option value="2">&nbsp;3&nbsp;&nbsp;&nbsp;选择车系&nbsp;</option>
 				</select>
 				<select class="home-model boring"  id="addcar-output2" name="output" onclick="chooseOutPut2()">
-					<option value="2">
-						<span>&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</span>
-					</option>
+					<option value="2">&nbsp;4&nbsp;&nbsp;&nbsp;选择排量&nbsp;</option>
 				</select>
 				<select class="home-model boring" id="addcar-type2" name="type">
-					<option value="2">
-						<span>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</span>
-					</option>
+					<option value="2">&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</option>
 				</select>
 				<span class="search-go" onclick="searchCar()">GO</span>
 			</form>		
@@ -223,12 +210,7 @@
 				</div>
 				<!--------------商品--------------->
 				<div class="col-md-9">
-					<div class="row category-product">
-						</div>
-				
-					
-					
-					
+					<div class="row category-product"></div>
 				</div>
 			</div>
 		</div>
@@ -241,12 +223,10 @@
     					document.getElementById("home-drop").style.top = "670px";
     				});
     			});
-			$(document).ready(function() {
+	$(document).ready(function() {
           var $window = $(window),
               $search_drop = $(".search-drop");
               $scroll_top = $("#home-drop");    
-          // Run this on scroll events.
-        //scroll()
        //当用户滚动指定的元素时，会发生scroll事件。
        //scroll事件适用于所有可滚动的元素和window对象（浏览器窗口）
        //scroll()方法触发scroll事件，或规定当发生scroll事件时运行的函数
@@ -272,7 +252,7 @@
 		<!-- Bootstrap core JavaScript
     ================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
 	<script src="js/transformer.js" type="text/javascript"></script>    	
      <!--jQuery owl carousel js--> 

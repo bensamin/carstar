@@ -1,7 +1,37 @@
-//         ******************菜单栏固定**************************
-
-
-// 返回顶部
+//         ******************页面加载完成**************************
+$(document).ready(function(){
+			//产品轮播图  显示个数
+			if( window.innerWidth > 756 ){
+					      $('#home-searchContent').addClass('home-searchContent1');
+					      $('.search-choose').addClass('search-choose1');
+					      $('.home_test').addClass('home_test1');
+					      //产品css响应式
+						$('.product').addClass('product1');
+						$('.product').removeClass('product2');
+						$('.search-go').addClass('search-go_one');
+					}else{
+						 $('.search-go').addClass('search-go_two');
+						 $('.search-choose').addClass('search-choose2');
+						 $('.home_test').addClass('home_test2');
+						 $('#home-searchContent').addClass('home-searchContent2');
+						   //产品css响应式
+						$('.choose-vehicle').append( "<div>选择车型</div>" );
+						$('.shop').css('padding','15px');
+						$('.product').addClass('product2');
+						$('.product').removeClass('product1');
+			}
+			$(".row").addClass("text-center");
+			$("#home-searchAll ul li").addClass("text-center");
+			$("th").addClass("text-center");
+			
+			$(".nav-tabs li").each(function(){
+    				$(this).click(function(){
+    					document.getElementById("home-drop").style.top = "670px";
+    				});
+    			});
+		});
+		
+// 返回顶部按钮
 $(window).scroll(function(){
 	var sc = $(window).scrollTop();
 	var rwidth = $(window).width();
@@ -19,7 +49,6 @@ $(".goToBtn").click(function(){
 
 //价格，评论，品牌分类下拉按
 $(document).ready(function(){
-//	console.log("choose");
 	$(".add1").click(function(){
    		$(".add1").css("display","none");
 		$(".reduce1").css("display","inline");

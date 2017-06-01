@@ -320,6 +320,14 @@
     	<script>
     		$(function(){
     			$(".myform a:gt(2)").css("margin-left","15px");
+    			
+    			if( window.innerWidth > 765 ){
+    				console.log(">765")
+    			}else{
+    				document.getElementsByClassName('carstar-logo').item(0).src = 'img/logo_s.png';
+    				console.log("success");
+    			}
+    			
     		});
     	</script>
      <!--导航条js-->
