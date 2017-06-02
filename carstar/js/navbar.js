@@ -42,7 +42,7 @@ $(function(){
 
 $(function(){
 	var v = true;
-	$(".left-allproduct").click(function(){
+	$(".left-down1").click(function(){
 		if(v){
 			$(".left-drop").slideDown();
 			v = false;
@@ -55,9 +55,6 @@ $(function(){
 	});
 });
 
-$(function(){
-	var v =true;
-});
 
 $(function(){
 	var v = true;
@@ -280,3 +277,30 @@ function viewListHome(){
 	}
 }
 
+//首页侧滑的分类
+$(function(){
+	$('.left-drop li').each(function(){
+		$(this).click(function(){
+			var li = $(this).index();
+			var _li = $(this);
+			_li.find('.left-dd-cont').remove();  //本节点内容删除
+			_li.siblings().find('.left-dd-cont').remove();  //兄弟节点里面的内容删除
+			var a = "http://139.224.133.119:8080/CarStar/rest/goods/showmenu?menu="+categoryOne[li] +"&startNum=0&pageSize=11";
+			$.ajax({
+				type:"get",
+				url:a,
+				async:false,
+				success:function(msg){
+					_li.append( 
+						"<div class='left-dd-cont'>"+
+									"<ul class='left-dd-ul'></ul>"+
+						"</div>" )
+					$.each(msg.data, function(i,value) {
+						_li.find('.left-dd-ul').append( 
+							"<li class='left-dd-li'> <a href='brand.html?menu="+categoryOne[li]+"&brand="+msg.data[i].n2 +"'> <img src='img/left_s.png' /> <span>"+msg.data[i].n2+"</span> </a> </li>"  )
+					});
+				}
+			});
+	})
+})
+})

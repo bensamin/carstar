@@ -260,9 +260,25 @@ span a p{
 .left-drop{
 	display: none;
 }
+.left-drop li{
+	margin: 20px 0;
+}
 .left-minedrop{
 	display: none;
 }
+.left-drop > .left-active > .left-dd-cont{
+	background-color: #fff;
+	width: 70%;
+	border-bottom: none;
+	display: block;
+	left: 55px;
+	position: absolute;
+	right: 0x
+	top:100%;
+	z-index: 10001;
+}
+
+
 .nav-personal{
 	display: none;
 	margin-top: -10px;

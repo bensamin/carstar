@@ -21,6 +21,7 @@ $(document).ready(function(){
 						$('.shop').css('padding','15px');
 						$('.product').addClass('product2');
 						$('.product').removeClass('product1');
+						$('.category-product-list-buy').addClass('list-buy2');
 						
 			}
 			$(".row").addClass("text-center");

@@ -23,6 +23,7 @@
 		<div class="header">	</div>
 		
 		<div class="our-carousel">
+			<div class="background-img"></div>
 				<div id="ImageSlider">
 					<div id="gellery">
 						<div><img class="img-responsive" src="img/index.png"><p></p></div>
@@ -328,7 +329,10 @@
     			});
 		$(document).ready(function() {
 			
-			$('.choose-vehicle').append( "<div>选择车型</div>" );
+		if(window.innerWidth < 765){
+				$('.choose-vehicle').append( "<div>选择车型</div>" );
+			}else{
+			}
 			
 		$(".category-product-list-buy").mouseenter(function(){
 		 		$(this).css("background-color","#0E9939");

@@ -261,7 +261,12 @@ aside.slide-wrapper ul > li > a {
   display: block;
   color: #666666;
 }
-
+.left-dd-cont ul>li>a{
+	padding: 0 !important;
+}
+.left-dd-cont ul>li>a>span{
+	padding-left: 10px;
+}
 aside.slide-wrapper li.current > a {
   background-color: #262626;
 }

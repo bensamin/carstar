@@ -28,6 +28,7 @@
 		<div class="header"></div>
   		<div class="category-menu"></div>	
   		<div class="our-carousel">
+  			<div class="background-img"></div>
 			<div id="ImageSlider">
 				<div id="gellery">
 					<div><img src="img/index.png"><p></p></div>
@@ -164,8 +165,7 @@
 		<!--三级分类的种类-->
 		<div class="category_two">
 			<div class="text-center" style="font-size: 30px; color: #666;">种类</div>
-				<div class="row addBrand_append">
-				</div>
+				<div class="row addBrand_append"></div>
 		</div>
 		
 		<div class="result result-brand">
@@ -220,6 +220,7 @@
 			$(document).ready(function(){
 				if(window.innerWidth < 765){
 					$('.choose-vehicle').append( "<div>选择车型</div>" );
+				}else{
 				}
 			})
 			
