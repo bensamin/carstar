@@ -30,7 +30,11 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-    		
+    		@media only screen and (max-width:767px ) {
+				.shop{
+				padding:15px;
+			}
+		}
     		.container{
     			margin: 30px 0;
     			font-size: 18px;
@@ -40,6 +44,9 @@
     		}
     		.pay-way{
     			margin: 20px auto;
+    		}
+    		.pay-way div{
+    			margin-bottom: 10px;
     		}
     		.pay-way div input{
     			width: 200px;
@@ -55,6 +62,7 @@
     </style>
   </head>
   <body onload="payOrder()">
+  	<div class="shop">
   <div class="header"></div>
 	<div class="container">
 		<ol class="breadcrumb">
@@ -101,7 +109,7 @@
 	</div>
 	<div class="footer"></div>
  
- 
+ </div>
  	<script>
  		$(".pay-way div").each(function(){
 			$(this).click(function(){

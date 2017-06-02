@@ -24,7 +24,6 @@ $(document).ready(function(){
 						$('.category-product-list-buy').addClass('list-buy2');
 						
 			}
-			$(".row").addClass("text-center");
 			$("#home-searchAll ul li").addClass("text-center");
 			$("th").addClass("text-center");
 			

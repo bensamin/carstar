@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="css/slick-theme.css" />
     <link rel="stylesheet" href="css/slick.css" />
     <script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
-    <!--<script src="js/ie-emulation-modes-warning.js"></script>-->
     <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 
   </head>
@@ -37,7 +36,7 @@
     <div class="home_test">
     <div id="home-drop">
     		<div id="home-searchAll">
-    				<ul >
+    				<ul>
             			<li> <span style="font-size: 1.83rem;"> 选择车型 </span> </li>
             			<li> <span style="font-size: 1.83rem;"> 选择型号  </span> </li>
             			<li> <span style="font-size: 1.83rem;"> 热门类型  </span> </li>
@@ -392,17 +391,10 @@
               $search_drop = $(".search-drop");
               $scroll_top = $("#home-drop");    
           // Run this on scroll events.
-        //scroll()
-       //当用户滚动指定的元素时，会发生scroll事件。
-       //scroll事件适用于所有可滚动的元素和window对象（浏览器窗口）
        //scroll()方法触发scroll事件，或规定当发生scroll事件时运行的函数
           $window.scroll(function(){
           	var window_top = $window.scrollTop();  //
           	var scroll_top = $scroll_top.offset().top + 120;
-          	//输出网页卷过去的高度，下拉菜单的偏移量
-          	//输出屏幕的宽度，屏幕的高度
-//        	console.log(screen.width+"*"+screen.height); 
-//
           	if(   window.innerWidth > 767  && window_top > scroll_top ) {
           		$(".drop").css("display","block");
           		$search_drop.addClass("stick");
@@ -417,7 +409,6 @@
 	</script>
 
     	<script src="js/bootstrap.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
 	<script src="js/transformer.js" type="text/javascript"></script>    	
      <!--jQuery owl carousel js--> 
      <script type="text/javascript" src="js/slick.js" ></script>

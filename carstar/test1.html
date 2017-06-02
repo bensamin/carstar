@@ -1,24 +1,103 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="UTF-8" />
-	<title>Document</title>
-	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
-	<script type="text/javascript" src="js/jquery.raty.min.js" ></script>
+	<title>app-menu</title>
+	<style type="text/css">
+		.menu {
+		    position: fixed;
+		    left: 0;
+		    top: 0;
+		    width: 100%;
+		    height: 100%;
+		    overflow: hidden;
+		    pointer-events: none;
+		    z-index: 150;
+		}
+		.menu--visible {
+		    pointer-events: auto;
+		}
+		.app-menu {
+		    background-color: #fff;
+		    color: #fff;
+		    position: relative;
+		    /*max-width: 400px;*/
+		    width: 80%;
+			height: 100%;
+			background-color: #ddd;
+		    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+		    -webkit-transform: translateX(-103%);
+		            transform: translateX(-103%);
+		    display: flex;
+		    flex-direction: column;
+		    will-change: transform;
+		    z-index: 160;
+		    pointer-events: auto;
+
+		    transition: all 0.5s ease-in;
+		    transition: all 0.4s ease-out;            
+		}
+		.menu--visible .app-menu {
+		    -webkit-transform: none;
+		            transform: none;
+		}
+		.menu:after {
+		    content: '';
+		    display: block;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    width: 100%;
+		    height: 100%;
+		    background: rgba(0,0,0,0.4);
+		    opacity: 0;
+		    will-change: opacity;
+		    pointer-events: none;
+		    transition: opacity 1s cubic-bezier(0,0,0.3,1);
+		}
+		.menu--visible.menu:after {
+		    opacity: 1;
+		    pointer-events: auto;
+		}
+		/* aux */
+		body {
+		  margin: 0;
+		}
+		.layout {
+		  width: 100%;
+		}
+		.header {
+		  background-color: #ccc;
+		}
+		.menu-icon {
+		  background-color: #b34848;
+		  width: 100px;
+		  height: 100px;
+		}
+	</style>
 </head>
-<style>
-select{
-	/*height: 60px;*/
-	/*border: 1px  solid #ADADAD;*/
-}
-</style>
-		
-		<div id="qwe">
-			<span>qweqwe</span>
-			<span>qweqwas</span>
-		</div>
-		<script>
-			$('#qwe').append(" <span>12312312</span> ")
-		</script>
+<body>
+<div class="menu">
+    <div class="app-menu"></div>
+</div>
+<div class="layout">
+    <div class="header">
+        <div class="menu-icon"></div>
+    </div>
+</div>
 </body>
+<script src="http://webpic.my4399.com/o2o/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+	function toggleClassMenu() {  
+	    if(!myMenu.classList.contains("menu--visible")) {    //classList.contains  判断DOM中的class是否有'menu--visible'  返回true  or false等价于jq 的hasClass
+	        myMenu.classList.add("menu--visible");
+	    } else {
+	        myMenu.classList.remove('menu--visible');       
+	    }   
+	}
+
+	var myMenu = document.querySelector(".menu");  //整个视图的div
+	var oppMenu = document.querySelector(".menu-icon");   //布局的div
+	oppMenu.addEventListener("click", toggleClassMenu, false);   // false 冒泡获取 由外向里   true 由里
+	myMenu.addEventListener("click", toggleClassMenu, false);	
+</script>
 </html>

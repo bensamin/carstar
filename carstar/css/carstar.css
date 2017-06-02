@@ -14,12 +14,17 @@ body {
 	#ImageSlider{display: none;}
 	#home-searchAll{display: none;}
 	.category-levle{display: none;}
+	.category-three-levle{display: none;}
 	.choose{display: none;}
-	.category_two{margin-top: 180px !important;}
+	.category_two{margin-top: 380px !important;}
 	.category-product-list-buy{padding: 7% 20% !important;}
+	.shop{ padding: 15px; }
 }
 @media only screen and (min-width: 765px) {
 	.background-img{
+		display: none;
+	}
+	.category-s{
 		display: none;
 	}
 }
@@ -399,6 +404,30 @@ th > span{
 	/*padding: 5px 30px;*/
 }
 /***********Category.html*******************/
+.category-s{
+	min-height: 40px;
+	border: 1px solid #E0E0DA;
+	padding-top: 8px;
+	cursor: pointer;
+}
+.icon-filter{
+	background: transparent url(../svg/filter.svg) no-repeat 50% 50%;
+    background-size: 30px;
+     border: 0;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+    font-size: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    position: absolute;
+    top: -5px;
+    left: 25%;
+    height: 55px;
+    width: 60px;
+    z-index: 1;
+    -webkit-appearance: none;
+}
 .category-levle select{
 	border: 1px solid #999;
 }

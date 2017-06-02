@@ -13,9 +13,41 @@
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/0.1.9/slideout.min.js"></script>
     <!-- Custom styles for this template -->
     <link href="css/carstar.css" rel="stylesheet">
+    	
+    	<style>
+    		         .slideout-menu {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 100001;
+        width: 300px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        display: none;
+        background-color: #fff;
+      }
+
+      .slideout-panel {
+        position:relative;
+        z-index: 1;
+      }
+
+      .slideout-open,
+      .slideout-open body,
+      .slideout-open .slideout-panel {
+        overflow: hidden;
+      }
+
+      .slideout-open .slideout-menu {
+        display: block;
+      }
+    	</style>
+    	
   </head>
   <body onload="onloadCategory()">
 		<!--页面头部-->
@@ -218,7 +250,48 @@
 				</div>
 		<!--------------商品--------------->
 				<div class="col-md-9 " >
-					<div class="row">
+					<nav id="menu">
+				      <div class="choose">
+						<span>价格</span>  <input type="image" src="img/add.png" class="add add1"/>
+						<input type="image" src="img/reduce.png" class="reduce reduce1" />
+						<ul class="price1">
+							<li> <label for="one"></label> <input name="one" type="checkbox" /> <span> 1-50 </span></li>
+							<li> <label for="two"></label> <input name="two" type="checkbox" /> <span> 50-200 </span></li>
+							<li> <label for="three"></label> <input name="three" type="checkbox" /> <span> 200-500 </span></li>
+							<li> <label for="four"></label> <input name="four" type="checkbox" /> <span> 500-1000 </span></li>
+							<li> <label for="five"></label> <input name="five" type="checkbox" /> <span> 1000-2000 </span></li>
+							<li> <label for="six"></label> <input name="six" type="checkbox" /> <span> 2000-5000 </span></li>
+							<li> <label for="seven"></label> <input name="seven" type="checkbox" /> <span> 5000-10000 </span></li>
+						</ul>
+					</div>
+					<div class="choose">
+						<p>评论
+							<input type="image" src="img/add.png" class="add add2" />
+							<input type="image" src="img/reduce.png" class="reduce reduce2" /> </p>
+							<!--评论星级-->
+						<ul class="price2">   
+							<li>	<input name="comment" type="checkbox" /><span class="start5" data-cStar='5'></span></li>
+							<li>	<input name="comment" type="checkbox" /><span class="start4" data-cStar='4'></span></li>
+							<li>	<input name="comment" type="checkbox" /><span class="start3" data-cStar='3'></span></li>
+							<li>	<input name="comment" type="checkbox" /><span class="start2" data-cStar='2'></span></li>
+							<li>	<input name="comment" type="checkbox" /><span class="start1" data-cStar='1'></span></li>
+						</ul>
+					</div>
+					<div class="choose">
+						<p>品牌
+							<input type="image" src="img/add.png" class="add add3" />
+							<input type="image" src="img/reduce.png" class="reduce reduce3" /> </p>
+						<ul class="price3">
+							<li> <input name="price" type="checkbox" /> <span> 本田 </span></li>
+							<li> <input name="price" type="checkbox" /> <span> 奥迪 </span></li>
+						</ul>
+					</div>
+				    </nav>
+					<div id="panel" class="category-s">
+						<span class="icon-filter"></span>
+						<span style="padding-bottom: -10px;padding-left: 60px;font-size: 2rem;">筛选</span>
+					</div>
+					<div class="row category-three-levle">
 						<div class="col-md-8 text-left category-levle" style="font-size: medium; color: #666666;">
 							<span style="color: #666666;">显示数量</span>
 							<input type="button"  value="60" />
@@ -249,7 +322,7 @@
 			
 			     <div class="row">
 							<div class="col-md-3 col-xs-6 ccategory-product-list-four">
-								<img src="img/custom-floor-mats_ic_5.jpeg"/>
+								<img class="img-responsive" src="img/custom-floor-mats_ic_5.jpeg"/>
 								<p style="color: #666666;">汽车脚踏垫</p>
 								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
@@ -266,7 +339,7 @@
 								 <input class="category-product-list-buy" type="button" name="" id="" value="立即购买" style="width: 100%;background-color: #e4e5e6;color: #999999;height: 40px;border: 1px solid #e4e5e6;"/>
 							</div>
 							<div class="col-md-3 col-xs-6 ccategory-product-list-four">
-								<img src="img/custom-floor-mats_ic_5.jpeg"/>
+								<img class="img-responsive" src="img/custom-floor-mats_ic_5.jpeg"/>
 								<p style="color: #666666;">汽车脚踏垫</p>
 								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
@@ -283,7 +356,7 @@
 								 <input class="category-product-list-buy" type="button" name="" id="" value="立即购买" style="width: 100%;background-color: #e4e5e6;color: #999999;height: 40px;border: 1px solid #e4e5e6;"/>
 							</div>
 							<div class="col-md-3 col-xs-6 ccategory-product-list-four">
-								<img src="img/custom-floor-mats_ic_5.jpeg"/>
+								<img class="img-responsive" src="img/custom-floor-mats_ic_5.jpeg"/>
 								<p style="color: #666666;">汽车脚踏垫</p>
 								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
@@ -292,7 +365,7 @@
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
 								<span class="glyphicon glyphicon-star" style="color: #E5E5E5;margin-left: 0px;"></span> 	
 								<div class="product-color-choose">
-									<input type="button" name="" id="" value="" style="background-color: #000000;width: 30px;border: 1px solid #333333;"/>
+									<input type="button" value="" style="background-color: #000000;width: 30px;border: 1px solid #333333;"/>
 									<input type="button" name="" id="" value="" style="background-color: #FFFDEF; width: 30px; border: 1px solid #999999;" />
 								</div>
 								<span style="color: #f80000;">¥</span>
@@ -300,7 +373,7 @@
 								 <input class="category-product-list-buy" type="button" name="" id="" value="立即购买" style="width: 100%;background-color: #e4e5e6;color: #999999;height: 40px;border: 1px solid #e4e5e6;"/>
 							</div>
 							<div class="col-md-3 col-xs-6 ccategory-product-list-four">
-								<img src="img/custom-floor-mats_ic_5.jpeg"/>
+								<img class="img-responsive" src="img/custom-floor-mats_ic_5.jpeg"/>
 								<p style="color: #666666;">汽车脚踏垫</p>
 								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
@@ -322,27 +395,38 @@
 		<div class="footer">	</div>
 	</div>
 	<script>	
-		$(".nav-tabs li").each(function(){
-    				$(this).click(function(){
-    					document.getElementById("home-drop").style.top = "670px";
-    				});
-    			});
+		
+		 var slideout = new Slideout({
+	        'panel': document.getElementById('panel'),
+	        'menu': document.getElementById('menu'),
+	        'padding': 256,
+	        'tolerance': 70
+	      });
+
+      // Toggle button
+      document.querySelector('.category-s').addEventListener('click', function() {
+      	$('.choose').css('display','block')
+        slideout.toggle();
+      });
+		
 		$(document).ready(function() {
 			
-		if(window.innerWidth < 765){
-				$('.choose-vehicle').append( "<div>选择车型</div>" );
-			}else{
-			}
+			if(window.innerWidth < 765){
+					$('.choose-vehicle').append( "<div>选择车型</div>" );
+				}else{
+				}
 			
-		$(".category-product-list-buy").mouseenter(function(){
-		 		$(this).css("background-color","#0E9939");
-		 		$(this).css("color","#ffffff");
-			 });
+//		$(".category-product-list-buy").mouseenter(function(){
+//			console.log("123");
+//		 		$(this).css("background-color","#0E9939");
+//		 		$(this).css("color","#ffffff");
+//			 });
 	
-	 $(".category-product-list-buy").mouseleave(function(){
-	 		$(this).css("background-color","#e4e5e6");
-	 		$(this).css("color","#999999");
-		 });	 
+//	 $(".category-product-list-buy").mouseleave(function(){
+//	 	console.log("123");
+//	 		$(this).css("background-color","#e4e5e6");
+//	 		$(this).css("color","#999999");
+//		 });	 
 	
 	$(".glyphicon-th").click(function(){
 		$(".category-product-toal").load("four.html");	
@@ -389,6 +473,7 @@
     	<script src="js/bootstrap.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
 	<script src="js/transformer.js" type="text/javascript"></script>
+
 	<!--jQuery load js-->
 	<script type="text/javascript" src="js/carSearch.js" ></script>
 	<script type="text/javascript" src="js/carstar.js" ></script>

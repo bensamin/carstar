@@ -46,7 +46,6 @@ function detailProduct(){
 		url:p_url2,
 		async:true,
 		success:function(p_msg){
-//			console.log(p_msg);
 			insertProductInfo2(p_msg.data);  //评价
 		}
 	});
@@ -576,7 +575,7 @@ function  deleteCartp(productid){
 //	$(".poducts").deleteRow(Index-1);
 		$.ajax({
 			type:"get",
-			url:"http://192.168.1.106:8080/CarStar/rest/goodscart/removecart?cartids="+cartid,
+			url:"http://139.224.133.119:8080/CarStar/rest/goodscart/removecart?cartids="+cartid,
 			async:true,
 			success:function(msg){
 				console.log(msg);

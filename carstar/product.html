@@ -13,12 +13,18 @@
     <script type="text/javascript" src="js/product.js" ></script>
     <link href="css/carstar.css" rel="stylesheet">
   </head>
-
+	<style>
+		@media only screen and  (max-width: 765px) {
+			.shop{
+				padding:15px;
+			}
+	</style>
   <body onload="viewProduct()">
   	<!--页面头部-->
+  	<div class="shop">
 	<div class="header"></div>
 	<div class="container">
-		<ol class="breadcrumb">
+		<ol class="breadcrumb" style="margin-top: 20px;">
 			  <li><a href="home.html">首页</a></li>
 			  <li><a href="brand.html">品牌</a></li>
 			  <li class="active">倒车镜</li>
@@ -201,6 +207,7 @@
 	</div>
 	<!--页面底部-->
 	<div class="footer"></div>
+</div>	
 	<script>
 //		$(".product-option").click(function(){
 //			$(".product-parameters").slideDown();

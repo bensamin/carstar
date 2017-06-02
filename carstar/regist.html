@@ -9,18 +9,11 @@
     <meta name="author" content="">
 
     <title>用户注册</title>
-	<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -47,8 +40,8 @@
 			letter-spacing: 5px;
 		}
 		.regist{
-			text-align: center;
-			padding: ;
+			/*text-align: center;*/
+			padding-left:40% ;
 			margin-top: 50px;
 			
 		}
@@ -69,6 +62,9 @@
 			margin: 5px auto;
 			width: 250px;
 			height: 36px;
+		}
+		.get-code{
+			position: relative;
 		}
 		.code{
 			color: white;
@@ -138,20 +134,29 @@
 
   </head>
   <body>
+  	<div class="shop">
 		<div class="header"></div>
 		<form class="regist" id="regist-form1">
 			<p class="text-center">用户注册</p>
-			<span>手机号：</span>
-			<input type="text" id="user-RegistPhone" name="mobile_phone" placeholder="请输入手机号码" /> <br />
-			<span class="code" style="width: 92px;color: #333;" type="button" onclick="checkUserRegistCode()">获取验证码</span>
-			<span>验证码：</span>
-			<input type="text" id="user-RegistCode" class="phone-code"  placeholder="请输入验证码" /> <br />
-			<span>您的密码：</span>
+			<div class="get-code">
+				<span>手机号：</span>
+				<input type="text" id="user-RegistPhone" name="mobile_phone" placeholder="请输入手机号码" />
+				<span class="code" style="width: 92px;color: #333;" type="button" onclick="checkUserRegistCode()">获取验证码</span>
+			</div>
+			<div>
+				<span>验证码：</span>
+				<input type="text" id="user-RegistCode" class="phone-code"  placeholder="请输入验证码" />	
+			</div>
+			<div>
+				<span>您的密码：</span>
 				<input type="password"  name="password" id="pwd1" placeholder="密码" />
-				<img id="password-show-btn1" onclick="changepassword1()" src="img/show.png"/> <br />
-			<span>重输密码：</span>
+				<img id="password-show-btn1" onclick="changepassword1()" src="img/show.png"/>
+			</div>	
+			<div>
+				<span>重输密码：</span>
 				<input type="password" id="pwd2" placeholder="再输一次密码" /> 
 				<img id="password-show-btn2" onclick="changepassword2()" src="img/show.png"/>
+			</div>	
 		</form>
 		<div class="regist-button">
 			<input type="checkbox"  id="regist-check" style="width: 20px;"/>阅读并同意 <a href="user-agreement.html" style="color: #009640;">《车星用户注册协议》</a> <br />
@@ -161,6 +166,7 @@
 		</div>
 	<!--cotainer end-->
 	<div class="footer"></div>
+</div>	
 	<script>
         $(".cancel-sign").click(function(){
         		window.location.href ="login.html";
