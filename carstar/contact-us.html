@@ -26,11 +26,15 @@
     <![endif]-->
   </head>
   <style>
-  	
+  	@media only screen and  (max-width: 765px) {
+			.shop{
+				padding:15px;
+			}
   	.container{
   		background-color:#f3f3f3;
   		margin-bottom: 30px;
   		margin-left:15px ;
+  		padding-top: 20px;
   	}
   	.row{
   		margin-top:10px ;
@@ -50,8 +54,8 @@
 
   <body>
   	<!--页面头部-->
+  	<div class="shop">
 	<div class="header"></div>
-	
 	<div class="container">
 		<p>
 			<a href="home.html"> <span>Home</span> </a>
@@ -59,19 +63,19 @@
 		</p>
 		<p class="text-center"> <strong>联系我们</strong> </p>
 		<div class="row">
-			<div class="col-md-3 col-contact">
+			<div class="col-md-3 col-xs-6 col-contact">
 				<p class="tel">电话：</p>
 				<p>Tel：123-456789</p>
 			</div>
-			<div class="col-md-3 col-contact">
+			<div class="col-md-3 col-xs-6 col-contact">
 				<p class="tel">邮件：</p>
 				<p>Email:123456@789.com</p>
 			</div>
-			<div class="col-md-3 col-contact">
+			<div class="col-md-3 col-xs-6 col-contact">
 				<p class="tel">在线客服：</p>
 				<p>客服001</p>
 			</div>
-			<div class="col-md-3 col-contact">
+			<div class="col-md-3 col-xs-6 col-contact">
 				<p class="tel">地址：</p>
 				<p>上海嘉定区德富路1199号</p>
 			</div>
@@ -79,7 +83,7 @@
 	</div>
 	<!--页面底部-->
 	<div class="footer"></div>
-	
+	</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

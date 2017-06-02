@@ -19,6 +19,7 @@
   </head>
   <body onload="onloadCategory()">
 		<!--页面头部-->
+	<div class="shop">
 		<div class="header">	</div>
 		
 		<div class="our-carousel">
@@ -317,15 +318,18 @@
 						</div>  	
 		</div>
 		
-	<div class="footer">	</div>
+		<div class="footer">	</div>
+	</div>
 	<script>	
-		
 		$(".nav-tabs li").each(function(){
     				$(this).click(function(){
     					document.getElementById("home-drop").style.top = "670px";
     				});
     			});
 		$(document).ready(function() {
+			
+			$('.choose-vehicle').append( "<div>选择车型</div>" );
+			
 		$(".category-product-list-buy").mouseenter(function(){
 		 		$(this).css("background-color","#0E9939");
 		 		$(this).css("color","#ffffff");

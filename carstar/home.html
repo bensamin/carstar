@@ -22,6 +22,7 @@
   	<div class="shop">
   		<div class="header">	</div>
   		<!--切片轮播图-->
+  		<div class="background-img"></div>
   			<div class="our-carousel">
 				<div id="ImageSlider">
 					<div id="gellery">
@@ -46,7 +47,7 @@
     				<div class="choose-vehicle"></div>
 	    			<form id="home_carInfo">
 					<select name="year" onchange="chooseCarYear()" class="home-year" >
-						<option>>&nbsp;1&nbsp;&nbsp;&nbsp;选择年份&nbsp;</option>
+						<option>&nbsp;1&nbsp;&nbsp;&nbsp;选择年份&nbsp;</option>
 							<option value="2017">2017</option>
 							<option value="2016">2016</option>
 							<option value="2015">2015</option>
@@ -68,7 +69,7 @@
 						<option>&nbsp;5&nbsp;&nbsp;&nbsp;选择款型&nbsp;</option>
 					</select>
 					
-					<div class="search-go" onclick="searchCar()" >GO</div>
+					<div class="search-go" onclick="searchCar()">GO</div>
 					<div  class="search-choose">选择产品种类</div>
 					<div  class="search-choose">选择产品品牌</div>
 					<p style="margin-top: 15px;margin-left: 5px; "><a href="my-car.html" style="color: #FFFFFF;">
@@ -77,7 +78,7 @@
 				</form>	
 
 				<form style="display: none;">
-					<input type="search"  placeholder="Search" x-webkit-speech="" class="home-searchPart"  x-webkit-grammar="builtin:search" lang="zh-CN">
+					<input type="search"  placeholder="Search"  class="home-searchPart" >
 					<span class="search-go2">查询</span>
 				</form> 
 				<form style="display: none;" class="home-hotShop">
@@ -140,7 +141,6 @@
     				<img src="img/2017-4-26.jpeg" />
     			</div>
     			<div class="col-md-9 home-product">
-    				
     				<section class="regular slider">
 				    <div>
 					    	 <a href="" >	
@@ -218,54 +218,6 @@
     			</div>
     		</div>
     		
-    		<div class="row">
-    			<div class="col-md-3 hotImg">
-    				<img src="img/2017-4-26.jpeg" />
-    			</div>
-    			<div class="col-md-9">
-    				<div class="row home-product"></div>
-    			</div>
-    		</div>
-    		<div class="row">
-    			<div class="col-md-3 hotImg">
-    				<img src="img/2017-4-26.jpeg" />
-    			</div>
-    			<div class="col-md-9">
-    				<div class="row home-product"></div>
-    			</div>
-    		</div>
-    		<div class="row">
-    			<div class="col-md-3 hotImg">
-    				<img src="img/2017-4-26.jpeg" />
-    			</div>
-    			<div class="col-md-9">
-    				<div class="row home-product"></div>
-    			</div>
-    		</div>
-    		<div class="row">
-    			<div class="col-md-3 hotImg">
-    				<img src="img/2017-4-26.jpeg" />
-    			</div>
-    			<div class="col-md-9">
-    				<div class="row home-product"></div>
-    			</div>
-    		</div>
-    		<div class="row">
-    			<div class="col-md-3 hotImg">
-    				<img src="img/2017-4-26.jpeg" />
-    			</div>
-    			<div class="col-md-9">
-    				<div class="row home-product"></div>
-    			</div>
-    		</div>
-    		<div class="row">
-    			<div class="col-md-3 hotImg">
-    				<img src="img/2017-4-26.jpeg" />
-    			</div>
-    			<div class="col-md-9">
-    				<div class="row home-product"></div>
-    			</div>
-    		</div>
     </div>
 
 	<!--店铺轮播-->
@@ -431,6 +383,7 @@
 					        slidesToShow: 2,
 					        slidesToScroll: 2 
 						 });
+				$('.choose-vehicle').append( "<div>选择车型</div>" );		 
 			}
 		})
 		

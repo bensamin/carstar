@@ -1,14 +1,12 @@
 //弹出框隐藏
 function clickSearch(){
 			$(".show-search").css("display","block");
-//			console.log("1");
 }
 
 //弹出框隐藏
  $(".show-search").click(function(e){
 		if( !$( e.target ).closest(".search-value").length ){
 			$(".show-search").hide();
-			console.log("3");
 		}
 	});
 
@@ -16,11 +14,12 @@ function clickSearch(){
 //一级分类下拉框
 
 $(document).ready(function(){
+	
 		$("li").click(function(){
 			 var index = $("li").index(this);
 			 $(".category-tabbox div").eq(index).toggle();
 			});	
-		});	
+});	
 		
 //左侧滑动菜单
 $(function(){
@@ -182,7 +181,7 @@ setInterval(hover,40);
 })(jQuery);
 
 //个人中心
-$(".myform a:eq(3)").hoverDelay({
+$(".myform a:eq(2)").hoverDelay({
 	hoverEvent:function(){
 			$(".nav-personal").fadeIn();
 			$(".nav-personal").next().css("display","none");
@@ -194,7 +193,7 @@ $(".myform a:eq(3)").hoverDelay({
 
 
 //收藏
-$(".myform a:eq(4)").hoverDelay({
+$(".myform a:eq(3)").hoverDelay({
 	hoverEvent:function(){
 			$(".nav-collection").fadeIn();
 			$(".nav-collection").prev().css("display","none");
@@ -206,7 +205,7 @@ $(".myform a:eq(4)").hoverDelay({
 });
 
 //爱车
-$(".myform a:eq(5)").hoverDelay({
+$(".myform a:eq(4)").hoverDelay({
 	hoverEvent:function(){
 			$(".nav-garage").fadeIn();
 			$(".nav-garage").prev().css("display","none");
@@ -260,14 +259,24 @@ $(document).ready(function(){
 				
 			});
 	});
+	viewListHome();
 })
 
 
 //首页分类列表
-//function viewListHome(){
-//	$.each(categoryOne, function(i,value) {
-//		$('.product').append(
-//			
-//		)
-//	});
-//}
+function viewListHome(){
+	for( var i=0;i<8;i++ ){
+		var a = "http://139.224.133.119:8080/CarStar/rest/goods/showmenu?menu="+ categoryOne[i] +"&startNum=0&pageSize=11";
+		$.ajax({
+			type:"get",
+			url:a,
+			async:false,
+			success:function(msg){
+				if( msg.code == 0 ){
+//					insertList(i,msg.data);
+				}
+			}
+		});
+	}
+}
+

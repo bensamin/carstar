@@ -386,9 +386,9 @@ function addShopCart(data){
 			$('.shopCart').append(
 				  "<div class='shopCarta"+i+"'>" +
 					  "<div class='row' style='border-bottom:1px solid #E3E3E3;padding-bottom:10px;'> " +
-						  "<div class='col-md-1 shopName3'> <input type='checkbox' onclick='selectshopName(shopBox"+i+")' class='shopBox"+i+"' name='cartCheckBox'/> </div>"+
-						 	 " <div class='col-md-1 shopCartStoreImg'><img class='' src=' "+ data[i].shopimg+" ' width='70' height='40'> </div>"+  
-						  "	<div class='col-md-3 shopName3'> 店铺：<span> "+data[i].shopname+"</span> </div>"+
+						  "<div class='col-md-1 col-xs-1 shopName3'> <input type='checkbox' onclick='selectshopName(shopBox"+i+")' class='shopBox"+i+"' name='cartCheckBox'/> </div>"+
+						 	 " <div class='col-md-1 col-xs-2 shopCartStoreImg'><img class='' src=' "+ data[i].shopimg+" ' width='70' height='40'> </div>"+  
+						  "	<div class='col-md-3 col-xs-3 shopName3'> 店铺：<span> "+data[i].shopname+"</span> </div>"+
 					  " </div> <div class='shopCarts'></div>"+
 				  "</div>"
 			)
@@ -401,23 +401,23 @@ function addShopCart(data){
 							"<input type='checkbox' name='cartCheckBox' onclick='just()' />"+
 							"<div class='row'>"+
 								"<div class='col-md-1'></div>"+
-								"<div class='col-md-4'>"+
+								"<div class='col-md-4 col-xs-3'>"+
 									"<img src='img/small-product.png'>"+
 								"</div>"+
-								"<div class='col-md-7'>"+
+								"<div class='col-md-7 col-xs-6'>"+
 									"<p>"+pgoods[i].goodsname+"</p>"+
 									"<p>"+pgoods[i].goodsdes+"</p>"+
 								"</div>"+
 							"</div>"+
 						"</div>"+
-						"<div class='col-md-2 col-xs-1'>"+
+						"<div class='col-md-2 col-xs-1 p_property'>"+
 							"<span>"+pgoods[i].property+"</span>"+
 						"</div>"+
-						"<div class='col-md-1 col-xs-2'>"+
+						"<div class='col-md-1 col-xs-2 p_price'>"+
 							"<span>¥</span>"+
 							"<span class='text-price'>"+pgoods[i].price+"</span>"+
 						"</div>"+
-						"<div class='col-md-2 col-xs-2'>"+
+						"<div class='col-md-2 col-xs-3'>"+
 							"<i class='disBlue subNum' onclick='changesumPnum(Pnum"+i+")'>-</i>"+
 							"<input type='text' id=Pnum"+i+" class='text-box' value='"+pgoods[i].num+"' />"+
 							"<i class='disBlue addNum' onclick='changeaddPnum(Pnum"+i+")'>+</i>"+

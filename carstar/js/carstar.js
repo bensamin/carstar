@@ -11,24 +11,46 @@ $(document).ready(function(){
 })
 
    //获取产品数据  home页面
-$(function(){
-		$.ajax({
-			type:"GET",
-			url:"json/product.json",
-			data:"json",
-			success:function(result){
-				addBox(result);
-			},
-			error:function(){
-			}
-		});
-		$.getJSON("json/product.json",function(data){
-			addBox(data);
-		});
-});
+//$(function(){
+//		$.ajax({
+//			type:"GET",
+//			url:"json/product.json",
+//			data:"json",
+//			success:function(result){
+//				addBox(result);
+//			},
+//			error:function(){
+//			}
+//		});
+//		$.getJSON("json/product.json",function(data){
+//			addBox(data);
+//		});
+//});
 
-function addBox(result){
-	}
+//function insertList(i,data){
+//	$('.product'). append(
+//		"<div class='row'>"+
+//  			"<div class='col-md-3 hotImg'>"+
+//  				"<img src='img/2017-4-26.jpeg' />"+
+//  			"</div>"+
+//  			"<div class='col-md-9 home-product insert_p"+i+"'>"+
+//  				"<section class='regular slider'></section>"+
+//  			"</div>"+
+//  		"</div>"
+//		)
+//	$.each(data, function(n,value) {
+//		$('.insert_p'+i+' section').append(
+//			  "<div><a>"+
+//					    	 	"<img class='img-responsive' src='img/custom-floor-mats_ic_5.jpeg'>"+
+//					      	"<p>座椅</p>"+
+//					     "</a><a>"+
+//					     	"<img class='img-responsive' src='img/custom-floor-mats_ic_5.jpeg'>"+
+//					      "<p>座椅</p>"+
+//					     "</a></div>"
+//		)
+//	});
+//}
+
 
 function addYear(year){
 	$.each(year,function(index,obj){
@@ -301,7 +323,7 @@ function addBrand(brand,data){
 		}else{
 				$(".addBrand_append").append(
 					" <a href='category.html?menu="+brands[i].n1+"&brand="+brands[i].n2+"&category="+brands[i].n3+"'> <div class='col-md-2 col-xs-12' > " +
-					" <img class='img-responsive' src=' " + brands[i].m3 + "  '  > "  +
+					" <img class='img-responsive' src='img/Intake-Manifolds-1.jpg'  > "  +
 					" <p class='text-center'> " +  
 					" <span>" + brands[i].n3 + "</span> "+
 					" </p> " +

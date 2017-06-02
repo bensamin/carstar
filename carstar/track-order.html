@@ -20,14 +20,17 @@
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="js/ie-emulation-modes-warning.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
-
+<style>
+	@media only screen and  (max-width: 765px) {
+		.shop{
+			padding:15px;
+		}
+}
+</style>
   <body>
   	<!--页面头部-->
+  	<div class="shop">
 	<div class="header"></div>
 	
 	<div class="container">
@@ -43,7 +46,7 @@
 					<input style="width: 80%;margin: 0 auto; height: 50px;" type="text" name="" id="" value=""placeholder="请输入11位手机号" /> <br />
 				<p style="font-size: 2rem;color: #333333;margin-top: 30px;">订单号：</p>
 					<input style="width: 80%;margin: 0 auto; height: 50px;" type="text" name="" id="" value=""placeholder="订单号" /> <br />
-			<a href="#"> <button class="add-cart" type="button" style="margin-left: 20%;font-size: 2rem; margin-top: 20px;">查看订单</button> </a>
+			<a href="#"> <button class="add-cart" type="button" style="font-size: 2rem; margin-top: 20px;">查看订单</button> </a>
 					
 			</div>
 			<div class="col-md-2"></div>
@@ -52,6 +55,7 @@
 	</div>
 	<!--页面底部-->
 	<div class="footer"></div>
+	</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

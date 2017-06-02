@@ -27,6 +27,7 @@
   </head>
   <body onload="fivesearch()">
 		<!--页面头部-->
+	<div class="shop">
 	<div class="header">	</div>
   		
 			<div class="search-allResult">
@@ -65,8 +66,18 @@
 					<img src="img/spec-brand-img.png"/>
 				</div>
 			</div>
+			<div class="col-md-2 col-xs-6">
+				<div class="search-brands">
+					<img src="img/spec-brand-img.png"/>
+				</div>
+			</div>
 		</div>
 		<div class="row text-center" style="margin-bottom: 30px;">
+			<div class="col-md-2 col-xs-6">
+				<div class="search-brands">
+					<img src="img/spec-brand-img.png"/>
+				</div>
+			</div>
 			<div class="col-md-2 col-xs-6">
 				<div class="search-brands">
 					<img src="img/spec-brand-img.png"/>
@@ -131,9 +142,8 @@
 				</div>
 		<!--------------商品--------------->
 					<!--产品的结果-->
-		
 				<div class="col-md-9 " >
-					<div class="row" style="margin-bottom: 20px;">
+					<div class="row category-levle" style="margin-bottom: 20px;">
 						<div class="col-md-8 text-left" style="font-size: medium; color: #666666;">
 							<span style="color: #666666;">显示数量</span>
 							<span class="small-button">60</span>
@@ -152,9 +162,8 @@
 							<span class="glyphicon glyphicon-th" style="font-size: 3rem;color: #666666;"></span> 
 						</div>
 					</div>
-					<div class="category-product-toal searchResult">
-						
-					</div>
+					
+					<div class="category-product-toal searchResult"></div>
 				</div>
 			</div>										
 		</div>
@@ -163,7 +172,7 @@
 			<p class="text-center" style="color:#666666;font-size: medium;"> 更多畅销 </p>
 			    			 <div class="row category-product">
 							<div class="col-md-3 col-xs-6 ccategory-product-list-four">
-								<img src="img/custom-floor-mats_ic_5.jpeg"/>
+								<img class="img-responsive" src="img/custom-floor-mats_ic_5.jpeg"/>
 								<p style="color: #666666;">汽车脚踏垫</p>
 								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
@@ -197,7 +206,7 @@
 								 <input class="category-product-list-buy" type="button" name="" id="" value="立即购买" style="width: 100%;background-color: #e4e5e6;color: #999999;height: 40px;border: 1px solid #e4e5e6;"/>
 							</div>
 							<div class="col-md-3 col-xs-6 ccategory-product-list-four">
-								<img src="img/custom-floor-mats_ic_5.jpeg"/>
+								<img class="img-responsive" src="img/custom-floor-mats_ic_5.jpeg"/>
 								<p style="color: #666666;">汽车脚踏垫</p>
 								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
@@ -214,7 +223,7 @@
 								 <input class="category-product-list-buy" type="button" name="" id="" value="立即购买" style="width: 100%;background-color: #e4e5e6;color: #999999;height: 40px;border: 1px solid #e4e5e6;"/>
 							</div>
 							<div class="col-md-3 col-xs-6 ccategory-product-list-four">
-								<img src="img/custom-floor-mats_ic_5.jpeg"/>
+								<img class="img-responsive" src="img/custom-floor-mats_ic_5.jpeg"/>
 								<p style="color: #666666;">汽车脚踏垫</p>
 								<p style="color: #666666;">大众CC新帕沙特迈腾尚酷...</p>
 								<span class="glyphicon glyphicon-star" style="color: #f7c058;margin-left: 0px;"></span> 
@@ -234,6 +243,7 @@
 		</div>
 		
 	<div class="footer">	</div>
+</div>	
 	<script>	
 		$(document).ready(function() {
 		$(".category-product-list-buy").mouseenter(function(){

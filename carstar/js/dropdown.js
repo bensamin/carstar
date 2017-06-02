@@ -2,23 +2,26 @@
 $(document).ready(function(){
 			//产品轮播图  显示个数
 			if( window.innerWidth > 756 ){
-					      $('#home-searchContent').addClass('home-searchContent1');
-					      $('.search-choose').addClass('search-choose1');
-					      $('.home_test').addClass('home_test1');
+					    $('#home-searchContent').addClass('home-searchContent1');
+					    $('.search-choose').addClass('search-choose1');
+					    $('.home_test').addClass('home_test1');
 					      //产品css响应式
+					   
 						$('.product').addClass('product1');
 						$('.product').removeClass('product2');
 						$('.search-go').addClass('search-go_one');
+						
 					}else{
+						$('.background-img').append( "<img class='img-responsive' src='img/banner-s.jpg' />" )
 						 $('.search-go').addClass('search-go_two');
 						 $('.search-choose').addClass('search-choose2');
 						 $('.home_test').addClass('home_test2');
 						 $('#home-searchContent').addClass('home-searchContent2');
 						   //产品css响应式
-						$('.choose-vehicle').append( "<div>选择车型</div>" );
 						$('.shop').css('padding','15px');
 						$('.product').addClass('product2');
 						$('.product').removeClass('product1');
+						
 			}
 			$(".row").addClass("text-center");
 			$("#home-searchAll ul li").addClass("text-center");

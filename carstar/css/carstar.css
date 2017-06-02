@@ -14,12 +14,18 @@ body {
 	#ImageSlider{display: none;}
 	.our-carousel{margin-top: 500px;}
 	#home-searchAll{display: none;}
+	.category-levle{display: none;}
+}
+@media only screen and (min-width: 765px) {
+	.background-img{
+		display: none;
+	}
 }
 /******************标签*************************/
 
 input[type="submit"] {
-    background: #5c6675 url(../svg/search.svg) no-repeat 50% 50%;
-    background-size: 50px;
+    background: #5c6675 url(../svg/search-white.svg) no-repeat 50% 50%;
+    background-size: 65px;
     border: 0;
     border-radius: 0 2px 2px 0;
     cursor: pointer;
@@ -29,8 +35,6 @@ input[type="submit"] {
     outline: 0;
     padding: 0;
     position: absolute;
-    right: 133px;
-    top: 68px;
     width: 82px;
     z-index: 1;
     -webkit-appearance: none;
@@ -41,10 +45,7 @@ a{
 	color: #000 ;
 }
 a:hover{
-	text-decoration: none;
-}
-button{
-	display: block;
+	text-decoration: none !important;
 }
 .glyphicon{
 	cursor: pointer;
@@ -58,11 +59,16 @@ button{
 }
 /*header*/
 .header{
-	min-height: 130px;
+	min-height: 30px;
 }
 /****************导航栏******************/
 
  /******************************* 轮播图css *************************/
+.background-img{
+	margin-top: -80px;
+	width: 330px;
+	height: 200px;
+}
 #ImageSlider{
 	height:330px;
 	width:100%;
@@ -142,10 +148,10 @@ button{
 }
 .home_test2{
 	position: absolute;
-	margin-left:5%;
-	width: 80%;
+	margin-left:1%;
+	width: 90%;
 	height: 600px;
-	top:120px;
+	top:230px;
 	zoom: 1;
 	z-index:999;
 }
@@ -181,6 +187,8 @@ button{
 	width: 100%;
 	height: 490px;
 	background-color: #49525f;
+	padding-right: 15px;
+	padding-left: 15px;
 }
 .drop{
 	display: none;
@@ -202,11 +210,12 @@ button{
 }  
 form > select{
   	border: 1px solid #4B5160;
-  	border-radius:2px ;
+  	border-radius:2px;
+  	background-color: #fff;
   	appearance: none;
   	-moz-appearance: none;
   	-webkit-appearance: none;
-  	height: 30px;
+  	height: 50px;
   	width: 160px;
   	z-index: 2;
   }
@@ -721,7 +730,8 @@ dl.iteminfo_parameter{
 
 /*search.html*/
 .search-allResult{
-	padding-left: 100px;
+	padding-left: 10%;
+	padding-right: 10%;
 }
 .search-brands{
 	border: 1px solid #E5E5E5;

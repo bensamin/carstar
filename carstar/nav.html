@@ -24,16 +24,19 @@
     		<a href="help-center.html" style="padding-left: 20px;color: #5E5E5E;">帮助中心</a>
     	</div>
     	<div class="mynavbar">
-    		<form class="myform">
+    		<div class="myform">
 			<a href="javascript:;" class="slide-menu" target="_self"><img src="img/menu.png" alt=""></a>
   			<a href="home.html"><img  class="carstar-logo" src="img/logo.png"/> </a>
+  			<span class="carstar-name"></span>
     			<input class="show-div" type="text" onclick="clickSearch()" placeholder="输入查询的配件">
-    			<a href="javascript:;" onclick="clickSearch()" class="show-div2"> <img class="show-div"  src="img/ss4.png" /></a>  
-    			<a href="personal.html" onclick="getCookie()"  > <img class="mine" src="img/mine.png" /> </a>
-    			<a href="collection.html" onclick="getCookie()" > <img  class="keep" src="img/my_collection.png" /> </a>
-    			<a href="my-car.html" onclick="getCookie()"> <img class="car" src="img/my_car.png"/> </a>
-    			<a href="shoppingCart.html" onclick="getCookie()"> <img class="cart" src="img/shopping.png" /> </a>
-    		</form>   		
+    			<span class="icon-search" onclick="clickSearch()"></span>
+    			<ul>
+    				<li><a href="personal.html" onclick="getCookie()"  > <img class="mine" src="img/mine.png" /> </a></li>
+    				<li><a href="collection.html" onclick="getCookie()" > <img  class="keep" src="img/my_collection.png" /> </a></li>
+    				<li><a href="my-car.html" onclick="getCookie()"> <img class="car" src="img/my_car.png"/> </a></li>
+    				<li><a href="shoppingCart.html" onclick="getCookie()"> <span class="icon-cart"></span> </a></li>
+    			</ul>
+    		</div>   		
 	</div>
 	<div class="nav-personal" style="padding-bottom: 0px;">
 		<div class="row" style="width: 90%;margin: 10px auto; ">
@@ -127,10 +130,10 @@
 	
 		<!----------弹出的查询框--------------->
 		<div class="show-search">
-			<p class="search-text">
+			<div class="search-text">
     				<input class="show-div1 search-value" type="text" placeholder="输入想要查询查询的配件">
     				<input type="submit" class="search-resultBtn" onclick="changeResult()" />
-    			</p>	
+    			</div>	
     		</div>
     		<!----------一级分类菜单--------------->
 		<div class="category-one">
@@ -322,10 +325,13 @@
     			$(".myform a:gt(2)").css("margin-left","15px");
     			
     			if( window.innerWidth > 765 ){
-    				console.log(">765")
+    				 $('.icon-cart').addClass('icon-cart1');
+				 $('.icon-search').addClass('icon-search1');  
     			}else{
+//  				$('.carstar-name').
     				document.getElementsByClassName('carstar-logo').item(0).src = 'img/logo_s.png';
-    				console.log("success");
+    				$('.icon-cart').addClass('icon-cart2');
+    				$('.icon-search').addClass('icon-search2'); 
     			}
     			
     		});
